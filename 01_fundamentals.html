@@ -243,6 +243,99 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-ideas">
+   Basic ideas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#supervised-and-unsupervised">
+       Supervised and unsupervised
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#classification-and-regression">
+       Classification and regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-validation-and-test-splits">
+       Training, validation, and test splits
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#models">
+     Models
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#evaluation">
+       Evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#underfit">
+       Underfit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#overfit">
+       Overfit
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#caveats">
+     Caveats
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deep-learning">
+     Deep learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tools">
+   Tools
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scikit-learn">
+     scikit-learn
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensorflow">
+     TensorFlow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pytorch">
+     PyTorch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -278,6 +371,23 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#resources">
      Resources
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#online-courses">
+     Online courses
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#machine-learning">
+       Machine learning
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Deep learning
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -302,6 +412,99 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-ideas">
+   Basic ideas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview">
+     Overview
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#supervised-and-unsupervised">
+       Supervised and unsupervised
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#classification-and-regression">
+       Classification and regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#training-validation-and-test-splits">
+       Training, validation, and test splits
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#models">
+     Models
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#evaluation">
+       Evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#underfit">
+       Underfit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#overfit">
+       Overfit
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#caveats">
+     Caveats
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deep-learning">
+     Deep learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tools">
+   Tools
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scikit-learn">
+     scikit-learn
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensorflow">
+     TensorFlow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pytorch">
+     PyTorch
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -337,6 +540,23 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#resources">
      Resources
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#online-courses">
+     Online courses
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#machine-learning">
+       Machine learning
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Deep learning
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -363,7 +583,278 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>Machine learning and deep learning are large and growing fields.</p>
+<p>This course does not attempt to cover them in detail.</p>
+<p>Instead, this course aims to provide high-level intuitions and practical guidance to get started.</p>
+<p>To learn more, see the <a class="reference internal" href="#online-courses"><span class="std std-ref">Online Courses</span></a> below.</p>
+<div class="section" id="basic-ideas">
+<h2>Basic ideas<a class="headerlink" href="#basic-ideas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>Machine learning is a subset of Artificial Intelligence.</p>
+<p>It is a range of methods that learn associations from data.</p>
+<p>These can be useful for:</p>
+<ul class="simple">
+<li><p>Prediction problems (e.g., pattern recognition).</p></li>
+<li><p>Problems cannot program (e.g., image recognition).</p></li>
+<li><p>Faster approximations to problems that can program (e.g., spam classification).</p></li>
+</ul>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p>Within machine learning, there are many different methods.</p>
+<p>The main methods are:</p>
+<ul class="simple">
+<li><p>Classic</p></li>
+<li><p>Deep learning (i.e., neural networks)</p></li>
+<li><p>Reinforcement learning</p></li>
+<li><p>Ensembles</p></li>
+</ul>
+<p>We’ll focus on classic machine learning and deep learning in this course.</p>
+</div>
+<div class="section" id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
+<p>Data has inputs and outputs.</p>
+<p>The inputs are what you provide to the model.</p>
+<p>The outputs are what you’re trying to predict.</p>
+<p>The data is normally in the form of tensors.</p>
+<p>Tensors are multi-dimensional arrays e.g., vectors are 1D tensors, matrices are 2D tensors.</p>
+<div class="section" id="supervised-and-unsupervised">
+<h4>Supervised and unsupervised<a class="headerlink" href="#supervised-and-unsupervised" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Supervised learning is when you provide labelled outputs to learn from.</p></li>
+<li><p>Unsupervised learning when you don’t provide any labels.</p></li>
+</ul>
+<p>We’ll focus on supervised learning in this course.</p>
+</div>
+<div class="section" id="classification-and-regression">
+<h4>Classification and regression<a class="headerlink" href="#classification-and-regression" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Classification problems are those that try to predict a category (i.e., cat or dog).</p></li>
+<li><p>Regression problems are those that try to predict a number (i.e., beans in a jar).</p></li>
+</ul>
+</div>
+<div class="section" id="training-validation-and-test-splits">
+<h4>Training, validation, and test splits<a class="headerlink" href="#training-validation-and-test-splits" title="Permalink to this headline">¶</a></h4>
+<p>The data is normally split into training, validation, and test sets.</p>
+<ul class="simple">
+<li><p>The training set is for training the model.</p></li>
+<li><p>The validation set (optional) is for iteratively optimising the model during training.</p></li>
+<li><p>The test set is only for testing the model at the end.</p>
+<ul>
+<li><p>This should remain untouched and single-use.</p></li>
+</ul>
+</li>
+</ul>
+<p>The size of the split depends on the size of the dataset and the signal you’re trying to predict (i.e., the smaller the signal, then the larger the test set needs to be).</p>
+<ul class="simple">
+<li><p>For small data sets, a split of 60/20/20 for train/validation/test may be suitable.</p></li>
+<li><p>For large data sets, a split of 90/5/5 for train/validation/test may be suitable.</p></li>
+<li><p>For very large data sets, a split of 98/1/1 for train/validation/test may be suitable.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="models">
+<h3>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
 <p>…</p>
+<div class="section" id="evaluation">
+<h4>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h4>
+<p>…</p>
+</div>
+<div class="section" id="underfit">
+<h4>Underfit<a class="headerlink" href="#underfit" title="Permalink to this headline">¶</a></h4>
+<p>A model <em>underfits</em> the data when it has <em>high bias</em>.</p>
+<p>This means the model is <em>too simple</em> to capture the association.</p>
+<p>You can tell that the model underfits because there are <em>both</em> high training errors and high test errors.</p>
+<p>To reduce this problem, try:</p>
+<ul class="simple">
+<li><p>Adding more features.</p></li>
+<li><p>Adding more complex features.</p></li>
+<li><p>Decreasing regularisation.</p></li>
+</ul>
+<p>More training data is unlikely to help a model that underfits the data.</p>
+</div>
+<div class="section" id="overfit">
+<h4>Overfit<a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h4>
+<p>A model <em>overfits</em> the data when it has <em>high variance</em>.</p>
+<p>This means the model is <em>too complex</em> to capture the association.</p>
+<p>You can tell that the model underfits because there are <em>low</em> training errors <em>but</em> high test errors.</p>
+<p>To reduce this problem, try:</p>
+<ul class="simple">
+<li><p>Adding more data.</p></li>
+<li><p>Using fewer or simpler features.</p></li>
+<li><p>Increasing regularisation.</p></li>
+<li><p>A smaller neural network with fewer layers/parameters.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="caveats">
+<h3>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Predictions are primarily based on associations, not explanations or causation.</p></li>
+<li><p>Predictions and models are specific to the data they were trained on.</p></li>
+</ul>
+<ul class="simple">
+<li><p>cost function</p></li>
+<li><p>gradient descent</p></li>
+<li><p>error analysis</p></li>
+</ul>
+<p>R2 (coefficient of determination)
+Any value less than 1, as model can be continually awful
+1 is perfect
+0 is not more information than just predicting the mean</p>
+</div>
+<div class="section" id="deep-learning">
+<h3>Deep learning<a class="headerlink" href="#deep-learning" title="Permalink to this headline">¶</a></h3>
+<p>Steps</p>
+<p>Inputs</p>
+<p>forward propagate</p>
+<p>predict outputs</p>
+<p>compute loss</p>
+<p>backward propagate</p>
+<p>gradient descent</p>
+<p>update weights and biases</p>
+<p>Scale is driving DL progress</p>
+<p>Bigger training data (Larger data sets (labelled, m))</p>
+<p>Bigger neural networks</p>
+<p>Now investment and attention drive it forward more</p>
+<p>Neural networks (NN)</p>
+<p>Useful for non-linear, with large number of features</p>
+<p>Singular evaluation metric</p>
+<p>Loss function (error on single training example)</p>
+<p>Cost function (average of loss functions over whole training set)</p>
+</div>
+</div>
+<div class="section" id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="scikit-learn">
+<h3><a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a><a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="tensorflow">
+<h3><a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a><a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Using GPU&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cannot find a GPU&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cannot find a GPU
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">data_reshaped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="n">data_reshaped_normalised</span> <span class="o">=</span> <span class="n">data_reshaped</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+    <span class="k">return</span> <span class="n">data_reshaped_normalised</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_images</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">train_images</span><span class="p">)</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">test_images</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span>
+    <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;sparse_categorical_crossentropy&quot;</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62/469 [==&gt;...........................] - ETA: 1s - loss: 0.1219 - accuracy: 0.9657
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-07 14:14:15.730972: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>469/469 [==============================] - 1s 2ms/step - loss: 0.1066 - accuracy: 0.9686
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test_acc: </span><span class="si">{</span><span class="n">test_acc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 [==============================] - 0s 666us/step - loss: 0.0933 - accuracy: 0.9714
+test_acc: 0.9714000225067139
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pytorch">
+<h3><a class="reference external" href="https://pytorch.org/">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
+<p>repeat above simple example</p>
+</div>
+</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-exercise-1 admonition">
@@ -400,8 +891,51 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="resources">
 <h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>…</p></li>
+<li><p><a class="reference external" href="https://vas3k.com/blog/machine_learning/">Machine Learning for Everyone</a></p></li>
 </ul>
+</div>
+<div class="section" id="online-courses">
+<span id="id1"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="machine-learning">
+<h4>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.coursera.org/learn/machine-learning">Machine learning</a>, Coursera, Andrew Ng.</p>
+<ul>
+<li><p>CS229, Stanford University: <a class="reference external" href="https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU">Video lectures</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach, 4th edition</a>, Stuart Russell and Peter Norvig, 2021, Pearson.</p></li>
+<li><p><a class="reference external" href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/">Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition</a>, Aurélien Géron, 2019, O’Reilly Media, Inc.</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/ageron/handson-ml2">Jupyter notebooks</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLoROMvodv4rO1NB9TD4iUZ3qghGEGtqNX">Artificial Intelligence: Principles and Techniques</a>, Percy Liang and Dorsa Sadigh, CS221, Standord, 2019.</p></li>
+<li><p><a class="reference external" href="https://www.deeplearning.ai/programs/">Machine Learning Yearning</a>, Andrew Ng.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h4>Deep learning<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.coursera.org/specializations/deep-learning">Deep Learning Specialization</a>, Coursera, <a class="reference external" href="http://DeepLearning.AI">DeepLearning.AI</a></p>
+<ul>
+<li><p>CS230, Stanford University: <a class="reference external" href="https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb">Video lectures</a>, <a class="reference external" href="http://cs230.stanford.edu/syllabus/">Syllabus</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://atcold.github.io/NYU-DLSP21/">NYU Deep Learning</a>, Yann LeCun and Alfredo Canziani, NYU, 2021</p>
+<ul>
+<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI">Video lectures</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://web.cvent.com/event/5f037a53-5be6-4abf-9b48-dc94e8a8ee3a/summary?rt=QZKIZW0GWUGNA6QZE4e55Aummary">NVIDIA Deep Learning and Data Science with GPUS</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLLssT5z_DsK_gyrQ_biidwvPYCRNGI3iv">Neural Networks for Machine Learning</a>, Geoffrey Hinton.</p></li>
+<li><p><a class="reference external" href="https://www.manning.com/books/deep-learning-with-python-second-edition?a_aid=keras&amp;a_bid=76564dff">Deep Learning with Python, 2nd Edition</a>, François Chollet, 2021, Manning.</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/fchollet/deep-learning-with-python-notebooks">Jupyter notebooks</a>.</p></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
