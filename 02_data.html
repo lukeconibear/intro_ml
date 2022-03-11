@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data &#8212; SWD8: Practical Introduction to Machine Learning and Deep Learning</title>
+    <title>Data &#8212; SWD8: Introduction to Machine Learning</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -80,7 +80,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">SWD8: Practical Introduction to Machine Learning and Deep Learning</h1>
+      <h1 class="site-logo" id="site-title">SWD8: Introduction to Machine Learning</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -91,7 +91,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
-   SWD8: Practical Introduction to Machine Learning and Deep Learning
+   SWD8: Introduction to Machine Learning
   </a>
  </li>
 </ul>
@@ -252,21 +252,6 @@ const thebe_selector_output = ".output, .cell_output"
      Tensors
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#supervised-and-unsupervised">
-     Supervised and unsupervised
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#classification-and-regression">
-     Classification and regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-validation-and-test-splits">
-     Training, validation, and test splits
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -336,21 +321,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#tensors">
      Tensors
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#supervised-and-unsupervised">
-     Supervised and unsupervised
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#classification-and-regression">
-     Classification and regression
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-validation-and-test-splits">
-     Training, validation, and test splits
     </a>
    </li>
   </ul>
@@ -566,40 +536,6 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 </div>
 </div>
 <p>And 3+ dimensional arrays are rank-3+ tensors.</p>
-</div>
-<div class="section" id="supervised-and-unsupervised">
-<h3>Supervised and unsupervised<a class="headerlink" href="#supervised-and-unsupervised" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Supervised learning is when you provide labelled outputs to learn from.</p></li>
-<li><p>Unsupervised learning when you don’t provide any labels.</p></li>
-</ul>
-<p>We’ll focus on supervised learning in this course.</p>
-</div>
-<div class="section" id="classification-and-regression">
-<h3>Classification and regression<a class="headerlink" href="#classification-and-regression" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Classification problems are those that try to predict a category (i.e., cat or dog).</p></li>
-<li><p>Regression problems are those that try to predict a number (i.e., beans in a jar).</p></li>
-</ul>
-</div>
-<div class="section" id="training-validation-and-test-splits">
-<h3>Training, validation, and test splits<a class="headerlink" href="#training-validation-and-test-splits" title="Permalink to this headline">¶</a></h3>
-<p>The data is normally split into training, validation, and test sets.</p>
-<ul class="simple">
-<li><p>The training set is for training the model.</p></li>
-<li><p>The validation set (optional) is for iteratively optimising the model during training.</p></li>
-<li><p>The test set is only for testing the model at the end.</p>
-<ul>
-<li><p>This should remain untouched and single-use.</p></li>
-</ul>
-</li>
-</ul>
-<p>The size of the split depends on the size of the dataset and the signal you’re trying to predict (i.e., the smaller the signal, then the larger the test set needs to be).</p>
-<ul class="simple">
-<li><p>For small data sets, a split of 60/20/20 for train/validation/test may be suitable.</p></li>
-<li><p>For large data sets, a split of 90/5/5 for train/validation/test may be suitable.</p></li>
-<li><p>For very large data sets, a split of 98/1/1 for train/validation/test may be suitable.</p></li>
-</ul>
 <ul class="simple">
 <li><p>datasets</p></li>
 <li><p>data centric AI hub videos</p></li>
@@ -678,6 +614,7 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 <li><p><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle Datasets</a></p></li>
 <li><p><a class="reference external" href="https://pytorch.org/vision/stable/datasets.html">Torch Vision Datasets</a></p></li>
 <li><p><a class="reference external" href="https://paperswithcode.com/datasets">Papers with code - Datasets</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/datasets">HuggingFace - Datasets</a></p></li>
 </ul>
 </div>
 </div>
