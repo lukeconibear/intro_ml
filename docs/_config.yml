@@ -5,7 +5,7 @@
 
 #######################################################################################
 # Book settings
-title                       : "SWD8: Practical Introduction to Machine Learning and Deep Learning"  # The title of the book. Will be placed in the left navbar.
+title                       : "SWD8: Introduction to Machine Learning"  # The title of the book. Will be placed in the left navbar.
 author                      : Luke Conibear  # The author of the book
 copyright                   : "2022"  # Copyright year to be placed in the footer
 logo                        : images/logo.png  # A path to the book logo
