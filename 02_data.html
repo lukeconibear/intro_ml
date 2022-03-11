@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data &#8212; SWD8: Introduction to Machine Learning</title>
+    <title>Data &#8212; SWD8: Practical Introduction to Machine Learning and Deep Learning</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -80,7 +80,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">SWD8: Introduction to Machine Learning</h1>
+      <h1 class="site-logo" id="site-title">SWD8: Practical Introduction to Machine Learning and Deep Learning</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -91,7 +91,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
-   SWD8: Introduction to Machine Learning
+   SWD8: Practical Introduction to Machine Learning and Deep Learning
   </a>
  </li>
 </ul>
@@ -243,6 +243,33 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-ideas">
+   Basic ideas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensors">
+     Tensors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supervised-and-unsupervised">
+     Supervised and unsupervised
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-and-regression">
+     Classification and regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-validation-and-test-splits">
+     Training, validation, and test splits
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -301,6 +328,33 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-ideas">
+   Basic ideas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensors">
+     Tensors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#supervised-and-unsupervised">
+     Supervised and unsupervised
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification-and-regression">
+     Classification and regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-validation-and-test-splits">
+     Training, validation, and test splits
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
@@ -363,7 +417,189 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>…</p>
+<div class="section" id="basic-ideas">
+<h2>Basic ideas<a class="headerlink" href="#basic-ideas" title="Permalink to this headline">¶</a></h2>
+<p>Data has inputs and outputs.</p>
+<p>The inputs are what you provide to the model.</p>
+<p>The outputs are what you’re trying to predict.</p>
+<div class="section" id="tensors">
+<h3>Tensors<a class="headerlink" href="#tensors" title="Permalink to this headline">¶</a></h3>
+<p>The data is normally in the form of tensors.</p>
+<p>Tensors are multi-dimensional arrays:</p>
+<p>Scalars are rank-0 tensors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.60170661])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([0.9826471], dtype=float32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([1.3525])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vectors are rank-1 tensors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.85227818, -0.01349722, -1.05771093])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([ 0.7847413, -0.5809721, -0.2452356], dtype=float32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([ 0.6863, -0.3278,  0.7950])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matrices are rank-2 tensors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.82254491, -1.22084365,  0.2088636 ],
+       [-1.95967012, -1.32818605,  0.19686124],
+       [ 0.73846658,  0.17136828, -0.11564828]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3, 3), dtype=float32, numpy=
+array([[ 1.2764754 , -0.6551445 , -0.00389835],
+       [ 0.45862213, -1.507044  ,  1.0932531 ],
+       [-0.45938343, -0.35318485, -0.3738681 ]], dtype=float32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 0.2815,  0.0562,  0.5227],
+        [-0.2384, -0.0499,  0.5263],
+        [-0.0085,  0.7291,  0.1331]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>And 3+ dimensional arrays are rank-3+ tensors.</p>
+</div>
+<div class="section" id="supervised-and-unsupervised">
+<h3>Supervised and unsupervised<a class="headerlink" href="#supervised-and-unsupervised" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supervised learning is when you provide labelled outputs to learn from.</p></li>
+<li><p>Unsupervised learning when you don’t provide any labels.</p></li>
+</ul>
+<p>We’ll focus on supervised learning in this course.</p>
+</div>
+<div class="section" id="classification-and-regression">
+<h3>Classification and regression<a class="headerlink" href="#classification-and-regression" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Classification problems are those that try to predict a category (i.e., cat or dog).</p></li>
+<li><p>Regression problems are those that try to predict a number (i.e., beans in a jar).</p></li>
+</ul>
+</div>
+<div class="section" id="training-validation-and-test-splits">
+<h3>Training, validation, and test splits<a class="headerlink" href="#training-validation-and-test-splits" title="Permalink to this headline">¶</a></h3>
+<p>The data is normally split into training, validation, and test sets.</p>
+<ul class="simple">
+<li><p>The training set is for training the model.</p></li>
+<li><p>The validation set (optional) is for iteratively optimising the model during training.</p></li>
+<li><p>The test set is only for testing the model at the end.</p>
+<ul>
+<li><p>This should remain untouched and single-use.</p></li>
+</ul>
+</li>
+</ul>
+<p>The size of the split depends on the size of the dataset and the signal you’re trying to predict (i.e., the smaller the signal, then the larger the test set needs to be).</p>
+<ul class="simple">
+<li><p>For small data sets, a split of 60/20/20 for train/validation/test may be suitable.</p></li>
+<li><p>For large data sets, a split of 90/5/5 for train/validation/test may be suitable.</p></li>
+<li><p>For very large data sets, a split of 98/1/1 for train/validation/test may be suitable.</p></li>
+</ul>
 <ul class="simple">
 <li><p>datasets</p></li>
 <li><p>data centric AI hub videos</p></li>
@@ -371,6 +607,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>synthetic data</p></li>
 <li><p>pipelines for large data I/O into GPUs using compression/decompression, Ray datasets</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check whether you have a GPU:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Yes, there are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2"> GPUs available.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No, GPUs are not available.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-exercise-1 admonition">

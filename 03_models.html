@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Models &#8212; SWD8: Introduction to Machine Learning</title>
+    <title>Models &#8212; SWD8: Practical Introduction to Machine Learning and Deep Learning</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -80,7 +80,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">SWD8: Introduction to Machine Learning</h1>
+      <h1 class="site-logo" id="site-title">SWD8: Practical Introduction to Machine Learning and Deep Learning</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -91,7 +91,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
-   SWD8: Introduction to Machine Learning
+   SWD8: Practical Introduction to Machine Learning and Deep Learning
   </a>
  </li>
 </ul>
@@ -243,6 +243,43 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-ideas">
+   Basic ideas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-validation">
+     Cross-validation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hyperparameters">
+     Hyperparameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parameters">
+     Parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluation">
+     Evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underfit">
+     Underfit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overfit">
+     Overfit
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pretrained">
    Pretrained
   </a>
@@ -306,6 +343,43 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-ideas">
+   Basic ideas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-validation">
+     Cross-validation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hyperparameters">
+     Hyperparameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parameters">
+     Parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluation">
+     Evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underfit">
+     Underfit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overfit">
+     Overfit
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pretrained">
    Pretrained
@@ -373,9 +447,254 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="section" id="basic-ideas">
+<h2>Basic ideas<a class="headerlink" href="#basic-ideas" title="Permalink to this headline">¶</a></h2>
 <p>…</p>
+<div class="section" id="cross-validation">
+<h3>Cross-validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h3>
+<p>…</p>
+</div>
+<div class="section" id="hyperparameters">
+<h3>Hyperparameters<a class="headerlink" href="#hyperparameters" title="Permalink to this headline">¶</a></h3>
+<p>…</p>
+</div>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>…</p>
+</div>
+<div class="section" id="evaluation">
+<h3>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h3>
+<p>…</p>
+</div>
+<div class="section" id="underfit">
+<h3>Underfit<a class="headerlink" href="#underfit" title="Permalink to this headline">¶</a></h3>
+<p>A model <em>underfits</em> the data when it has <em>high bias</em>.</p>
+<p>This means the model is <em>too simple</em> to capture the association.</p>
+<p>You can tell that the model underfits because there are <em>both</em> high training errors and high test errors.</p>
+<p>To reduce this problem, try:</p>
+<ul class="simple">
+<li><p>Adding more features.</p></li>
+<li><p>Adding more complex features.</p></li>
+<li><p>Decreasing regularisation.</p></li>
+</ul>
+<p>More training data is unlikely to help a model that underfits the data.</p>
+</div>
+<div class="section" id="overfit">
+<h3>Overfit<a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h3>
+<p>A model <em>overfits</em> the data when it has <em>high variance</em>.</p>
+<p>This means the model is <em>too complex</em> to capture the association.</p>
+<p>You can tell that the model underfits because there are <em>low</em> training errors <em>but</em> high test errors.</p>
+<p>To reduce this problem, try:</p>
+<ul class="simple">
+<li><p>Adding more data.</p></li>
+<li><p>Using fewer or simpler features.</p></li>
+<li><p>Increasing regularisation.</p></li>
+<li><p>A smaller neural network with fewer layers/parameters.</p></li>
+</ul>
+<p>…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Yes, there are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2"> GPUs available.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No, GPUs are not available.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No, GPUs are not available.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-07 16:54:56.010955: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-03-07 16:54:56.010977: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-07 16:54:56.011000: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (UOL-LAP-5G6CZH3): /proc/driver/nvidia/version does not exist
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span>
+    <span class="n">num_words</span><span class="o">=</span><span class="mi">10_000</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vectorize_sequences</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">10_000</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sequences</span><span class="p">),</span> <span class="n">dimension</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sequence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequences</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+            
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span> <span class="o">=</span> <span class="n">vectorize_sequences</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">vectorize_sequences</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">test_labels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-07 16:57:11.220454: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span>
+    <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_val</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[:</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">partial_x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="mi">10000</span><span class="p">:]</span>
+<span class="n">y_val</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">partial_y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">10000</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">partial_x_train</span><span class="p">,</span>
+                    <span class="n">partial_y_train</span><span class="p">,</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/20
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-07 16:57:31.671070: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 600000000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30/30 [==============================] - 2s 51ms/step - loss: 0.5115 - accuracy: 0.8002 - val_loss: 0.3954 - val_accuracy: 0.8665
+Epoch 2/20
+ 1/30 [&gt;.............................] - ETA: 0s - loss: 0.3665 - accuracy: 0.9023
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-07 16:57:33.606932: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 400000000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30/30 [==============================] - 0s 9ms/step - loss: 0.3121 - accuracy: 0.9024 - val_loss: 0.3328 - val_accuracy: 0.8690
+Epoch 3/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.2289 - accuracy: 0.9254 - val_loss: 0.2935 - val_accuracy: 0.8830
+Epoch 4/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.1769 - accuracy: 0.9439 - val_loss: 0.3009 - val_accuracy: 0.8790
+Epoch 5/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.1447 - accuracy: 0.9541 - val_loss: 0.2956 - val_accuracy: 0.8790
+Epoch 6/20
+30/30 [==============================] - 0s 10ms/step - loss: 0.1183 - accuracy: 0.9635 - val_loss: 0.2913 - val_accuracy: 0.8869
+Epoch 7/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.0953 - accuracy: 0.9711 - val_loss: 0.3118 - val_accuracy: 0.8855
+Epoch 8/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.0787 - accuracy: 0.9769 - val_loss: 0.3285 - val_accuracy: 0.8806
+Epoch 9/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.0637 - accuracy: 0.9820 - val_loss: 0.3533 - val_accuracy: 0.8810
+Epoch 10/20
+30/30 [==============================] - 0s 10ms/step - loss: 0.0501 - accuracy: 0.9876 - val_loss: 0.3819 - val_accuracy: 0.8756
+Epoch 11/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.0404 - accuracy: 0.9903 - val_loss: 0.4068 - val_accuracy: 0.8756
+Epoch 12/20
+30/30 [==============================] - 0s 10ms/step - loss: 0.0317 - accuracy: 0.9941 - val_loss: 0.4414 - val_accuracy: 0.8729
+Epoch 13/20
+30/30 [==============================] - 0s 12ms/step - loss: 0.0234 - accuracy: 0.9961 - val_loss: 0.4706 - val_accuracy: 0.8736
+Epoch 14/20
+30/30 [==============================] - 0s 10ms/step - loss: 0.0203 - accuracy: 0.9961 - val_loss: 0.5021 - val_accuracy: 0.8721
+Epoch 15/20
+30/30 [==============================] - 0s 10ms/step - loss: 0.0156 - accuracy: 0.9980 - val_loss: 0.5350 - val_accuracy: 0.8700
+Epoch 16/20
+30/30 [==============================] - 0s 10ms/step - loss: 0.0086 - accuracy: 0.9997 - val_loss: 0.6170 - val_accuracy: 0.8590
+Epoch 17/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.0090 - accuracy: 0.9994 - val_loss: 0.6092 - val_accuracy: 0.8702
+Epoch 18/20
+30/30 [==============================] - 0s 10ms/step - loss: 0.0052 - accuracy: 0.9999 - val_loss: 0.6729 - val_accuracy: 0.8677
+Epoch 19/20
+30/30 [==============================] - 0s 10ms/step - loss: 0.0045 - accuracy: 0.9999 - val_loss: 0.7331 - val_accuracy: 0.8630
+Epoch 20/20
+30/30 [==============================] - 0s 9ms/step - loss: 0.0027 - accuracy: 0.9999 - val_loss: 0.7314 - val_accuracy: 0.8679
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history_dict</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span>
+<span class="n">history_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;loss&#39;, &#39;accuracy&#39;, &#39;val_loss&#39;, &#39;val_accuracy&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="pretrained">
 <h2>Pretrained<a class="headerlink" href="#pretrained" title="Permalink to this headline">¶</a></h2>
+<p>…</p>
+<p>example</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>

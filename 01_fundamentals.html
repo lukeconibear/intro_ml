@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fundamentals &#8212; SWD8: Introduction to Machine Learning</title>
+    <title>Fundamentals &#8212; SWD8: Practical Introduction to Machine Learning and Deep Learning</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -80,7 +80,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="_static/logo.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">SWD8: Introduction to Machine Learning</h1>
+      <h1 class="site-logo" id="site-title">SWD8: Practical Introduction to Machine Learning and Deep Learning</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -91,7 +91,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
-   SWD8: Introduction to Machine Learning
+   SWD8: Practical Introduction to Machine Learning and Deep Learning
   </a>
  </li>
 </ul>
@@ -258,48 +258,14 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data">
-     Data
+    <a class="reference internal nav-link" href="#classic-machine-learning">
+     Classic Machine Learning
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#supervised-and-unsupervised">
-       Supervised and unsupervised
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#classification-and-regression">
-       Classification and regression
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#training-validation-and-test-splits">
-       Training, validation, and test splits
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#models">
-     Models
+    <a class="reference internal nav-link" href="#deep-learning">
+     Deep Learning
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#evaluation">
-       Evaluation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#underfit">
-       Underfit
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#overfit">
-       Overfit
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#caveats">
@@ -307,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deep-learning">
+    <a class="reference internal nav-link" href="#id1">
      Deep learning
     </a>
    </li>
@@ -334,6 +300,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-linear-regression">
+   Example - Linear regression
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -383,7 +354,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
+      <a class="reference internal nav-link" href="#id3">
        Deep learning
       </a>
      </li>
@@ -427,48 +398,14 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data">
-     Data
+    <a class="reference internal nav-link" href="#classic-machine-learning">
+     Classic Machine Learning
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#supervised-and-unsupervised">
-       Supervised and unsupervised
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#classification-and-regression">
-       Classification and regression
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#training-validation-and-test-splits">
-       Training, validation, and test splits
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#models">
-     Models
+    <a class="reference internal nav-link" href="#deep-learning">
+     Deep Learning
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#evaluation">
-       Evaluation
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#underfit">
-       Underfit
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#overfit">
-       Overfit
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#caveats">
@@ -476,7 +413,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#deep-learning">
+    <a class="reference internal nav-link" href="#id1">
      Deep learning
     </a>
    </li>
@@ -503,6 +440,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-linear-regression">
+   Example - Linear regression
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -552,7 +494,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
+      <a class="reference internal nav-link" href="#id3">
        Deep learning
       </a>
      </li>
@@ -605,88 +547,37 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Within machine learning, there are many different methods.</p>
 <p>The main methods are:</p>
 <ul class="simple">
-<li><p>Classic</p></li>
-<li><p>Deep learning (i.e., neural networks)</p></li>
-<li><p>Reinforcement learning</p></li>
-<li><p>Ensembles</p></li>
-</ul>
-<p>We’ll focus on classic machine learning and deep learning in this course.</p>
-</div>
-<div class="section" id="data">
-<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
-<p>Data has inputs and outputs.</p>
-<p>The inputs are what you provide to the model.</p>
-<p>The outputs are what you’re trying to predict.</p>
-<p>The data is normally in the form of tensors.</p>
-<p>Tensors are multi-dimensional arrays e.g., vectors are 1D tensors, matrices are 2D tensors.</p>
-<div class="section" id="supervised-and-unsupervised">
-<h4>Supervised and unsupervised<a class="headerlink" href="#supervised-and-unsupervised" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p>Supervised learning is when you provide labelled outputs to learn from.</p></li>
-<li><p>Unsupervised learning when you don’t provide any labels.</p></li>
-</ul>
-<p>We’ll focus on supervised learning in this course.</p>
-</div>
-<div class="section" id="classification-and-regression">
-<h4>Classification and regression<a class="headerlink" href="#classification-and-regression" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p>Classification problems are those that try to predict a category (i.e., cat or dog).</p></li>
-<li><p>Regression problems are those that try to predict a number (i.e., beans in a jar).</p></li>
-</ul>
-</div>
-<div class="section" id="training-validation-and-test-splits">
-<h4>Training, validation, and test splits<a class="headerlink" href="#training-validation-and-test-splits" title="Permalink to this headline">¶</a></h4>
-<p>The data is normally split into training, validation, and test sets.</p>
-<ul class="simple">
-<li><p>The training set is for training the model.</p></li>
-<li><p>The validation set (optional) is for iteratively optimising the model during training.</p></li>
-<li><p>The test set is only for testing the model at the end.</p>
+<li><p>Classic</p>
 <ul>
-<li><p>This should remain untouched and single-use.</p></li>
+<li><p>Simple data, clear features.</p></li>
+</ul>
+</li>
+<li><p>Deep learning (neural networks)</p>
+<ul>
+<li><p>Compilcated data, unclear features.</p></li>
+</ul>
+</li>
+<li><p>Reinforcement learning</p>
+<ul>
+<li><p>No data, interact with environment.</p></li>
+</ul>
+</li>
+<li><p>Ensembles</p>
+<ul>
+<li><p>Poor quality data.</p></li>
 </ul>
 </li>
 </ul>
-<p>The size of the split depends on the size of the dataset and the signal you’re trying to predict (i.e., the smaller the signal, then the larger the test set needs to be).</p>
-<ul class="simple">
-<li><p>For small data sets, a split of 60/20/20 for train/validation/test may be suitable.</p></li>
-<li><p>For large data sets, a split of 90/5/5 for train/validation/test may be suitable.</p></li>
-<li><p>For very large data sets, a split of 98/1/1 for train/validation/test may be suitable.</p></li>
-</ul>
+<p>We’ll focus on <em>classic machine learning</em> and <em>deep learning</em> in this course.</p>
 </div>
-</div>
-<div class="section" id="models">
-<h3>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="classic-machine-learning">
+<h3>Classic Machine Learning<a class="headerlink" href="#classic-machine-learning" title="Permalink to this headline">¶</a></h3>
 <p>…</p>
-<div class="section" id="evaluation">
-<h4>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h4>
-<p>…</p>
+<p>Fit a line to the data.</p>
 </div>
-<div class="section" id="underfit">
-<h4>Underfit<a class="headerlink" href="#underfit" title="Permalink to this headline">¶</a></h4>
-<p>A model <em>underfits</em> the data when it has <em>high bias</em>.</p>
-<p>This means the model is <em>too simple</em> to capture the association.</p>
-<p>You can tell that the model underfits because there are <em>both</em> high training errors and high test errors.</p>
-<p>To reduce this problem, try:</p>
-<ul class="simple">
-<li><p>Adding more features.</p></li>
-<li><p>Adding more complex features.</p></li>
-<li><p>Decreasing regularisation.</p></li>
-</ul>
-<p>More training data is unlikely to help a model that underfits the data.</p>
-</div>
-<div class="section" id="overfit">
-<h4>Overfit<a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h4>
-<p>A model <em>overfits</em> the data when it has <em>high variance</em>.</p>
-<p>This means the model is <em>too complex</em> to capture the association.</p>
-<p>You can tell that the model underfits because there are <em>low</em> training errors <em>but</em> high test errors.</p>
-<p>To reduce this problem, try:</p>
-<ul class="simple">
-<li><p>Adding more data.</p></li>
-<li><p>Using fewer or simpler features.</p></li>
-<li><p>Increasing regularisation.</p></li>
-<li><p>A smaller neural network with fewer layers/parameters.</p></li>
-</ul>
-</div>
+<div class="section" id="deep-learning">
+<h3>Deep Learning<a class="headerlink" href="#deep-learning" title="Permalink to this headline">¶</a></h3>
+<p>Deep means more layers.</p>
 </div>
 <div class="section" id="caveats">
 <h3>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h3>
@@ -704,8 +595,8 @@ Any value less than 1, as model can be continually awful
 1 is perfect
 0 is not more information than just predicting the mean</p>
 </div>
-<div class="section" id="deep-learning">
-<h3>Deep learning<a class="headerlink" href="#deep-learning" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>Deep learning<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Steps</p>
 <p>Inputs</p>
 <p>forward propagate</p>
@@ -727,50 +618,220 @@ Any value less than 1, as model can be continually awful
 </div>
 <div class="section" id="tools">
 <h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="section" id="scikit-learn">
 <h3><a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a><a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
+<p>Scikit-learn has a wide range of simple and efficient machine learning tools.</p>
+<p>There are ones for:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html#supervised-learning">Regression</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#examples">examples</a>)</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html#supervised-learning">Classification</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#classification">examples</a>)</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html#clustering">Clustering</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#cluster-examples">examples</a>)</p></li>
+<li><p>And <a class="reference external" href="https://scikit-learn.org/stable/index.html">many more</a>.</p></li>
+</ul>
 </div>
 <div class="section" id="tensorflow">
 <h3><a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a><a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
+<p>…</p>
+<p>TensorFlow has a higher-level API (Application Programming Interface) called <a class="reference external" href="https://keras.io/">Keras</a>.</p>
+<p>This user-friendly option abstracts away some complexity, so you can focus on your problem.</p>
+<p>You can always go to the lower-level API if you want or need to.</p>
+</div>
+<div class="section" id="pytorch">
+<h3><a class="reference external" href="https://pytorch.org/">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
+<p>Similar to Keras for TensorFlow, <a class="reference external" href="https://docs.fast.ai/">fastai</a> is a high-level API for PyTorch.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, let’s use <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares">linear regression</a> (i.e., fit a straight line to data):</p>
+</div>
+</div>
+<div class="section" id="example-linear-regression">
+<h2>Example - Linear regression<a class="headerlink" href="#example-linear-regression" title="Permalink to this headline">¶</a></h2>
+<p>Let’s start with a simple example fitting a straight line to data.</p>
+<p>We’ll see how this in done in each of three key tools we cover here: scikit-learn, TensorFlow, and PyTorch.</p>
+<p>Let’s create some (noisy) data to train on:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_noisy_linear_data</span><span class="p">(</span><span class="n">num_points</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_points</span><span class="p">)</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">noise</span>
+    <span class="c1"># convert to 2D arrays</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Using GPU&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cannot find a GPU&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">create_noisy_linear_data</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Input arrays to models needs to be 2 dimensional (2D) i.e., a column of rows.</p>
+<p>For example, instead of one row:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> <span class="pre">np.arange(10)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">array([0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9])</span></code></p>
+<p>Convert this to a column of rows using <code class="docutils literal notranslate"><span class="pre">.reshape(-1,</span> <span class="pre">1)</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> <span class="pre">np.arange(10).reshape(-1,</span> <span class="pre">1)</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">array([[0],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[2],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[3],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[4],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[5],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[6],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[7],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[8],</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[9]])</span></code></p>
+</div>
+<p>First, let’s try with <strong>scikit-learn</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_sklearn</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_sklearn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cannot find a GPU
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
 </pre></div>
 </div>
 </div>
 </div>
+<p>Now, for <strong>TensorFlow</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;sgd&quot;</span><span class="p">,</span>
+    <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;mean_squared_error&quot;</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.callbacks.History at 0x7f29fb67ac40&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>And finally, for <strong>PyTorch</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can see how well these models fit a line to the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_sklearn</span> <span class="o">=</span> <span class="n">model_sklearn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_tf</span> <span class="o">=</span> <span class="n">model_tf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#1b9e77&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred_sklearn</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#d95f02&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;scikit-learn model&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#1b9e77&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_pred_tf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#7570b3&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;TensorFlow model&#39;</span><span class="p">)</span>
+
+<span class="c1"># ax3.scatter(x_train, y_train, color=&quot;#1b9e77&quot;, label=&#39;data&#39;)</span>
+<span class="c1"># ax3.plot(x_train, y_pred_torch, color=&quot;#66a61e&quot;, linewidth=3)</span>
+<span class="c1"># ax3.set_title(&#39;scikit-learn model&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/01_fundamentals_68_0.png" src="_images/01_fundamentals_68_0.png" />
+</div>
+</div>
+<p>Load and split the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
@@ -778,6 +839,22 @@ Any value less than 1, as model can be continually awful
 </div>
 </div>
 </div>
+<p>Take a look at one of the digits:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">train_images</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Preprocess the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_data</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
@@ -796,6 +873,7 @@ Any value less than 1, as model can be continually awful
 </div>
 </div>
 </div>
+<p>Setup the model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
@@ -806,6 +884,7 @@ Any value less than 1, as model can be continually awful
 </div>
 </div>
 </div>
+<p>Compile the model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
@@ -817,42 +896,41 @@ Any value less than 1, as model can be continually awful
 </div>
 </div>
 </div>
+<p>Fit the model to the training data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 62/469 [==&gt;...........................] - ETA: 1s - loss: 0.1219 - accuracy: 0.9657
-</pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-07 14:14:15.730972: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>469/469 [==============================] - 1s 2ms/step - loss: 0.1066 - accuracy: 0.9686
-</pre></div>
-</div>
-</div>
-</div>
+<p>Evaluate the model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test_acc: </span><span class="si">{</span><span class="n">test_acc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 [==============================] - 0s 666us/step - loss: 0.0933 - accuracy: 0.9714
-test_acc: 0.9714000225067139
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test accuracy (R$^2$): </span><span class="si">{</span><span class="n">test_acc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Use the model for predictions with <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/Model#predict"><code class="docutils literal notranslate"><span class="pre">model.predict()</span></code></a> (i.e., inference).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
 </div>
-<div class="section" id="pytorch">
-<h3><a class="reference external" href="https://pytorch.org/">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
-<p>repeat above simple example</p>
+</div>
+</div>
+<p>Check whether you have a GPU:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Yes, there are </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span><span class="si">}</span><span class="s1"> GPUs available.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No, GPUs are not available.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="exercises">
@@ -891,11 +969,23 @@ test_acc: 0.9714000225067139
 <div class="section" id="resources">
 <h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://vas3k.com/blog/machine_learning/">Machine Learning for Everyone</a></p></li>
+<li><p><a class="reference external" href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/">Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition</a>, Aurélien Géron, 2019, O’Reilly Media, Inc.</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/ageron/handson-ml2">Jupyter notebooks</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.manning.com/books/deep-learning-with-python-second-edition?a_aid=keras&amp;a_bid=76564dff">Deep Learning with Python, 2nd Edition</a>, François Chollet, 2021, Manning.</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/fchollet/deep-learning-with-python-notebooks">Jupyter notebooks</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach, 4th edition</a>, Stuart Russell and Peter Norvig, 2021, Pearson.</p></li>
+<li><p><a class="reference external" href="https://www.deeplearning.ai/programs/">Machine Learning Yearning</a>, Andrew Ng.</p></li>
+<li><p><a class="reference external" href="https://vas3k.com/blog/machine_learning/">Machine Learning for Everyone</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="online-courses">
-<span id="id1"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="machine-learning">
 <h4>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -904,36 +994,29 @@ test_acc: 0.9714000225067139
 <li><p>CS229, Stanford University: <a class="reference external" href="https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU">Video lectures</a>.</p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="http://aima.cs.berkeley.edu/">Artificial Intelligence: A Modern Approach, 4th edition</a>, Stuart Russell and Peter Norvig, 2021, Pearson.</p></li>
-<li><p><a class="reference external" href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/">Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition</a>, Aurélien Géron, 2019, O’Reilly Media, Inc.</p>
-<ul>
-<li><p><a class="reference external" href="https://github.com/ageron/handson-ml2">Jupyter notebooks</a>.</p></li>
-</ul>
-</li>
 <li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLoROMvodv4rO1NB9TD4iUZ3qghGEGtqNX">Artificial Intelligence: Principles and Techniques</a>, Percy Liang and Dorsa Sadigh, CS221, Standord, 2019.</p></li>
-<li><p><a class="reference external" href="https://www.deeplearning.ai/programs/">Machine Learning Yearning</a>, Andrew Ng.</p></li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h4>Deep learning<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id3">
+<h4>Deep learning<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.coursera.org/specializations/deep-learning">Deep Learning Specialization</a>, Coursera, <a class="reference external" href="http://DeepLearning.AI">DeepLearning.AI</a></p>
+<li><p><a class="reference external" href="https://www.coursera.org/specializations/deep-learning">Deep Learning Specialization</a>, Coursera, <a class="reference external" href="http://DeepLearning.AI">DeepLearning.AI</a> (<em>NumPy and TensorFlow</em>)</p>
 <ul>
 <li><p>CS230, Stanford University: <a class="reference external" href="https://www.youtube.com/playlist?list=PLoROMvodv4rOABXSygHTsbvUz4G_YQhOb">Video lectures</a>, <a class="reference external" href="http://cs230.stanford.edu/syllabus/">Syllabus</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://atcold.github.io/NYU-DLSP21/">NYU Deep Learning</a>, Yann LeCun and Alfredo Canziani, NYU, 2021</p>
+<li><p><a class="reference external" href="https://atcold.github.io/NYU-DLSP21/">NYU Deep Learning</a>, Yann LeCun and Alfredo Canziani, NYU, 2021 (<em>PyTorch</em>)</p>
 <ul>
 <li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI">Video lectures</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://web.cvent.com/event/5f037a53-5be6-4abf-9b48-dc94e8a8ee3a/summary?rt=QZKIZW0GWUGNA6QZE4e55Aummary">NVIDIA Deep Learning and Data Science with GPUS</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLLssT5z_DsK_gyrQ_biidwvPYCRNGI3iv">Neural Networks for Machine Learning</a>, Geoffrey Hinton.</p></li>
-<li><p><a class="reference external" href="https://www.manning.com/books/deep-learning-with-python-second-edition?a_aid=keras&amp;a_bid=76564dff">Deep Learning with Python, 2nd Edition</a>, François Chollet, 2021, Manning.</p>
+<li><p><a class="reference external" href="https://course.fast.ai/">Practical Deep Learning for Coders</a>, Jeremy Howard and Sylvain Gugger, 2020. (<em>PyTorch</em>)</p>
 <ul>
-<li><p><a class="reference external" href="https://github.com/fchollet/deep-learning-with-python-notebooks">Jupyter notebooks</a>.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLfYUBJiXbdtRL3FMB3GoWHRI8ieU6FhfM">Video lectures</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference external" href="https://web.cvent.com/event/5f037a53-5be6-4abf-9b48-dc94e8a8ee3a/summary?rt=QZKIZW0GWUGNA6QZE4e55Aummary">NVIDIA Deep Learning and Data Science with GPUs</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLLssT5z_DsK_gyrQ_biidwvPYCRNGI3iv">Neural Networks for Machine Learning</a>, Geoffrey Hinton.</p></li>
 </ul>
 </div>
 </div>
