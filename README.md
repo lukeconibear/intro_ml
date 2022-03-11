@@ -1,4 +1,4 @@
-# SWD8: Introduction to Machine Learning
+# SWD8: Practical Introduction to Machine Learning and Deep Learning
 
 Booking for this course is through the IT Training Unit.  
 
@@ -7,6 +7,7 @@ Click [here](...) to book.
 ## Content
 
 ...
+
 
 ## Objectives
 
