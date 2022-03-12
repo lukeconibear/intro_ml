@@ -449,6 +449,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>It’s preferable to use a static job on the HPC. To do this, you could test out different ideas locally in a Jupyter Notebook, then when ready convert this to an executable script (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) and move it over. However, it is also possible to use Jupyter Notebooks interactively on the HPC following the instructions here: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/jupyter_notebook_to_hpc.md"><code class="docutils literal notranslate"><span class="pre">jupyter_notebook_to_hpc.md</span></code></a>.</p>
 <p><a class="reference external" href="https://keras.io/guides/distributed_training/">https://keras.io/guides/distributed_training/</a></p>
+<p>Synchronous data-parallel training on all available GPUs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># distribution_strategy = tf.distribute.MirrorStratergy()</span>
+<span class="c1"># with distribution_strategy.scope():</span>
+<span class="c1">#     model = build_model()</span>
+<span class="c1">#     model.compile(optimiser, loss)</span>
+<span class="c1">#     model.fit(dataset, epochs=epochs, callbacks=callbacks)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>

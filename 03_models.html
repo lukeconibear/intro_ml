@@ -243,43 +243,6 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-ideas">
-   Basic ideas
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cross-validation">
-     Cross-validation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hyperparameters">
-     Hyperparameters
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parameters">
-     Parameters
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#evaluation">
-     Evaluation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#underfit">
-     Underfit
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overfit">
-     Overfit
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pretrained">
    Pretrained
   </a>
@@ -343,43 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-ideas">
-   Basic ideas
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cross-validation">
-     Cross-validation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hyperparameters">
-     Hyperparameters
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#parameters">
-     Parameters
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#evaluation">
-     Evaluation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#underfit">
-     Underfit
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#overfit">
-     Overfit
-    </a>
-   </li>
-  </ul>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pretrained">
    Pretrained
@@ -447,50 +373,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="basic-ideas">
-<h2>Basic ideas<a class="headerlink" href="#basic-ideas" title="Permalink to this headline">¶</a></h2>
-<p>…</p>
-<div class="section" id="cross-validation">
-<h3>Cross-validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">¶</a></h3>
-<p>…</p>
-</div>
-<div class="section" id="hyperparameters">
-<h3>Hyperparameters<a class="headerlink" href="#hyperparameters" title="Permalink to this headline">¶</a></h3>
-<p>…</p>
-</div>
-<div class="section" id="parameters">
-<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
-<p>…</p>
-</div>
-<div class="section" id="evaluation">
-<h3>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h3>
-<p>…</p>
-</div>
-<div class="section" id="underfit">
-<h3>Underfit<a class="headerlink" href="#underfit" title="Permalink to this headline">¶</a></h3>
-<p>A model <em>underfits</em> the data when it has <em>high bias</em>.</p>
-<p>This means the model is <em>too simple</em> to capture the association.</p>
-<p>You can tell that the model underfits because there are <em>both</em> high training errors and high test errors.</p>
-<p>To reduce this problem, try:</p>
-<ul class="simple">
-<li><p>Adding more features.</p></li>
-<li><p>Adding more complex features.</p></li>
-<li><p>Decreasing regularisation.</p></li>
-</ul>
-<p>More training data is unlikely to help a model that underfits the data.</p>
-</div>
-<div class="section" id="overfit">
-<h3>Overfit<a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h3>
-<p>A model <em>overfits</em> the data when it has <em>high variance</em>.</p>
-<p>This means the model is <em>too complex</em> to capture the association.</p>
-<p>You can tell that the model underfits because there are <em>low</em> training errors <em>but</em> high test errors.</p>
-<p>To reduce this problem, try:</p>
-<ul class="simple">
-<li><p>Adding more data.</p></li>
-<li><p>Using fewer or simpler features.</p></li>
-<li><p>Increasing regularisation.</p></li>
-<li><p>A smaller neural network with fewer layers/parameters.</p></li>
-</ul>
 <p>…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -686,8 +568,6 @@ Epoch 20/20
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;loss&#39;, &#39;accuracy&#39;, &#39;val_loss&#39;, &#39;val_accuracy&#39;])
 </pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>

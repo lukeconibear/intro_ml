@@ -243,16 +243,9 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-ideas">
-   Basic ideas
+  <a class="reference internal nav-link" href="#synthetic-data">
+   Synthetic data
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tensors">
-     Tensors
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -314,16 +307,9 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-ideas">
-   Basic ideas
+  <a class="reference internal nav-link" href="#synthetic-data">
+   Synthetic data
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tensors">
-     Tensors
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -387,16 +373,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="basic-ideas">
-<h2>Basic ideas<a class="headerlink" href="#basic-ideas" title="Permalink to this headline">¶</a></h2>
-<p>Data has inputs and outputs.</p>
-<p>The inputs are what you provide to the model.</p>
-<p>The outputs are what you’re trying to predict.</p>
-<div class="section" id="tensors">
-<h3>Tensors<a class="headerlink" href="#tensors" title="Permalink to this headline">¶</a></h3>
-<p>The data is normally in the form of tensors.</p>
-<p>Tensors are multi-dimensional arrays:</p>
-<p>Scalars are rank-0 tensors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -444,19 +420,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([1.3525])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Vectors are rank-1 tensors:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
 </pre></div>
 </div>
@@ -479,19 +442,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([ 0.6863, -0.3278,  0.7950])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Matrices are rank-2 tensors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -521,27 +471,17 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 0.2815,  0.0562,  0.5227],
-        [-0.2384, -0.0499,  0.5263],
-        [-0.0085,  0.7291,  0.1331]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>And 3+ dimensional arrays are rank-3+ tensors.</p>
 <ul class="simple">
 <li><p>datasets</p></li>
 <li><p>data centric AI hub videos</p></li>
 <li><p>efficient feeding of data into GPUs</p></li>
-<li><p>synthetic data</p></li>
 <li><p>pipelines for large data I/O into GPUs using compression/decompression, Ray datasets</p></li>
+</ul>
+<div class="section" id="synthetic-data">
+<h2>Synthetic data<a class="headerlink" href="#synthetic-data" title="Permalink to this headline">¶</a></h2>
+<p>…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_composer.html#replicator-composer">NVIDIA Replicator Composer</a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -558,7 +498,6 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No, GPUs are not available.&#39;</span><span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
