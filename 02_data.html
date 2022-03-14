@@ -243,9 +243,26 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synthetic-data">
-   Synthetic data
+  <a class="reference internal nav-link" href="#data-loading">
+   Data loading
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixed-precision">
+   Mixed precision
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synthetic-data">
+     Synthetic data
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -307,9 +324,26 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#synthetic-data">
-   Synthetic data
+  <a class="reference internal nav-link" href="#data-loading">
+   Data loading
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixed-precision">
+   Mixed precision
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synthetic-data">
+     Synthetic data
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -471,6 +505,59 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 </div>
 </div>
 </div>
+<div class="section" id="data-loading">
+<h2>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h2>
+<p>Keras models accept three types of inputs:</p>
+<ul class="simple">
+<li><p>NumPy arrays, just like Scikit-Learn and many other Python-based libraries. This is a good option if your data fits in memory.</p></li>
+<li><p>TensorFlow Dataset objects. This is a high-performance option that is more suitable for datasets that do not fit in memory and that are streamed from disk or from a distributed filesystem.</p></li>
+<li><p>Python generators that yield batches of data (such as custom subclasses of the keras.utils.Sequence class).</p></li>
+</ul>
+<p>If you have a large dataset and you are training on GPU(s), consider using <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects, since they will take care of performance-critical details, such as:</p>
+<ul class="simple">
+<li><p>Asynchronously preprocessing your data on CPU while your GPU is busy, and buffering it into a queue.</p></li>
+<li><p>Prefetching data on GPU memory so it’s immediately available when the GPU has finished processing the previous batch, so you can reach full GPU utilization.</p></li>
+</ul>
+<p>Keras features a range of utilities to help you turn raw data on disk into a Dataset:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.image_dataset_from_directory</span></code></a> turns image files sorted into class-specific folders into a labeled dataset of image tensors.</p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.text_dataset_from_directory</span></code></a> does the same for text files.</p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/timeseries_dataset_from_array"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.timeseries_dataset_from_array</span></code></a> creates a dataset of sliding windows over a timeseries provided as array.</p></li>
+</ul>
+<p>“step fusing”</p>
+<p>model = build_model()
+model.compile(
+optimiser,
+loss,
+steps_per_execution=32  # this step
+)
+model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
+<p>jit compile</p>
+<p>model = build_model()
+model.compile(
+optimiser,
+loss,
+jit_compile=True  # this step
+)
+model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
+</div>
+<div class="section" id="data-preprocessing">
+<h2>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Tokenization of string data, followed by token indexing.</p></li>
+<li><p>Feature normalization.</p></li>
+<li><p>Rescaling the data to small values (in general, input values to a neural network should be close to zero – typically we expect either data with zero-mean and unit-variance, or data in the [0, 1] range.</p></li>
+</ul>
+</div>
+<div class="section" id="mixed-precision">
+<h2>Mixed precision<a class="headerlink" href="#mixed-precision" title="Permalink to this headline">¶</a></h2>
+<p>…</p>
+<p>from tensorflow.keras import mixed_precision</p>
+<p>mixed_precision.set_policy(‘mixed_float16’)</p>
+<p>with distribution_strategy.scopy():
+model = build_model()
+model.compile(optimiser, loss)
+model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <ul class="simple">
 <li><p>datasets</p></li>
 <li><p>data centric AI hub videos</p></li>
@@ -478,7 +565,7 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 <li><p>pipelines for large data I/O into GPUs using compression/decompression, Ray datasets</p></li>
 </ul>
 <div class="section" id="synthetic-data">
-<h2>Synthetic data<a class="headerlink" href="#synthetic-data" title="Permalink to this headline">¶</a></h2>
+<h3>Synthetic data<a class="headerlink" href="#synthetic-data" title="Permalink to this headline">¶</a></h3>
 <p>…</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_composer.html#replicator-composer">NVIDIA Replicator Composer</a></p></li>
@@ -498,6 +585,7 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No, GPUs are not available.&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -526,6 +614,7 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 <div class="section" id="good-practices">
 <h3>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li><p>Do data processing as part of the model to increase portability and reproducibility.</p></li>
 <li><p>…</p></li>
 </ul>
 </div>
