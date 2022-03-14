@@ -28,3 +28,11 @@ In this workshop, we covered:
 - [x] _..._
 
 ```
+
+
+## Next steps
+
+For things that you're interested in:
+
+- Try things out yourself (e.g., play around with the examples).
+- Check out the {ref}`Online Courses <online_courses>`.
