@@ -339,6 +339,16 @@ const thebe_selector_output = ".output, .cell_output"
      TensorFlow
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pytorch">
+     PyTorch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jax">
+     JAX
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -411,18 +421,6 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#other-options">
      Other options
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pytorch">
-       PyTorch
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#jax">
-       JAX
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resources">
@@ -565,6 +563,16 @@ const thebe_selector_output = ".output, .cell_output"
      TensorFlow
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pytorch">
+     PyTorch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jax">
+     JAX
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -637,18 +645,6 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#other-options">
      Other options
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pytorch">
-       PyTorch
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#jax">
-       JAX
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#resources">
@@ -995,9 +991,13 @@ Any value less than 1, as model can be continually awful
 <div class="section" id="tensorflow">
 <h3><a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a><a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
 <p>Tensorflow is an end-to-end open source machine learning platform.</p>
-<p>The <a class="reference external" href="https://www.tensorflow.org/guide">core documentation</a> has a wide range of useful <a class="reference external" href="https://www.tensorflow.org/tutorials">tutorials</a>.</p>
-<p>TensorFlow has a higher-level API (Application Programming Interface) called <a class="reference external" href="https://keras.io/">Keras</a>.</p>
-<p>This user-friendly option abstracts away some complexity, so you can focus on your problem.</p>
+<p>The <a class="reference external" href="https://www.tensorflow.org/guide">documentation</a> has a wide range of useful <a class="reference external" href="https://www.tensorflow.org/tutorials">tutorials</a>.</p>
+<p>TensorFlow has use-friendly higher-level APIs (Application Programming Interface)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://keras.io/">Keras</a>.</p></li>
+<li><p><a class="reference external" href="https://sonnet.readthedocs.io/en/latest/">Sonnet</a></p></li>
+</ul>
+<p>…</p>
 <ul class="simple">
 <li><p><span class="xref myst">Callbacks</span></p>
 <ul>
@@ -1015,11 +1015,11 @@ Any value less than 1, as model can be continually awful
 <li><p><a class="reference external" href="https://www.tensorflow.org/guide/autodiff">Automatic differention</a> with <code class="docutils literal notranslate"><span class="pre">tf.GradientTape()</span></code></p></li>
 <li><p>…</p></li>
 </ul>
-<p>There are many</p>
+<p>There are many <a class="reference external" href="https://www.tensorflow.org/resources/libraries-extensions">libraries and extensions</a> including:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.tensorflow.org/resources/libraries-extensions">Libraries and extensions</a>, such as <a class="reference external" href="https://www.tensorflow.org/probability">TensorFlow Probability</a></p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/tfx">TensorFlow Extended</a> for deployment.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/lite/guide">TensorFlow Lite</a> for mobile and IoT (internet of things) devices.</p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/probability">TensorFlow Probability</a> for probabilistic reasoning.</p></li>
 </ul>
 <p>A model contains multiple layers of input-output transformations.</p>
 <p>It can be built using either the <a class="reference external" href="https://keras.io/guides/sequential_model/">Sequential</a> or <a class="reference external" href="https://keras.io/guides/functional_api/">Functional</a> API (application programming interface).</p>
@@ -1038,6 +1038,60 @@ Any value less than 1, as model can be continually awful
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="pytorch">
+<h3><a class="reference external" href="https://pytorch.org/">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
+<p>PyTorch is an end-to-end open source machine learning platform.</p>
+<p>The <a class="reference external" href="https://pytorch.org/docs/stable/index.html">documentation</a> has a wide range of useful <a class="reference external" href="https://pytorch.org/tutorials/">tutorials</a>.</p>
+<p>PyTorch has use-friendly higher-level APIs:</p>
+<ul class="simple">
+<li><p>…</p></li>
+<li><p><a class="reference external" href="https://docs.fast.ai/">fastai</a></p>
+<ul>
+<li><p>A high-level API for PyTorch.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/">PyTorch Lightning</a></p>
+<ul>
+<li><p>Helps write boilerplate code, scale out to multiple devices, and other helpful things.</p></li>
+</ul>
+</li>
+</ul>
+<p>You can always go to the lower-level API if you want or need to.</p>
+<ul class="simple">
+<li><p>…</p></li>
+</ul>
+<p>There are many <a class="reference external" href="https://pytorch.org/ecosystem/">libraries and extensions</a> including:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pytorch.org/serve/">TorchServe</a> for deployment.</p></li>
+<li><p><a class="reference external" href="https://pytorch.org/live/">Pytorch Live</a> for mobile and IoT devices.</p></li>
+<li><p><a class="reference external" href="https://gpytorch.ai/">GPyTorch</a> for Gaussian Processes.</p></li>
+</ul>
+</div>
+<div class="section" id="jax">
+<h3><a class="reference external" href="https://jax.readthedocs.io/en/latest/">JAX</a><a class="headerlink" href="#jax" title="Permalink to this headline">¶</a></h3>
+<p>JAX is library for GPU accelerated NumPy with automatic differentiation.</p>
+<p>There are many tools built upon JAX, including:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/google/flax">Flax</a></p>
+<ul>
+<li><p>A neural network library and ecosystem for JAX that is designed for flexibility.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://dm-haiku.readthedocs.io/en/latest/">Haiku</a></p>
+<ul>
+<li><p>Built on top of JAX to provide simple, composable abstractions for machine learning research.</p></li>
+</ul>
+</li>
+</ul>
+<p>The <a class="reference external" href="https://www.assemblyai.com/blog/pytorch-vs-tensorflow-in-2022/">tool you choose depends on</a>:</p>
+<ul class="simple">
+<li><p>Your research problem</p></li>
+<li><p>Model availability (e.g., pre-trained, state-of-the-art)</p></li>
+<li><p>Deployment (e.g., hardware)</p></li>
+<li><p>Ecosystem (e.g., compatibility with other tools)</p></li>
+<li><p>Personal preferences</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="example-linear-regression">
@@ -1712,6 +1766,7 @@ Test accuracy (R2): 0.9610000252723694
 </ul>
 </li>
 <li><p>Consider reducing the dimensionality of the data (e.g., using PCA, Principle Component Analysis).</p></li>
+<li><p>Have a baseline to compare the model skill against (i.e., simple model, human performance, etc.).</p></li>
 <li><p>…</p></li>
 </ul>
 </div>
@@ -1725,45 +1780,7 @@ Test accuracy (R2): 0.9610000252723694
 <div class="section" id="other-options">
 <h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
 <p>There are many other excellent options, including:</p>
-<div class="section" id="pytorch">
-<h4><a class="reference external" href="https://pytorch.org/">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h4>
-<p>PyTorch is an end-to-end open source machine learning platform.</p>
-<p>There are many tools built upon PyTorch, including:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.fast.ai/">fastai</a></p>
-<ul>
-<li><p>A high-level API for PyTorch.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/">PyTorch Lightning</a></p>
-<ul>
-<li><p>Helps write boilerplate code, scale out to multiple devices, and other helpful things.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://gpytorch.ai/">GPyTorch</a></p>
-<ul>
-<li><p>A highly efficient and modular implementation of GPs, with GPU acceleration.</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="jax">
-<h4><a class="reference external" href="https://jax.readthedocs.io/en/latest/">JAX</a><a class="headerlink" href="#jax" title="Permalink to this headline">¶</a></h4>
-<p>JAX is library for GPU accelerated NumPy with automatic differentiation.</p>
-<p>There are many tools built upon JAX, including:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/google/flax">Flax</a></p>
-<ul>
-<li><p>A neural network library and ecosystem for JAX that is designed for flexibility.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://dm-haiku.readthedocs.io/en/latest/">Haiku</a></p>
-<ul>
-<li><p>Built on top of JAX to provide simple, composable abstractions for machine learning research.</p></li>
-</ul>
-</li>
-</ul>
-</div>
+<p>…</p>
 </div>
 <div class="section" id="resources">
 <h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
@@ -1821,13 +1838,6 @@ Test accuracy (R2): 0.9610000252723694
 <li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLLHTzKZzVU9e6xUfG10TkTWApKSZCzuBI">Video lectures</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://course.fast.ai/">Practical Deep Learning for Coders</a>, Jeremy Howard and Sylvain Gugger, 2020 (<em>fastai, PyTorch</em>)</p>
-<ul>
-<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLfYUBJiXbdtRL3FMB3GoWHRI8ieU6FhfM">Video lectures</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://web.cvent.com/event/5f037a53-5be6-4abf-9b48-dc94e8a8ee3a/summary?rt=QZKIZW0GWUGNA6QZE4e55Aummary">NVIDIA Deep Learning and Data Science with GPUs</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLLssT5z_DsK_gyrQ_biidwvPYCRNGI3iv">Neural Networks for Machine Learning</a>, Geoffrey Hinton.</p></li>
 </ul>
 </div>
 </div>
