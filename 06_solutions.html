@@ -50,8 +50,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Summary" href="06_summary.html" />
-    <link rel="prev" title="Distributed" href="04_distributed.html" />
+    <link rel="next" title="Summary" href="07_summary.html" />
+    <link rel="prev" title="Distributed" href="05_distributed.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -112,17 +112,22 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_data.html">
+    <a class="reference internal" href="02_tools.html">
+     Tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_data.html">
      Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_models.html">
+    <a class="reference internal" href="04_models.html">
      Models
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_distributed.html">
+    <a class="reference internal" href="05_distributed.html">
      Distributed
     </a>
    </li>
@@ -134,7 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06_summary.html">
+  <a class="reference internal" href="07_summary.html">
    Summary
   </a>
  </li>
@@ -179,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/05_solutions.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/06_solutions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -199,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lukeconibear/intro_ml/issues/new?title=Issue%20on%20page%20%2F05_solutions.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lukeconibear/intro_ml/issues/new?title=Issue%20on%20page%20%2F06_solutions.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -220,7 +225,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukeconibear/intro_ml/main?urlpath=tree/docs/05_solutions.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukeconibear/intro_ml/main?urlpath=tree/docs/06_solutions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -260,8 +265,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
+  <a class="reference internal nav-link" href="#tools">
+   Tools
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -277,8 +282,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#models">
-   Models
+  <a class="reference internal nav-link" href="#data">
+   Data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -294,8 +299,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distributed">
-   Distributed
+  <a class="reference internal nav-link" href="#models">
+   Models
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -305,6 +310,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id11">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed">
+   Distributed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
      Exercises
     </a>
    </li>
@@ -348,8 +370,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
+  <a class="reference internal nav-link" href="#tools">
+   Tools
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -365,8 +387,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#models">
-   Models
+  <a class="reference internal nav-link" href="#data">
+   Data
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -382,8 +404,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distributed">
-   Distributed
+  <a class="reference internal nav-link" href="#models">
+   Models
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -393,6 +415,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id11">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributed">
+   Distributed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Questions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
      Exercises
     </a>
    </li>
@@ -434,8 +473,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="data">
-<span id="id3"></span><h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tools">
+<span id="id3"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id4">
 <h3>Questions<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-question-1 admonition">
@@ -459,8 +498,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="models">
-<span id="id6"></span><h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data">
+<span id="id6"></span><h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id7">
 <h3>Questions<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-question-1 admonition">
@@ -484,8 +523,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="distributed">
-<span id="id9"></span><h2>Distributed<a class="headerlink" href="#distributed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="models">
+<span id="id9"></span><h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id10">
 <h3>Questions<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-question-1 admonition">
@@ -499,6 +538,31 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id11">
 <h3>Exercises<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-exercise-1 admonition">
+<p class="admonition-title">Exercise 1</p>
+<p>…</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>…</p>
+</div>
+</div>
+</div>
+<div class="section" id="distributed">
+<span id="id12"></span><h2>Distributed<a class="headerlink" href="#distributed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>Questions<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>…</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 1</p>
+<p>…</p>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>Exercises<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>…</p>
@@ -536,14 +600,14 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="04_distributed.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="05_distributed.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Distributed</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="06_summary.html" title="next page">
+    <a class='right-next' id="next-link" href="07_summary.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Summary</p>

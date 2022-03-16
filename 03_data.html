@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Models &#8212; SWD8: Introduction to Machine Learning</title>
+    <title>Data &#8212; SWD8: Introduction to Machine Learning</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -50,8 +50,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Distributed" href="04_distributed.html" />
-    <link rel="prev" title="Data" href="02_data.html" />
+    <link rel="next" title="Models" href="04_models.html" />
+    <link rel="prev" title="Tools" href="02_tools.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -112,29 +112,34 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_data.html">
-     Data
+    <a class="reference internal" href="02_tools.html">
+     Tools
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
+     Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_models.html">
      Models
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_distributed.html">
+    <a class="reference internal" href="05_distributed.html">
      Distributed
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="05_solutions.html">
+    <a class="reference internal" href="06_solutions.html">
      Solutions
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06_summary.html">
+  <a class="reference internal" href="07_summary.html">
    Summary
   </a>
  </li>
@@ -179,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/03_models.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/03_data.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -199,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lukeconibear/intro_ml/issues/new?title=Issue%20on%20page%20%2F03_models.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lukeconibear/intro_ml/issues/new?title=Issue%20on%20page%20%2F03_data.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -220,7 +225,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukeconibear/intro_ml/main?urlpath=tree/docs/03_models.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukeconibear/intro_ml/main?urlpath=tree/docs/03_data.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -243,9 +248,26 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pretrained">
-   Pretrained
+  <a class="reference internal nav-link" href="#data-loading">
+   Data loading
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixed-precision">
+   Mixed precision
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synthetic-data">
+     Synthetic data
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -313,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Models</h1>
+                <h1>Data</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -324,9 +346,26 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pretrained">
-   Pretrained
+  <a class="reference internal nav-link" href="#data-loading">
+   Data loading
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixed-precision">
+   Mixed precision
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#synthetic-data">
+     Synthetic data
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -393,26 +432,26 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="models">
-<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://colab.research.google.com/github/lukeconibear/intro_ml/blob/main/docs/03_models.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="data">
+<h1>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/lukeconibear/intro_ml/blob/main/docs/02_data.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you&#39;re using colab, then install the required modules</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+
+<span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="o">%</span><span class="k">pip</span> install ...
+    <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">torch</span>
 </pre></div>
 </div>
 </div>
@@ -421,212 +460,192 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">torch</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Yes, there are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2"> GPUs available.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No, GPUs are not available.&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No, GPUs are not available.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-14 16:25:29.209000: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-03-14 16:25:29.209027: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-03-14 16:25:29.209044: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (UOL-LAP-5G6CZH3): /proc/driver/nvidia/version does not exist
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.60170661])
 </pre></div>
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://keras.io/api/applications/">Keras Applications</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([0.9826471], dtype=float32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.85227818, -0.01349722, -1.05771093])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([ 0.7847413, -0.5809721, -0.2452356], dtype=float32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.82254491, -1.22084365,  0.2088636 ],
+       [-1.95967012, -1.32818605,  0.19686124],
+       [ 0.73846658,  0.17136828, -0.11564828]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3, 3), dtype=float32, numpy=
+array([[ 1.2764754 , -0.6551445 , -0.00389835],
+       [ 0.45862213, -1.507044  ,  1.0932531 ],
+       [-0.45938343, -0.35318485, -0.3738681 ]], dtype=float32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-loading">
+<h2>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h2>
+<p>Keras models accept three types of inputs:</p>
 <ul class="simple">
-<li><p>DenseNet</p></li>
-<li><p>VGG</p></li>
-<li><p>EfficientNet</p></li>
-<li><p>MobileNet</p></li>
-<li><p>Inception</p></li>
-<li><p>ResNet</p></li>
+<li><p>NumPy arrays, just like Scikit-Learn and many other Python-based libraries. This is a good option if your data fits in memory.</p></li>
+<li><p>TensorFlow Dataset objects. This is a high-performance option that is more suitable for datasets that do not fit in memory and that are streamed from disk or from a distributed filesystem.</p></li>
+<li><p>Python generators that yield batches of data (such as custom subclasses of the keras.utils.Sequence class).</p></li>
+</ul>
+<p>If you have a large dataset and you are training on GPU(s), consider using <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects, since they will take care of performance-critical details, such as:</p>
+<ul class="simple">
+<li><p>Asynchronously preprocessing your data on CPU while your GPU is busy, and buffering it into a queue.</p></li>
+<li><p>Prefetching data on GPU memory so it’s immediately available when the GPU has finished processing the previous batch, so you can reach full GPU utilization.</p></li>
+</ul>
+<p>Keras features a range of utilities to help you turn raw data on disk into a Dataset:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.image_dataset_from_directory</span></code></a> turns image files sorted into class-specific folders into a labeled dataset of image tensors.</p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.text_dataset_from_directory</span></code></a> does the same for text files.</p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/timeseries_dataset_from_array"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.timeseries_dataset_from_array</span></code></a> creates a dataset of sliding windows over a timeseries provided as array.</p></li>
+</ul>
+<p>“step fusing”</p>
+<p>model = build_model()
+model.compile(
+optimiser,
+loss,
+steps_per_execution=32  # this step
+)
+model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Train the model for 1 epoch from Numpy data</span>
+<span class="c1"># batch_size = 64</span>
+<span class="c1"># print(&quot;Fit on NumPy data&quot;)</span>
+<span class="c1"># history = model.fit(x_train, y_train, batch_size=batch_size, epochs=1)</span>
+
+<span class="c1"># # Train the model for 1 epoch using a dataset</span>
+<span class="c1"># dataset = tf.data.Dataset.from_tensor_slices((x_train, y_train)).batch(batch_size)</span>
+<span class="c1"># print(&quot;Fit on Dataset&quot;)</span>
+<span class="c1"># history = model.fit(dataset, epochs=1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>jit compile</p>
+<p>model = build_model()
+model.compile(
+optimiser,
+loss,
+jit_compile=True  # this step
+)
+model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
+</div>
+<div class="section" id="data-preprocessing">
+<h2>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Tokenization of string data, followed by token indexing.</p></li>
+<li><p>Feature normalization.</p></li>
+<li><p>Rescaling the data to small values (in general, input values to a neural network should be close to zero – typically we expect either data with zero-mean and unit-variance, or data in the [0, 1] range.</p></li>
+</ul>
+</div>
+<div class="section" id="mixed-precision">
+<h2>Mixed precision<a class="headerlink" href="#mixed-precision" title="Permalink to this headline">¶</a></h2>
+<p>…</p>
+<p>from tensorflow.keras import mixed_precision</p>
+<p>mixed_precision.set_policy(‘mixed_float16’)</p>
+<p>with distribution_strategy.scopy():
+model = build_model()
+model.compile(optimiser, loss)
+model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
+<ul class="simple">
+<li><p>datasets</p></li>
+<li><p>data centric AI hub videos</p></li>
+<li><p>efficient feeding of data into GPUs</p></li>
+<li><p>pipelines for large data I/O into GPUs using compression/decompression, Ray datasets</p></li>
+</ul>
+<div class="section" id="synthetic-data">
+<h3>Synthetic data<a class="headerlink" href="#synthetic-data" title="Permalink to this headline">¶</a></h3>
+<p>…</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_composer.html#replicator-composer">NVIDIA Replicator Composer</a></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tf.keras.applications.inception_v3.InceptionV3<span class="o">?</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
-tf<span class=" -Color -Color-Blue">.</span>keras<span class=" -Color -Color-Blue">.</span>applications<span class=" -Color -Color-Blue">.</span>inception_v3<span class=" -Color -Color-Blue">.</span>InceptionV3<span class=" -Color -Color-Blue">(</span>
-    include_top<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
-    weights<span class=" -Color -Color-Blue">=&#39;imagenet&#39;,</span>
-    input_tensor<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
-    input_shape<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
-    pooling<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
-    classes<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Cyan">1000</span><span class=" -Color -Color-Blue">,</span>
-    classifier_activation<span class=" -Color -Color-Blue">=&#39;softmax&#39;,</span>
-<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Red">Docstring:</span>
-Instantiates the Inception v3 architecture.
-
-Reference:
-- [Rethinking the Inception Architecture for Computer Vision](
-    http://arxiv.org/abs/1512.00567) (CVPR 2016)
-
-This function returns a Keras image classification model,
-optionally loaded with weights pre-trained on ImageNet.
-
-For image classification use cases, see
-[this page for detailed examples](
-  https://keras.io/api/applications/#usage-examples-for-image-classification-models).
-
-For transfer learning use cases, make sure to read the
-[guide to transfer learning &amp; fine-tuning](
-  https://keras.io/guides/transfer_learning/).
-
-Note: each Keras Application expects a specific kind of input preprocessing.
-For `InceptionV3`, call `tf.keras.applications.inception_v3.preprocess_input`
-on your inputs before passing them to the model.
-`inception_v3.preprocess_input` will scale input pixels between -1 and 1.
-
-Args:
-  include_top: Boolean, whether to include the fully-connected
-    layer at the top, as the last layer of the network. Default to `True`.
-  weights: One of `None` (random initialization),
-    `imagenet` (pre-training on ImageNet),
-    or the path to the weights file to be loaded. Default to `imagenet`.
-  input_tensor: Optional Keras tensor (i.e. output of `layers.Input()`)
-    to use as image input for the model. `input_tensor` is useful for sharing
-    inputs between multiple different networks. Default to None.
-  input_shape: Optional shape tuple, only to be specified
-    if `include_top` is False (otherwise the input shape
-    has to be `(299, 299, 3)` (with `channels_last` data format)
-    or `(3, 299, 299)` (with `channels_first` data format).
-    It should have exactly 3 inputs channels,
-    and width and height should be no smaller than 75.
-    E.g. `(150, 150, 3)` would be one valid value.
-    `input_shape` will be ignored if the `input_tensor` is provided.
-  pooling: Optional pooling mode for feature extraction
-    when `include_top` is `False`.
-    - `None` (default) means that the output of the model will be
-        the 4D tensor output of the last convolutional block.
-    - `avg` means that global average pooling
-        will be applied to the output of the
-        last convolutional block, and thus
-        the output of the model will be a 2D tensor.
-    - `max` means that global max pooling will be applied.
-  classes: optional number of classes to classify images
-    into, only to be specified if `include_top` is True, and
-    if no `weights` argument is specified. Default to 1000.
-  classifier_activation: A `str` or callable. The activation function to use
-    on the &quot;top&quot; layer. Ignored unless `include_top=True`. Set
-    `classifier_activation=None` to return the logits of the &quot;top&quot; layer.
-    When loading pretrained weights, `classifier_activation` can only
-    be `None` or `&quot;softmax&quot;`.
-
-Returns:
-  A `keras.Model` instance.
-<span class=" -Color -Color-Red">File:</span>      ~/miniconda3/envs/intro_ml/lib/python3.9/site-packages/keras/applications/inception_v3.py
-<span class=" -Color -Color-Red">Type:</span>      function
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Check whether you have a GPU:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conv_base</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">applications</span><span class="o">.</span><span class="n">vgg16</span><span class="o">.</span><span class="n">VGG16</span><span class="p">(</span>
-    <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;imagenet&quot;</span><span class="p">,</span>
-    <span class="n">include_top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/vgg16/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-14 16:25:29.237337: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>58892288/58889256 [==============================] - 5s 0us/step
-58900480/58889256 [==============================] - 5s 0us/step
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s2">&quot;GPU&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Yes, there are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2"> GPUs available.&quot;</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No, GPUs are not available.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conv_base</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;vgg16&quot;
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_1 (InputLayer)        [(None, 180, 180, 3)]     0         
-                                                                 
- block1_conv1 (Conv2D)       (None, 180, 180, 64)      1792      
-                                                                 
- block1_conv2 (Conv2D)       (None, 180, 180, 64)      36928     
-                                                                 
- block1_pool (MaxPooling2D)  (None, 90, 90, 64)        0         
-                                                                 
- block2_conv1 (Conv2D)       (None, 90, 90, 128)       73856     
-                                                                 
- block2_conv2 (Conv2D)       (None, 90, 90, 128)       147584    
-                                                                 
- block2_pool (MaxPooling2D)  (None, 45, 45, 128)       0         
-                                                                 
- block3_conv1 (Conv2D)       (None, 45, 45, 256)       295168    
-                                                                 
- block3_conv2 (Conv2D)       (None, 45, 45, 256)       590080    
-                                                                 
- block3_conv3 (Conv2D)       (None, 45, 45, 256)       590080    
-                                                                 
- block3_pool (MaxPooling2D)  (None, 22, 22, 256)       0         
-                                                                 
- block4_conv1 (Conv2D)       (None, 22, 22, 512)       1180160   
-                                                                 
- block4_conv2 (Conv2D)       (None, 22, 22, 512)       2359808   
-                                                                 
- block4_conv3 (Conv2D)       (None, 22, 22, 512)       2359808   
-                                                                 
- block4_pool (MaxPooling2D)  (None, 11, 11, 512)       0         
-                                                                 
- block5_conv1 (Conv2D)       (None, 11, 11, 512)       2359808   
-                                                                 
- block5_conv2 (Conv2D)       (None, 11, 11, 512)       2359808   
-                                                                 
- block5_conv3 (Conv2D)       (None, 11, 11, 512)       2359808   
-                                                                 
- block5_pool (MaxPooling2D)  (None, 5, 5, 512)         0         
-                                                                 
-=================================================================
-Total params: 14,714,688
-Trainable params: 14,714,688
-Non-trainable params: 0
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="pretrained">
-<h2>Pretrained<a class="headerlink" href="#pretrained" title="Permalink to this headline">¶</a></h2>
-<p>…</p>
-<p>example</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
@@ -636,7 +655,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="section" id="solutions">
-<h2><a class="reference internal" href="05_solutions.html#models"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference internal" href="06_solutions.html#data"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="key-points">
 <h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
@@ -652,7 +671,7 @@ _________________________________________________________________
 <div class="section" id="good-practices">
 <h3>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>See if there is a model architecture (and parameters) that already addresses the task.</p></li>
+<li><p>Do data processing as part of the model to increase portability and reproducibility.</p></li>
 <li><p>…</p></li>
 </ul>
 </div>
@@ -667,26 +686,26 @@ _________________________________________________________________
 <div class="section" id="general">
 <h4>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p><a class="reference external" href="https://modelzoo.co/">Model Zoo</a></p></li>
-<li><p><a class="reference external" href="https://paperswithcode.com/methods">Papers with code - Models</a></p></li>
-<li><p><a class="reference external" href="https://huggingface.co/models">HuggingFace - Models</a></p></li>
+<li><p><a class="reference external" href="https://paperswithcode.com/datasets">Papers with code - Datasets</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/datasets">HuggingFace - Datasets</a></p></li>
+<li><p><a class="reference external" href="https://ai.google/tools/datasets/">Google research datasets</a></p></li>
+<li><p><a class="reference external" href="https://datasetsearch.research.google.com/">Google Dataset Search</a></p></li>
+<li><p><a class="reference external" href="https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset&amp;pli=1">Google Cloud public datasets</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle Datasets</a></p></li>
 </ul>
 </div>
 <div class="section" id="tensorflow">
 <h4>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p><a class="reference external" href="https://tfhub.dev/">TensorFlow Hub</a> for pre-trained models.</p></li>
-<li><p><a class="reference external" href="https://github.com/tensorflow/models/tree/master/official">TensorFlow Model Garden</a> for model source code.</p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/datasets">TensorFlow official datasets</a></p></li>
 </ul>
 </div>
 <div class="section" id="pytorch">
 <h4>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p><a class="reference external" href="https://pytorch.org/docs/stable/hub.html">PyTorch Hub</a> for pre-retrained models.</p></li>
-<li><p><a class="reference external" href="https://pytorch.org/vision/stable/models.html">Torch Vision Models</a></p></li>
-<li><p><a class="reference external" href="https://pytorch.org/text/stable/models.html">Torch Text Models</a></p></li>
-<li><p><a class="reference external" href="https://pytorch.org/audio/stable/models.html">Torch Audio Models</a></p></li>
-<li><p><a class="reference external" href="https://rwightman.github.io/pytorch-image-models/">TIMM (pyTorch IMage Models)</a></p></li>
+<li><p><a class="reference external" href="https://pytorch.org/vision/stable/datasets.html">Torch Vision Datasets</a></p></li>
+<li><p><a class="reference external" href="https://pytorch.org/text/stable/datasets.html">Torch Text Datasets</a></p></li>
+<li><p><a class="reference external" href="https://pytorch.org/audio/stable/datasets.html">Torch Audio Datasets</a></p></li>
 </ul>
 </div>
 </div>
@@ -718,17 +737,17 @@ _________________________________________________________________
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="02_data.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_tools.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Data</p>
+            <p class="prev-next-title">Tools</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="04_distributed.html" title="next page">
+    <a class='right-next' id="next-link" href="04_models.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Distributed</p>
+        <p class="prev-next-title">Models</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

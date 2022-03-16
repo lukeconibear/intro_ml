@@ -50,8 +50,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Solutions" href="05_solutions.html" />
-    <link rel="prev" title="Models" href="03_models.html" />
+    <link rel="next" title="Solutions" href="06_solutions.html" />
+    <link rel="prev" title="Models" href="04_models.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -112,12 +112,17 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_data.html">
+    <a class="reference internal" href="02_tools.html">
+     Tools
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_data.html">
      Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_models.html">
+    <a class="reference internal" href="04_models.html">
      Models
     </a>
    </li>
@@ -127,14 +132,14 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="05_solutions.html">
+    <a class="reference internal" href="06_solutions.html">
      Solutions
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06_summary.html">
+  <a class="reference internal" href="07_summary.html">
    Summary
   </a>
  </li>
@@ -179,7 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/04_distributed.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/05_distributed.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -199,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/lukeconibear/intro_ml/issues/new?title=Issue%20on%20page%20%2F04_distributed.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/lukeconibear/intro_ml/issues/new?title=Issue%20on%20page%20%2F05_distributed.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -220,7 +225,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/lukeconibear/intro_ml/main?urlpath=tree/docs/04_distributed.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/lukeconibear/intro_ml/main?urlpath=tree/docs/05_distributed.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -242,59 +247,62 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Distributed
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distributed-deep-learning">
-   Distributed deep learning
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checkpointing">
+   Checkpointing
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contents">
-     Contents
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensorboard">
+   TensorBoard
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-callbacks">
+   Example: Callbacks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   <span class="xref std std-ref">
+    Solutions
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-points">
+   Key Points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-information">
+   Further information
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-practices">
+     Good practices
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercises">
-     Exercises
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-options">
+     Other options
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solutions">
-     <span class="xref std std-ref">
-      Solutions
-     </span>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#key-points">
-     Key Points
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#further-information">
-     Further information
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#good-practices">
-       Good practices
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#other-options">
-       Other options
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#resources">
-       Resources
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -318,59 +326,62 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Distributed
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contents">
+   Contents
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distributed-deep-learning">
-   Distributed deep learning
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#checkpointing">
+   Checkpointing
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contents">
-     Contents
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensorboard">
+   TensorBoard
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-callbacks">
+   Example: Callbacks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solutions">
+   <span class="xref std std-ref">
+    Solutions
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-points">
+   Key Points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-information">
+   Further information
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#good-practices">
+     Good practices
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercises">
-     Exercises
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-options">
+     Other options
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solutions">
-     <span class="xref std std-ref">
-      Solutions
-     </span>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#key-points">
-     Key Points
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#further-information">
-     Further information
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#good-practices">
-       Good practices
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#other-options">
-       Other options
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#resources">
-       Resources
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -390,17 +401,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you&#39;re using colab, then install the required modules</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+
+<span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="o">%</span><span class="k">pip</span> install ...
+    <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>…</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="distributed-deep-learning">
-<h1>Distributed deep learning<a class="headerlink" href="#distributed-deep-learning" title="Permalink to this headline">¶</a></h1>
 <p>Examples of how to distribute deep learning on a High Performance Computer (HPC).</p>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
@@ -454,17 +463,85 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># distribution_strategy = tf.distribute.MirrorStratergy()</span>
 <span class="c1"># with distribution_strategy.scope():</span>
+<span class="c1">#     # Everything that creates variables should be under the strategy scope.</span>
+<span class="c1">#     # In general this is only model construction and compile()</span>
 <span class="c1">#     model = build_model()</span>
 <span class="c1">#     model.compile(optimiser, loss)</span>
-<span class="c1">#     model.fit(dataset, epochs=epochs, callbacks=callbacks)</span>
+<span class="c1">#     model.fit(dataset, epochs=epochs, callbacks=callbacks)  </span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>should the <code class="docutils literal notranslate"><span class="pre">model.fit</span></code> call be inside or outside the scope?</p>
 <p>#$ -cwd</p>
 <p>not</p>
 <p>#$ -cwd -V</p>
 <p>so have to specific the reproducible environment with the job submission (not copied over from the terminal)</p>
+</div>
+<div class="section" id="checkpointing">
+<h2>Checkpointing<a class="headerlink" href="#checkpointing" title="Permalink to this headline">¶</a></h2>
+<p>For longer or distributed training, it’s helpful to save the model at regular intervals in case it crashes during training.</p>
+<p>This is model checkpointing, and is done via callbacks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_model_checkpoint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="o">=</span><span class="s1">&#39;path/to/my/model_</span><span class="si">{epoch}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">save_freq</span><span class="o">=</span><span class="s1">&#39;epoch&#39;</span>  <span class="c1"># save a model version at the end of each epoch</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tensorboard">
+<h2>TensorBoard<a class="headerlink" href="#tensorboard" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_tensorboard</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">log_dir</span><span class="o">=</span><span class="s1">&#39;./logs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>View them with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">tensorboard</span> <span class="pre">--logdir=./logs</span></code></p>
+<p>Also, in-line in <a class="reference external" href="https://www.tensorflow.org/tensorboard/tensorboard_in_notebooks">Jupyter Notebooks / Google Colab</a></p>
+</div>
+<div class="section" id="example-callbacks">
+<h2>Example: Callbacks<a class="headerlink" href="#example-callbacks" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">callback_model_checkpoint</span><span class="p">,</span>
+    <span class="n">callback_tensorboard</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.fit(dataset, epochs=2, callbacks=callbacks)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
@@ -474,7 +551,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="solutions">
-<h2><a class="reference internal" href="05_solutions.html#distributed"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference internal" href="06_solutions.html#distributed"><span class="std std-ref">Solutions</span></a><a class="headerlink" href="#solutions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="key-points">
 <h2>Key Points<a class="headerlink" href="#key-points" title="Permalink to this headline">¶</a></h2>
@@ -534,14 +611,14 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="03_models.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04_models.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Models</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="05_solutions.html" title="next page">
+    <a class='right-next' id="next-link" href="06_solutions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Solutions</p>
