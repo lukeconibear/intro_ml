@@ -13,14 +13,27 @@ Click [here](...) to book.
 
 At the end of this workshop, learners will be able to:
 
-1. [ ] ...
-2. [ ] ...
-3. [ ] ...  
-4. [ ] ...
+1. [ ] Understand the fundamentals of machine learning and deep learning.
+2. [ ] Understand how to use key tools, including:
+    - [ ] [scikit-learn](https://scikit-learn.org/stable/)
+    - [ ] [TensorFlow](https://www.tensorflow.org/)
+    - [ ] [PyTorch](https://pytorch.org/)
+    - [ ] [JAX](https://jax.readthedocs.io/en/latest/)
+3. [ ] Understand how to use currated datasets
+4. [ ] Understand how to use pre-trained models.
+5. [ ] Understand how to do distribute training.
 
 ## Prerequisites
 
-We recommend that attendees have a working knowledge of the Unix shell (although this is not essential) and are proficient Python programmers. If you need to learn how to program in Python, please attend SWD1a: Introduction to Python programming. It is strongly recommended that you bring your own laptop to this workshop with some specific software installed. Further information will be provided when you are accepted onto the course.
+We recommend that attendees have a working knowledge of Python, Linux, and HPC (High Performance Computing).  
+If you need to learn any of these, then please consider attending the appropriate course:
+
+- [SWD1a: Introduction to Python programming](https://arc.leeds.ac.uk/training/courses/swd1a/)
+- [HPC0: Introduction to Linux for HPC](https://arc.leeds.ac.uk/training/courses/hpc0/)
+- [HPC1: Introduction to High Performance Computing](https://arc.leeds.ac.uk/training/courses/hpc1/)
+
+It is strongly recommended that you bring your own laptop to this workshop with some specific software installed.
+Further information will be provided when you are accepted onto the course.
 
 ## Duration
 
