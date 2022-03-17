@@ -539,33 +539,41 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://keras.io/">Keras</a>.</p></li>
 <li><p><a class="reference external" href="https://sonnet.readthedocs.io/en/latest/">Sonnet</a></p></li>
 </ul>
-<p>…</p>
+<p>Keras includes a wide range of high-level objects including:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://keras.io/api/callbacks/">Callbacks</a></p>
+<li><p>Layers</p>
 <ul>
-<li><p>Callbacks are objects that get called by the model at different points during training, in particular after each batch or epoch e.g., saving a model.</p></li>
+<li><p>Convolutional e.g., Conv2D</p></li>
+<li><p>Pooling e.g., MaxPooling2D</p></li>
+<li><p>RNN e.g., GRU, LSTM</p></li>
+<li><p>BatchNormalization, Dropout, Embedding, etc.</p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://keras.io/keras_tuner/">Keras Tuner</a></p>
+<li><p>Optimisers e.g., SGD, Adam</p></li>
+<li><p>Losses e.g., MeanSquaredError</p></li>
+<li><p>Metrics e.g., AUC, Precision, Recall</p></li>
+</ul>
+<p>You can always go to the lower-level API, which is useful for custom objects.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://blog.tensorflow.org/2019/01/what-are-symbolic-and-imperative-apis.html">Model subclassing</a></p>
 <ul>
-<li><p>For hyperparameter optimisation.</p></li>
+<li><p>Similar to PyTorch</p></li>
 </ul>
 </li>
-</ul>
-<p>You can always go to the lower-level API if you want or need to.</p>
-<ul class="simple">
 <li><p><a class="reference external" href="https://www.tensorflow.org/guide/autodiff">Automatic differention</a> with <code class="docutils literal notranslate"><span class="pre">tf.GradientTape()</span></code></p></li>
 <li><p>…</p></li>
 </ul>
 <p>There are many <a class="reference external" href="https://www.tensorflow.org/resources/libraries-extensions">libraries and extensions</a> including:</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://keras.io/keras_tuner/">Keras Tuner</a> for hyperparameter optimisation.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/tfx">TensorFlow Extended</a> for deployment.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/lite/guide">TensorFlow Lite</a> for mobile and IoT (internet of things) devices.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/probability">TensorFlow Probability</a> for probabilistic reasoning.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/tensorboard">TensorBoard</a> for visualising the experiment results.</p></li>
 </ul>
-<p>A model contains multiple layers of input-output transformations.</p>
-<p>It can be built using either the <a class="reference external" href="https://keras.io/guides/sequential_model/">Sequential</a> or <a class="reference external" href="https://keras.io/guides/functional_api/">Functional</a> API (application programming interface).</p>
+<p>A model consists of many layers.</p>
+<p>Each layer is an input-output transformation.</p>
+<p>These models and layers can be built using either the <a class="reference external" href="https://keras.io/guides/sequential_model/">Sequential</a> or <a class="reference external" href="https://keras.io/guides/functional_api/">Functional</a> API (application programming interface).</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Sequential</p></th>
@@ -574,13 +582,14 @@ const thebe_selector_output = ".output, .cell_output"
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Linear stack of layers.</p></td>
-<td><p>Non-linear DAG (directed acyclic graph) of layers.</p></td>
+<td><p>Non-linear DAG (directed acyclic graph) of layers (can be shared).</p></td>
 </tr>
 <tr class="row-odd"><td><p>Each layer has one input and one output.</p></td>
 <td><p>Each layer can have multiple inputs and outputs.</p></td>
 </tr>
 </tbody>
 </table>
+<p>Hence, the Sequential API is simpler and the Functional API is more flexible and suitable for complicated models.</p>
 </div>
 <div class="section" id="pytorch">
 <h3><a class="reference external" href="https://pytorch.org/">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
@@ -603,7 +612,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p>You can always go to the lower-level API if you want or need to.</p>
+<p>You can always go to the lower-level API, which is useful for custom objects.</p>
 <ul class="simple">
 <li><p>…</p></li>
 </ul>
@@ -740,7 +749,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.98879642])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.93700795])
 </pre></div>
 </div>
 </div>
@@ -756,18 +765,64 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-17 12:03:00.999290: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-17 12:03:00.999305: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div>
 </div>
+</div>
+</div>
+<p>Create the model.</p>
+<p>It’s helpful to name the layers in the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
     <span class="p">[</span>
-        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;input&quot;</span><span class="p">),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer1&quot;</span><span class="p">),</span>
     <span class="p">]</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>You can now show the model summary.</p>
+<p>Note, this only shows layers (not the <code class="docutils literal notranslate"><span class="pre">Input</span></code> object).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_6&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ layer1 (Dense)              (None, 1)                 2         
+                                                                 
+=================================================================
+Total params: 2
+Trainable params: 2
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also show the model graph:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_model</span><span class="p">(</span><span class="n">model_tf</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02_tools_29_0.png" src="_images/02_tools_29_0.png" />
+</div>
+</div>
+<p>Now, compile the model.</p>
+<p>The keyword arguments to <code class="docutils literal notranslate"><span class="pre">optimizer</span></code>, <code class="docutils literal notranslate"><span class="pre">loss</span></code>, and <code class="docutils literal notranslate"><span class="pre">metrics</span></code> can either be strings (e.g., <code class="docutils literal notranslate"><span class="pre">mean_squared_error</span></code>) or TensorFlow objects (e.g., <code class="docutils literal notranslate"><span class="pre">tf.keras.metrics.mean_squared_error</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
@@ -779,6 +834,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>And, train the model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
@@ -791,28 +847,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_13&quot;
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- dense_25 (Dense)            (None, 1)                 2         
-                                                                 
-=================================================================
-Total params: 2
-Trainable params: 2
-Non-trainable params: 0
-_________________________________________________________________
-</pre></div>
-</div>
-</div>
-</div>
 <p>And, let’s see what this model though the gradient was:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -821,7 +855,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9628525]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.8544292]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -878,7 +912,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_35_0.png" src="_images/02_tools_35_0.png" />
+<img alt="_images/02_tools_41_0.png" src="_images/02_tools_41_0.png" />
 </div>
 </div>
 <p>They both did a good job of fitting a function to the data.</p>
@@ -923,7 +957,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_43_0.png" src="_images/02_tools_43_0.png" />
+<img alt="_images/02_tools_49_0.png" src="_images/02_tools_49_0.png" />
 </div>
 </div>
 <p>Preprocess and split the data:</p>
@@ -957,6 +991,7 @@ _________________________________________________________________
 </div>
 <p>Create a model.</p>
 <p>Here, we will use a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">Support Vector Classifier</a> (a type of support vector machine).</p>
+<p>This model focuses on the two hardest to classify examples and places support vectors between them to form the decision boundary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
@@ -1005,7 +1040,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_56_0.png" src="_images/02_tools_56_0.png" />
+<img alt="_images/02_tools_62_0.png" src="_images/02_tools_62_0.png" />
 </div>
 </div>
 <p>How well did our model do overall?</p>
@@ -1036,7 +1071,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_61_0.png" src="_images/02_tools_61_0.png" />
+<img alt="_images/02_tools_67_0.png" src="_images/02_tools_67_0.png" />
 </div>
 </div>
 <p>We can see that the although the model did well, it struggled with 3’s by confusing them with 5’s, 7’s, and 8’s.</p>
@@ -1118,7 +1153,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_78_0.png" src="_images/02_tools_78_0.png" />
+<img alt="_images/02_tools_84_0.png" src="_images/02_tools_84_0.png" />
 </div>
 </div>
 <p>Preprocess the data:</p>
@@ -1148,17 +1183,55 @@ _________________________________________________________________
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sequential API</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
     <span class="p">[</span>
-        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
-        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
-        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">train_images</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;input&quot;</span><span class="p">),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer1&quot;</span><span class="p">),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer2&quot;</span><span class="p">),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="p">),</span>
     <span class="p">]</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can now also check the model summary and visualise the architecure:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_9&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ layer1 (Dense)              (None, 128)               100480    
+                                                                 
+ layer2 (Dense)              (None, 128)               16512     
+                                                                 
+ output (Dense)              (None, 10)                1290      
+                                                                 
+=================================================================
+Total params: 118,282
+Trainable params: 118,282
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">plot_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02_tools_92_0.png" src="_images/02_tools_92_0.png" />
+</div>
+</div>
 <p>Compile the model.</p>
-<p>You can add debugging by including <code class="docutils literal notranslate"><span class="pre">run_eagerly=True</span></code>.</p>
+<p>It’s useful to name the metrics, especially if there’s more than one.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
@@ -1172,6 +1245,7 @@ _________________________________________________________________
 </div>
 <p>Fit the model to the training data.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">fit()</span></code> call returns a <code class="docutils literal notranslate"><span class="pre">history</span></code> object.</p>
+<p>Note, the <code class="docutils literal notranslate"><span class="pre">validation_split</span></code> keyword argument can only be used for NumPy training data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
@@ -1180,6 +1254,7 @@ _________________________________________________________________
     <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>  <span class="c1"># how many runs through the data</span>
     <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>  <span class="c1"># how many samples in each batch</span>
     <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># print the output from each epoch</span>
+    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># automatically set apart a validation set: 0.2 means 20% for validation</span>
 <span class="p">);</span>
 </pre></div>
 </div>
@@ -1193,34 +1268,10 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.10573253035545349, 0.0731915533542633],
- &#39;accuracy&#39;: [0.9682833552360535, 0.9775999784469604]}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_16&quot;
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- dense_31 (Dense)            (None, 128)               100480    
-                                                                 
- dense_32 (Dense)            (None, 128)               16512     
-                                                                 
- dense_33 (Dense)            (None, 10)                1290      
-                                                                 
-=================================================================
-Total params: 118,282
-Trainable params: 118,282
-Non-trainable params: 0
-_________________________________________________________________
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.0, 0.0],
+ &#39;accuracy&#39;: [0.9145208597183228, 0.9637083411216736],
+ &#39;val_loss&#39;: [0.0, 0.0],
+ &#39;val_accuracy&#39;: [0.9545833468437195, 0.9672499895095825]}
 </pre></div>
 </div>
 </div>
@@ -1241,9 +1292,9 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.2898558e-07, 2.1276440e-08, 6.6378278e-05, 7.9241645e-06,
-       7.5214918e-11, 2.5824406e-07, 3.2321002e-13, 9.9992490e-01,
-       1.2244121e-07, 2.5745223e-07], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.9491919e-06, 5.4175072e-08, 1.8430377e-05, 3.3813540e-05,
+       6.8159501e-08, 2.8041992e-08, 7.2338489e-11, 9.9994075e-01,
+       1.4026547e-07, 3.6593017e-06], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1275,7 +1326,7 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_98_0.png" src="_images/02_tools_98_0.png" />
+<img alt="_images/02_tools_106_0.png" src="_images/02_tools_106_0.png" />
 </div>
 </div>
 <p>Nice.</p>
@@ -1308,7 +1359,7 @@ Test accuracy (R2): 0.9769999980926514
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_103_0.png" src="_images/02_tools_103_0.png" />
+<img alt="_images/02_tools_111_0.png" src="_images/02_tools_111_0.png" />
 </div>
 </div>
 <p>This model did well for most digits, though struggled a bit with 5’s.</p>
@@ -1338,7 +1389,13 @@ Test accuracy (R2): 0.9769999980926514
 <div class="section" id="good-practices">
 <h3>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>…</p></li>
+<li><p>Debugging (tips for <a class="reference external" href="https://keras.io/examples/keras_recipes/debugging_tips/">Keras</a>):</p>
+<ul>
+<li><p>Test each part individually, before testing the whole.</p></li>
+<li><p>Check the model summary and visualise the architecture.</p></li>
+<li><p>Use debug modes (e.g., add <code class="docutils literal notranslate"><span class="pre">run_eagerly=True</span></code> with the call to <code class="docutils literal notranslate"><span class="pre">fit()</span></code> in Keras.)</p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="other-options">

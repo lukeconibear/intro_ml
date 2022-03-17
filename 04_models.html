@@ -258,6 +258,43 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callbacks">
+   Callbacks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpointing">
+     Checkpointing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensorboard-and-profiling">
+     Tensorboard and Profiling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metric-threshold">
+     Metric threshold
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-rate-decay">
+     Learning rate decay
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-callbacks">
+     Example: Callbacks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling">
+   Compiling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -341,6 +378,43 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pretrained">
    Pretrained
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callbacks">
+   Callbacks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpointing">
+     Checkpointing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensorboard-and-profiling">
+     Tensorboard and Profiling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metric-threshold">
+     Metric threshold
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-rate-decay">
+     Learning rate decay
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-callbacks">
+     Example: Callbacks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling">
+   Compiling
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -444,6 +518,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p><a class="reference external" href="https://keras.io/keras_tuner/">https://keras.io/keras_tuner/</a></p>
 <p>…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -574,6 +649,7 @@ Returns:
 </div>
 </div>
 </div>
+<p><a class="reference external" href="https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/">https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conv_base</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">applications</span><span class="o">.</span><span class="n">vgg16</span><span class="o">.</span><span class="n">VGG16</span><span class="p">(</span>
@@ -659,6 +735,187 @@ _________________________________________________________________
 <h2>Pretrained<a class="headerlink" href="#pretrained" title="Permalink to this headline">¶</a></h2>
 <p>…</p>
 <p>example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-17 16:27:12.602805: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-17 16:27:12.602823: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Load a convolutional base with pre-trained weights</span>
+<span class="c1"># base_model = tf.keras.applications.Xception(</span>
+<span class="c1">#     weights=&#39;imagenet&#39;,</span>
+<span class="c1">#     include_top=False,</span>
+<span class="c1">#     pooling=&#39;avg&#39;)</span>
+
+<span class="c1"># # Freeze the base model</span>
+<span class="c1"># base_model.trainable = False</span>
+
+<span class="c1"># Use a Sequential model to add a trainable classifier on top</span>
+<span class="c1"># model = tf.keras.Sequential(</span>
+<span class="c1">#     [</span>
+<span class="c1">#         base_model,</span>
+<span class="c1">#         tf.keras.layers.Dense(1000),</span>
+<span class="c1">#     ]</span>
+<span class="c1"># )</span>
+
+<span class="c1"># # Compile &amp; train</span>
+<span class="c1"># model.compile(...)</span>
+<span class="c1"># model.fit(...)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.summary()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ xception (Functional)       (None, 2048)              20861480  
+                                                                 
+ dense (Dense)               (None, 1000)              2049000   
+                                                                 
+=================================================================
+Total params: 22,910,480
+Trainable params: 2,049,000
+Non-trainable params: 20,861,480
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="callbacks">
+<h2><a class="reference external" href="https://keras.io/api/callbacks/">Callbacks</a><a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h2>
+<p>Callbacks are objects that get called by the model at different points during training, in particular after each batch or epoch.</p>
+<p>For example, they could be used to:</p>
+<ul class="simple">
+<li><p>Save a model version at regularly intervals or once attained a metric threshold (i.e., checkpointing).</p></li>
+<li><p>Monitor and profile the training progress (i.e., TensorBoard)</p></li>
+<li><p>Change the learning rate when training plateaus.</p></li>
+<li><p>Fine tuning when the training plateaus.</p></li>
+</ul>
+<div class="section" id="checkpointing">
+<h3>Checkpointing<a class="headerlink" href="#checkpointing" title="Permalink to this headline">¶</a></h3>
+<p>For longer or distributed training, it’s helpful to save the model (/ model weights) at regular intervals in case it crashes during training (i.e. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint">model checkpointing</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_model_checkpoint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;models/model_</span><span class="si">{epoch}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">save_freq</span><span class="o">=</span><span class="s2">&quot;epoch&quot;</span><span class="p">,</span>  <span class="c1"># save a model version at the end of each epoch</span>
+    <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># only save a model if val_accuracy improved</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tensorboard-and-profiling">
+<h3>Tensorboard and Profiling<a class="headerlink" href="#tensorboard-and-profiling" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.tensorflow.org/tensorboard">TensorBoard</a> is a browser-based application that provides live plots of loss and metrics for training and evaluation.</p>
+<p>You can add <a class="reference external" href="https://www.tensorflow.org/guide/profiler">profiling</a> too.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_tensorboard_with_profiling</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span>
+    <span class="n">log_dir</span><span class="o">=</span><span class="s2">&quot;logs&quot;</span><span class="p">,</span>
+    <span class="n">profile_batch</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="c1"># profile batches 1 to 5</span>
+    <span class="n">update_freq</span><span class="o">=</span><span class="s2">&quot;epoch&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-17 18:23:38.197379: I tensorflow/core/profiler/lib/profiler_session.cc:110] Profiler session initializing.
+2022-03-17 18:23:38.197406: I tensorflow/core/profiler/lib/profiler_session.cc:125] Profiler session started.
+2022-03-17 18:23:38.197650: I tensorflow/core/profiler/lib/profiler_session.cc:143] Profiler session tear down.
+</pre></div>
+</div>
+</div>
+</div>
+<p>View them with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !tensorboard --logdir=/full_path_to_your_logs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also, in-line in <a class="reference external" href="https://www.tensorflow.org/tensorboard/tensorboard_in_notebooks">Jupyter Notebooks / Google Colab</a></p>
+</div>
+<div class="section" id="metric-threshold">
+<h3>Metric threshold<a class="headerlink" href="#metric-threshold" title="Permalink to this headline">¶</a></h3>
+<p>Stop training when a monitored metric has stopped improving (i.e., <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping">early stopping</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_accuracy_threshold</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">,</span>  <span class="c1"># quantity to be monitored</span>
+    <span class="n">min_delta</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>  <span class="c1"># &quot;no longer improving&quot; means &quot;stopped improving by at least 1e-2&quot;</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>  <span class="c1"># &quot;no longer improving&quot; also means &quot;for at least 2 epochs&quot;</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="learning-rate-decay">
+<h3>Learning rate decay<a class="headerlink" href="#learning-rate-decay" title="Permalink to this headline">¶</a></h3>
+<p>Reduce learning rate when a metric has stopped improving (i.e., <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ReduceLROnPlateau">reduce the learning rate on plateau</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_learning_rate_decay</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">,</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">factor</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># factor by which the learning rate will be reduced: new_lr = lr * factor</span>
+    <span class="n">min_lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>  <span class="c1"># lower bound on the learning rate</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-callbacks">
+<h3>Example: Callbacks<a class="headerlink" href="#example-callbacks" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">callback_model_checkpoint</span><span class="p">,</span>
+    <span class="n">callback_tensorboard_with_profiling</span><span class="p">,</span>
+    <span class="n">callback_accuracy_threshold</span><span class="p">,</span>
+    <span class="n">callback_learning_rate_decay</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.fit(dataset, epochs=5, callbacks=callbacks)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compiling">
+<h2>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">¶</a></h2>
+<p>Compile any function in TensorFlow by wrapping it in the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/function"><code class="docutils literal notranslate"><span class="pre">&#64;tf.function</span></code></a> decorator.</p>
+<p>This convert it to a static graph.</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
@@ -685,7 +942,6 @@ _________________________________________________________________
 <h3>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>See if there is a model architecture (and parameters) that already addresses the task.</p></li>
-<li><p>…</p></li>
 </ul>
 </div>
 <div class="section" id="other-options">

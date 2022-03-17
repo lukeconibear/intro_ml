@@ -549,9 +549,21 @@ array([[ 1.2764754 , -0.6551445 , -0.00389835],
 <h2>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h2>
 <p>Keras models accept three types of inputs:</p>
 <ul class="simple">
-<li><p>NumPy arrays, just like Scikit-Learn and many other Python-based libraries. This is a good option if your data fits in memory.</p></li>
-<li><p>TensorFlow Dataset objects. This is a high-performance option that is more suitable for datasets that do not fit in memory and that are streamed from disk or from a distributed filesystem.</p></li>
-<li><p>Python generators that yield batches of data (such as custom subclasses of the keras.utils.Sequence class).</p></li>
+<li><p>NumPy arrays</p>
+<ul>
+<li><p>Suitable for when the data fits in memory.</p></li>
+</ul>
+</li>
+<li><p>TensorFlow Dataset objects</p>
+<ul>
+<li><p>Suitable for datasets that do not fit in memory and that are streamed from disk or from a distributed filesystem.</p></li>
+</ul>
+</li>
+<li><p>Python generators</p>
+<ul>
+<li><p>Suitable for custom processing yielding batches of data (subclasses of <code class="docutils literal notranslate"><span class="pre">tf.keras.utils.Sequence</span></code> class).</p></li>
+</ul>
+</li>
 </ul>
 <p>If you have a large dataset and you are training on GPU(s), consider using <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects, since they will take care of performance-critical details, such as:</p>
 <ul class="simple">

@@ -248,26 +248,6 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contents">
-   Contents
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#checkpointing">
-   Checkpointing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensorboard">
-   TensorBoard
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-callbacks">
-   Example: Callbacks
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -326,26 +306,6 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contents">
-   Contents
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#checkpointing">
-   Checkpointing
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensorboard">
-   TensorBoard
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-callbacks">
-   Example: Callbacks
-  </a>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
@@ -411,26 +371,24 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>…</p>
 <p>Examples of how to distribute deep learning on a High Performance Computer (HPC).</p>
-<div class="section" id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <p>These examples use <a class="reference external" href="https://docs.ray.io/en/latest/train/train.html">Ray Train</a> in a static job on a HPC. Ray handles most of the complexity of distributing the work, with minimal changes to your <a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras">TensorFlow</a> or <a class="reference external" href="https://pytorch.org/tutorials/beginner/dist_overview.html">PyTorch</a> code.</p>
-<p>First, install the Python environments for the required HPC: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/install_python_environments.md"><code class="docutils literal notranslate"><span class="pre">install_python_environments.md</span></code></a>.</p>
+<p>First, install the Python environments for the required HPC: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/install_python_environments.md"><code class="docutils literal notranslate"><span class="pre">install_python_environments.md</span></code></a>.</p>
 <ul class="simple">
 <li><p>Python script examples:</p>
 <ul>
 <li><p>TensorFlow</p>
 <ul>
-<li><p>MNIST end-to-end: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/tensorflow_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_mnist_example.py</span></code></a>.</p></li>
-<li><p>MNIST tuning: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/tensorflow_tune_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_tune_mnist_example.py</span></code></a>.</p></li>
-<li><p>Train linear model with Ray Datasets: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/tensorflow_linear_dataset_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_linear_dataset_example.py</span></code></a>.</p></li>
+<li><p>MNIST end-to-end: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/tensorflow_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_mnist_example.py</span></code></a>.</p></li>
+<li><p>MNIST tuning: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/tensorflow_tune_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_tune_mnist_example.py</span></code></a>.</p></li>
+<li><p>Train linear model with Ray Datasets: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/tensorflow_linear_dataset_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_linear_dataset_example.py</span></code></a>.</p></li>
 </ul>
 </li>
 <li><p>PyTorch</p>
 <ul>
-<li><p>Linear: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/pytorch_train_linear_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_train_linear_example.py</span></code></a>.</p></li>
-<li><p>Fashion MNIST: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/pytorch_train_fashion_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_train_fashion_mnist_example.py</span></code></a>.</p></li>
-<li><p>HuggingFace Transformer: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/pytorch_transformers_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_transformers_example.py</span></code></a>.</p></li>
-<li><p>Tune linear model with Ray Datasets: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/pytorch_tune_linear_dataset_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_tune_linear_dataset_example.py</span></code></a>.</p></li>
+<li><p>Linear: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/pytorch_train_linear_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_train_linear_example.py</span></code></a>.</p></li>
+<li><p>Fashion MNIST: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/pytorch_train_fashion_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_train_fashion_mnist_example.py</span></code></a>.</p></li>
+<li><p>HuggingFace Transformer: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/pytorch_transformers_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_transformers_example.py</span></code></a>.</p></li>
+<li><p>Tune linear model with Ray Datasets: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/pytorch_tune_linear_dataset_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_tune_linear_dataset_example.py</span></code></a>.</p></li>
 </ul>
 </li>
 </ul>
@@ -439,13 +397,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul>
 <li><p><a class="reference external" href="https://arcdocs.leeds.ac.uk/systems/arc4.html">ARC4</a> (SGE)</p>
 <ul>
-<li><p>CPU: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/ray_train_on_arc4_cpu.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_arc4_cpu.bash</span></code></a>.</p></li>
-<li><p>GPU: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/ray_train_on_arc4_gpu.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_arc4_gpu.bash</span></code></a>.</p></li>
+<li><p>CPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/ray_train_on_arc4_cpu.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_arc4_cpu.bash</span></code></a>.</p></li>
+<li><p>GPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/ray_train_on_arc4_gpu.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_arc4_gpu.bash</span></code></a>.</p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="https://bede-documentation.readthedocs.io/en/latest/">Bede</a> (SLURM)</p>
 <ul>
-<li><p>GPU: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/ray_train_on_bede.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_bede.bash</span></code></a>.</p></li>
+<li><p>GPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/ray_train_on_bede.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_bede.bash</span></code></a>.</p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="http://docs.jade.ac.uk/en/latest/index.html">JADE-2</a> (SLURM)</p>
@@ -456,7 +414,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p>It’s preferable to use a static job on the HPC. To do this, you could test out different ideas locally in a Jupyter Notebook, then when ready convert this to an executable script (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) and move it over. However, it is also possible to use Jupyter Notebooks interactively on the HPC following the instructions here: <a class="reference external" href="https://github.com/lukeconibear/distributed_deep_learning/blob/main/jupyter_notebook_to_hpc.md"><code class="docutils literal notranslate"><span class="pre">jupyter_notebook_to_hpc.md</span></code></a>.</p>
+<p>It’s preferable to use a static job on the HPC. To do this, you could test out different ideas locally in a Jupyter Notebook, then when ready convert this to an executable script (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) and move it over. However, it is also possible to use Jupyter Notebooks interactively on the HPC following the instructions here: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/jupyter_notebook_to_hpc.md"><code class="docutils literal notranslate"><span class="pre">jupyter_notebook_to_hpc.md</span></code></a>.</p>
 <p><a class="reference external" href="https://keras.io/guides/distributed_training/">https://keras.io/guides/distributed_training/</a></p>
 <p>Synchronous data-parallel training on all available GPUs:</p>
 <div class="cell docutils container">
@@ -477,72 +435,6 @@ const thebe_selector_output = ".output, .cell_output"
 <p>not</p>
 <p>#$ -cwd -V</p>
 <p>so have to specific the reproducible environment with the job submission (not copied over from the terminal)</p>
-</div>
-<div class="section" id="checkpointing">
-<h2>Checkpointing<a class="headerlink" href="#checkpointing" title="Permalink to this headline">¶</a></h2>
-<p>For longer or distributed training, it’s helpful to save the model at regular intervals in case it crashes during training.</p>
-<p>This is model checkpointing, and is done via callbacks.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_model_checkpoint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
-    <span class="n">filepath</span><span class="o">=</span><span class="s1">&#39;path/to/my/model_</span><span class="si">{epoch}</span><span class="s1">&#39;</span><span class="p">,</span>
-    <span class="n">save_freq</span><span class="o">=</span><span class="s1">&#39;epoch&#39;</span>  <span class="c1"># save a model version at the end of each epoch</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="tensorboard">
-<h2>TensorBoard<a class="headerlink" href="#tensorboard" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_tensorboard</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">log_dir</span><span class="o">=</span><span class="s1">&#39;./logs&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>View them with:</p>
-<p><code class="docutils literal notranslate"><span class="pre">tensorboard</span> <span class="pre">--logdir=./logs</span></code></p>
-<p>Also, in-line in <a class="reference external" href="https://www.tensorflow.org/tensorboard/tensorboard_in_notebooks">Jupyter Notebooks / Google Colab</a></p>
-</div>
-<div class="section" id="example-callbacks">
-<h2>Example: Callbacks<a class="headerlink" href="#example-callbacks" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">callback_model_checkpoint</span><span class="p">,</span>
-    <span class="n">callback_tensorboard</span><span class="p">,</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.fit(dataset, epochs=2, callbacks=callbacks)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-exercise-1 admonition">
