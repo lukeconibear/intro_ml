@@ -810,7 +810,7 @@ _________________________________________________________________
 <li><p>Fine tuning when the training plateaus.</p></li>
 </ul>
 <div class="section" id="checkpointing">
-<h3>Checkpointing<a class="headerlink" href="#checkpointing" title="Permalink to this headline">¶</a></h3>
+<h3><a class="reference external" href="https://www.tensorflow.org/guide/checkpoint">Checkpointing</a><a class="headerlink" href="#checkpointing" title="Permalink to this headline">¶</a></h3>
 <p>For longer or distributed training, it’s helpful to save the model (/ model weights) at regular intervals in case it crashes during training (i.e. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint">model checkpointing</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -915,7 +915,7 @@ _________________________________________________________________
 <div class="section" id="compiling">
 <h2>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">¶</a></h2>
 <p>Compile any function in TensorFlow by wrapping it in the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/function"><code class="docutils literal notranslate"><span class="pre">&#64;tf.function</span></code></a> decorator.</p>
-<p>This convert it to a static graph.</p>
+<p>This convert it from eager execution to a static graph.</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
