@@ -248,9 +248,117 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-loading">
-   Data loading
+  <a class="reference internal nav-link" href="#tensors">
+   Tensors
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy">
+     NumPy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensorflow">
+     TensorFlow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-pipelines">
+   Data pipelines
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-loading">
+     Data loading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map">
+     Map
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch">
+     Batch
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset-caching">
+     Dataset caching
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prefetch-data">
+     Prefetch data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-data-extraction">
+     Parallel data extraction
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-data-transformation">
+     Parallel data transformation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorise-mapping">
+     Vectorise mapping
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-preprocessing">
@@ -260,6 +368,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mixed-precision">
    Mixed precision
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensorflow-datasets">
+   TensorFlow Datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-augmentation">
+   Data augmentation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -312,7 +430,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tensorflow">
+      <a class="reference internal nav-link" href="#id9">
        TensorFlow
       </a>
      </li>
@@ -346,9 +464,117 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-loading">
-   Data loading
+  <a class="reference internal nav-link" href="#tensors">
+   Tensors
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy">
+     NumPy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tensorflow">
+     TensorFlow
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-pipelines">
+   Data pipelines
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-loading">
+     Data loading
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map">
+     Map
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch">
+     Batch
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataset-caching">
+     Dataset caching
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prefetch-data">
+     Prefetch data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-data-extraction">
+     Parallel data extraction
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallel-data-transformation">
+     Parallel data transformation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorise-mapping">
+     Vectorise mapping
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       TensorFlow
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-preprocessing">
@@ -358,6 +584,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mixed-precision">
    Mixed precision
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tensorflow-datasets">
+   TensorFlow Datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-augmentation">
+   Data augmentation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -410,7 +646,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tensorflow">
+      <a class="reference internal nav-link" href="#id9">
        TensorFlow
       </a>
      </li>
@@ -447,126 +683,54 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">torch</span>
+<div class="section" id="tensors">
+<h2>Tensors<a class="headerlink" href="#tensors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="numpy">
+<h3>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>  <span class="c1"># scalar</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>  <span class="c1"># vector</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># matrix</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">torch</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.60170661])
+<div class="section" id="tensorflow">
+<h3><a class="reference external" href="https://www.tensorflow.org/guide/tensor">TensorFlow</a><a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>  <span class="c1"># scalar</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>  <span class="c1"># vector</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># matrix</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([0.9826471], dtype=float32)&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.85227818, -0.01349722, -1.05771093])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([ 0.7847413, -0.5809721, -0.2452356], dtype=float32)&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.82254491, -1.22084365,  0.2088636 ],
-       [-1.95967012, -1.32818605,  0.19686124],
-       [ 0.73846658,  0.17136828, -0.11564828]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3, 3), dtype=float32, numpy=
-array([[ 1.2764754 , -0.6551445 , -0.00389835],
-       [ 0.45862213, -1.507044  ,  1.0932531 ],
-       [-0.45938343, -0.35318485, -0.3738681 ]], dtype=float32)&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://keras.io/api/data_loading/</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="data-loading">
-<h2>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h2>
-<p>Keras models accept three types of inputs:</p>
+<div class="section" id="data-pipelines">
+<h2>Data pipelines<a class="headerlink" href="#data-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>The data pipeline can be useful:</p>
 <ul class="simple">
-<li><p>NumPy arrays</p>
+<li><p>When the data does not fit in memory.</p></li>
+<li><p>When the data requires pre-processing.</p></li>
+<li><p>To efficiently use hardware.</p></li>
+</ul>
+<p>The steps can include:</p>
+<ul class="simple">
+<li><p>Extract e.g., read data from memory / storage.</p></li>
+<li><p>Transform e.g., pre-processing, batching, shuffling.</p></li>
+<li><p>Load e.g., transfer to GPU.</p></li>
+</ul>
+<div class="section" id="data-loading">
+<h3>Data loading<a class="headerlink" href="#data-loading" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://keras.io/api/data_loading/">Keras</a> models accept three types of inputs:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/guide/data#consuming_numpy_arrays">NumPy arrays</a></p>
 <ul>
 <li><p>Suitable for when the data fits in memory.</p></li>
 </ul>
 </li>
-<li><p>TensorFlow Dataset objects</p>
+<li><p><a class="reference external" href="https://www.tensorflow.org/guide/data#dataset_structure">TensorFlow Dataset objects</a></p>
 <ul>
 <li><p>Suitable for datasets that do not fit in memory and that are streamed from disk or from a distributed filesystem.</p></li>
 </ul>
 </li>
-<li><p>Python generators</p>
+<li><p><a class="reference external" href="https://www.tensorflow.org/guide/data#consuming_python_generators">Python generators</a></p>
 <ul>
 <li><p>Suitable for custom processing yielding batches of data (subclasses of <code class="docutils literal notranslate"><span class="pre">tf.keras.utils.Sequence</span></code> class).</p></li>
 </ul>
@@ -606,6 +770,89 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="map">
+<h3><a class="reference external" href="https://www.tensorflow.org/guide/data#preprocessing_data">Map</a><a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
+<p>Map a preprocessing function to a dataset.</p>
+<div class="section" id="id1">
+<h4>TensorFlow<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="batch">
+<h3><a class="reference external" href="https://www.tensorflow.org/guide/data#batching_dataset_elements">Batch</a><a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h3>
+<p>Split the data into batches.</p>
+<div class="section" id="id2">
+<h4>TensorFlow<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There are range of ways to <a class="reference external" href="https://www.tensorflow.org/guide/data_performance">improve the performance</a> of the data pipeline.</p>
+<p>In these examples, using <code class="docutils literal notranslate"><span class="pre">tf.data.AUTOTUNE</span></code> leaves the decision to TensorFlow.</p>
+</div>
+</div>
+<div class="section" id="dataset-caching">
+<span id="cache-prefetch"></span><h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#caching">Dataset caching</a><a class="headerlink" href="#dataset-caching" title="Permalink to this headline">¶</a></h3>
+<p>Cache the data after the first iteration through it. The data can be cached to either memory or a local file.</p>
+<p>This can improve performance when:</p>
+<ul class="simple">
+<li><p>The data is the same each iteration.</p></li>
+<li><p>The data is read from a remote distributed filesystem.</p></li>
+<li><p>The data is I/O (input/output) bound and will fit in memory.</p></li>
+</ul>
+<div class="section" id="id3">
+<h4>TensorFlow<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prefetch-data">
+<h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#prefetching">Prefetch data</a><a class="headerlink" href="#prefetch-data" title="Permalink to this headline">¶</a></h3>
+<p>Prefect the next batch to save time waiting for it.</p>
+<div class="section" id="id4">
+<h4>TensorFlow<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="parallel-data-extraction">
+<h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#parallelizing_data_extraction">Parallel data extraction</a><a class="headerlink" href="#parallel-data-extraction" title="Permalink to this headline">¶</a></h3>
+<p>Extract the data in parallel.</p>
+<div class="section" id="id5">
+<h4>TensorFlow<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">interleave</span><span class="p">(</span>
+    <span class="n">build_dataset</span><span class="p">,</span> 
+    <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="parallel-data-transformation">
+<h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#parallelizing_data_transformation">Parallel data transformation</a><a class="headerlink" href="#parallel-data-transformation" title="Permalink to this headline">¶</a></h3>
+<p>Pre-process your data in parallel.</p>
+<div class="section" id="id6">
+<h4>TensorFlow<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="n">function</span><span class="p">,</span> 
+    <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="vectorise-mapping">
+<h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#vectorizing_mapping">Vectorise mapping</a><a class="headerlink" href="#vectorise-mapping" title="Permalink to this headline">¶</a></h3>
+<p>Batch <em>before</em> mapping, to vectorise a function.</p>
+<div class="section" id="id7">
+<h4>TensorFlow<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>jit compile</p>
 <p>model = build_model()
 model.compile(
@@ -614,6 +861,8 @@ loss,
 jit_compile=True  # this step
 )
 model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
+</div>
+</div>
 </div>
 <div class="section" id="data-preprocessing">
 <h2>Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
@@ -624,7 +873,7 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </ul>
 </div>
 <div class="section" id="mixed-precision">
-<h2>Mixed precision<a class="headerlink" href="#mixed-precision" title="Permalink to this headline">¶</a></h2>
+<h2><a class="reference external" href="https://www.tensorflow.org/guide/mixed_precision">Mixed precision</a><a class="headerlink" href="#mixed-precision" title="Permalink to this headline">¶</a></h2>
 <p>…</p>
 <p>from tensorflow.keras import mixed_precision</p>
 <p>mixed_precision.set_policy(‘mixed_float16’)</p>
@@ -632,12 +881,34 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 model = build_model()
 model.compile(optimiser, loss)
 model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-21 17:53:17.647368: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-21 17:53:17.647400: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>datasets</p></li>
 <li><p>data centric AI hub videos</p></li>
 <li><p>efficient feeding of data into GPUs</p></li>
 <li><p>pipelines for large data I/O into GPUs using compression/decompression, Ray datasets</p></li>
 </ul>
+</div>
+<div class="section" id="tensorflow-datasets">
+<h2>TensorFlow Datasets<a class="headerlink" href="#tensorflow-datasets" title="Permalink to this headline">¶</a></h2>
+<p>…</p>
+</div>
+<div class="section" id="data-augmentation">
+<span id="id8"></span><h2>Data augmentation<a class="headerlink" href="#data-augmentation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="synthetic-data">
 <h3>Synthetic data<a class="headerlink" href="#synthetic-data" title="Permalink to this headline">¶</a></h3>
 <p>…</p>
@@ -654,12 +925,17 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <p>Check whether you have a GPU:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s2">&quot;GPU&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;Yes, there are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">))</span><span class="si">}</span><span class="s2"> GPUs available.&quot;</span>
-    <span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No, GPUs are not available.&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num GPUs Available:  0
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-21 17:53:20.480756: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-03-21 17:53:20.480789: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-21 17:53:20.480807: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az135-619): /proc/driver/nvidia/version does not exist
 </pre></div>
 </div>
 </div>
@@ -681,7 +957,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>…</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use a data pipeline.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Optimise the data pipeline with caching, prefetching, parallel extraction, parallel preprocessing, and vectorised mapping.</em></p></li>
 </ul>
 </div>
 </div>
@@ -691,6 +968,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <h3>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Do data processing as part of the model to increase portability and reproducibility.</p></li>
+<li><p>Analyse data pipeline performance with <a class="reference external" href="https://www.tensorflow.org/guide/data_performance_analysis">TensorBoard Profiler</a>.</p></li>
+<li><p>Use sparse tensors when there are many zeros / np.nans (e.g., <a class="reference external" href="https://www.tensorflow.org/guide/sparse_tensor">TensorFlow</a>).</p></li>
 <li><p>…</p></li>
 </ul>
 </div>
@@ -713,8 +992,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <li><p><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle Datasets</a></p></li>
 </ul>
 </div>
-<div class="section" id="tensorflow">
-<h4>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id9">
+<h4>TensorFlow<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.tensorflow.org/datasets">TensorFlow official datasets</a></p></li>
 </ul>

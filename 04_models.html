@@ -251,11 +251,30 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#hyperparameter-tuning">
    Hyperparameter tuning
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-options">
+     Other options
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pretrained">
-   Pretrained
+  <a class="reference internal nav-link" href="#id1">
+   …
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transfer-learning">
+   Transfer learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-transfer-learning">
+     Example: Transfer learning
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#callbacks">
@@ -322,7 +341,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-options">
+    <a class="reference internal nav-link" href="#id2">
      Other options
     </a>
    </li>
@@ -374,11 +393,30 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#hyperparameter-tuning">
    Hyperparameter tuning
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-options">
+     Other options
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pretrained">
-   Pretrained
+  <a class="reference internal nav-link" href="#id1">
+   …
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transfer-learning">
+   Transfer learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-transfer-learning">
+     Example: Transfer learning
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#callbacks">
@@ -445,7 +483,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-options">
+    <a class="reference internal nav-link" href="#id2">
      Other options
     </a>
    </li>
@@ -500,25 +538,398 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="hyperparameter-tuning">
 <h2>Hyperparameter tuning<a class="headerlink" href="#hyperparameter-tuning" title="Permalink to this headline">¶</a></h2>
 <p>Choosing the best model</p>
-<p><code class="docutils literal notranslate"><span class="pre">keras_tuner</span></code></p>
+<p><a class="reference external" href="https://keras.io/guides/keras_tuner/getting_started/">KerasTuner</a></p>
+<div class="section" id="other-options">
+<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/model_optimization">TensorFlow Model Optimisation Toolkit</a></p>
+<ul>
+<li><p>A suite of tools for optimising machine learning models.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://autokeras.com/">AutoKeras</a></p>
+<ul>
+<li><p>An AutoML system to automate the building of the machine learning model.</p></li>
+</ul>
+</li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keras_tuner</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">keras_tuner</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-21 17:53:24.889940: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-21 17:53:24.889974: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Build the model with the <code class="docutils literal notranslate"><span class="pre">hyperparameters</span></code> option.</p>
+<ul class="simple">
+<li><p>The number of units.</p></li>
+<li><p>The activation function to use</p></li>
+<li><p>Whether to use dropout.</p></li>
+<li><p>The optimiser learning rate.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_model</span><span class="p">(</span><span class="n">hyperparameters</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span>
+            <span class="n">units</span><span class="o">=</span><span class="n">hyperparameters</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">32</span><span class="p">),</span>
+            <span class="n">activation</span><span class="o">=</span><span class="n">hyperparameters</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="s2">&quot;activation&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="s2">&quot;tanh&quot;</span><span class="p">]),</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">hyperparameters</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="s2">&quot;dropout&quot;</span><span class="p">):</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">))</span>
+    <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">hyperparameters</span><span class="o">.</span><span class="n">Float</span><span class="p">(</span>
+        <span class="s2">&quot;lr&quot;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span> <span class="n">sampling</span><span class="o">=</span><span class="s2">&quot;log&quot;</span>
+    <span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">),</span>
+        <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;categorical_crossentropy&quot;</span><span class="p">,</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, prepare a directory to store all the hyperparameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">hyperparameters_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/../models/hyperparameters&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">hyperparameters_path</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">hyperparameters_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, initialise the tuner:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuner</span> <span class="o">=</span> <span class="n">keras_tuner</span><span class="o">.</span><span class="n">RandomSearch</span><span class="p">(</span>
+    <span class="n">hypermodel</span><span class="o">=</span><span class="n">build_model</span><span class="p">,</span>  <span class="c1"># the model building function</span>
+    <span class="n">objective</span><span class="o">=</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">,</span>  <span class="c1"># the objective to optimise</span>
+    <span class="n">max_trials</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="c1"># the number of trials for the search</span>
+    <span class="n">executions_per_trial</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>  <span class="c1"># the number of models to build and fit per trial</span>
+    <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># whether to overwrite previous results</span>
+    <span class="n">directory</span><span class="o">=</span><span class="n">hyperparameters_path</span><span class="p">,</span>  <span class="c1"># the path for the hyperparameter results</span>
+    <span class="n">project_name</span><span class="o">=</span><span class="s2">&quot;hp_example&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-21 17:53:26.902512: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-03-21 17:53:26.902544: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-21 17:53:26.902560: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az135-619): /proc/driver/nvidia/version does not exist
+2022-03-21 17:53:26.902773: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+</div>
+</div>
+<p>View the search space:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuner</span><span class="o">.</span><span class="n">search_space_summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Search space summary
+Default search space size: 4
+units (Int)
+{&#39;default&#39;: None, &#39;conditions&#39;: [], &#39;min_value&#39;: 32, &#39;max_value&#39;: 512, &#39;step&#39;: 32, &#39;sampling&#39;: None}
+activation (Choice)
+{&#39;default&#39;: &#39;relu&#39;, &#39;conditions&#39;: [], &#39;values&#39;: [&#39;relu&#39;, &#39;tanh&#39;], &#39;ordered&#39;: False}
+dropout (Boolean)
+{&#39;default&#39;: False, &#39;conditions&#39;: []}
+lr (Float)
+{&#39;default&#39;: 0.0001, &#39;conditions&#39;: [], &#39;min_value&#39;: 0.0001, &#39;max_value&#39;: 0.01, &#39;step&#39;: None, &#39;sampling&#39;: &#39;log&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load in the MNIST dataset for this example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">x_val</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">10000</span><span class="p">:]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">y_val</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">10000</span><span class="p">:]</span>
+
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+<span class="n">y_val</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Start the search:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">keras_tuner</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tuner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;keras_tuner&#39;
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/keras_tuner/engine/base_tuner.py:179,</span> in <span class="ni">BaseTuner.search</span><span class="nt">(self, *fit_args, **fit_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="k">continue</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_trial_begin</span><span class="p">(</span><span class="n">trial</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">179</span> <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_trial</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="o">*</span><span class="n">fit_args</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span> <span class="c1"># `results` is None indicates user updated oracle in `run_trial()`.</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="k">if</span> <span class="n">results</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/keras_tuner/engine/tuner.py:304,</span> in <span class="ni">Tuner.run_trial</span><span class="nt">(self, trial, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model_checkpoint</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="n">copied_kwargs</span><span class="p">[</span><span class="s2">&quot;callbacks&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">callbacks</span>
+<span class="ne">--&gt; </span><span class="mi">304</span> <span class="n">obj_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_and_fit_model</span><span class="p">(</span><span class="n">trial</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">copied_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span> <span class="c1"># objective left unspecified,</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span> <span class="c1"># and objective value is not a single float.</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>     <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj_value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">oracle</span><span class="o">.</span><span class="n">objective</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;default_objective&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span> <span class="p">):</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/keras_tuner/engine/tuner.py:234,</span> in <span class="ni">Tuner._build_and_fit_model</span><span class="nt">(self, trial, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="n">hp</span> <span class="o">=</span> <span class="n">trial</span><span class="o">.</span><span class="n">hyperparameters</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span> <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_try_build</span><span class="p">(</span><span class="n">hp</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">234</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hypermodel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">hp</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/keras_tuner/engine/hypermodel.py:137,</span> in <span class="ni">HyperModel.fit</span><span class="nt">(self, hp, model, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hp</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="sd">&quot;&quot;&quot;Train the model.</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span><span class="sd">     Args:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span><span class="sd">         If return a float, it should be the `objective` value.</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/keras/utils/traceback_utils.py:64,</span> in <span class="ni">filter_traceback.&lt;locals&gt;.error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="n">filtered_tb</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">64</span>   <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>   <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/keras/engine/training.py:1420,</span> in <span class="ni">Model.fit</span><span class="nt">(self, x, y, batch_size, epochs, verbose, callbacks, validation_split, validation_data, shuffle, class_weight, sample_weight, initial_epoch, steps_per_epoch, validation_steps, validation_batch_size, validation_freq, max_queue_size, workers, use_multiprocessing)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1406</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_eval_data_handler&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1407</span>   <span class="bp">self</span><span class="o">.</span><span class="n">_eval_data_handler</span> <span class="o">=</span> <span class="n">data_adapter</span><span class="o">.</span><span class="n">get_data_handler</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1408</span>       <span class="n">x</span><span class="o">=</span><span class="n">val_x</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1409</span>       <span class="n">y</span><span class="o">=</span><span class="n">val_y</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1418</span>       <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1419</span>       <span class="n">steps_per_execution</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_steps_per_execution</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1420</span> <span class="n">val_logs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1421</span>     <span class="n">x</span><span class="o">=</span><span class="n">val_x</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1422</span>     <span class="n">y</span><span class="o">=</span><span class="n">val_y</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1423</span>     <span class="n">sample_weight</span><span class="o">=</span><span class="n">val_sample_weight</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1424</span>     <span class="n">batch_size</span><span class="o">=</span><span class="n">validation_batch_size</span> <span class="ow">or</span> <span class="n">batch_size</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1425</span>     <span class="n">steps</span><span class="o">=</span><span class="n">validation_steps</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1426</span>     <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1427</span>     <span class="n">max_queue_size</span><span class="o">=</span><span class="n">max_queue_size</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1428</span>     <span class="n">workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1429</span>     <span class="n">use_multiprocessing</span><span class="o">=</span><span class="n">use_multiprocessing</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1430</span>     <span class="n">return_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1431</span>     <span class="n">_use_cached_eval_dataset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1432</span> <span class="n">val_logs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;val_&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">val_logs</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1433</span> <span class="n">epoch_logs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">val_logs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/keras/utils/traceback_utils.py:64,</span> in <span class="ni">filter_traceback.&lt;locals&gt;.error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="n">filtered_tb</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">64</span>   <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>   <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/keras/engine/training.py:1716,</span> in <span class="ni">Model.evaluate</span><span class="nt">(self, x, y, batch_size, verbose, sample_weight, steps, callbacks, max_queue_size, workers, use_multiprocessing, return_dict, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1714</span> <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">profiler</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">Trace</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">step_num</span><span class="o">=</span><span class="n">step</span><span class="p">,</span> <span class="n">_r</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1715</span>   <span class="n">callbacks</span><span class="o">.</span><span class="n">on_test_batch_begin</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1716</span>   <span class="n">tmp_logs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_function</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1717</span>   <span class="k">if</span> <span class="n">data_handler</span><span class="o">.</span><span class="n">should_sync</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1718</span>     <span class="n">context</span><span class="o">.</span><span class="n">async_wait</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/tensorflow/python/util/traceback_utils.py:150,</span> in <span class="ni">filter_traceback.&lt;locals&gt;.error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="n">filtered_tb</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">150</span>   <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>   <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py:915,</span> in <span class="ni">Function.__call__</span><span class="nt">(self, *args, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">912</span> <span class="n">compiler</span> <span class="o">=</span> <span class="s2">&quot;xla&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_jit_compile</span> <span class="k">else</span> <span class="s2">&quot;nonXla&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">914</span> <span class="k">with</span> <span class="n">OptionalXlaContext</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_jit_compile</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">915</span>   <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">917</span> <span class="n">new_tracing_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">experimental_get_tracing_count</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">918</span> <span class="n">without_tracing</span> <span class="o">=</span> <span class="p">(</span><span class="n">tracing_count</span> <span class="o">==</span> <span class="n">new_tracing_count</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/tensorflow/python/eager/def_function.py:954,</span> in <span class="ni">Function._call</span><span class="nt">(self, *args, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">951</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">952</span> <span class="c1"># In this case we have not created variables on the first call. So we can</span>
+<span class="g g-Whitespace">    </span><span class="mi">953</span> <span class="c1"># run the first trace but we should fail if variables are created.</span>
+<span class="ne">--&gt; </span><span class="mi">954</span> <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stateful_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">955</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_created_variables</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ALLOW_DYNAMIC_VARIABLE_CREATION</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">956</span>   <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Creating variables on a non-first call to a function&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">957</span>                    <span class="s2">&quot; decorated with tf.function.&quot;</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/tensorflow/python/eager/function.py:2956,</span> in <span class="ni">Function.__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2953</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2954</span>   <span class="p">(</span><span class="n">graph_function</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2955</span>    <span class="n">filtered_flat_args</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_define_function</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2956</span> <span class="k">return</span> <span class="n">graph_function</span><span class="o">.</span><span class="n">_call_flat</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2957</span>     <span class="n">filtered_flat_args</span><span class="p">,</span> <span class="n">captured_inputs</span><span class="o">=</span><span class="n">graph_function</span><span class="o">.</span><span class="n">captured_inputs</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/tensorflow/python/eager/function.py:1853,</span> in <span class="ni">ConcreteFunction._call_flat</span><span class="nt">(self, args, captured_inputs, cancellation_manager)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1849</span> <span class="n">possible_gradient_type</span> <span class="o">=</span> <span class="n">gradients_util</span><span class="o">.</span><span class="n">PossibleTapeGradientTypes</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1850</span> <span class="k">if</span> <span class="p">(</span><span class="n">possible_gradient_type</span> <span class="o">==</span> <span class="n">gradients_util</span><span class="o">.</span><span class="n">POSSIBLE_GRADIENT_TYPES_NONE</span>
+<span class="g g-Whitespace">   </span><span class="mi">1851</span>     <span class="ow">and</span> <span class="n">executing_eagerly</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1852</span>   <span class="c1"># No tape is watching; skip to running the function.</span>
+<span class="ne">-&gt; </span><span class="mi">1853</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_call_outputs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inference_function</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span>       <span class="n">ctx</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">cancellation_manager</span><span class="o">=</span><span class="n">cancellation_manager</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1855</span> <span class="n">forward_backward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_forward_and_backward_functions</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>     <span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1857</span>     <span class="n">possible_gradient_type</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>     <span class="n">executing_eagerly</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span> <span class="n">forward_function</span><span class="p">,</span> <span class="n">args_with_tangents</span> <span class="o">=</span> <span class="n">forward_backward</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/tensorflow/python/eager/function.py:499,</span> in <span class="ni">_EagerDefinedFunction.call</span><span class="nt">(self, ctx, args, cancellation_manager)</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span> <span class="k">with</span> <span class="n">_InterpolateFunctionError</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>   <span class="k">if</span> <span class="n">cancellation_manager</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">499</span>     <span class="n">outputs</span> <span class="o">=</span> <span class="n">execute</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span>         <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signature</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>         <span class="n">num_outputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_outputs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>         <span class="n">inputs</span><span class="o">=</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>         <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span>         <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span>   <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">506</span>     <span class="n">outputs</span> <span class="o">=</span> <span class="n">execute</span><span class="o">.</span><span class="n">execute_with_cancellation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">507</span>         <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signature</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span>         <span class="n">num_outputs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_outputs</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span>         <span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span>         <span class="n">cancellation_manager</span><span class="o">=</span><span class="n">cancellation_manager</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/intro_ml/lib/python3.9/site-packages/tensorflow/python/eager/execute.py:54,</span> in <span class="ni">quick_execute</span><span class="nt">(op_name, num_outputs, inputs, attrs, ctx, name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">54</span>   <span class="n">tensors</span> <span class="o">=</span> <span class="n">pywrap_tfe</span><span class="o">.</span><span class="n">TFE_Py_Execute</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">_handle</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="n">op_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>                                       <span class="n">inputs</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">num_outputs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">except</span> <span class="n">core</span><span class="o">.</span><span class="n">_NotOkStatusException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>   <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
 </div>
-<p><a class="reference external" href="https://keras.io/keras_tuner/">https://keras.io/keras_tuner/</a></p>
+<p>View the results.</p>
+<p>You can also visualise them using <a class="reference external" href="https://keras.io/guides/keras_tuner/visualize_tuning/">TensorBoard</a>.results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuner</span><span class="o">.</span><span class="n">results_summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results summary
+Results in /home/earlacoa/repos/intro_ml/docs/../models/hyperparameters/hp_example
+Showing 10 best trials
+Objective(name=&#39;val_accuracy&#39;, direction=&#39;max&#39;)
+Trial summary
+Hyperparameters:
+units: 224
+activation: relu
+dropout: True
+lr: 0.0008240205445395648
+Score: 0.970300018787384
+Trial summary
+Hyperparameters:
+units: 256
+activation: tanh
+dropout: False
+lr: 0.0005641559959354345
+Score: 0.9596999883651733
+Trial summary
+Hyperparameters:
+units: 128
+activation: tanh
+dropout: False
+lr: 0.007116165616460776
+Score: 0.9544999897480011
+</pre></div>
+</div>
+</div>
+</div>
+<p>Select the best model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_model</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">get_best_models</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show the best model’s summary.</p>
+<p>Note, the <code class="docutils literal notranslate"><span class="pre">Sequential</span></code> model will need to be built first with a input shape.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_model</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">best_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten (Flatten)           (None, 784)               0         
+                                                                 
+ dense (Dense)               (None, 224)               175840    
+                                                                 
+ dropout (Dropout)           (None, 224)               0         
+                                                                 
+ dense_1 (Dense)             (None, 10)                2250      
+                                                                 
+=================================================================
+Total params: 178,090
+Trainable params: 178,090
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>…<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -731,19 +1142,228 @@ _________________________________________________________________
 </div>
 </div>
 </div>
-<div class="section" id="pretrained">
-<h2>Pretrained<a class="headerlink" href="#pretrained" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transfer-learning">
+<h2>Transfer learning<a class="headerlink" href="#transfer-learning" title="Permalink to this headline">¶</a></h2>
+<p>Transfer learning is where a model that has been pre-trained on a problem is transferred to another similar problem. For example, if a model learnt to classify images it can be transferred to other image classification problems.</p>
+<p>Commonly, this is done via:</p>
+<ul class="simple">
+<li><p>Instantiate a pre-trained model and load pre-trained weights into it.</p></li>
+<li><p>Extract layers and freeze them (i.e., <code class="docutils literal notranslate"><span class="pre">trainable</span> <span class="pre">=</span> <span class="pre">False</span></code>) to retain their information (e.g., for lower level features).</p></li>
+<li><p>Add new trainable layers on top of these frozen layers.</p></li>
+<li><p>Train the new layers on your dataset.</p></li>
+<li><p>Optional: Unfreeze the frozen layers and train these on the dataset with a very low learning rate (i.e., fine tuning).</p></li>
+</ul>
+<p>This is useful when:</p>
+<ul class="simple">
+<li><p>You have a small dataset.</p></li>
+<li><p>You want to take advantage of huge models without the costs of training them.</p></li>
+</ul>
 <p>…</p>
 <p>example</p>
+<div class="section" id="example-transfer-learning">
+<h3>Example: Transfer learning<a class="headerlink" href="#example-transfer-learning" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download and split the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tfds.disable_progress_bar()</span>
+
+<span class="n">train_ds</span><span class="p">,</span> <span class="n">validation_ds</span><span class="p">,</span> <span class="n">test_ds</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="s2">&quot;cats_vs_dogs&quot;</span><span class="p">,</span>
+    <span class="c1"># Reserve 10% for validation and 10% for test</span>
+    <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:40%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[40%:50%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[50%:60%]&quot;</span><span class="p">],</span>
+    <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Include labels</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of training samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">train_ds</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Number of validation samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">validation_ds</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of test samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">test_ds</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-17 16:27:12.602805: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-03-17 16:27:12.602823: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Downloading and preparing dataset Unknown size (download: Unknown size, generated: Unknown size, total: Unknown size) to /home/earlacoa/tensorflow_datasets/cats_vs_dogs/4.0.0...</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-21 12:49:11.513562: W tensorflow/core/platform/cloud/google_auth_provider.cc:184] All attempts to get a Google authentication bearer token failed, returning an empty token. Retrieving token from files failed with &quot;NOT_FOUND: Could not locate the credentials file.&quot;. Retrieving token from GCE failed with &quot;FAILED_PRECONDITION: Error executing an HTTP request: libcurl code 6 meaning &#39;Couldn&#39;t resolve host name&#39;, error details: Could not resolve host: metadata&quot;.
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "9ace43eea50347e2984f28edfa0e05e2", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "22c216e6ebee4ef1ba99cb32b50e1471", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:absl:1738 images were corrupted and were skipped
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Dataset cats_vs_dogs downloaded and prepared to /home/earlacoa/tensorflow_datasets/cats_vs_dogs/4.0.0. Subsequent calls will reuse this data.</span>
+Number of training samples: 9305
+Number of validation samples: 2326
+Number of test samples: 2326
+</pre></div>
+</div>
+</div>
+</div>
+<p>View a few of the training samples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Dog&quot;</span><span class="p">}</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_ds</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">9</span><span class="p">)):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">)])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/04_models_49_0.png" src="_images/04_models_49_0.png" />
+</div>
+</div>
+<p>First, preprocess the data.</p>
+<p>This is to standardise the image sizes and normalise the pixel values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+
+<span class="n">train_ds</span> <span class="o">=</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
+<span class="n">validation_ds</span> <span class="o">=</span> <span class="n">validation_ds</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
+<span class="n">test_ds</span> <span class="o">=</span> <span class="n">test_ds</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can <a class="reference internal" href="03_data.html#cache-prefetch"><span class="std std-ref">cache and prefetch</span></a> the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+
+<span class="n">train_ds</span> <span class="o">=</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">validation_ds</span> <span class="o">=</span> <span class="n">validation_ds</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">test_ds</span> <span class="o">=</span> <span class="n">test_ds</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Apply some <a class="reference internal" href="03_data.html#data-augmentation"><span class="std std-ref">data augmentation</span></a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_augmentation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">RandomFlip</span><span class="p">(</span><span class="s2">&quot;horizontal&quot;</span><span class="p">),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">RandomRotation</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, build the model.</p>
+<ul class="simple">
+<li><p>First, load the pre-trained model as the base.</p></li>
+<li><p>Freeze the layers from the base model.</p></li>
+<li><p>Add new layers on top.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">base_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">applications</span><span class="o">.</span><span class="n">Xception</span><span class="p">(</span>
+    <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;imagenet&quot;</span><span class="p">,</span>  <span class="c1"># Load weights pre-trained on ImageNet.</span>
+    <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">include_top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1"># Do not include the ImageNet classifier at the top.</span>
+
+<span class="c1"># Freeze the base_model</span>
+<span class="n">base_model</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Create new model on top</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">data_augmentation</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>  <span class="c1"># Apply random data augmentation</span>
+
+<span class="c1"># Pre-trained Xception weights requires that input be scaled</span>
+<span class="c1"># from (0, 255) to a range of (-1., +1.), the rescaling layer</span>
+<span class="c1"># outputs: `(inputs * scale) + offset`</span>
+<span class="n">scale_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Rescaling</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">127.5</span><span class="p">,</span> <span class="n">offset</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">scale_layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># The base model contains batchnorm layers. We want to keep them in inference mode</span>
+<span class="c1"># when we unfreeze the base model for fine-tuning, so we make sure that the</span>
+<span class="c1"># base_model is running in inference mode here.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">base_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Regularize with dropout</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;model&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_6 (InputLayer)        [(None, 150, 150, 3)]     0         
+                                                                 
+ sequential_1 (Sequential)   (None, 150, 150, 3)       0         
+                                                                 
+ rescaling (Rescaling)       (None, 150, 150, 3)       0         
+                                                                 
+ xception (Functional)       (None, 5, 5, 2048)        20861480  
+                                                                 
+ global_average_pooling2d_1   (None, 2048)             0         
+ (GlobalAveragePooling2D)                                        
+                                                                 
+ dropout (Dropout)           (None, 2048)              0         
+                                                                 
+ dense_1 (Dense)             (None, 1)                 2049      
+                                                                 
+=================================================================
+Total params: 20,863,529
+Trainable params: 2,049
+Non-trainable params: 20,861,480
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<p>1% of the parameters are trainable, with 99% from the pre-trained model.</p>
+<p>That will save a lot of computation.</p>
+<p>Now, train the top layers only:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">BinaryCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BinaryAccuracy</span><span class="p">()],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># just 1 for the demonstration, would increase this to say 20 normally</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_ds</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -795,6 +1415,7 @@ Trainable params: 2,049,000
 Non-trainable params: 20,861,480
 _________________________________________________________________
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -932,7 +1553,8 @@ _________________________________________________________________
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>…</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Tune the models hyperparamaters for the best fit.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use transfer learning to save computation on similar problems.</em></p></li>
 </ul>
 </div>
 </div>
@@ -942,10 +1564,16 @@ _________________________________________________________________
 <h3>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>See if there is a model architecture (and parameters) that already addresses the task.</p></li>
+<li><p>Consider the tradeoff between model complexity and size.</p>
+<ul>
+<li><p>For high accuracy, maybe need a large and complex model.</p></li>
+<li><p>For less precision, smaller models use less disk space, memory, and are faster.</p></li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="section" id="other-options">
-<h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Other options<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>…</p></li>
 </ul>
