@@ -18,7 +18,6 @@ At the end of this workshop, learners will be able to:
     - [ ] [scikit-learn](https://scikit-learn.org/stable/)
     - [ ] [TensorFlow](https://www.tensorflow.org/)
     - [ ] [PyTorch](https://pytorch.org/)
-    - [ ] [JAX](https://jax.readthedocs.io/en/latest/)
 3. [ ] Understand how to use currated datasets
 4. [ ] Understand how to use pre-trained models.
 5. [ ] Understand how to do distribute training.
