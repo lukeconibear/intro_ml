@@ -633,16 +633,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Distributing training over multiple devices generally uses either:</p>
 <ul class="simple">
-<li><p>Data parallelism</p>
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#data-parallelism">Data parallelism</a></p>
 <ul>
 <li><p>Single model copied to multiple devices.</p></li>
-<li><p>Each device processes different batch of data.</p></li>
+<li><p>Split data over multiple devices.</p></li>
+<li><p>Useful for big data.</p></li>
 </ul>
 </li>
-<li><p>Model parallelism</p>
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#model-parallelism">Model parallelism</a></p>
 <ul>
-<li><p>Model split over multiple devices.</p></li>
-<li><p>Each device processes a single batch of data together.</p></li>
+<li><p>Split model over multiple devices.</p></li>
+<li><p>Single data copied to multiple devices.</p></li>
+<li><p>Useful for big models.</p></li>
 </ul>
 </li>
 </ul>
@@ -677,8 +679,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-22 18:29:57.079726: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-03-22 18:29:57.079755: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-23 17:42:31.370506: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-23 17:42:31.370537: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -749,10 +751,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of devices: 1
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-22 18:29:58.774280: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-03-22 18:29:58.774316: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-03-22 18:29:58.774338: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az41-682): /proc/driver/nvidia/version does not exist
-2022-03-22 18:29:58.774621: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-23 17:42:32.700985: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-03-23 17:42:32.701015: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-23 17:42:32.701034: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az149-70): /proc/driver/nvidia/version does not exist
+2022-03-23 17:42:32.701258: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
