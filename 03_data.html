@@ -48,6 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Models" href="04_models.html" />
@@ -319,8 +321,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       TensorFlow
+      <a class="reference internal nav-link" href="#keras-utilities">
+       Keras Utilities
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tensorflow-datasets">
+       TensorFlow Datasets
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numpy-to-tensorflow-dataset">
+       NumPy to TensorFlow Dataset
       </a>
      </li>
     </ul>
@@ -331,7 +343,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
+      <a class="reference internal nav-link" href="#id6">
        TensorFlow
       </a>
      </li>
@@ -343,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
+      <a class="reference internal nav-link" href="#id7">
        TensorFlow
       </a>
      </li>
@@ -355,7 +367,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
+      <a class="reference internal nav-link" href="#id8">
        TensorFlow
       </a>
      </li>
@@ -367,7 +379,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
+      <a class="reference internal nav-link" href="#id9">
        TensorFlow
       </a>
      </li>
@@ -379,7 +391,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
+      <a class="reference internal nav-link" href="#id10">
        TensorFlow
       </a>
      </li>
@@ -391,7 +403,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id12">
+      <a class="reference internal nav-link" href="#id11">
        TensorFlow
       </a>
      </li>
@@ -403,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id13">
+      <a class="reference internal nav-link" href="#id12">
        TensorFlow
       </a>
      </li>
@@ -415,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id14">
+      <a class="reference internal nav-link" href="#id13">
        TensorFlow
       </a>
      </li>
@@ -434,7 +446,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id15">
+      <a class="reference internal nav-link" href="#id14">
        TensorFlow
       </a>
      </li>
@@ -443,7 +455,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensorflow-datasets">
+  <a class="reference internal nav-link" href="#id15">
    TensorFlow Datasets
   </a>
  </li>
@@ -619,8 +631,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
-       TensorFlow
+      <a class="reference internal nav-link" href="#keras-utilities">
+       Keras Utilities
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tensorflow-datasets">
+       TensorFlow Datasets
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numpy-to-tensorflow-dataset">
+       NumPy to TensorFlow Dataset
       </a>
      </li>
     </ul>
@@ -631,7 +653,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
+      <a class="reference internal nav-link" href="#id6">
        TensorFlow
       </a>
      </li>
@@ -643,7 +665,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
+      <a class="reference internal nav-link" href="#id7">
        TensorFlow
       </a>
      </li>
@@ -655,7 +677,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id9">
+      <a class="reference internal nav-link" href="#id8">
        TensorFlow
       </a>
      </li>
@@ -667,7 +689,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
+      <a class="reference internal nav-link" href="#id9">
        TensorFlow
       </a>
      </li>
@@ -679,7 +701,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
+      <a class="reference internal nav-link" href="#id10">
        TensorFlow
       </a>
      </li>
@@ -691,7 +713,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id12">
+      <a class="reference internal nav-link" href="#id11">
        TensorFlow
       </a>
      </li>
@@ -703,7 +725,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id13">
+      <a class="reference internal nav-link" href="#id12">
        TensorFlow
       </a>
      </li>
@@ -715,7 +737,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id14">
+      <a class="reference internal nav-link" href="#id13">
        TensorFlow
       </a>
      </li>
@@ -734,7 +756,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id15">
+      <a class="reference internal nav-link" href="#id14">
        TensorFlow
       </a>
      </li>
@@ -743,7 +765,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tensorflow-datasets">
+  <a class="reference internal nav-link" href="#id15">
    TensorFlow Datasets
   </a>
  </li>
@@ -838,7 +860,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="data">
 <h1>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://colab.research.google.com/github/lukeconibear/intro_ml/blob/main/docs/02_data.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><a class="reference external" href="https://colab.research.google.com/github/lukeconibear/intro_ml/blob/main/docs/03_data.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you&#39;re using colab, then install the required modules</span>
@@ -869,7 +891,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.02289622])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.82863296])
 </pre></div>
 </div>
 </div>
@@ -881,7 +903,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.31091068,  0.4607921 , -0.80112787])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.08408864,  0.19212954, -0.18542213])
 </pre></div>
 </div>
 </div>
@@ -893,9 +915,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.52352715,  0.76671908, -0.30579966],
-       [ 0.42234   , -0.85494452,  1.42155244],
-       [ 1.04615707,  0.84737694,  1.26900492]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.49561324, -1.19268242,  0.23876864],
+       [-0.31435998, -1.22140464, -1.36539703],
+       [-0.34560354,  0.80877239,  0.0990564 ]])
 </pre></div>
 </div>
 </div>
@@ -913,8 +935,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 14:42:42.172564: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-03-24 14:42:42.172591: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:53:36.977001: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-24 18:53:36.977036: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -926,14 +948,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 14:42:43.395708: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-03-24 14:42:43.395737: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-03-24 14:42:43.395758: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az147-291): /proc/driver/nvidia/version does not exist
-2022-03-24 14:42:43.395996: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:53:38.992852: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-03-24 18:53:38.992888: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-24 18:53:38.992914: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az203-545): /proc/driver/nvidia/version does not exist
+2022-03-24 18:53:38.993280: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([0.98104507], dtype=float32)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([1.3428181], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -945,7 +967,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([-0.50168097, -0.20795396, -1.4077165 ], dtype=float32)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([-0.03474228,  0.73647183, -1.2987447 ], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -958,9 +980,9 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3, 3), dtype=float32, numpy=
-array([[-0.45155331,  0.9762129 , -0.43133712],
-       [-1.6458162 , -1.5229014 , -1.3397198 ],
-       [-0.39764035,  0.08888936,  1.3659145 ]], dtype=float32)&gt;
+array([[ 0.16412109,  0.42585543, -1.8394408 ],
+       [ 0.30391306,  0.54875094, -0.9661281 ],
+       [ 0.01202353, -0.57788414, -0.7441603 ]], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -971,6 +993,18 @@ array([[-0.45155331,  0.9762129 , -0.43133712],
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num GPUs Available:  0
 </pre></div>
 </div>
 </div>
@@ -1047,36 +1081,340 @@ array([[-0.45155331,  0.9762129 , -0.43133712],
 </ul>
 </li>
 </ul>
-<p>If you have a large dataset and you are training on GPU(s), consider using <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects, since they will take care of performance-critical details, such as:</p>
-<ul class="simple">
-<li><p>Asynchronously preprocessing your data on CPU while your GPU is busy, and buffering it into a queue.</p></li>
-<li><p>Prefetching data on GPU memory so it’s immediately available when the GPU has finished processing the previous batch, so you can reach full GPU utilization.</p></li>
-</ul>
+<p>The documentation has more information on different data formats, such as <a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/csv">CSV</a> and <a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/pandas_dataframe">Pandas DataFrames</a>.</p>
 <p>Keras features a range of utilities to help you turn raw data on disk into a Dataset:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.image_dataset_from_directory</span></code></a> turns image files sorted into class-specific folders into a labeled dataset of image tensors.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.text_dataset_from_directory</span></code></a> does the same for text files.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/timeseries_dataset_from_array"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.timeseries_dataset_from_array</span></code></a> creates a dataset of sliding windows over a timeseries provided as array.</p></li>
 </ul>
-<p>“step fusing”</p>
-<p>model = build_model()
-model.compile(
-optimiser,
-loss,
-steps_per_execution=32  # this step
-)
-model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
-<div class="section" id="id6">
-<h4>TensorFlow<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you have a large dataset and you are training on GPU(s), consider using <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> objects, since they will take care of performance-critical details, such as:</p>
+<ul class="simple">
+<li><p>Asynchronously preprocessing your data on CPU while your GPU is busy, and buffering it into a queue.</p></li>
+<li><p>Prefetching data on GPU memory so it’s immediately available when the GPU has finished processing the previous batch, so you can reach full GPU utilization.</p></li>
+</ul>
+</div>
+<div class="section" id="keras-utilities">
+<h4><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/images">Keras Utilities</a><a class="headerlink" href="#keras-utilities" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first load the mnist data</span>
-<span class="p">(</span><span class="n">x_train_tf</span><span class="p">,</span> <span class="n">y_train_tf</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test_tf</span><span class="p">,</span> <span class="n">y_test_tf</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
-<span class="n">x_train_tf</span><span class="p">,</span> <span class="n">x_test_tf</span> <span class="o">=</span> <span class="n">x_train_tf</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">x_test_tf</span> <span class="o">/</span> <span class="mf">255.0</span>  <span class="c1"># normalise</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_url</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz&quot;</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span>
+    <span class="n">origin</span><span class="o">=</span><span class="n">dataset_url</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s2">&quot;flower_photos&quot;</span><span class="p">,</span> <span class="n">untar</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    16384/228813984 [..............................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+  3956736/228813984 [..............................] - ETA: 2s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 10444800/228813984 [&gt;.............................] - ETA: 2s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 15900672/228813984 [=&gt;............................] - ETA: 2s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 22437888/228813984 [=&gt;............................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 28303360/228813984 [==&gt;...........................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 34594816/228813984 [===&gt;..........................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 40886272/228813984 [====&gt;.........................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 46948352/228813984 [=====&gt;........................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 52994048/228813984 [=====&gt;........................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 58957824/228813984 [======&gt;.......................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 65093632/228813984 [=======&gt;......................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 71286784/228813984 [========&gt;.....................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 77602816/228813984 [=========&gt;....................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 83902464/228813984 [==========&gt;...................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 89710592/228813984 [==========&gt;...................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 96780288/228813984 [===========&gt;..................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+103063552/228813984 [============&gt;.................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+108961792/228813984 [=============&gt;................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+109060096/228813984 [=============&gt;................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+115204096/228813984 [==============&gt;...............] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+121462784/228813984 [==============&gt;...............] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+127967232/228813984 [===============&gt;..............] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+134553600/228813984 [================&gt;.............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+140795904/228813984 [=================&gt;............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+147464192/228813984 [==================&gt;...........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+153673728/228813984 [===================&gt;..........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+159834112/228813984 [===================&gt;..........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+166477824/228813984 [====================&gt;.........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+172867584/228813984 [=====================&gt;........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+178888704/228813984 [======================&gt;.......] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+185532416/228813984 [=======================&gt;......] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+191537152/228813984 [========================&gt;.....] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+197369856/228813984 [========================&gt;.....] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+203735040/228813984 [=========================&gt;....] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+210100224/228813984 [==========================&gt;...] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+216588288/228813984 [===========================&gt;..] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+222568448/228813984 [============================&gt;.] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+228818944/228813984 [==============================] - 2s 0us/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+228827136/228813984 [==============================] - 2s 0us/step
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">image_height</span> <span class="o">=</span> <span class="mi">180</span>
+<span class="n">image_width</span> <span class="o">=</span> <span class="mi">180</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
+    <span class="n">data_dir</span><span class="p">,</span>
+    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">subset</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+    <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="n">image_height</span><span class="p">,</span> <span class="n">image_width</span><span class="p">),</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 3670 files belonging to 5 classes.
+Using 2936 files for training.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val_ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
+    <span class="n">data_dir</span><span class="p">,</span>
+    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">subset</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+    <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="n">image_height</span><span class="p">,</span> <span class="n">image_width</span><span class="p">),</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 3670 files belonging to 5 classes.
+Using 734 files for validation.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_names</span> <span class="o">=</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">class_names</span>
 
-<span class="c1"># add a channels dimension</span>
-<span class="n">x_train_tf</span> <span class="o">=</span> <span class="n">x_train_tf</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
-<span class="n">x_test_tf</span> <span class="o">=</span> <span class="n">x_test_tf</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">class_names</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/03_data_46_0.png" src="_images/03_data_46_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="tensorflow-datasets">
+<h4><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/images#using_tensorflow_datasets">TensorFlow Datasets</a><a class="headerlink" href="#tensorflow-datasets" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">val_ds</span><span class="p">,</span> <span class="n">test_ds</span><span class="p">),</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="s2">&quot;tf_flowers&quot;</span><span class="p">,</span>
+    <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:80%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[80%:90%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[90%:]&quot;</span><span class="p">],</span>
+    <span class="n">with_info</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:53:46.781213: W tensorflow/core/platform/cloud/google_auth_provider.cc:184] All attempts to get a Google authentication bearer token failed, returning an empty token. Retrieving token from files failed with &quot;NOT_FOUND: Could not locate the credentials file.&quot;. Retrieving token from GCE failed with &quot;FAILED_PRECONDITION: Error executing an HTTP request: libcurl code 6 meaning &#39;Couldn&#39;t resolve host name&#39;, error details: Could not resolve host: metadata&quot;.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Downloading and preparing dataset 218.21 MiB (download: 218.21 MiB, generated: 221.83 MiB, total: 440.05 MiB) to /home/runner/tensorflow_datasets/tf_flowers/3.0.1...</span>
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "5c5f60294df6458eb68ab610c51f1e1f"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Dataset tf_flowers downloaded and prepared to /home/runner/tensorflow_datasets/tf_flowers/3.0.1. Subsequent calls will reuse this data.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="numpy-to-tensorflow-dataset">
+<h4><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/numpy">NumPy to TensorFlow Dataset</a><a class="headerlink" href="#numpy-to-tensorflow-dataset" title="Permalink to this headline">¶</a></h4>
+<p>Load a <code class="docutils literal notranslate"><span class="pre">.npz</span></code> file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz&quot;</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="s2">&quot;mnist.npz&quot;</span><span class="p">,</span> <span class="n">DATA_URL</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">x_train_tf</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x_train&quot;</span><span class="p">]</span>
+    <span class="n">y_train_tf</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y_train&quot;</span><span class="p">]</span>
+    <span class="n">x_test_tf</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;x_test&quot;</span><span class="p">]</span>
+    <span class="n">y_test_tf</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;y_test&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x_train_tf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
 </pre></div>
 </div>
 </div>
@@ -1089,11 +1427,6 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 14:42:45.741055: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1102,7 +1435,7 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;TensorSliceDataset element_spec=(TensorSpec(shape=(28, 28, 1), dtype=tf.float32, name=None), TensorSpec(shape=(), dtype=tf.uint8, name=None))&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;TensorSliceDataset element_spec=(TensorSpec(shape=(28, 28), dtype=tf.uint8, name=None), TensorSpec(shape=(), dtype=tf.uint8, name=None))&gt;
 </pre></div>
 </div>
 </div>
@@ -1112,8 +1445,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <div class="section" id="shuffle">
 <h3>Shuffle<a class="headerlink" href="#shuffle" title="Permalink to this headline">¶</a></h3>
 <p>Shuffle the training data.</p>
-<div class="section" id="id7">
-<h4>TensorFlow<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id6">
+<h4>TensorFlow<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds_tf</span> <span class="o">=</span> <span class="n">train_ds_tf</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
@@ -1128,7 +1461,7 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ShuffleDataset element_spec=(TensorSpec(shape=(28, 28, 1), dtype=tf.float32, name=None), TensorSpec(shape=(), dtype=tf.uint8, name=None))&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ShuffleDataset element_spec=(TensorSpec(shape=(28, 28), dtype=tf.uint8, name=None), TensorSpec(shape=(), dtype=tf.uint8, name=None))&gt;
 </pre></div>
 </div>
 </div>
@@ -1139,8 +1472,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <h3><a class="reference external" href="https://www.tensorflow.org/guide/data#batching_dataset_elements">Batch</a><a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h3>
 <p>A batch is a set of examples used in one iteration of model training.</p>
 <p>The batch size is the number of examples in a batch.</p>
-<div class="section" id="id8">
-<h4>TensorFlow<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h4>TensorFlow<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds_tf</span> <span class="o">=</span> <span class="n">train_ds_tf</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
@@ -1156,7 +1489,7 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BatchDataset element_spec=(TensorSpec(shape=(None, 28, 28, 1), dtype=tf.float32, name=None), TensorSpec(shape=(None,), dtype=tf.uint8, name=None))&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BatchDataset element_spec=(TensorSpec(shape=(None, 28, 28), dtype=tf.uint8, name=None), TensorSpec(shape=(None,), dtype=tf.uint8, name=None))&gt;
 </pre></div>
 </div>
 </div>
@@ -1166,13 +1499,23 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <div class="section" id="map">
 <h3><a class="reference external" href="https://www.tensorflow.org/guide/data#preprocessing_data">Map</a><a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
 <p>Map a preprocessing function to a dataset.</p>
-<div class="section" id="id9">
-<h4>TensorFlow<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h4>TensorFlow<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>There are range of ways to <a class="reference external" href="https://www.tensorflow.org/guide/data_performance">improve the performance</a> of the data pipeline.</p>
 <p>In these examples, using <code class="docutils literal notranslate"><span class="pre">tf.data.AUTOTUNE</span></code> leaves the decision to TensorFlow.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AUTOTUNE</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="dataset-caching">
@@ -1184,28 +1527,62 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <li><p>The data is read from a remote distributed filesystem.</p></li>
 <li><p>The data is I/O (input/output) bound and will fit in memory.</p></li>
 </ul>
-<div class="section" id="id10">
-<h4>TensorFlow<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+<div class="section" id="id9">
+<h4>TensorFlow<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds_tf</span> <span class="o">=</span> <span class="n">train_ds_tf</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+<span class="n">test_ds_tf</span> <span class="o">=</span> <span class="n">test_ds_tf</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds_tf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;CacheDataset element_spec=(TensorSpec(shape=(None, 28, 28), dtype=tf.uint8, name=None), TensorSpec(shape=(None,), dtype=tf.uint8, name=None))&gt;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="prefetch-data">
 <h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#prefetching">Prefetch data</a><a class="headerlink" href="#prefetch-data" title="Permalink to this headline">¶</a></h3>
-<p>Prefect the next batch to save time waiting for it.</p>
-<div class="section" id="id11">
-<h4>TensorFlow<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+<p>Overlaps data preprocessing and model execution while training.</p>
+<div class="section" id="id10">
+<h4>TensorFlow<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds_tf</span> <span class="o">=</span> <span class="n">train_ds_tf</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+<span class="n">test_ds_tf</span> <span class="o">=</span> <span class="n">test_ds_tf</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds_tf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;PrefetchDataset element_spec=(TensorSpec(shape=(None, 28, 28), dtype=tf.uint8, name=None), TensorSpec(shape=(None,), dtype=tf.uint8, name=None))&gt;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="parallel-data-extraction">
 <h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#parallelizing_data_extraction">Parallel data extraction</a><a class="headerlink" href="#parallel-data-extraction" title="Permalink to this headline">¶</a></h3>
 <p>Extract the data in parallel.</p>
-<div class="section" id="id12">
-<h4>TensorFlow<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id11">
+<h4>TensorFlow<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">interleave</span><span class="p">(</span>
     <span class="n">build_dataset</span><span class="p">,</span> 
     <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
@@ -1217,8 +1594,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <div class="section" id="parallel-data-transformation">
 <h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#parallelizing_data_transformation">Parallel data transformation</a><a class="headerlink" href="#parallel-data-transformation" title="Permalink to this headline">¶</a></h3>
 <p>Pre-process your data in parallel.</p>
-<div class="section" id="id13">
-<h4>TensorFlow<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id12">
+<h4>TensorFlow<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
     <span class="n">function</span><span class="p">,</span> 
     <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
@@ -1230,8 +1607,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <div class="section" id="vectorise-mapping">
 <h3><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#vectorizing_mapping">Vectorise mapping</a><a class="headerlink" href="#vectorise-mapping" title="Permalink to this headline">¶</a></h3>
 <p>Batch <em>before</em> mapping, to vectorise a function.</p>
-<div class="section" id="id14">
-<h4>TensorFlow<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id13">
+<h4>TensorFlow<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1256,8 +1633,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <div class="section" id="mixed-precision">
 <h3><a class="reference external" href="https://www.tensorflow.org/guide/mixed_precision">Mixed precision</a><a class="headerlink" href="#mixed-precision" title="Permalink to this headline">¶</a></h3>
 <p>Mixed precision is the use of 16-bit and 32-bit floating-point types during training to use less memory and make it run faster.</p>
-<div class="section" id="id15">
-<h4>TensorFlow<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id14">
+<h4>TensorFlow<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">mixed_precision</span><span class="o">.</span><span class="n">set_global_policy</span><span class="p">(</span><span class="s1">&#39;mixed_float16&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1272,15 +1649,6 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <p><a class="reference external" href="https://www.tensorflow.org/guide/mixed_precision#loss_scaling_overview">Loss scaling</a> can help avoid errors by scaling the losses up or down temporarily i.e.,:<br />
 <code class="docutils literal notranslate"><span class="pre">optimizer</span> <span class="pre">=</span> <span class="pre">mixed_precision.LossScaleOptimizer(optimizer)</span></code></p>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-</pre></div>
-</div>
-</div>
-</div>
 <ul class="simple">
 <li><p>datasets</p></li>
 <li><p>data centric AI hub videos</p></li>
@@ -1290,8 +1658,8 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 </div>
-<div class="section" id="tensorflow-datasets">
-<h2>TensorFlow Datasets<a class="headerlink" href="#tensorflow-datasets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h2>TensorFlow Datasets<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
 <p>…</p>
 </div>
 <div class="section" id="data-augmentation">
@@ -1311,13 +1679,6 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <h2>Example - Digit Classification<a class="headerlink" href="#example-digit-classification" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id17">
 <h3>TensorFlow<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s2">&quot;GPU&quot;</span><span class="p">)))</span>
@@ -1479,7 +1840,7 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_data_94_0.png" src="_images/03_data_94_0.png" />
+<img alt="_images/03_data_111_0.png" src="_images/03_data_111_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1498,7 +1859,7 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_data_95_0.png" src="_images/03_data_95_0.png" />
+<img alt="_images/03_data_112_0.png" src="_images/03_data_112_0.png" />
 </div>
 </div>
 <p>The training accuracy and the validation accuracy are diverging.</p>
@@ -1569,9 +1930,17 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_data_100_0.png" src="_images/03_data_100_0.png" />
+<img alt="_images/03_data_117_0.png" src="_images/03_data_117_0.png" />
 </div>
 </div>
+<p>“step fusing”</p>
+<p>model = build_model()
+model.compile(
+optimiser,
+loss,
+steps_per_execution=32  # this step
+)
+model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 <div class="section" id="exercises">
@@ -1589,7 +1958,7 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use a data pipeline.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>For reproducibility, use a data pipeline and a random seed.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Optimise the data pipeline with caching, prefetching, parallel extraction, parallel preprocessing, and vectorised mapping.</em></p></li>
 </ul>
 </div>
@@ -1641,6 +2010,12 @@ model.fit(dataset, epochs=epochs, callbacks=callbacks)</p>
 </div>
 </div>
 </div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"1b7d054232e1431fa7cf0cd379a15356": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "335123c2e4444ab2bdb20ed6fac36b56": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "49200983034446e0b790c3e158d78ee9": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_1b7d054232e1431fa7cf0cd379a15356", "max": 5.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_335123c2e4444ab2bdb20ed6fac36b56", "value": 5.0}}, "32d6619b73a348ba87146dc48c686cee": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d0fa8a3843ab4255984d293ad5319e93": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "5ee9eb162cd04f798178a0aef99d6e51": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_32d6619b73a348ba87146dc48c686cee", "placeholder": "\u200b", "style": "IPY_MODEL_d0fa8a3843ab4255984d293ad5319e93", "value": "Dl Completed...: 100%"}}, "2216f59245344649a76e8b12a376b17f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9cbee54c5030449d963cacc072d9065a": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "4c383604309742b5a6444c95c0698259": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_2216f59245344649a76e8b12a376b17f", "placeholder": "\u200b", "style": "IPY_MODEL_9cbee54c5030449d963cacc072d9065a", "value": " 5/5 [00:06&lt;00:00,  1.25s/ file]"}}, "f0aff6a80909488585bacdea264eed73": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5c5f60294df6458eb68ab610c51f1e1f": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_5ee9eb162cd04f798178a0aef99d6e51", "IPY_MODEL_49200983034446e0b790c3e158d78ee9", "IPY_MODEL_4c383604309742b5a6444c95c0698259"], "layout": "IPY_MODEL_f0aff6a80909488585bacdea264eed73"}}}, "version_major": 2, "version_minor": 0}
+</script>
+
 
     <script type="text/x-thebe-config">
     {

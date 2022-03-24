@@ -48,6 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Solutions" href="06_solutions.html" />
@@ -251,13 +253,6 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#tensorflow">
    TensorFlow
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mirrored-strategy">
-     Mirrored Strategy
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fault-tolerance">
@@ -374,8 +369,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples">
-   Examples
+  <a class="reference internal nav-link" href="#ray-train">
+   Ray Train
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -441,13 +436,6 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#tensorflow">
    TensorFlow
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mirrored-strategy">
-     Mirrored Strategy
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fault-tolerance">
@@ -564,8 +552,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples">
-   Examples
+  <a class="reference internal nav-link" href="#ray-train">
+   Ray Train
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -618,7 +606,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="distributed">
 <h1>Distributed<a class="headerlink" href="#distributed" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://colab.research.google.com/github/lukeconibear/intro_ml/blob/main/docs/04_distributed.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><a class="reference external" href="https://colab.research.google.com/github/lukeconibear/intro_ml/blob/main/docs/05_distributed.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you&#39;re using colab, then install the required modules</span>
@@ -649,29 +637,58 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p>This lesson focuses on data parallelism.</p>
+<p>The distributed training can also be:</p>
+<ul class="simple">
+<li><p>Synchronous, where the training steps are synced across the workers.</p></li>
+<li><p>Asynchronous, where the training steps are not strictly synced across the workers.</p></li>
+</ul>
 <div class="section" id="tensorflow">
 <h2><a class="reference external" href="https://www.tensorflow.org/guide/distributed_training">TensorFlow</a><a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h2>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">tf.distribute.Strategy</span></code> to distribute models and training over multiple machines with minimal code changes.</p>
-<p>MirrorStrategy</p>
-<p>All-reduce</p>
-<p>Define a strategy.</p>
-<p>Within the strategy scope, compile and fit then model.</p>
-<p>global batch size</p>
+<p>For example, there is <a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#mirroredstrategy">MirroredStrategy</a> for multiple replicas on one machine and <a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#multiworkermirroredstrategy">MultiWorkerMirroredStrategy</a> for synchronous training of multiple workers across many machines.</p>
+<p>Within the strategy scope, you build a compiled the model.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">strategy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">distribute</span><span class="o">.</span><span class="n">MirroredStrategy</span><span class="p">()</span>
+
 <span class="k">with</span> <span class="n">strategy</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">build_compiled_model</span><span class="p">()</span>
+    
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="mirrored-strategy">
-<h3><a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#mirroredstrategy">Mirrored Strategy</a><a class="headerlink" href="#mirrored-strategy" title="Permalink to this headline">¶</a></h3>
-<p>Supports distributed train</p>
-<p><a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#setting_up_the_tf_config_environment_variable"><code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code></a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">strategy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">distribute</span><span class="o">.</span><span class="n">MirroredStrategy</span><span class="p">()</span>
-
-
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For multiple workers, you’ll need to set the <a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#setting_up_the_tf_config_environment_variable"><code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code></a>. There is an example <a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras">here</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;cluster&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;worker&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;localhost:12345&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost:23456&quot;</span><span class="p">]},</span>
+    <span class="s2">&quot;task&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;worker&quot;</span><span class="p">,</span> <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">tf_config</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;{&quot;cluster&quot;: {&quot;worker&quot;: [&quot;localhost:12345&quot;, &quot;localhost:23456&quot;]}, &quot;task&quot;: {&quot;type&quot;: &quot;worker&quot;, &quot;index&quot;: 0}}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>An <a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/keras">example for MNIST</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
@@ -679,26 +696,28 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 14:44:02.369711: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-03-24 14:44:02.369739: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:55:23.826481: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-24 18:55:23.826534: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_compiled_model</span><span class="p">():</span>
-    <span class="c1"># Make a simple 2-layer densely-connected neural network.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_compiled_model</span><span class="p">():</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,))</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
     <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+
     <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
         <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
         <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
         <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">()],</span>
     <span class="p">)</span>
+
     <span class="k">return</span> <span class="n">model</span>
 </pre></div>
 </div>
@@ -707,23 +726,22 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_dataset</span><span class="p">():</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span> <span class="o">*</span> <span class="n">strategy</span><span class="o">.</span><span class="n">num_replicas_in_sync</span>
     <span class="n">num_val_samples</span> <span class="o">=</span> <span class="mi">10000</span>
 
-    <span class="c1"># Return the MNIST dataset in the form of a [`tf.data.Dataset`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset).</span>
     <span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 
-    <span class="c1"># Preprocess the data (these are Numpy arrays)</span>
     <span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
     <span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
     <span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
     <span class="n">y_test</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
 
-    <span class="c1"># Reserve num_val_samples samples for validation</span>
+    <span class="c1"># reserve num_val_samples samples for validation</span>
     <span class="n">x_val</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="o">-</span><span class="n">num_val_samples</span><span class="p">:]</span>
     <span class="n">y_val</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="o">-</span><span class="n">num_val_samples</span><span class="p">:]</span>
     <span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[:</span><span class="o">-</span><span class="n">num_val_samples</span><span class="p">]</span>
     <span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="o">-</span><span class="n">num_val_samples</span><span class="p">]</span>
+    
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">),</span>
         <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">),</span>
@@ -733,10 +751,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>Create a MirroredStrategy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a MirroredStrategy.</span>
-<span class="n">strategy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">distribute</span><span class="o">.</span><span class="n">MirroredStrategy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strategy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">distribute</span><span class="o">.</span><span class="n">MirroredStrategy</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of devices: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">strategy</span><span class="o">.</span><span class="n">num_replicas_in_sync</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -751,10 +769,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of devices: 1
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 14:44:03.748564: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-03-24 14:44:03.748601: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-03-24 14:44:03.748626: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az147-291): /proc/driver/nvidia/version does not exist
-2022-03-24 14:44:03.748884: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:55:25.854070: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-03-24 18:55:25.854125: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-24 18:55:25.854150: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az203-545): /proc/driver/nvidia/version does not exist
+2022-03-24 18:55:25.854495: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -762,23 +780,152 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Open a strategy scope.</span>
-<span class="c1"># with strategy.scope():</span>
-<span class="c1">#     # Everything that creates variables should be under the strategy scope.</span>
-<span class="c1">#     # In general this is only model construction &amp; `compile()`.</span>
-<span class="c1">#     model = get_compiled_model()</span>
-
-<span class="c1"># # Train the model on all available devices.</span>
-<span class="c1"># train_dataset, val_dataset, test_dataset = get_dataset()</span>
-<span class="c1"># model.fit(train_dataset, epochs=2, validation_data=val_dataset)</span>
-
-<span class="c1"># # Test the model on all available devices.</span>
-<span class="c1"># model.evaluate(test_dataset)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">strategy</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">build_compiled_model</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">val_dataset</span><span class="p">,</span> <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">get_dataset</span><span class="p">()</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:55:26.441320: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 156800000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The default <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/experimental/AutoShardPolicy">auto-sharding</a> by <code class="docutils literal notranslate"><span class="pre">FILE</span></code> can cause warning messages. Instead:</p>
+<ul class="simple">
+<li><p>Either disable auto-sharding using: <code class="docutils literal notranslate"><span class="pre">tf.data.experimental.AutoShardPolicy.OFF</span></code></p></li>
+<li><p>Or auto-shard by data: <code class="docutils literal notranslate"><span class="pre">tf.data.experimental.AutoShardPolicy.DATA</span></code></p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Options</span><span class="p">()</span>
+<span class="n">options</span><span class="o">.</span><span class="n">experimental_distribute</span><span class="o">.</span><span class="n">auto_shard_policy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">AutoShardPolicy</span><span class="o">.</span><span class="n">DATA</span>
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">with_options</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+<span class="n">val_dataset</span> <span class="o">=</span> <span class="n">val_dataset</span><span class="o">.</span><span class="n">with_options</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">with_options</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">val_dataset</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:55:26.589439: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 156800000 exceeds 10% of free system memory.
+2022-03-24 18:55:26.712992: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 156800000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:55:26.860984: W tensorflow/core/framework/dataset.cc:768] Input of GeneratorDatasetOp::Dataset will not be optimized because the dataset does not implement the AsGraphDefInternal() method needed to apply optimizations.
+2022-03-24 18:55:26.881440: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 156800000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:55:35.553356: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 156800000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">history</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.22839240729808807, 0.09613105654716492],
+ &#39;sparse_categorical_accuracy&#39;: [0.9316800236701965, 0.9704999923706055],
+ &#39;val_loss&#39;: [0.12547163665294647, 0.09650813788175583],
+ &#39;val_sparse_categorical_accuracy&#39;: [0.9613999724388123, 0.9715999960899353]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 43s - loss: 0.0708 - sparse_categorical_accuracy: 0.9688
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 23/313 [=&gt;............................] - ETA: 0s - loss: 0.0891 - sparse_categorical_accuracy: 0.9783 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 47/313 [===&gt;..........................] - ETA: 0s - loss: 0.1134 - sparse_categorical_accuracy: 0.9674
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 71/313 [=====&gt;........................] - ETA: 0s - loss: 0.1299 - sparse_categorical_accuracy: 0.9599
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 95/313 [========&gt;.....................] - ETA: 0s - loss: 0.1251 - sparse_categorical_accuracy: 0.9632
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+119/313 [==========&gt;...................] - ETA: 0s - loss: 0.1216 - sparse_categorical_accuracy: 0.9635
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+144/313 [============&gt;.................] - ETA: 0s - loss: 0.1247 - sparse_categorical_accuracy: 0.9629
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+169/313 [===============&gt;..............] - ETA: 0s - loss: 0.1143 - sparse_categorical_accuracy: 0.9663
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+193/313 [=================&gt;............] - ETA: 0s - loss: 0.1112 - sparse_categorical_accuracy: 0.9671
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+216/313 [===================&gt;..........] - ETA: 0s - loss: 0.1084 - sparse_categorical_accuracy: 0.9685
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+238/313 [=====================&gt;........] - ETA: 0s - loss: 0.1013 - sparse_categorical_accuracy: 0.9705
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+261/313 [========================&gt;.....] - ETA: 0s - loss: 0.1031 - sparse_categorical_accuracy: 0.9704
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+284/313 [==========================&gt;...] - ETA: 0s - loss: 0.0989 - sparse_categorical_accuracy: 0.9716
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+306/313 [============================&gt;.] - ETA: 0s - loss: 0.0993 - sparse_categorical_accuracy: 0.9715
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+313/313 [==============================] - 1s 2ms/step - loss: 0.1005 - sparse_categorical_accuracy: 0.9710
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.10046369582414627, 0.9710000157356262]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Written up here:</p>
+<p><a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/tensorflow_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_mnist_example.py</span></code></a></p>
 </div>
 <div class="section" id="fault-tolerance">
 <h2>Fault tolerance<a class="headerlink" href="#fault-tolerance" title="Permalink to this headline">¶</a></h2>
@@ -788,7 +935,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Prepare a directory to store all the checkpoints.</span>
-<span class="n">checkpoint_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/../models/checkpoints&quot;</span>
+<span class="n">checkpoint_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/models/checkpoints&quot;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">checkpoint_dir</span><span class="p">)</span>
 </pre></div>
@@ -825,8 +972,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
         <span class="c1"># This callback saves a SavedModel every epoch</span>
         <span class="c1"># We include the current epoch in the folder name.</span>
         <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
-            <span class="n">filepath</span><span class="o">=</span><span class="n">checkpoint_dir</span> <span class="o">+</span> <span class="s2">&quot;/checkpoint-</span><span class="si">{epoch}</span><span class="s2">&quot;</span><span class="p">,</span> 
-            <span class="n">save_freq</span><span class="o">=</span><span class="s2">&quot;epoch&quot;</span>
+            <span class="n">filepath</span><span class="o">=</span><span class="n">checkpoint_dir</span> <span class="o">+</span> <span class="s2">&quot;/checkpoint-</span><span class="si">{epoch}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">save_freq</span><span class="o">=</span><span class="s2">&quot;epoch&quot;</span>
         <span class="p">)</span>
     <span class="p">]</span>
     <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
@@ -1020,26 +1166,21 @@ pip install torch-cluster
 <p>It’s preferable to use a static job on the HPC. To do this, you could test out different ideas locally in a Jupyter Notebook, then when ready convert this to an executable script (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) and move it over.</p>
 <p>…</p>
 </div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p>These examples use <a class="reference external" href="https://docs.ray.io/en/latest/train/train.html">Ray Train</a> in a static job on a HPC.
+<div class="section" id="ray-train">
+<h2><a class="reference external" href="https://docs.ray.io/en/latest/train/train.html">Ray Train</a><a class="headerlink" href="#ray-train" title="Permalink to this headline">¶</a></h2>
+<p>These examples use Ray Train in a static job on a HPC.
 Ray handles most of the complexity of distributing the work, with minimal changes to your <a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras">TensorFlow</a> or <a class="reference external" href="https://pytorch.org/tutorials/beginner/dist_overview.html">PyTorch</a> code.</p>
 <ul class="simple">
 <li><p>Python script examples:</p>
 <ul>
 <li><p>TensorFlow</p>
 <ul>
-<li><p>MNIST end-to-end: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/tensorflow_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_mnist_example.py</span></code></a>.</p></li>
-<li><p>MNIST tuning: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/tensorflow_tune_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_tune_mnist_example.py</span></code></a>.</p></li>
-<li><p>Train linear model with Ray Datasets: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/tensorflow_linear_dataset_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_linear_dataset_example.py</span></code></a>.</p></li>
+<li><p>MNIST: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/tensorflow_ray_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">tensorflow_ray_mnist_example.py</span></code></a>.</p></li>
 </ul>
 </li>
 <li><p>PyTorch</p>
 <ul>
-<li><p>Linear: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/pytorch_train_linear_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_train_linear_example.py</span></code></a>.</p></li>
-<li><p>Fashion MNIST: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/pytorch_train_fashion_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_train_fashion_mnist_example.py</span></code></a>.</p></li>
-<li><p>HuggingFace Transformer: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/pytorch_transformers_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_transformers_example.py</span></code></a>.</p></li>
-<li><p>Tune linear model with Ray Datasets: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/pytorch_tune_linear_dataset_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_tune_linear_dataset_example.py</span></code></a>.</p></li>
+<li><p>Fashion MNIST: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/pytorch_ray_train_fashion_mnist_example.py"><code class="docutils literal notranslate"><span class="pre">pytorch_ray_train_fashion_mnist_example.py</span></code></a>.</p></li>
 </ul>
 </li>
 </ul>
@@ -1048,13 +1189,13 @@ Ray handles most of the complexity of distributing the work, with minimal change
 <ul>
 <li><p><a class="reference external" href="https://arcdocs.leeds.ac.uk/systems/arc4.html">ARC4</a> (SGE)</p>
 <ul>
-<li><p>CPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/ray_train_on_arc4_cpu.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_arc4_cpu.bash</span></code></a>.</p></li>
-<li><p>GPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/ray_train_on_arc4_gpu.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_arc4_gpu.bash</span></code></a>.</p></li>
+<li><p>CPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_cpu.bash"><code class="docutils literal notranslate"><span class="pre">distributed_ml_on_arc4_cpu.bash</span></code></a>.</p></li>
+<li><p>GPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_gpu.bash"><code class="docutils literal notranslate"><span class="pre">distributed_ml_on_arc4_gpu.bash</span></code></a>.</p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="https://bede-documentation.readthedocs.io/en/latest/">Bede</a> (SLURM)</p>
 <ul>
-<li><p>GPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/distributed/ray_train_on_bede.bash"><code class="docutils literal notranslate"><span class="pre">ray_train_on_bede.bash</span></code></a>.</p></li>
+<li><p>GPU: <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_bede.bash"><code class="docutils literal notranslate"><span class="pre">distributed_ml_on_bede.bash</span></code></a>.</p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="http://docs.jade.ac.uk/en/latest/index.html">JADE-2</a> (SLURM)</p>
@@ -1065,26 +1206,6 @@ Ray handles most of the complexity of distributing the work, with minimal change
 </ul>
 </li>
 </ul>
-<p><a class="reference external" href="https://keras.io/guides/distributed_training/">https://keras.io/guides/distributed_training/</a></p>
-<p>Synchronous data-parallel training on all available GPUs:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># distribution_strategy = tf.distribute.MirrorStratergy()</span>
-<span class="c1"># with distribution_strategy.scope():</span>
-<span class="c1">#     # Everything that creates variables should be under the strategy scope.</span>
-<span class="c1">#     # In general this is only model construction and compile()</span>
-<span class="c1">#     model = build_model()</span>
-<span class="c1">#     model.compile(optimiser, loss)</span>
-<span class="c1">#     model.fit(dataset, epochs=epochs, callbacks=callbacks)  </span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>should the <code class="docutils literal notranslate"><span class="pre">model.fit</span></code> call be inside or outside the scope?</p>
-<p>#$ -cwd</p>
-<p>not</p>
-<p>#$ -cwd -V</p>
-<p>so have to specific the reproducible environment with the job submission (not copied over from the terminal)</p>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
