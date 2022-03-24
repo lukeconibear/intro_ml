@@ -563,8 +563,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-23 17:41:55.430845: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-03-23 17:41:55.430875: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 14:43:26.480906: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-24 14:43:26.480933: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -631,10 +631,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-23 17:41:57.056095: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-03-23 17:41:57.056124: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-03-23 17:41:57.056141: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az149-70): /proc/driver/nvidia/version does not exist
-2022-03-23 17:41:57.056323: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 14:43:28.055709: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-03-24 14:43:28.055738: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-24 14:43:28.055755: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az147-291): /proc/driver/nvidia/version does not exist
+2022-03-24 14:43:28.055933: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -1350,7 +1350,7 @@ _________________________________________________________________
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
     <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
     <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">BinaryCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BinaryAccuracy</span><span class="p">()],</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BinaryAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)],</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1361,56 +1361,6 @@ _________________________________________________________________
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
     <span class="n">epochs</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># just 1 for the demonstration, would increase this to say 20 normally</span>
     <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_ds</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Load a convolutional base with pre-trained weights</span>
-<span class="c1"># base_model = tf.keras.applications.Xception(</span>
-<span class="c1">#     weights=&#39;imagenet&#39;,</span>
-<span class="c1">#     include_top=False,</span>
-<span class="c1">#     pooling=&#39;avg&#39;)</span>
-
-<span class="c1"># # Freeze the base model</span>
-<span class="c1"># base_model.trainable = False</span>
-
-<span class="c1"># Use a Sequential model to add a trainable classifier on top</span>
-<span class="c1"># model = tf.keras.Sequential(</span>
-<span class="c1">#     [</span>
-<span class="c1">#         base_model,</span>
-<span class="c1">#         tf.keras.layers.Dense(1000),</span>
-<span class="c1">#     ]</span>
-<span class="c1"># )</span>
-
-<span class="c1"># # Compile &amp; train</span>
-<span class="c1"># model.compile(...)</span>
-<span class="c1"># model.fit(...)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.summary()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- xception (Functional)       (None, 2048)              20861480  
-                                                                 
- dense (Dense)               (None, 1000)              2049000   
-                                                                 
-=================================================================
-Total params: 22,910,480
-Trainable params: 2,049,000
-Non-trainable params: 20,861,480
-_________________________________________________________________
 </pre></div>
 </div>
 </div>
@@ -1432,11 +1382,21 @@ _________________________________________________________________
 <p>For longer or distributed training, it’s helpful to save the model (/ model weights) at regular intervals in case it crashes during training (i.e. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint">model checkpointing</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">path_models</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/../models&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_model_checkpoint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
-    <span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;models/model_</span><span class="si">{epoch}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">filepath</span><span class="o">=</span><span class="n">path_models</span> <span class="o">+</span> <span class="s2">&quot;/model_</span><span class="si">{epoch}</span><span class="s2">&quot;</span><span class="p">,</span>
     <span class="n">save_freq</span><span class="o">=</span><span class="s2">&quot;epoch&quot;</span><span class="p">,</span>  <span class="c1"># save a model version at the end of each epoch</span>
     <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># only save a model if val_accuracy improved</span>
     <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">,</span>
+    <span class="c1"># save_weights_only=True</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1450,7 +1410,7 @@ _________________________________________________________________
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callback_tensorboard_with_profiling</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span>
-    <span class="n">log_dir</span><span class="o">=</span><span class="s2">&quot;logs&quot;</span><span class="p">,</span>
+    <span class="n">log_dir</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_models</span><span class="si">}</span><span class="s2">/logs&quot;</span><span class="p">,</span>
     <span class="n">profile_batch</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>  <span class="c1"># profile batches 1 to 5</span>
     <span class="n">update_freq</span><span class="o">=</span><span class="s2">&quot;epoch&quot;</span><span class="p">,</span>
 <span class="p">)</span>
@@ -1458,22 +1418,29 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-17 18:23:38.197379: I tensorflow/core/profiler/lib/profiler_session.cc:110] Profiler session initializing.
-2022-03-17 18:23:38.197406: I tensorflow/core/profiler/lib/profiler_session.cc:125] Profiler session started.
-2022-03-17 18:23:38.197650: I tensorflow/core/profiler/lib/profiler_session.cc:143] Profiler session tear down.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 12:48:26.254821: I tensorflow/core/profiler/lib/profiler_session.cc:110] Profiler session initializing.
+2022-03-24 12:48:26.254856: I tensorflow/core/profiler/lib/profiler_session.cc:125] Profiler session started.
+2022-03-24 12:48:26.255016: I tensorflow/core/profiler/lib/profiler_session.cc:143] Profiler session tear down.
 </pre></div>
 </div>
 </div>
 </div>
 <p>View them with:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !tensorboard --logdir=/full_path_to_your_logs</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tensorboard --logdir<span class="o">=</span>/full_path_to_your_logs
 </pre></div>
 </div>
+<p>Also, in-line in <a class="reference external" href="https://www.tensorflow.org/tensorboard/tensorboard_in_notebooks">Jupyter Notebooks / Google Colab</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorboard</span> <span class="kn">import</span> <span class="n">notebook</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="c1"># list open tensorboard instances</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">6006</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># open tensorboard</span>
+
+<span class="c1"># or</span>
+
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">tensorboard</span>
+
+<span class="o">%</span><span class="n">tensorboard</span> <span class="o">--</span><span class="n">logdir</span> <span class="n">logs</span>
+</pre></div>
 </div>
-</div>
-<p>Also, in-line in <a class="reference external" href="https://www.tensorflow.org/tensorboard/tensorboard_in_notebooks">Jupyter Notebooks / Google Colab</a></p>
 </div>
 <div class="section" id="metric-threshold">
 <h3>Metric threshold<a class="headerlink" href="#metric-threshold" title="Permalink to this headline">¶</a></h3>
@@ -1523,7 +1490,31 @@ _________________________________________________________________
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.fit(dataset, epochs=5, callbacks=callbacks)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># just 1 for the demonstration, would increase this to say 20 normally</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">validation_ds</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorboard</span> <span class="kn">import</span> <span class="n">notebook</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Known TensorBoard instances:
+  - port 6006: logdir /home/earlacoa/repos/intro_ml/models/logs (started 0:03:33 ago; pid 533703)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">notebook</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">6006</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

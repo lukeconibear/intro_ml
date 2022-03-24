@@ -693,6 +693,26 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="https://youtu.be/n1l-9lIMW7E">Neural networks</a> are models made of layers of neurons.</p>
 <p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#neuron">Neurons</a> (also known as units or nodes) take in inputs and return an output by applying an activation function.</p>
 <p><a class="reference external" href="https://youtu.be/Xvg00QnyaIY">Activation functions</a> (also known as non-linearities) take a weighted sum of inputs from a previous layer, apply a non-linear function to it, and then pass the output to the next layer.</p>
+<p>Common activation functions are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#rectified-linear-unit-relu">ReLU (Rectified Linear Unit)</a></p>
+<ul>
+<li><p>If input is negative, the output equals 0.</p></li>
+<li><p>If input is positive, the output equals the input.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#sigmoid-function">Sigmoid</a></p>
+<ul>
+<li><p>Converts <a class="reference internal" href="03_data.html#logits-and-log-odds"><span class="std std-ref">log-odds</span></a> into probabilities between 0 and 1.</p></li>
+<li><p>Used for binary classification.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#softmax">Softmax</a></p>
+<ul>
+<li><p>Sigmoid for multi-classification.</p></li>
+</ul>
+</li>
+</ul>
 <p>The neurons are connected in <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#hidden-layer">many layers</a>.</p>
 <p>These hidden layers between the <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#input-layer">input layer</a> and <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#output-layer">output layer</a> are the depth of the model (hence, <em>deep</em> learning).</p>
 <p>A common layer is for all the neurons to be <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#fully-connected-layer">fully connected</a> to each other (also known as a dense layer).</p>
@@ -845,6 +865,14 @@ local optimum</p>
 <p>This is measured as the error on single training example. You will always want to minimise the loss function.</p>
 <p>A similar concept is the <a class="reference external" href="https://youtu.be/SHEPb1JHw5o">Cost Function</a>, which is the average of the loss functions over the whole training set.</p>
 <p>The loss function is a proxy of the metric with a smooth gradient. Note, that in some cases it is actually the same as the metric e.g., mean squared error.</p>
+<p>Common loss functions are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#mean-squared-error-mse">Mean squared error</a></p>
+<ul>
+<li><p>The average squared loss per example.</p></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="gradient-descent">
 <h4><a class="reference external" href="https://youtu.be/uJryes5Vk1o">Gradient descent</a><a class="headerlink" href="#gradient-descent" title="Permalink to this headline">¶</a></h4>
@@ -858,6 +886,24 @@ local optimum</p>
 </ul>
 <p>The gradient of the loss is reduced in this process (i.e., descends).</p>
 <p>It aims to find the best parameters (i.e., the weights and biases that minimise the loss).</p>
+<p>Common methods of gradient descent are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#stochastic-gradient-descent-sgd">Stochastic Gradient Descent (SGD)</a></p>
+<ul>
+<li><p>Uses 1 training example per iteration.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://youtu.be/KKfZLXcF-aE">Batch gradient descent</a></p>
+<ul>
+<li><p>Uses all training examples per iteration.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://youtu.be/4qJaSmvhxi8">Mini-batch gradient descent</a></p>
+<ul>
+<li><p>Uses a smaller batch (e.g., 32) of training examples per iteration.</p></li>
+</ul>
+</li>
+</ul>
 <p>Local minimum</p>
 <p>Global minimum</p>
 <p>…</p>
@@ -913,7 +959,7 @@ Any value less than 1, as model can be continually awful
 <p>More training data is unlikely to help a model that underfits the data.</p>
 </div>
 <div class="section" id="overfit">
-<h3><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit">Overfit</a><a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit">Overfit</a><a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h3>
 <p>A model <em>overfits</em> the data when it has <em>high variance</em> (i.e., varies a lot).</p>
 <p>This means the model is <em>too complex</em> to capture the association (i.e., too much capacity so the training data is memorised).</p>
 <p>You can tell that the model overfits because there are <em>low</em> training errors <em>but</em> high test errors (i.e., there is a big difference between these errors, where the model doesn’t work well on new data because it overfitted to the noise in the training data).</p>
@@ -921,7 +967,13 @@ Any value less than 1, as model can be continually awful
 <ul class="simple">
 <li><p>Adding more data.</p></li>
 <li><p>Using fewer or simpler features.</p></li>
-<li><p>Increasing <a class="reference external" href="https://youtu.be/6g0t3Phly2M">regularisation</a> (i.e., increase preference for simpler functions).</p></li>
+<li><p>Increasing <a class="reference external" href="https://youtu.be/6g0t3Phly2M">regularisation</a> (i.e., increase preference for simpler functions).</p>
+<ul>
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#l1-regularization">L1</a> regularlisation penalises weights in proportion to the <em>sum</em> of their absolute values.</p></li>
+<li><p><a class="reference external" href="https://youtu.be/6g0t3Phly2M">L2</a> regularlisation penalises weights in proportion to the <em>square</em> of their absolute values.</p></li>
+<li><p><a class="reference external" href="https://youtu.be/D8PJAL-MZv8">Dropout</a> regularlisation removes a random selection of neurons for a training step.</p></li>
+</ul>
+</li>
 <li><p>A smaller neural network with fewer layers/parameters.</p></li>
 </ul>
 <p>Below is an example of underfitting (linear line through non-linear data) and overfitting (very-high order polynomial passing through every training point).</p>
@@ -998,7 +1050,7 @@ Any value less than 1, as model can be continually awful
 </ul>
 </div>
 <div class="section" id="online-courses">
-<span id="id1"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
 <p><strong>Bold</strong> are highly-recommended.</p>
 <div class="section" id="machine-learning">
 <h4>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h4>
