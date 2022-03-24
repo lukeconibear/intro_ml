@@ -343,6 +343,7 @@ dependencies:
     - google-auth-oauthlib==0.4.6
     - google-pasta==0.2.0
     - grpcio==1.44.0
+    - gviz-api==1.10.0
     - h5py==3.6.0
     - keras==2.8.0
     - keras-preprocessing==1.1.2
@@ -360,6 +361,7 @@ dependencies:
     - rsa==4.8
     - tensorboard==2.8.0
     - tensorboard-data-server==0.6.1
+    - tensorboard-plugin-profile==2.5.0
     - tensorboard-plugin-wit==1.8.1
     - tensorflow==2.8.0
     - tensorflow-datasets==4.5.2

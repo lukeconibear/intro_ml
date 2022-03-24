@@ -1,7 +1,7 @@
 #!/bin/bash -l
-#$ -cwd -V
+#$ -cwd
 #$ -l h_rt=00:10:00
-#$ -pe ib 4
+#$ -pe smp 4
 #$ -l h_vmem=6G
 
 # ----------
@@ -17,7 +17,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib
 
 # 3. run the python script
 
-python tensorflow_tune_mnist_example.py --num-workers 4
-# python tensorflow_mnist_example.py --num-workers 4
-# python tensorflow_linear_dataset_example.py --num-workers 4
+python tensorflow_mnist_example.py
+# python tensorflow_ray_mnist_example.py --num-workers 4
+# python pytorch_ray_train_fashion_mnist_example.py --num-workers 4
 
