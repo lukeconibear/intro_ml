@@ -15,7 +15,7 @@ from torchvision.transforms import ToTensor
 
 # Download training data from open datasets.
 training_data = datasets.FashionMNIST(
-    root="~/data",
+    root="/nobackup/$USER/data",
     train=True,
     download=True,
     transform=ToTensor(),

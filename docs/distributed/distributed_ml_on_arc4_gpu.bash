@@ -6,5 +6,5 @@
 conda activate intro_ml 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib  # (sometimes required)
 
-python tensorflow_ray_train_mnist_example.py --use-gpu=True --epochs 10
-# python pytorch_ray_train_fashion_mnist_example.py --use-gpu=True --epochs 10
+python tensorflow_ray_train_mnist_example.py --use-gpu=True --epochs 100
+# python pytorch_ray_train_fashion_mnist_example.py --use-gpu=True --epochs 100
