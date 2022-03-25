@@ -865,7 +865,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.82930858])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.27724096])
 </pre></div>
 </div>
 </div>
@@ -882,8 +882,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:53:15.943799: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-03-24 18:53:15.943861: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-25 16:43:16.905462: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-03-25 16:43:16.905491: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -902,10 +902,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:53:18.094973: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-03-24 18:53:18.095006: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-03-24 18:53:18.095051: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az203-545): /proc/driver/nvidia/version does not exist
-2022-03-24 18:53:18.095304: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-25 16:43:18.329684: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-03-25 16:43:18.329711: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-25 16:43:18.329732: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az147-291): /proc/driver/nvidia/version does not exist
+2022-03-25 16:43:18.329915: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -1001,7 +1001,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.8526431]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9834172]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1319,15 +1319,23 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16384/11490434 [..............................] - ETA: 0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16384/11490434 [..............................] - ETA: 3s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 3104768/11490434 [=======&gt;......................] - ETA: 0s
+   90112/11490434 [..............................] - ETA: 7s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 7921664/11490434 [===================&gt;..........] - ETA: 0s
+  450560/11490434 [&gt;.............................] - ETA: 2s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 2097152/11490434 [====&gt;.........................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 8093696/11490434 [====================&gt;.........] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1509,10 +1517,10 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.29801395535469055, 0.12070479243993759],
- &#39;accuracy&#39;: [0.914145827293396, 0.9625833630561829],
- &#39;val_loss&#39;: [0.15046074986457825, 0.12178413569927216],
- &#39;val_accuracy&#39;: [0.9555000066757202, 0.9646666646003723]}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.29801395535469055, 0.12066834419965744],
+ &#39;accuracy&#39;: [0.914145827293396, 0.9628750085830688],
+ &#39;val_loss&#39;: [0.15046073496341705, 0.12250909209251404],
+ &#39;val_accuracy&#39;: [0.9555000066757202, 0.9640833139419556]}
 </pre></div>
 </div>
 </div>
@@ -1544,9 +1552,9 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.2190964e-06, 3.2815453e-06, 3.2246704e-04, 6.6423544e-04,
-       4.3513411e-09, 7.6514370e-05, 5.6828009e-09, 9.9891257e-01,
-       1.2199258e-05, 4.4525959e-06], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.2485581e-06, 1.7845955e-06, 2.2890199e-04, 5.8985275e-04,
+       3.6019763e-09, 7.3948235e-05, 4.6318891e-09, 9.9908757e-01,
+       9.7906986e-06, 3.8364260e-06], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1592,54 +1600,34 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 6s - loss: 0.1447 - accuracy: 0.9688
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 3s - loss: 0.1562 - accuracy: 0.9688
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 37/313 [==&gt;...........................] - ETA: 0s - loss: 0.1223 - accuracy: 0.9654
+ 64/313 [=====&gt;........................] - ETA: 0s - loss: 0.1485 - accuracy: 0.9570
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 69/313 [=====&gt;........................] - ETA: 0s - loss: 0.1586 - accuracy: 0.9534
+124/313 [==========&gt;...................] - ETA: 0s - loss: 0.1563 - accuracy: 0.9529
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-104/313 [========&gt;.....................] - ETA: 0s - loss: 0.1517 - accuracy: 0.9549
+188/313 [=================&gt;............] - ETA: 0s - loss: 0.1432 - accuracy: 0.9563
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-139/313 [============&gt;.................] - ETA: 0s - loss: 0.1557 - accuracy: 0.9528
+251/313 [=======================&gt;......] - ETA: 0s - loss: 0.1237 - accuracy: 0.9620
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-173/313 [===============&gt;..............] - ETA: 0s - loss: 0.1406 - accuracy: 0.9568
+311/313 [============================&gt;.] - ETA: 0s - loss: 0.1169 - accuracy: 0.9642
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-196/313 [=================&gt;............] - ETA: 0s - loss: 0.1427 - accuracy: 0.9565
+313/313 [==============================] - 0s 817us/step - loss: 0.1173 - accuracy: 0.9642
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-217/313 [===================&gt;..........] - ETA: 0s - loss: 0.1367 - accuracy: 0.9579
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-242/313 [======================&gt;.......] - ETA: 0s - loss: 0.1248 - accuracy: 0.9618
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-261/313 [========================&gt;.....] - ETA: 0s - loss: 0.1208 - accuracy: 0.9629
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-290/313 [==========================&gt;...] - ETA: 0s - loss: 0.1134 - accuracy: 0.9652
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-313/313 [==============================] - 1s 2ms/step - loss: 0.1162 - accuracy: 0.9646
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9646000266075134
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9642000198364258
 </pre></div>
 </div>
 </div>
@@ -1706,10 +1694,10 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-24 18:53:30.453431: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-25 16:43:27.508350: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
 </pre></div>
 </div>
 </div>
@@ -1805,10 +1793,10 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 1s - loss: 0.1162 - accuracy: 0.9646 - 517ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1173 - accuracy: 0.9642 - 292ms/epoch - 933us/step
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.46%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.42%
 </pre></div>
 </div>
 </div>
