@@ -12,13 +12,12 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.callbacks import Callback
 
-import ray.train as train
 from ray.train import Trainer
 
 
 class TrainReportCallback(Callback):
     def on_epoch_end(self, epoch, logs=None):
-        train.report(**logs)
+        ray.train.report(**logs)
 
 
 def mnist_dataset(batch_size):
@@ -27,16 +26,16 @@ def mnist_dataset(batch_size):
     # You need to convert them to float32 with values in the [0, 1] range.
     x_train = x_train / np.float32(255)
     y_train = y_train.astype(np.int64)
-    train_dataset = tf.data.Dataset.from_tensor_slices(
+    ds_train = tf.data.Dataset.from_tensor_slices(
         (x_train, y_train)).shuffle(60000).repeat().batch(batch_size)
     
     options = tf.data.Options()
     options.experimental_distribute.auto_shard_policy = (
         tf.data.experimental.AutoShardPolicy.DATA
     )
-    train_dataset = train_dataset.with_options(options)
+    ds_train = ds_train.with_options(options)
     
-    return train_dataset
+    return ds_train
 
 
 def build_and_compile_cnn_model(config):

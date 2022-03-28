@@ -5,7 +5,7 @@ import argparse
 from typing import Dict
 
 import torch
-import ray.train as train
+import ray
 from ray.train.trainer import Trainer
 from ray.train.callbacks import JsonLoggerCallback
 from torch import nn
@@ -46,7 +46,7 @@ class NeuralNetwork(nn.Module):
 
 
 def train_epoch(dataloader, model, loss_fn, optimizer):
-    size = len(dataloader.dataset) // train.world_size()
+    size = len(dataloader.dataset) // ray.train.world_size()
     model.train()
     for batch, (X, y) in enumerate(dataloader):
         # Compute prediction error
@@ -64,7 +64,7 @@ def train_epoch(dataloader, model, loss_fn, optimizer):
 
 
 def validate_epoch(dataloader, model, loss_fn):
-    size = len(dataloader.dataset) // train.world_size()
+    size = len(dataloader.dataset) // ray.train.world_size()
     num_batches = len(dataloader)
     model.eval()
     test_loss, correct = 0, 0
@@ -86,18 +86,18 @@ def train_func(config: Dict):
     lr = config["lr"]
     epochs = config["epochs"]
 
-    worker_batch_size = batch_size // train.world_size()
+    worker_batch_size = batch_size // ray.train.world_size()
 
     # Create data loaders.
     train_dataloader = DataLoader(training_data, batch_size=worker_batch_size)
     test_dataloader = DataLoader(test_data, batch_size=worker_batch_size)
 
-    train_dataloader = train.torch.prepare_data_loader(train_dataloader)
-    test_dataloader = train.torch.prepare_data_loader(test_dataloader)
+    train_dataloader = ray.train.torch.prepare_data_loader(train_dataloader)
+    test_dataloader = ray.train.torch.prepare_data_loader(test_dataloader)
 
     # Create model.
     model = NeuralNetwork()
-    model = train.torch.prepare_model(model)
+    model = ray.train.torch.prepare_model(model)
 
     loss_fn = nn.CrossEntropyLoss()
     optimizer = torch.optim.SGD(model.parameters(), lr=lr)
@@ -107,7 +107,7 @@ def train_func(config: Dict):
     for _ in range(epochs):
         train_epoch(train_dataloader, model, loss_fn, optimizer)
         loss = validate_epoch(test_dataloader, model, loss_fn)
-        train.report(loss=loss)
+        ray.train.report(loss=loss)
         loss_results.append(loss)
 
     return loss_results
