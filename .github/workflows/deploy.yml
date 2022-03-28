@@ -19,7 +19,7 @@ jobs:
       - name: Install Conda environment
         uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: intro_ml
+          activate-environment: swd8_intro_ml
           environment-file: environment.yml
           python-version: 3.9
           auto-activate-base: false
@@ -27,7 +27,7 @@ jobs:
 
       - name: Create Jupyter kernelspec
         run: |
-          python -m ipykernel install --user --name intro_ml --display-name "intro_ml"
+          python -m ipykernel install --user --name swd8_intro_ml --display-name "swd8_intro_ml"
       
       - name: Build Jupyter Book
         run: |
