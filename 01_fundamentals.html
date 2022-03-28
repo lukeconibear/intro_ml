@@ -49,7 +49,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tools" href="02_tools.html" />
@@ -810,9 +810,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p><em><a class="reference external" href="https://inria.github.io/scikit-learn-mooc/python_scripts/02_numerical_pipeline_cross_validation.html">Image source</a></em></p>
 </div>
 <div class="section" id="hyperparameters">
-<h3><a class="reference external" href="https://youtu.be/VTE2KlfoO3Q">Hyperparameters</a><a class="headerlink" href="#hyperparameters" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3><a class="reference external" href="https://youtu.be/VTE2KlfoO3Q">Hyperparameters</a><a class="headerlink" href="#hyperparameters" title="Permalink to this headline">¶</a></h3>
 <p>These are what <em>you set before</em> model training (i.e., the architecture).</p>
 <p>They control the learning process.</p>
+<p>These include, for example:</p>
+<ul class="simple">
+<li><p>The number of layers.</p></li>
+<li><p>The number of units per layer.</p></li>
+<li><p>The activation function to use</p></li>
+<li><p>Whether to use dropout.</p></li>
+<li><p>The optimiser learning rate.</p></li>
+<li><p>The batch size.</p></li>
+</ul>
 <p>They are often found through iterative trying out different options.</p>
 <p>This iterative tuning method can be:</p>
 <ul class="simple">
@@ -948,7 +957,7 @@ Any value less than 1, as model can be continually awful
 <p>More training data is unlikely to help a model that underfits the data.</p>
 </div>
 <div class="section" id="overfit">
-<span id="id1"></span><h3><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit">Overfit</a><a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit">Overfit</a><a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h3>
 <p>A model <em>overfits</em> the data when it has <em>high variance</em> (i.e., varies a lot).</p>
 <p>This means the model is <em>too complex</em> to capture the association (i.e., too much capacity so the training data is memorised).</p>
 <p>You can tell that the model overfits because there are <em>low</em> training errors <em>but</em> high test errors (i.e., there is a big difference between these errors, where the model doesn’t work well on new data because it overfitted to the noise in the training data).</p>
@@ -1039,7 +1048,7 @@ Any value less than 1, as model can be continually awful
 </ul>
 </div>
 <div class="section" id="online-courses">
-<span id="id2"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
 <p><strong>Bold</strong> are highly-recommended.</p>
 <div class="section" id="machine-learning">
 <h4>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h4>
@@ -1091,16 +1100,16 @@ Any value less than 1, as model can be continually awful
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "intro_ml"
+            mode: "swd8_intro_ml"
         },
         kernelOptions: {
-            kernelName: "intro_ml",
+            kernelName: "swd8_intro_ml",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'intro_ml'</script>
+    <script>kernelName = 'swd8_intro_ml'</script>
 
               </div>
               

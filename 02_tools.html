@@ -49,7 +49,7 @@ const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data" href="03_data.html" />
@@ -706,16 +706,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://keras.io/api/losses/">Losses</a> e.g., MeanSquaredError</p></li>
 <li><p><a class="reference external" href="https://keras.io/api/metrics/">Metrics</a> e.g., Accuracy</p></li>
 </ul>
-<p>You can always go to the lower-level API, which is useful for custom objects.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://blog.tensorflow.org/2019/01/what-are-symbolic-and-imperative-apis.html">Model subclassing</a></p>
-<ul>
-<li><p>Similar to PyTorch</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.tensorflow.org/guide/autodiff">Automatic differention</a> with <code class="docutils literal notranslate"><span class="pre">tf.GradientTape()</span></code></p></li>
-<li><p>…</p></li>
-</ul>
+<p>You can always go lower level when required (e.g., custom objects).</p>
 <p>There are many <a class="reference external" href="https://www.tensorflow.org/resources/libraries-extensions">libraries and extensions</a> including:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.tensorflow.org/tfx">TensorFlow Extended</a> for deployment.</p></li>
@@ -724,26 +715,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>A model consists of many layers.</p>
 <p>Each layer is an input-output transformation.</p>
-<p>These models and layers can be built using either of these API (application programming interface):</p>
+<p>These models and layers can be built using any of the <a class="reference external" href="https://blog.tensorflow.org/2019/01/what-are-symbolic-and-imperative-apis.html">following APIs</a> (application programming interfaces):</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://keras.io/guides/sequential_model/">Sequential</a></p></th>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><a class="reference external" href="https://keras.io/guides/sequential_model/">Sequential</a></p></th>
 <th class="head"><p><a class="reference external" href="https://keras.io/guides/functional_api/">Functional</a></p></th>
 <th class="head"><p><a class="reference external" href="https://www.tensorflow.org/guide/keras/custom_layers_and_models/">Subclassing</a></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Linear stack of layers.</p></td>
-<td><p>Non-linear DAG (directed acyclic graph) of layers (can be shared).</p></td>
-<td><p>Similar to Functional, except uses subclasses.</p></td>
+<tr class="row-even"><td><p>API style</p></td>
+<td><p>Symbolic (abstract)</p></td>
+<td><p>Symbolic</p></td>
+<td><p>Imperative (compute as you run)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Each layer has one input and one output.</p></td>
-<td><p>Each layer can have multiple inputs and outputs.</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p>Data structure</p></td>
+<td><p>Graph: Linear stack of layers.</p></td>
+<td><p>Graph: Non-linear DAG (directed acyclic graph) of layers (can be shared).</p></td>
+<td><p>Object-orientated. Write the forward pass (backward pass is automatic)</p></td>
+</tr>
+<tr class="row-even"><td><p>Shared layers and multiple inputs/outputs</p></td>
+<td><p>No. Each layer has one input and one output.</p></td>
+<td><p>Yes. Each layer can have multiple inputs and outputs.</p></td>
+<td><p>Yes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Main pros/cons</p></td>
+<td><p>Simplest, (re)usability (easily saved), model checks to catch errors early, static</p></td>
+<td><p>Like seqential, but more flexible</p></td>
+<td><p>Maximum flexibility, no model checks, more complex, dynamic</p></td>
+</tr>
+<tr class="row-even"><td><p>Show model graph</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Can add via the guidance <a class="reference external" href="https://github.com/tensorflow/tensorflow/issues/31647#issuecomment-692586409">here</a>.</p></td>
 </tr>
 </tbody>
 </table>
-<p>Hence, the Sequential API is simpler and the Functional API is more flexible and suitable for complicated models. While the Functional and Subclassing options are similar and mainly a taste preference for those that like object-orientated code.</p>
 </div>
 <div class="section" id="pytorch">
 <span id="id3"></span><h3><a class="reference external" href="https://pytorch.org/">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
@@ -760,10 +768,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p>You can always go to the lower-level API, which is useful for custom objects.</p>
-<ul class="simple">
-<li><p>…</p></li>
-</ul>
+<p>You can always go lower level when required (e.g., custom objects).</p>
 <p>There are many <a class="reference external" href="https://pytorch.org/ecosystem/">libraries and extensions</a> including:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pytorch.org/serve/">TorchServe</a> for deployment.</p></li>
@@ -865,7 +870,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.07643314])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.11841047])
 </pre></div>
 </div>
 </div>
@@ -881,32 +886,45 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-25 17:15:33.340064: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-03-25 17:15:33.340101: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-</pre></div>
 </div>
-</div>
-</div>
-<p>Create the model.</p>
-<p>It’s helpful to name the layers in the model.</p>
+<p>Create the model (using the simpler sequential API).</p>
+<p>Note, it’s helpful to name the layers in the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;inputs&quot;</span><span class="p">),</span>
         <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;outputs&quot;</span><span class="p">),</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sequential&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-25 17:15:35.576297: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-03-25 17:15:35.576336: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-03-25 17:15:35.576362: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az28-439): /proc/driver/nvidia/version does not exist
-2022-03-25 17:15:35.576633: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</div>
+<p>For reference, here’s what this would have looked like using the functional and subclassing APIs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;inputs&quot;</span><span class="p">)</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;outputs&quot;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="n">model_tf_functional</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;functional&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># handles standard arguments e.g., name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;outputs&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>  <span class="c1"># have inputs as argument to call, rather than define</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+
+<span class="n">model_tf_subclassing</span> <span class="o">=</span> <span class="n">MyModel</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;subclassing&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -963,7 +981,9 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_31_0.png" src="_images/02_tools_31_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You must install pydot (`pip install pydot`) and install graphviz (see instructions at https://graphviz.gitlab.io/download/) for plot_model/model_to_dot to work.
+</pre></div>
+</div>
 </div>
 </div>
 <p>Now, compile the model.</p>
@@ -1001,7 +1021,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9732269]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.0668466]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1054,7 +1074,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_43_0.png" src="_images/02_tools_43_0.png" />
+<img alt="_images/02_tools_46_0.png" src="_images/02_tools_46_0.png" />
 </div>
 </div>
 <p>They both did a good job of fitting a function to the data.</p>
@@ -1100,7 +1120,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_51_0.png" src="_images/02_tools_51_0.png" />
+<img alt="_images/02_tools_54_0.png" src="_images/02_tools_54_0.png" />
 </div>
 </div>
 </div>
@@ -1191,7 +1211,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_64_0.png" src="_images/02_tools_64_0.png" />
+<img alt="_images/02_tools_67_0.png" src="_images/02_tools_67_0.png" />
 </div>
 </div>
 </div>
@@ -1224,7 +1244,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_69_0.png" src="_images/02_tools_69_0.png" />
+<img alt="_images/02_tools_72_0.png" src="_images/02_tools_72_0.png" />
 </div>
 </div>
 <p>We can see that the although the model did well, it struggled with 3’s by confusing them with 5’s, 7’s, and 8’s.</p>
@@ -1323,7 +1343,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 2424832/11490434 [=====&gt;........................] - ETA: 0s
+ 3932160/11490434 [=========&gt;....................] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1349,7 +1369,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_89_0.png" src="_images/02_tools_89_0.png" />
+<img alt="_images/02_tools_92_0.png" src="_images/02_tools_92_0.png" />
 </div>
 </div>
 </div>
@@ -1385,7 +1405,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_1&quot;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
@@ -1452,7 +1472,9 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_95_0.png" src="_images/02_tools_95_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You must install pydot (`pip install pydot`) and install graphviz (see instructions at https://graphviz.gitlab.io/download/) for plot_model/model_to_dot to work.
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1574,7 +1596,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_111_0.png" src="_images/02_tools_111_0.png" />
+<img alt="_images/02_tools_114_0.png" src="_images/02_tools_114_0.png" />
 </div>
 </div>
 </div>
@@ -1588,39 +1610,31 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 6s - loss: 0.1447 - accuracy: 0.9688
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 5s - loss: 0.1447 - accuracy: 0.9688
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 34/313 [==&gt;...........................] - ETA: 0s - loss: 0.1130 - accuracy: 0.9697
+ 50/313 [===&gt;..........................] - ETA: 0s - loss: 0.1396 - accuracy: 0.9588
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 72/313 [=====&gt;........................] - ETA: 0s - loss: 0.1601 - accuracy: 0.9536
+ 98/313 [========&gt;.....................] - ETA: 0s - loss: 0.1573 - accuracy: 0.9531
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-110/313 [=========&gt;....................] - ETA: 0s - loss: 0.1491 - accuracy: 0.9560
+145/313 [============&gt;.................] - ETA: 0s - loss: 0.1540 - accuracy: 0.9528
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-146/313 [============&gt;.................] - ETA: 0s - loss: 0.1531 - accuracy: 0.9531
+193/313 [=================&gt;............] - ETA: 0s - loss: 0.1449 - accuracy: 0.9558
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-185/313 [================&gt;.............] - ETA: 0s - loss: 0.1383 - accuracy: 0.9574
+240/313 [======================&gt;.......] - ETA: 0s - loss: 0.1258 - accuracy: 0.9615
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-223/313 [====================&gt;.........] - ETA: 0s - loss: 0.1334 - accuracy: 0.9591
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-261/313 [========================&gt;.....] - ETA: 0s - loss: 0.1208 - accuracy: 0.9629
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-298/313 [===========================&gt;..] - ETA: 0s - loss: 0.1110 - accuracy: 0.9660
+289/313 [==========================&gt;...] - ETA: 0s - loss: 0.1138 - accuracy: 0.9651
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1647,7 +1661,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_116_0.png" src="_images/02_tools_116_0.png" />
+<img alt="_images/02_tools_119_0.png" src="_images/02_tools_119_0.png" />
 </div>
 </div>
 <p>This model did well for most digits, though struggled a bit with 5’s.</p>
@@ -1694,9 +1708,6 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-03-25 17:15:48.434789: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
 </pre></div>
 </div>
@@ -1726,7 +1737,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_1&quot;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
@@ -1788,12 +1799,12 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">new_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Restored model, accuracy: </span><span class="si">{:5.2f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">acc</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restored model, accuracy: </span><span class="si">{:5.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">acc</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1162 - accuracy: 0.9646 - 483ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1162 - accuracy: 0.9646 - 378ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.46%
@@ -1906,16 +1917,16 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "intro_ml"
+            mode: "swd8_intro_ml"
         },
         kernelOptions: {
-            kernelName: "intro_ml",
+            kernelName: "swd8_intro_ml",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'intro_ml'</script>
+    <script>kernelName = 'swd8_intro_ml'</script>
 
               </div>
               
