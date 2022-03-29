@@ -694,10 +694,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://keras.io/api/layers/">Layers</a></p>
 <ul>
 <li><p><a class="reference external" href="https://keras.io/api/layers/activations">Activations</a> e.g., sigmoid</p></li>
-<li><p><a class="reference external" href="https://keras.io/api/layers/initializers/">Weight initialisers</a> e.g., HeNormal</p></li>
 <li><p><a class="reference external" href="https://keras.io/api/layers/regularizers/">Regularisers</a> e.g., L2</p></li>
 <li><p><a class="reference external" href="https://keras.io/api/layers/convolution_layers/">Convolutional</a> e.g., Conv2D</p></li>
-<li><p><a class="reference external" href="https://keras.io/api/layers/pooling_layers/">Pooling</a> e.g., MaxPooling2D</p></li>
 <li><p><a class="reference external" href="https://keras.io/api/layers/recurrent_layers/">Recurrent</a> e.g., LSTM (long-short-term-memory)</p></li>
 <li><p><a class="reference external" href="https://keras.io/api/layers/preprocessing_layers/">Preprocessing</a> e.g., vectorisation</p></li>
 </ul>
@@ -712,6 +710,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://www.tensorflow.org/tfx">TensorFlow Extended</a> for deployment.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/lite/guide">TensorFlow Lite</a> for mobile and IoT (internet of things) devices.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/tensorboard">TensorBoard</a> for visualising the experiment results.</p></li>
+<li><p><a class="reference external" href="https://github.com/jtoy/awesome-tensorflow">And many more (including projects, papers, and experiments)</a></p></li>
 </ul>
 <p>A model consists of many layers.</p>
 <p>Each layer is an input-output transformation.</p>
@@ -773,6 +772,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p><a class="reference external" href="https://pytorch.org/serve/">TorchServe</a> for deployment.</p></li>
 <li><p><a class="reference external" href="https://pytorch.org/live/">Pytorch Live</a> for mobile and IoT devices.</p></li>
+<li><p><a class="reference external" href="https://github.com/bharathgs/Awesome-pytorch-list">And many more (including projects, papers, and experiments)</a></p></li>
 </ul>
 </div>
 </div>
@@ -870,7 +870,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.11841047])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.90947015])
 </pre></div>
 </div>
 </div>
@@ -1021,7 +1021,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.0668466]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9614875]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1074,7 +1074,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_46_0.png" src="_images/02_tools_46_0.png" />
+<img alt="_images/02_tools_45_0.png" src="_images/02_tools_45_0.png" />
 </div>
 </div>
 <p>They both did a good job of fitting a function to the data.</p>
@@ -1120,7 +1120,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_54_0.png" src="_images/02_tools_54_0.png" />
+<img alt="_images/02_tools_53_0.png" src="_images/02_tools_53_0.png" />
 </div>
 </div>
 </div>
@@ -1211,7 +1211,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_67_0.png" src="_images/02_tools_67_0.png" />
+<img alt="_images/02_tools_66_0.png" src="_images/02_tools_66_0.png" />
 </div>
 </div>
 </div>
@@ -1244,7 +1244,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_72_0.png" src="_images/02_tools_72_0.png" />
+<img alt="_images/02_tools_71_0.png" src="_images/02_tools_71_0.png" />
 </div>
 </div>
 <p>We can see that the although the model did well, it struggled with 3’s by confusing them with 5’s, 7’s, and 8’s.</p>
@@ -1339,11 +1339,27 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16384/11490434 [..............................] - ETA: 0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16384/11490434 [..............................] - ETA: 3s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 3932160/11490434 [=========&gt;....................] - ETA: 0s
+   73728/11490434 [..............................] - ETA: 8s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+  286720/11490434 [..............................] - ETA: 4s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 1064960/11490434 [=&gt;............................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 4014080/11490434 [=========&gt;....................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 9912320/11490434 [========================&gt;.....] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1369,7 +1385,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_92_0.png" src="_images/02_tools_92_0.png" />
+<img alt="_images/02_tools_91_0.png" src="_images/02_tools_91_0.png" />
 </div>
 </div>
 </div>
@@ -1527,10 +1543,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.29801392555236816, 0.120704784989357],
- &#39;accuracy&#39;: [0.914145827293396, 0.9625833630561829],
- &#39;val_loss&#39;: [0.15046074986457825, 0.12178413569927216],
- &#39;val_accuracy&#39;: [0.9555000066757202, 0.9646666646003723]}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.29801395535469055, 0.12066834419965744],
+ &#39;accuracy&#39;: [0.914145827293396, 0.9628750085830688],
+ &#39;val_loss&#39;: [0.15046073496341705, 0.12250909209251404],
+ &#39;val_accuracy&#39;: [0.9555000066757202, 0.9640833139419556]}
 </pre></div>
 </div>
 </div>
@@ -1562,9 +1578,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.2191041e-06, 3.2815703e-06, 3.2246765e-04, 6.6423637e-04,
-       4.3513659e-09, 7.6514298e-05, 5.6828227e-09, 9.9891257e-01,
-       1.2199270e-05, 4.4526173e-06], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.2485581e-06, 1.7845955e-06, 2.2890199e-04, 5.8985275e-04,
+       3.6019763e-09, 7.3948235e-05, 4.6318891e-09, 9.9908757e-01,
+       9.7906986e-06, 3.8364260e-06], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1596,7 +1612,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_114_0.png" src="_images/02_tools_114_0.png" />
+<img alt="_images/02_tools_113_0.png" src="_images/02_tools_113_0.png" />
 </div>
 </div>
 </div>
@@ -1610,38 +1626,30 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 5s - loss: 0.1447 - accuracy: 0.9688
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 3s - loss: 0.1562 - accuracy: 0.9688
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 50/313 [===&gt;..........................] - ETA: 0s - loss: 0.1396 - accuracy: 0.9588
+ 68/313 [=====&gt;........................] - ETA: 0s - loss: 0.1570 - accuracy: 0.9540
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 98/313 [========&gt;.....................] - ETA: 0s - loss: 0.1573 - accuracy: 0.9531
+134/313 [===========&gt;..................] - ETA: 0s - loss: 0.1554 - accuracy: 0.9534
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-145/313 [============&gt;.................] - ETA: 0s - loss: 0.1540 - accuracy: 0.9528
+197/313 [=================&gt;............] - ETA: 0s - loss: 0.1434 - accuracy: 0.9559
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-193/313 [=================&gt;............] - ETA: 0s - loss: 0.1449 - accuracy: 0.9558
+260/313 [=======================&gt;......] - ETA: 0s - loss: 0.1225 - accuracy: 0.9625
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-240/313 [======================&gt;.......] - ETA: 0s - loss: 0.1258 - accuracy: 0.9615
+313/313 [==============================] - 0s 782us/step - loss: 0.1173 - accuracy: 0.9642
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-289/313 [==========================&gt;...] - ETA: 0s - loss: 0.1138 - accuracy: 0.9651
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-313/313 [==============================] - 0s 1ms/step - loss: 0.1162 - accuracy: 0.9646
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9646000266075134
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9642000198364258
 </pre></div>
 </div>
 </div>
@@ -1661,7 +1669,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_119_0.png" src="_images/02_tools_119_0.png" />
+<img alt="_images/02_tools_118_0.png" src="_images/02_tools_118_0.png" />
 </div>
 </div>
 <p>This model did well for most digits, though struggled a bit with 5’s.</p>
@@ -1804,10 +1812,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1162 - accuracy: 0.9646 - 378ms/epoch - 1ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1173 - accuracy: 0.9642 - 280ms/epoch - 893us/step
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.46%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.42%
 </pre></div>
 </div>
 </div>
@@ -1855,7 +1863,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="other-options">
 <h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
-<p>There are many other options, including:</p>
+<p>There are <a class="reference external" href="https://github.com/josephmisiti/awesome-machine-learning">many other options</a>, including:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jax.readthedocs.io/en/latest/">JAX</a></p>
 <ul>
@@ -1873,11 +1881,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li><p><a class="reference external" href="https://xgboost.readthedocs.io/en/stable/">XGBoost</a></p>
-<ul>
-<li><p>Gradient boosting library.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://lightgbm.readthedocs.io/en/latest/">LightGBM</a></p>
 <ul>
 <li><p>Gradient boosting library.</p></li>
 </ul>
