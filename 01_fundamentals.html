@@ -878,11 +878,11 @@ local optimum</p>
 <p>It is how the model gets updated based on the data it sees.</p>
 <p>One step of gradient descent includes:</p>
 <ul class="simple">
-<li><p>Forward propagate through the model to calculate the outputs of each neuron.</p></li>
-<li><p>Calculate the gradient of the loss for these parameters.</p></li>
-<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#backpropagation">Back propagate</a> these gradients back through the model to update the parameters and reduce the loss</p></li>
+<li><p>Forward propagate inputs through the model to calculate the outputs of each neuron.</p></li>
+<li><p>Calculate the loss (error) and gradient of the loss for these parameters.</p></li>
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#backpropagation">Back propagate</a> these gradients back through the model to update the parameters and reduce the loss.</p></li>
 </ul>
-<p>The gradient of the loss is reduced in this process (i.e., descends).</p>
+<p>The gradient of the loss is reduced (optimised) in this process (i.e., descends).</p>
 <p>It aims to find the best parameters (i.e., the weights and biases that minimise the loss).</p>
 <p>Common methods of gradient descent are:</p>
 <ul class="simple">

@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 730, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/util.py", line 96, in ensure_async
-    result = await obj
-  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/jupyter_client/channels.py", line 230, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
   File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
@@ -22,18 +11,45 @@ Traceback (most recent call last):
     return future.result()
   File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 949, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 754, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 801, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['# tfds.disable_progress_bar()', '', 'ds_train, ds_val, ds_test = tfds.load(', '    "cats_vs_dogs",', '    # Reserve 10% for validation and 10% for test']
-...
-[')', '', 'print("Number of training samples: %d" % tf.data.experimental.cardinality(ds_train))', 'print("Number of validation samples: %d" % tf.data.experimental.cardinality(ds_val))', 'print("Number of test samples: %d" % tf.data.experimental.cardinality(ds_test))']
--------------------
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+model = torchvision.models.vgg16(pretrained=True)
+torch.save(model.state_dict(), 'models/torch_pretrained/vgg16_model_weights.pth')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Input [0;32mIn [33][0m, in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m model [38;5;241m=[39m torchvision[38;5;241m.[39mmodels[38;5;241m.[39mvgg16(pretrained[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m----> 2[0m [43mtorch[49m[38;5;241;43m.[39;49m[43msave[49m[43m([49m[43mmodel[49m[38;5;241;43m.[39;49m[43mstate_dict[49m[43m([49m[43m)[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mmodels/torch_pretrained/vgg16_model_weights.pth[39;49m[38;5;124;43m'[39;49m[43m)[49m
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/torch/serialization.py:377[0m, in [0;36msave[0;34m(obj, f, pickle_module, pickle_protocol, _use_new_zipfile_serialization)[0m
+[1;32m    341[0m [38;5;124;03m"""save(obj, f, pickle_module=pickle, pickle_protocol=DEFAULT_PROTOCOL, _use_new_zipfile_serialization=True)[39;00m
+[1;32m    342[0m 
+[1;32m    343[0m [38;5;124;03mSaves an object to a disk file.[39;00m
+[0;32m   (...)[0m
+[1;32m    373[0m [38;5;124;03m    >>> torch.save(x, buffer)[39;00m
+[1;32m    374[0m [38;5;124;03m"""[39;00m
+[1;32m    375[0m _check_dill_version(pickle_module)
+[0;32m--> 377[0m [38;5;28;01mwith[39;00m [43m_open_file_like[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mwb[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;28;01mas[39;00m opened_file:
+[1;32m    378[0m     [38;5;28;01mif[39;00m _use_new_zipfile_serialization:
+[1;32m    379[0m         [38;5;28;01mwith[39;00m _open_zipfile_writer(opened_file) [38;5;28;01mas[39;00m opened_zipfile:
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/torch/serialization.py:231[0m, in [0;36m_open_file_like[0;34m(name_or_buffer, mode)[0m
+[1;32m    229[0m [38;5;28;01mdef[39;00m [38;5;21m_open_file_like[39m(name_or_buffer, mode):
+[1;32m    230[0m     [38;5;28;01mif[39;00m _is_path(name_or_buffer):
+[0;32m--> 231[0m         [38;5;28;01mreturn[39;00m [43m_open_file[49m[43m([49m[43mname_or_buffer[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m
+[1;32m    232[0m     [38;5;28;01melse[39;00m:
+[1;32m    233[0m         [38;5;28;01mif[39;00m [38;5;124m'[39m[38;5;124mw[39m[38;5;124m'[39m [38;5;129;01min[39;00m mode:
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/torch/serialization.py:212[0m, in [0;36m_open_file.__init__[0;34m(self, name, mode)[0m
+[1;32m    211[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m([38;5;28mself[39m, name, mode):
+[0;32m--> 212[0m     [38;5;28msuper[39m(_open_file, [38;5;28mself[39m)[38;5;241m.[39m[38;5;21m__init__[39m([38;5;28;43mopen[39;49m[43m([49m[43mname[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m)
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'models/torch_pretrained/vgg16_model_weights.pth'
+FileNotFoundError: [Errno 2] No such file or directory: 'models/torch_pretrained/vgg16_model_weights.pth'
 

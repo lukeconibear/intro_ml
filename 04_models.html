@@ -286,6 +286,11 @@ const thebe_selector_output = ".output, .cell_output"
        TensorFlow Hub
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pytorch">
+       PyTorch
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -380,7 +385,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pytorch">
+      <a class="reference internal nav-link" href="#id4">
        PyTorch
       </a>
      </li>
@@ -445,6 +450,11 @@ const thebe_selector_output = ".output, .cell_output"
        TensorFlow Hub
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pytorch">
+       PyTorch
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -539,7 +549,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#pytorch">
+      <a class="reference internal nav-link" href="#id4">
        PyTorch
       </a>
      </li>
@@ -799,149 +809,19 @@ lr (Float)
 <p>Download and split the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tfds.disable_progress_bar()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="c1"># tfds.disable_progress_bar()</span>
 
-<span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="s2">&quot;cats_vs_dogs&quot;</span><span class="p">,</span>
-    <span class="c1"># Reserve 10% for validation and 10% for test</span>
-    <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:40%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[40%:50%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[50%:60%]&quot;</span><span class="p">],</span>
-    <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Include labels</span>
-<span class="p">)</span>
+    <span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+        <span class="s2">&quot;cats_vs_dogs&quot;</span><span class="p">,</span>
+        <span class="c1"># Reserve 10% for validation and 10% for test</span>
+        <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:40%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[40%:50%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[50%:60%]&quot;</span><span class="p">],</span>
+        <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Include labels</span>
+    <span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of training samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">ds_train</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of validation samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">ds_val</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of test samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">ds_test</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Downloading and preparing dataset 786.68 MiB (download: 786.68 MiB, generated: Unknown size, total: 786.68 MiB) to /home/runner/tensorflow_datasets/cats_vs_dogs/4.0.0...</span>
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "3f9825ad97fe46b586412fd6ceaf72cf"}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "497ae1d15ea840b9b8601535882ea85e"}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "55d5721afd4d46d48a7177cc5319f19c"}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "2782e7a34ef8491d81958b2ea12dcf8f"}
-</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [13],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># tfds.disable_progress_bar()</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="s2">&quot;cats_vs_dogs&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1"># Reserve 10% for validation and 10% for test</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:40%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[40%:50%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[50%:60%]&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Include labels</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of training samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">ds_train</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of validation samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">ds_val</span><span class="p">))</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/tensorflow_datasets/core/load.py:325,</span> in <span class="ni">load</span><span class="nt">(name, split, data_dir, batch_size, shuffle_files, download, as_supervised, decoders, read_config, with_info, builder_kwargs, download_and_prepare_kwargs, as_dataset_kwargs, try_gcs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="k">if</span> <span class="n">download</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">324</span>   <span class="n">download_and_prepare_kwargs</span> <span class="o">=</span> <span class="n">download_and_prepare_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
-<span class="ne">--&gt; </span><span class="mi">325</span>   <span class="n">dbuilder</span><span class="o">.</span><span class="n">download_and_prepare</span><span class="p">(</span><span class="o">**</span><span class="n">download_and_prepare_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span> <span class="k">if</span> <span class="n">as_dataset_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>   <span class="n">as_dataset_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/tensorflow_datasets/core/dataset_builder.py:462,</span> in <span class="ni">DatasetBuilder.download_and_prepare</span><span class="nt">(self, download_dir, download_config)</span>
-<span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span>   <span class="c1"># Old version of TF are not os.PathLike compatible</span>
-<span class="g g-Whitespace">    </span><span class="mi">461</span>   <span class="k">with</span> <span class="n">tf_compat</span><span class="o">.</span><span class="n">mock_gfile_pathlike</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">462</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_download_and_prepare</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>         <span class="n">dl_manager</span><span class="o">=</span><span class="n">dl_manager</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span>         <span class="n">download_config</span><span class="o">=</span><span class="n">download_config</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">465</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">467</span>   <span class="c1"># NOTE: If modifying the lines below to put additional information in</span>
-<span class="g g-Whitespace">    </span><span class="mi">468</span>   <span class="c1"># DatasetInfo, you&#39;ll likely also want to update</span>
-<span class="g g-Whitespace">    </span><span class="mi">469</span>   <span class="c1"># DatasetInfo.read_from_directory to possibly restore these attributes</span>
-<span class="g g-Whitespace">    </span><span class="mi">470</span>   <span class="c1"># when reading from package data.</span>
-<span class="g g-Whitespace">    </span><span class="mi">471</span>   <span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">download_size</span> <span class="o">=</span> <span class="n">dl_manager</span><span class="o">.</span><span class="n">downloaded_size</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/tensorflow_datasets/core/dataset_builder.py:1191,</span> in <span class="ni">GeneratorBasedBuilder._download_and_prepare</span><span class="nt">(self, dl_manager, download_config)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1180</span>   <span class="k">for</span> <span class="n">split_name</span><span class="p">,</span> <span class="n">generator</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1181</span>       <span class="n">split_generators</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1182</span>       <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Generating splits...&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1183</span>       <span class="n">unit</span><span class="o">=</span><span class="s2">&quot; splits&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1184</span>       <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1185</span>   <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1186</span>     <span class="n">filename_template</span> <span class="o">=</span> <span class="n">naming</span><span class="o">.</span><span class="n">ShardedFileTemplate</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1187</span>         <span class="n">split</span><span class="o">=</span><span class="n">split_name</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1188</span>         <span class="n">dataset_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1189</span>         <span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_path</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1190</span>         <span class="n">filetype_suffix</span><span class="o">=</span><span class="n">path_suffix</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1191</span>     <span class="n">future</span> <span class="o">=</span> <span class="n">split_builder</span><span class="o">.</span><span class="n">submit_split_generation</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1192</span>         <span class="n">split_name</span><span class="o">=</span><span class="n">split_name</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1193</span>         <span class="n">generator</span><span class="o">=</span><span class="n">generator</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1194</span>         <span class="n">filename_template</span><span class="o">=</span><span class="n">filename_template</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1195</span>         <span class="n">disable_shuffling</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">disable_shuffling</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1197</span>     <span class="n">split_info_futures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1199</span> <span class="c1"># Finalize the splits (after apache beam completed, if it was used)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/tensorflow_datasets/core/split_builder.py:291,</span> in <span class="ni">SplitBuilder.submit_split_generation</span><span class="nt">(self, split_name, generator, filename_template, disable_shuffling)</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span> <span class="c1"># Depending on the type of generator, we use the corresponding</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span> <span class="c1"># `_build_from_xyz` method.</span>
-<span class="g g-Whitespace">    </span><span class="mi">290</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">generator</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">291</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_from_generator</span><span class="p">(</span><span class="o">**</span><span class="n">build_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span> <span class="k">else</span><span class="p">:</span>  <span class="c1"># Otherwise, beam required</span>
-<span class="g g-Whitespace">    </span><span class="mi">293</span>   <span class="n">unknown_generator_type</span> <span class="o">=</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span>       <span class="sa">f</span><span class="s1">&#39;Invalid split generator value for split `</span><span class="si">{</span><span class="n">split_name</span><span class="si">}</span><span class="s1">`. &#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">295</span>       <span class="s1">&#39;Expected generator or apache_beam object. Got: &#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">296</span>       <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/tensorflow_datasets/core/split_builder.py:360,</span> in <span class="ni">SplitBuilder._build_from_generator</span><span class="nt">(self, split_name, generator, filename_template, disable_shuffling)</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="n">generator</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span>     <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Generating </span><span class="si">{</span><span class="n">split_name</span><span class="si">}</span><span class="s1"> examples...&#39;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span>     <span class="n">leave</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">359</span>   <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">360</span>     <span class="n">example</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_features</span><span class="o">.</span><span class="n">encode_example</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">361</span>   <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
-<span class="g g-Whitespace">    </span><span class="mi">362</span>     <span class="n">utils</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Failed to encode example:</span><span class="se">\n</span><span class="si">{</span><span class="n">example</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/tensorflow_datasets/core/features/features_dict.py:210,</span> in <span class="ni">FeaturesDict.encode_example</span><span class="nt">(self, example_dict)</span>
-<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">example_value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">utils</span><span class="o">.</span><span class="n">zip_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_feature_dict</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span>                                                   <span class="n">example_dict</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>   <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">210</span>     <span class="n">example</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">encode_example</span><span class="p">(</span><span class="n">example_value</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span>   <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="n">utils</span><span class="o">.</span><span class="n">reraise</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">213</span>         <span class="n">e</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;In &lt;</span><span class="si">{</span><span class="n">feature</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">&gt; with name &quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">&quot;:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/tensorflow_datasets/core/features/image_feature.py:276,</span> in <span class="ni">Image.encode_example</span><span class="nt">(self, image_or_path_or_fobj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">274</span> <span class="k">def</span> <span class="nf">encode_example</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_or_path_or_fobj</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">275</span>   <span class="sd">&quot;&quot;&quot;Convert the given image into a dict convertible to tf example.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">276</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_image_encoder</span><span class="o">.</span><span class="n">encode_image_or_path</span><span class="p">(</span><span class="n">image_or_path_or_fobj</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/tensorflow_datasets/core/features/image_feature.py:84,</span> in <span class="ni">_ImageEncoder.encode_image_or_path</span><span class="nt">(self, image_or_path_or_fobj)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span>   <span class="n">encoded_image</span> <span class="o">=</span> <span class="n">image_or_path_or_fobj</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">84</span>   <span class="n">encoded_image</span> <span class="o">=</span> <span class="n">image_or_path_or_fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span> <span class="c1"># If encoding is explicitly set, should verify that bytes match encoding.</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="k">return</span> <span class="n">encoded_image</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/zipfile.py:910,</span> in <span class="ni">ZipExtFile.read</span><span class="nt">(self, n)</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">    </span><span class="mi">909</span>     <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">910</span>         <span class="n">buf</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read1</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">MAX_N</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">911</span>     <span class="k">return</span> <span class="n">buf</span>
-<span class="g g-Whitespace">    </span><span class="mi">913</span> <span class="n">end</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/zipfile.py:1000,</span> in <span class="ni">ZipExtFile._read1</span><span class="nt">(self, n)</span>
-<span class="g g-Whitespace">    </span><span class="mi">998</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compress_type</span> <span class="o">==</span> <span class="n">ZIP_DEFLATED</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">999</span>     <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">MIN_READ_SIZE</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1000</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1001</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">eof</span> <span class="ow">or</span>
-<span class="g g-Whitespace">   </span><span class="mi">1002</span>                  <span class="bp">self</span><span class="o">.</span><span class="n">_compress_left</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">and</span>
-<span class="g g-Whitespace">   </span><span class="mi">1003</span>                  <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompressor</span><span class="o">.</span><span class="n">unconsumed_tail</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eof</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of training samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">ds_train</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of validation samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">ds_val</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of test samples: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">cardinality</span><span class="p">(</span><span class="n">ds_test</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -949,30 +829,29 @@ lr (Float)
 <p>View a few of the training samples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Dog&quot;</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Dog&quot;</span><span class="p">}</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ds_train</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">9</span><span class="p">)):</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">)])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ds_train</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">9</span><span class="p">)):</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">)])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/04_models_31_0.png" src="_images/04_models_31_0.png" />
 </div>
 </div>
 <p>First, preprocess the data.</p>
 <p>This is to standardise the image sizes and normalise the pixel values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
 
-<span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
-<span class="n">ds_val</span> <span class="o">=</span> <span class="n">ds_val</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
-<span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
+    <span class="n">ds_val</span> <span class="o">=</span> <span class="n">ds_val</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">IMAGE_SIZE</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -980,12 +859,13 @@ lr (Float)
 <p>Now, we can <a class="reference internal" href="03_data.html#cache-tf"><span class="std std-ref">cache</span></a>, <a class="reference internal" href="03_data.html#batch-tf"><span class="std std-ref">batch</span></a>, and <a class="reference internal" href="03_data.html#prefetch-tf"><span class="std std-ref">prefetch</span></a> the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">32</span>
-<span class="n">AUTOTUNE</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">AUTOTUNE</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
 
-<span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
-<span class="n">ds_val</span> <span class="o">=</span> <span class="n">ds_val</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
-<span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_val</span> <span class="o">=</span> <span class="n">ds_val</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1052,30 +932,158 @@ lr (Float)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;model_4&quot;
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_10 (InputLayer)       [(None, 150, 150, 3)]     0         
-                                                                 
- sequential_1 (Sequential)   (None, 150, 150, 3)       0         
-                                                                 
- rescaling_4 (Rescaling)     (None, 150, 150, 3)       0         
-                                                                 
- xception (Functional)       (None, 5, 5, 2048)        20861480  
-                                                                 
- global_average_pooling2d_4   (None, 2048)             0         
- (GlobalAveragePooling2D)                                        
-                                                                 
- dropout_4 (Dropout)         (None, 2048)              0         
-                                                                 
- dense_6 (Dense)             (None, 1)                 2049      
-                                                                 
-=================================================================
-Total params: 20,863,529
-Trainable params: 2,049
-Non-trainable params: 20,861,480
-_________________________________________________________________
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/xception/xception_weights_tf_dim_ordering_tf_kernels_notop.h5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16384/83683744 [..............................] - ETA: 27s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+   73728/83683744 [..............................] - ETA: 1:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+  294912/83683744 [..............................] - ETA: 30s 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 1114112/83683744 [..............................] - ETA: 11s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 4308992/83683744 [&gt;.............................] - ETA: 3s 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+10305536/83683744 [==&gt;...........................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+16457728/83683744 [====&gt;.........................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+22364160/83683744 [=======&gt;......................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+28344320/83683744 [=========&gt;....................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+34340864/83683744 [===========&gt;..................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+40468480/83683744 [=============&gt;................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+46596096/83683744 [===============&gt;..............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+52674560/83683744 [=================&gt;............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+58638336/83683744 [====================&gt;.........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+64765952/83683744 [======================&gt;.......] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+70893568/83683744 [========================&gt;.....] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+77004800/83683744 [==========================&gt;...] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+83132416/83683744 [============================&gt;.] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+83689472/83683744 [==============================] - 1s 0us/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+83697664/83683744 [==============================] - 1s 0us/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;model&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Layer (type)                Output Shape              Param #   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> input_2 (InputLayer)        [(None, 150, 150, 3)]     0         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> sequential_1 (Sequential)   (None, 150, 150, 3)       0         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> rescaling (Rescaling)       (None, 150, 150, 3)       0         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> xception (Functional)       (None, 5, 5, 2048)        20861480  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> global_average_pooling2d (G  (None, 2048)             0         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> lobalAveragePooling2D)                                          
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dropout (Dropout)           (None, 2048)              0         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dense_2 (Dense)             (None, 1)                 2049      
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total params: 20,863,529
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trainable params: 2,049
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Non-trainable params: 20,861,480
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
 </pre></div>
 </div>
 </div>
@@ -1118,6 +1126,166 @@ _________________________________________________________________
     <span class="s2">&quot;https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz&quot;</span><span class="p">,</span>
     <span class="n">untar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    16384/228813984 [..............................] - ETA: 1:12
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+    98304/228813984 [..............................] - ETA: 2:13
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+   466944/228813984 [..............................] - ETA: 52s 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+  2162688/228813984 [..............................] - ETA: 16s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+  8101888/228813984 [&gt;.............................] - ETA: 5s 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 15040512/228813984 [&gt;.............................] - ETA: 3s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 21643264/228813984 [=&gt;............................] - ETA: 2s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 28147712/228813984 [==&gt;...........................] - ETA: 2s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 34930688/228813984 [===&gt;..........................] - ETA: 2s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 41828352/228813984 [====&gt;.........................] - ETA: 2s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 48742400/228813984 [=====&gt;........................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 55640064/228813984 [======&gt;.......................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 62619648/228813984 [=======&gt;......................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 69271552/228813984 [========&gt;.....................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 76103680/228813984 [========&gt;.....................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 82755584/228813984 [=========&gt;....................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 89653248/228813984 [==========&gt;...................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 96567296/228813984 [===========&gt;..................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+103546880/228813984 [============&gt;.................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+109707264/228813984 [=============&gt;................] - ETA: 1s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+116637696/228813984 [==============&gt;...............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+123600896/228813984 [===============&gt;..............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+130564096/228813984 [================&gt;.............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+137216000/228813984 [================&gt;.............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+143785984/228813984 [=================&gt;............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+150814720/228813984 [==================&gt;...........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+157736960/228813984 [===================&gt;..........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+164626432/228813984 [====================&gt;.........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+171393024/228813984 [=====================&gt;........] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+178257920/228813984 [======================&gt;.......] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+185196544/228813984 [=======================&gt;......] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+191913984/228813984 [========================&gt;.....] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+198688768/228813984 [=========================&gt;....] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+205602816/228813984 [=========================&gt;....] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+210444288/228813984 [==========================&gt;...] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+217276416/228813984 [===========================&gt;..] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+224124928/228813984 [============================&gt;.] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+228818944/228813984 [==============================] - 2s 0us/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+228827136/228813984 [==============================] - 2s 0us/step
 </pre></div>
 </div>
 </div>
@@ -1240,19 +1408,43 @@ Using 734 files for validation.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_5&quot;
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- keras_layer_2 (KerasLayer)  (None, 2048)              21802784  
-                                                                 
- dense_10 (Dense)            (None, 5)                 10245     
-                                                                 
-=================================================================
-Total params: 21,813,029
-Trainable params: 10,245
-Non-trainable params: 21,802,784
-_________________________________________________________________
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_2&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Layer (type)                Output Shape              Param #   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> keras_layer (KerasLayer)    (None, 1280)              2257984   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dense_3 (Dense)             (None, 5)                 6405      
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total params: 2,264,389
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trainable params: 6,405
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Non-trainable params: 2,257,984
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
 </pre></div>
 </div>
 </div>
@@ -1275,6 +1467,64 @@ _________________________________________________________________
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
     <span class="n">NUM_EPOCHS</span> <span class="o">=</span> <span class="mi">3</span>
     <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">val_ds</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">NUM_EPOCHS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pytorch">
+<h4>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torchvision</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">vgg16</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;models/torch_pretrained/vgg16_model_weights.pth&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading: &quot;https://download.pytorch.org/models/vgg16-397923af.pth&quot; to /home/runner/.cache/torch/hub/checkpoints/vgg16-397923af.pth
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "5f108d407d04495f8d633b7c34a12224"}
+</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [33],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">model</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">vgg16</span><span class="p">(</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;models/torch_pretrained/vgg16_model_weights.pth&#39;</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/torch/serialization.py:377,</span> in <span class="ni">save</span><span class="nt">(obj, f, pickle_module, pickle_protocol, _use_new_zipfile_serialization)</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span> <span class="sd">&quot;&quot;&quot;save(obj, f, pickle_module=pickle, pickle_protocol=DEFAULT_PROTOCOL, _use_new_zipfile_serialization=True)</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span><span class="sd"> Saves an object to a disk file.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span><span class="sd">     &gt;&gt;&gt; torch.save(x, buffer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span> <span class="n">_check_dill_version</span><span class="p">(</span><span class="n">pickle_module</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">377</span> <span class="k">with</span> <span class="n">_open_file_like</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">opened_file</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>     <span class="k">if</span> <span class="n">_use_new_zipfile_serialization</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">379</span>         <span class="k">with</span> <span class="n">_open_zipfile_writer</span><span class="p">(</span><span class="n">opened_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">opened_zipfile</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/torch/serialization.py:231,</span> in <span class="ni">_open_file_like</span><span class="nt">(name_or_buffer, mode)</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span> <span class="k">def</span> <span class="nf">_open_file_like</span><span class="p">(</span><span class="n">name_or_buffer</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>     <span class="k">if</span> <span class="n">_is_path</span><span class="p">(</span><span class="n">name_or_buffer</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">231</span>         <span class="k">return</span> <span class="n">_open_file</span><span class="p">(</span><span class="n">name_or_buffer</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span>         <span class="k">if</span> <span class="s1">&#39;w&#39;</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+
+<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/torch/serialization.py:212,</span> in <span class="ni">_open_file.__init__</span><span class="nt">(self, name, mode)</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">212</span>     <span class="nb">super</span><span class="p">(</span><span class="n">_open_file</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">mode</span><span class="p">))</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;models/torch_pretrained/vgg16_model_weights.pth&#39;
 </pre></div>
 </div>
 </div>
@@ -1535,8 +1785,8 @@ _________________________________________________________________
 <li><p><a class="reference external" href="https://github.com/tensorflow/models/tree/master/official">TensorFlow Model Garden</a> for model source code.</p></li>
 </ul>
 </div>
-<div class="section" id="pytorch">
-<h4>PyTorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id4">
+<h4>PyTorch<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pytorch.org/docs/stable/hub.html">PyTorch Hub</a> for pre-retrained models.</p></li>
 <li><p><a class="reference external" href="https://pytorch.org/vision/stable/models.html">Torch Vision Models</a></p></li>
