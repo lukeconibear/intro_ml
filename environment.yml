@@ -282,6 +282,8 @@ dependencies:
   - zstd=1.5.2=ha95c52a_0
   - pip:
     - absl-py==1.0.0
+    - aiohttp==3.8.1
+    - aiosignal==1.2.0
     - astunparse==1.6.3
     - async-timeout==4.0.2
     - cachetools==5.0.0
@@ -289,6 +291,8 @@ dependencies:
     - dill==0.3.4
     - filelock==3.6.0
     - flatbuffers==2.0
+    - frozenlist==1.3.0
+    - fsspec==2022.2.0
     - gast==0.5.3
     - google-auth==2.6.2
     - google-auth-oauthlib==0.4.6
@@ -303,15 +307,18 @@ dependencies:
     - libclang==13.0.0
     - markdown==3.3.6
     - msgpack==1.0.3
+    - multidict==6.0.2
     - oauthlib==3.2.0
     - opt-einsum==3.3.0
     - promise==2.3
     - protobuf==3.19.4
     - pyasn1==0.4.8
     - pyasn1-modules==0.2.8
+    - pydeprecate==0.3.2
     - pyqt5-sip==4.19.18
     - pyqtchart==5.12
     - pyqtwebengine==5.12.1
+    - pytorch-lightning==1.6.0
     - ray==1.11.0
     - redis==4.2.0
     - requests-oauthlib==1.3.1
@@ -326,7 +333,9 @@ dependencies:
     - tensorflow-metadata==1.7.0
     - termcolor==1.1.0
     - tf-estimator-nightly==2.8.0.dev2021122109
+    - torchmetrics==0.7.3
     - tqdm==4.63.1
     - werkzeug==2.0.3
     - wrapt==1.14.0
+    - yarl==1.7.2
 prefix: /home/earlacoa/miniconda3/envs/swd8_intro_ml
