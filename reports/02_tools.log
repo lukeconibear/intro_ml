@@ -1,0 +1,78 @@
+Traceback (most recent call last):
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+path_to_saved_checkpoint = f"{os.getcwd()}/lightning_logs/version_0/checkpoints/epoch=4-step=9375.ckpt"
+reloaded_model = MNISTModel.load_from_checkpoint(path_to_saved_checkpoint)
+print(reloaded_model)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Input [0;32mIn [90][0m, in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m path_to_saved_checkpoint [38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mos[38;5;241m.[39mgetcwd()[38;5;132;01m}[39;00m[38;5;124m/lightning_logs/version_0/checkpoints/epoch=4-step=9375.ckpt[39m[38;5;124m"[39m
+[0;32m----> 2[0m reloaded_model [38;5;241m=[39m [43mMNISTModel[49m[38;5;241;43m.[39;49m[43mload_from_checkpoint[49m[43m([49m[43mpath_to_saved_checkpoint[49m[43m)[49m
+[1;32m      3[0m [38;5;28mprint[39m(reloaded_model)
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/pytorch_lightning/core/saving.py:139[0m, in [0;36mModelIO.load_from_checkpoint[0;34m(cls, checkpoint_path, map_location, hparams_file, strict, **kwargs)[0m
+[1;32m    137[0m         checkpoint [38;5;241m=[39m pl_load(checkpoint_path, map_location[38;5;241m=[39mmap_location)
+[1;32m    138[0m     [38;5;28;01melse[39;00m:
+[0;32m--> 139[0m         checkpoint [38;5;241m=[39m [43mpl_load[49m[43m([49m[43mcheckpoint_path[49m[43m,[49m[43m [49m[43mmap_location[49m[38;5;241;43m=[39;49m[38;5;28;43;01mlambda[39;49;00m[43m [49m[43mstorage[49m[43m,[49m[43m [49m[43mloc[49m[43m:[49m[43m [49m[43mstorage[49m[43m)[49m
+[1;32m    141[0m [38;5;28;01mif[39;00m hparams_file [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    142[0m     extension [38;5;241m=[39m hparams_file[38;5;241m.[39msplit([38;5;124m"[39m[38;5;124m.[39m[38;5;124m"[39m)[[38;5;241m-[39m[38;5;241m1[39m]
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/pytorch_lightning/utilities/cloud_io.py:46[0m, in [0;36mload[0;34m(path_or_url, map_location)[0m
+[1;32m     44[0m     [38;5;28;01mreturn[39;00m torch[38;5;241m.[39mhub[38;5;241m.[39mload_state_dict_from_url([38;5;28mstr[39m(path_or_url), map_location[38;5;241m=[39mmap_location)
+[1;32m     45[0m fs [38;5;241m=[39m get_filesystem(path_or_url)
+[0;32m---> 46[0m [38;5;28;01mwith[39;00m [43mfs[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43mpath_or_url[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mrb[39;49m[38;5;124;43m"[39;49m[43m)[49m [38;5;28;01mas[39;00m f:
+[1;32m     47[0m     [38;5;28;01mreturn[39;00m torch[38;5;241m.[39mload(f, map_location[38;5;241m=[39mmap_location)
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/fsspec/spec.py:1009[0m, in [0;36mAbstractFileSystem.open[0;34m(self, path, mode, block_size, cache_options, compression, **kwargs)[0m
+[1;32m   1007[0m [38;5;28;01melse[39;00m:
+[1;32m   1008[0m     ac [38;5;241m=[39m kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124mautocommit[39m[38;5;124m"[39m, [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_intrans)
+[0;32m-> 1009[0m     f [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_open[49m[43m([49m
+[1;32m   1010[0m [43m        [49m[43mpath[49m[43m,[49m
+[1;32m   1011[0m [43m        [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
+[1;32m   1012[0m [43m        [49m[43mblock_size[49m[38;5;241;43m=[39;49m[43mblock_size[49m[43m,[49m
+[1;32m   1013[0m [43m        [49m[43mautocommit[49m[38;5;241;43m=[39;49m[43mac[49m[43m,[49m
+[1;32m   1014[0m [43m        [49m[43mcache_options[49m[38;5;241;43m=[39;49m[43mcache_options[49m[43m,[49m
+[1;32m   1015[0m [43m        [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m   1016[0m [43m    [49m[43m)[49m
+[1;32m   1017[0m     [38;5;28;01mif[39;00m compression [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m   1018[0m         [38;5;28;01mfrom[39;00m [38;5;21;01mfsspec[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcompression[39;00m [38;5;28;01mimport[39;00m compr
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/fsspec/implementations/local.py:155[0m, in [0;36mLocalFileSystem._open[0;34m(self, path, mode, block_size, **kwargs)[0m
+[1;32m    153[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mauto_mkdir [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mw[39m[38;5;124m"[39m [38;5;129;01min[39;00m mode:
+[1;32m    154[0m     [38;5;28mself[39m[38;5;241m.[39mmakedirs([38;5;28mself[39m[38;5;241m.[39m_parent(path), exist_ok[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m--> 155[0m [38;5;28;01mreturn[39;00m [43mLocalFileOpener[49m[43m([49m[43mpath[49m[43m,[49m[43m [49m[43mmode[49m[43m,[49m[43m [49m[43mfs[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/fsspec/implementations/local.py:250[0m, in [0;36mLocalFileOpener.__init__[0;34m(self, path, mode, autocommit, fs, compression, **kwargs)[0m
+[1;32m    248[0m [38;5;28mself[39m[38;5;241m.[39mcompression [38;5;241m=[39m get_compression(path, compression)
+[1;32m    249[0m [38;5;28mself[39m[38;5;241m.[39mblocksize [38;5;241m=[39m io[38;5;241m.[39mDEFAULT_BUFFER_SIZE
+[0;32m--> 250[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_open[49m[43m([49m[43m)[49m
+
+File [0;32m/usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/fsspec/implementations/local.py:255[0m, in [0;36mLocalFileOpener._open[0;34m(self)[0m
+[1;32m    253[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mf [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mor[39;00m [38;5;28mself[39m[38;5;241m.[39mf[38;5;241m.[39mclosed:
+[1;32m    254[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mautocommit [38;5;129;01mor[39;00m [38;5;124m"[39m[38;5;124mw[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mmode:
+[0;32m--> 255[0m         [38;5;28mself[39m[38;5;241m.[39mf [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mpath[49m[43m,[49m[43m [49m[43mmode[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmode[49m[43m)[49m
+[1;32m    256[0m         [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mcompression:
+[1;32m    257[0m             compress [38;5;241m=[39m compr[[38;5;28mself[39m[38;5;241m.[39mcompression]
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/home/runner/work/intro_ml/intro_ml/docs/lightning_logs/version_0/checkpoints/epoch=4-step=9375.ckpt'
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/intro_ml/intro_ml/docs/lightning_logs/version_0/checkpoints/epoch=4-step=9375.ckpt'
+

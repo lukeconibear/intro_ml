@@ -301,6 +301,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ddp-strategy">
+       DDP Strategy
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id1">
        Set up the dataset and model
       </a>
@@ -444,6 +449,11 @@ const thebe_selector_output = ".output, .cell_output"
      PyTorch
     </a>
     <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ddp-strategy">
+       DDP Strategy
+      </a>
+     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id1">
        Set up the dataset and model
@@ -820,14 +830,25 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 </div>
 <div class="section" id="pytorch">
 <h3><a class="reference external" href="https://pytorch.org/tutorials/beginner/dist_overview.html">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
-<p>Here is an <a class="reference external" href="https://docs.ray.io/en/latest/train/examples/train_fashion_mnist_example.html">Fashion MNIST example</a>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#--distributed_backend ddp</span>
+<p>Can also distribute with <a class="reference external" href="https://docs.ray.io/en/latest/train/examples/train_fashion_mnist_example.html">Ray Train</a>.</p>
+<p>To share data on a single filesystem, download the dataset once:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Trainer</span><span class="p">(</span><span class="n">prepare_data_per_node</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>The default behaviour is to download the data <em>once per node</em>.</p>
+<div class="section" id="ddp-strategy">
+<h4><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/advanced/model_parallel.html#ddp-optimizations">DDP Strategy</a><a class="headerlink" href="#ddp-strategy" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># train on 8 GPUs, using the DDP strategy</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">accelerator</span><span class="o">=</span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;ddp&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+<p>…</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># train on multiple GPUs across nodes (uses 8 GPUs in total)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">accelerator</span><span class="o">=</span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_nodes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">num_workers</span></code></p>
+<p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/guides/speed.html#num-workers">https://pytorch-lightning.readthedocs.io/en/stable/guides/speed.html#num-workers</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
@@ -842,6 +863,7 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 <span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">torchvision.transforms</span> <span class="kn">import</span> <span class="n">ToTensor</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
