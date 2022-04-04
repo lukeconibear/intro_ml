@@ -823,6 +823,13 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 <p>Here is an <a class="reference external" href="https://docs.ray.io/en/latest/train/examples/train_fashion_mnist_example.html">Fashion MNIST example</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#--distributed_backend ddp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
 
@@ -1070,6 +1077,7 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 <ul class="simple">
 <li><p>Ensure works on a single workers first, <em>before</em> going distributed.</p></li>
 <li><p>Ensure that you need the overhead of distributing over multiple GPUs e.g., could you instead use 1 GPU and model checkpointing?</p></li>
+<li><p>Ensure that the problem is complex enough to use multiple GPUs efficiently.</p></li>
 <li><p>Batch the dataset with the global batch size e.g., for 8 devices each capable of a btach of 64 use the global batch size of 512 (= 8 * 64).</p></li>
 <li><p>…</p></li>
 </ul>

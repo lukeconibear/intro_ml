@@ -23,7 +23,7 @@ torch.save(model.state_dict(), 'models/torch_pretrained/vgg16_model_weights.pth'
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Input [0;32mIn [33][0m, in [0;36m<cell line: 2>[0;34m()[0m
+Input [0;32mIn [34][0m, in [0;36m<cell line: 2>[0;34m()[0m
 [1;32m      1[0m model [38;5;241m=[39m torchvision[38;5;241m.[39mmodels[38;5;241m.[39mvgg16(pretrained[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
 [0;32m----> 2[0m [43mtorch[49m[38;5;241;43m.[39;49m[43msave[49m[43m([49m[43mmodel[49m[38;5;241;43m.[39;49m[43mstate_dict[49m[43m([49m[43m)[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mmodels/torch_pretrained/vgg16_model_weights.pth[39;49m[38;5;124;43m'[39;49m[43m)[49m
 
