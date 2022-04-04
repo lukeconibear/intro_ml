@@ -16,8 +16,8 @@ At the end of this workshop, learners will be able to:
 1. [ ] Understand the fundamentals of machine learning and deep learning.
 2. [ ] Understand how to use key tools, including:
     - [ ] [scikit-learn](https://scikit-learn.org/stable/)
-    - [ ] [TensorFlow](https://www.tensorflow.org/)
-    - [ ] [PyTorch](https://pytorch.org/)
+    - [ ] [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/)
+    - [ ] [PyTorch](https://pytorch.org/) and [PyTorch Lightning](https://www.pytorchlightning.ai/)
 3. [ ] Understand how to use currated datasets
 4. [ ] Understand how to use pre-trained models.
 5. [ ] Understand how to do distribute training.
