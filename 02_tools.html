@@ -779,7 +779,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://keras.io/examples/">Examples</a></p></li>
 </ul>
 <p>TensorFlow has a user-friendly higher-level APIs (Application Programming Interface) called <a class="reference external" href="https://keras.io/">Keras</a>.</p>
-<p>Keras includes a wide range of high-level objects including:</p>
+<p>Keras includes a wide range of high-level objects (<a class="reference external" href="https://keras.io/guides/">tutorials</a>) including:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://keras.io/api/models/">Models</a></p></li>
 <li><p><a class="reference external" href="https://keras.io/api/layers/">Layers</a></p>
@@ -848,14 +848,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://pytorch.org/docs/stable/index.html">Documentation</a></p></li>
 <li><p><a class="reference external" href="https://pytorch.org/tutorials/">Tutorials</a></p></li>
 </ul>
-<p>PyTorch has use-friendly higher-level APIs:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/">PyTorch Lightning</a></p>
-<ul>
-<li><p>Helps write boilerplate code, scale out to multiple devices, and other helpful things.</p></li>
-</ul>
-</li>
-</ul>
+<p>PyTorch has a user-friendly higher-level API called <a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/">PyTorch Lightning</a>.</p>
+<p>PyTorch Lightning helps write boilerplate code, scale out to multiple devices, and other helpful things (<a class="reference external" href="https://pytorchlightning.github.io/lightning-tutorials/index.html">tutorials</a>).</p>
 <p>You can always go lower level when required (e.g., custom objects).</p>
 <p>Similar to TensorFlow/Keras, you can create models and layers in PyTorch using either Sequential or Subclassing APIs (or in combination). These have similar features to the table above, where the Sequential API is simpler and the Subclassing API enables flexibility.</p>
 <p>There are many <a class="reference external" href="https://pytorch.org/ecosystem/">libraries and extensions</a> including:</p>
@@ -957,7 +951,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.9798737])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.08700591])
 </pre></div>
 </div>
 </div>
@@ -1106,7 +1100,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.965378]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9969618]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1254,7 +1248,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[1.9262]], requires_grad=True)
+tensor([[1.8218]], requires_grad=True)
 </pre></div>
 </div>
 </div>
@@ -1335,7 +1329,7 @@ tensor([[1.9262]], requires_grad=True)
 </div>
 <div class="section" id="example-digit-classification">
 <h2>Example - Digit classification<a class="headerlink" href="#example-digit-classification" title="Permalink to this headline">¶</a></h2>
-<p>Let’s train a model to recognise digits.</p>
+<p>Let’s train a model to recognise digits using the classic <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST dataset</a>.</p>
 <p>This is a classification task.</p>
 <div class="section" id="id7">
 <h3>scikit-learn<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
@@ -1592,11 +1586,11 @@ tensor([[1.9262]], requires_grad=True)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 3735552/11490434 [========&gt;.....................] - ETA: 0s
+ 1310720/11490434 [==&gt;...........................] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-10313728/11490434 [=========================&gt;....] - ETA: 0s
+ 8396800/11490434 [====================&gt;.........] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1780,10 +1774,10 @@ tensor([[1.9262]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.25797247886657715, 0.10547565668821335],
- &#39;accuracy&#39;: [0.9238958358764648, 0.9673333168029785],
- &#39;val_loss&#39;: [0.12574869394302368, 0.11539636552333832],
- &#39;val_accuracy&#39;: [0.9627500176429749, 0.9646666646003723]}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.2576858401298523, 0.1060948520898819],
+ &#39;accuracy&#39;: [0.9238125085830688, 0.9666041731834412],
+ &#39;val_loss&#39;: [0.12483683228492737, 0.1188126653432846],
+ &#39;val_accuracy&#39;: [0.9637500047683716, 0.9642500281333923]}
 </pre></div>
 </div>
 </div>
@@ -1815,9 +1809,9 @@ tensor([[1.9262]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.4546252e-07, 1.1781680e-07, 2.1623257e-05, 7.4508338e-05,
-       6.3438649e-10, 3.1497361e-06, 7.4315970e-10, 9.9989796e-01,
-       9.5272617e-07, 1.4525206e-06], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.3779324e-07, 6.1148647e-08, 7.2125717e-06, 3.1682972e-05,
+       3.3282960e-10, 1.0176340e-06, 6.3093497e-10, 9.9995852e-01,
+       4.1545363e-07, 9.2731574e-07], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1863,62 +1857,46 @@ tensor([[1.9262]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 48s - loss: 0.0201 - accuracy: 1.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 28s - loss: 0.0234 - accuracy: 1.0000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 29/313 [=&gt;............................] - ETA: 0s - loss: 0.0877 - accuracy: 0.9784 
+ 37/313 [==&gt;...........................] - ETA: 0s - loss: 0.1089 - accuracy: 0.9662 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 56/313 [====&gt;.........................] - ETA: 0s - loss: 0.1386 - accuracy: 0.9648
+ 75/313 [======&gt;.......................] - ETA: 0s - loss: 0.1463 - accuracy: 0.9554
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 83/313 [======&gt;.......................] - ETA: 0s - loss: 0.1550 - accuracy: 0.9571
+113/313 [=========&gt;....................] - ETA: 0s - loss: 0.1435 - accuracy: 0.9563
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-110/313 [=========&gt;....................] - ETA: 0s - loss: 0.1431 - accuracy: 0.9599
+151/313 [=============&gt;................] - ETA: 0s - loss: 0.1479 - accuracy: 0.9532
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-138/313 [============&gt;.................] - ETA: 0s - loss: 0.1521 - accuracy: 0.9567
+189/313 [=================&gt;............] - ETA: 0s - loss: 0.1360 - accuracy: 0.9572
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-160/313 [==============&gt;...............] - ETA: 0s - loss: 0.1486 - accuracy: 0.9572
+226/313 [====================&gt;.........] - ETA: 0s - loss: 0.1242 - accuracy: 0.9611
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-178/313 [================&gt;.............] - ETA: 0s - loss: 0.1380 - accuracy: 0.9603
+264/313 [========================&gt;.....] - ETA: 0s - loss: 0.1121 - accuracy: 0.9644
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-201/313 [==================&gt;...........] - ETA: 0s - loss: 0.1323 - accuracy: 0.9621
+302/313 [===========================&gt;..] - ETA: 0s - loss: 0.1042 - accuracy: 0.9672
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-227/313 [====================&gt;.........] - ETA: 0s - loss: 0.1262 - accuracy: 0.9638
+313/313 [==============================] - 1s 1ms/step - loss: 0.1090 - accuracy: 0.9656
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-254/313 [=======================&gt;......] - ETA: 0s - loss: 0.1170 - accuracy: 0.9665
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-280/313 [=========================&gt;....] - ETA: 0s - loss: 0.1092 - accuracy: 0.9681
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-309/313 [============================&gt;.] - ETA: 0s - loss: 0.1102 - accuracy: 0.9678
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-313/313 [==============================] - 1s 2ms/step - loss: 0.1109 - accuracy: 0.9676
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9675999879837036
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9656000137329102
 </pre></div>
 </div>
 </div>
@@ -2081,10 +2059,10 @@ tensor([[1.9262]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 1s - loss: 0.1109 - accuracy: 0.9676 - 511ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1090 - accuracy: 0.9656 - 386ms/epoch - 1ms/step
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.76%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.56%
 </pre></div>
 </div>
 </div>
@@ -2119,7 +2097,7 @@ tensor([[1.9262]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f94f0066330&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7fa87c0b93f0&gt;
 </pre></div>
 </div>
 </div>
@@ -2149,7 +2127,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "62f6f2c9d2b5440c87e95d5ff78b28d3"}
+{"version_major": 2, "version_minor": 0, "model_id": "003235f37d414a7fac61171220e83920"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2158,7 +2136,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "e46179bf7a304fc3b2be01a9da612d68"}
+{"version_major": 2, "version_minor": 0, "model_id": "3d23e28d36534f7983c812d6161ad11b"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 
 Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
@@ -2166,7 +2144,7 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to /home/
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "fb9375e809714d85a9360c3b404d74f6"}
+{"version_major": 2, "version_minor": 0, "model_id": "700a713a481f4d24ad8c61ffd3df3716"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2175,7 +2153,7 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "e35715a0a4124db4b4882b1a0a7ec808"}
+{"version_major": 2, "version_minor": 0, "model_id": "bff5e7aecb9a4f29b7fcaff7dff39c1d"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2416,82 +2394,41 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 <p>Saved automatically to <code class="docutils literal notranslate"><span class="pre">lightning_logs/</span></code>.</p>
 <p>Incrementally split over versions e.g., <code class="docutils literal notranslate"><span class="pre">version_0</span></code>.</p>
 <p>This then saves checkpoints per epoch, overwriting with the latest epoch:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls lightning_logs/version_0/checkpoints
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ls: cannot access &#39;lightning_logs/version_0/checkpoints&#39;: No such file or directory
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="id13">
 <h4><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/starter/introduction.html#checkpointing">Load the model</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_saved_checkpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/lightning_logs/version_0/checkpoints/epoch=4-step=9375.ckpt&quot;</span>
-<span class="n">reloaded_model</span> <span class="o">=</span> <span class="n">MNISTModel</span><span class="o">.</span><span class="n">load_from_checkpoint</span><span class="p">(</span><span class="n">path_to_saved_checkpoint</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">reloaded_model</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_checkpoints</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/lightning_logs/version_0/checkpoints&quot;</span>
+<span class="n">path_model</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_checkpoints</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path_checkpoints</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">path_model</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [90],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">path_to_saved_checkpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/lightning_logs/version_0/checkpoints/epoch=4-step=9375.ckpt&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">reloaded_model</span> <span class="o">=</span> <span class="n">MNISTModel</span><span class="o">.</span><span class="n">load_from_checkpoint</span><span class="p">(</span><span class="n">path_to_saved_checkpoint</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">reloaded_model</span><span class="p">)</span>
+<span class="nn">Input In [89],</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">path_checkpoints</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/lightning_logs/version_0/checkpoints&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">path_model</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_checkpoints</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path_checkpoints</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">path_model</span><span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/pytorch_lightning/core/saving.py:139,</span> in <span class="ni">ModelIO.load_from_checkpoint</span><span class="nt">(cls, checkpoint_path, map_location, hparams_file, strict, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="n">checkpoint</span> <span class="o">=</span> <span class="n">pl_load</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">map_location</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">139</span>         <span class="n">checkpoint</span> <span class="o">=</span> <span class="n">pl_load</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="k">lambda</span> <span class="n">storage</span><span class="p">,</span> <span class="n">loc</span><span class="p">:</span> <span class="n">storage</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">if</span> <span class="n">hparams_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="n">extension</span> <span class="o">=</span> <span class="n">hparams_file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/pytorch_lightning/utilities/cloud_io.py:46,</span> in <span class="ni">load</span><span class="nt">(path_or_url, map_location)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load_state_dict_from_url</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path_or_url</span><span class="p">),</span> <span class="n">map_location</span><span class="o">=</span><span class="n">map_location</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">get_filesystem</span><span class="p">(</span><span class="n">path_or_url</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">46</span> <span class="k">with</span> <span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path_or_url</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">map_location</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/fsspec/spec.py:1009,</span> in <span class="ni">AbstractFileSystem.open</span><span class="nt">(self, path, mode, block_size, cache_options, compression, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1007</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1008</span>     <span class="n">ac</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;autocommit&quot;</span><span class="p">,</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_intrans</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1009</span>     <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1010</span>         <span class="n">path</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1011</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span>         <span class="n">block_size</span><span class="o">=</span><span class="n">block_size</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span>         <span class="n">autocommit</span><span class="o">=</span><span class="n">ac</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1014</span>         <span class="n">cache_options</span><span class="o">=</span><span class="n">cache_options</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1015</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1016</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1017</span>     <span class="k">if</span> <span class="n">compression</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1018</span>         <span class="kn">from</span> <span class="nn">fsspec.compression</span> <span class="kn">import</span> <span class="n">compr</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/fsspec/implementations/local.py:155,</span> in <span class="ni">LocalFileSystem._open</span><span class="nt">(self, path, mode, block_size, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_mkdir</span> <span class="ow">and</span> <span class="s2">&quot;w&quot;</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span>     <span class="bp">self</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">155</span> <span class="k">return</span> <span class="n">LocalFileOpener</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/fsspec/implementations/local.py:250,</span> in <span class="ni">LocalFileOpener.__init__</span><span class="nt">(self, path, mode, autocommit, fs, compression, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="bp">self</span><span class="o">.</span><span class="n">compression</span> <span class="o">=</span> <span class="n">get_compression</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">compression</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocksize</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">DEFAULT_BUFFER_SIZE</span>
-<span class="ne">--&gt; </span><span class="mi">250</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open</span><span class="p">()</span>
-
-<span class="nn">File /usr/share/miniconda/envs/swd8_intro_ml/lib/python3.9/site-packages/fsspec/implementations/local.py:255,</span> in <span class="ni">LocalFileOpener._open</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">autocommit</span> <span class="ow">or</span> <span class="s2">&quot;w&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">255</span>         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">256</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span>             <span class="n">compress</span> <span class="o">=</span> <span class="n">compr</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">]</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/home/runner/work/intro_ml/intro_ml/docs/lightning_logs/version_0/checkpoints/epoch=4-step=9375.ckpt&#39;
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/home/runner/work/intro_ml/intro_ml/docs/lightning_logs/version_0/checkpoints&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reloaded_model</span> <span class="o">=</span> <span class="n">MNISTModel</span><span class="o">.</span><span class="n">load_from_checkpoint</span><span class="p">(</span><span class="n">path_model</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reloaded_model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNISTModel(
+  (layer1): Linear(in_features=784, out_features=10, bias=True)
+)
 </pre></div>
 </div>
 </div>

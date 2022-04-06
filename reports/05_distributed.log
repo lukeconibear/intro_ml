@@ -17,18 +17,33 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-path_checkpoints = f"{os.getcwd()}/lightning_logs/version_0/checkpoints"
-path_model = f"{path_checkpoints}/{os.listdir(path_checkpoints)[0]}"
-print(path_model)
+# train.py
+def main(hparams):
+    model = LightningTemplateModel(hparams)
+
+    trainer = Trainer(accelerator="gpu", devices=8, num_nodes=4, strategy="ddp")
+
+    trainer.fit(model)
+
+
+if __name__ == "__main__":
+    root_dir = os.path.dirname(os.path.realpath(__file__))
+    parent_parser = ArgumentParser(add_help=False)
+    hyperparams = parser.parse_args()
+
+    # TRAIN
+    main(hyperparams)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Input [0;32mIn [89][0m, in [0;36m<cell line: 2>[0;34m()[0m
-[1;32m      1[0m path_checkpoints [38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mos[38;5;241m.[39mgetcwd()[38;5;132;01m}[39;00m[38;5;124m/lightning_logs/version_0/checkpoints[39m[38;5;124m"[39m
-[0;32m----> 2[0m path_model [38;5;241m=[39m [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mpath_checkpoints[38;5;132;01m}[39;00m[38;5;124m/[39m[38;5;132;01m{[39;00mos[38;5;241m.[39mlistdir(path_checkpoints)[[38;5;241m0[39m][38;5;132;01m}[39;00m[38;5;124m"[39m
-[1;32m      3[0m [38;5;28mprint[39m(path_model)
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [24][0m, in [0;36m<cell line: 10>[0;34m()[0m
+[1;32m      7[0m     trainer[38;5;241m.[39mfit(model)
+[1;32m     10[0m [38;5;28;01mif[39;00m [38;5;18m__name__[39m [38;5;241m==[39m [38;5;124m"[39m[38;5;124m__main__[39m[38;5;124m"[39m:
+[0;32m---> 11[0m     root_dir [38;5;241m=[39m os[38;5;241m.[39mpath[38;5;241m.[39mdirname(os[38;5;241m.[39mpath[38;5;241m.[39mrealpath([38;5;18;43m__file__[39;49m))
+[1;32m     12[0m     parent_parser [38;5;241m=[39m ArgumentParser(add_help[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
+[1;32m     13[0m     hyperparams [38;5;241m=[39m parser[38;5;241m.[39mparse_args()
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/home/runner/work/intro_ml/intro_ml/docs/lightning_logs/version_0/checkpoints'
-FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/intro_ml/intro_ml/docs/lightning_logs/version_0/checkpoints'
+[0;31mNameError[0m: name '__file__' is not defined
+NameError: name '__file__' is not defined
 
