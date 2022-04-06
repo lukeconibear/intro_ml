@@ -11,16 +11,16 @@ Click [here](...) to book.
 
 ## Objectives
 
-At the end of this workshop, learners will be able to:
+At the end of this workshop, learners will:
 
 1. [ ] Understand the fundamentals of machine learning and deep learning.
-2. [ ] Understand how to use key tools, including:
+2. [ ] Know how to use key tools, including:
     - [ ] [scikit-learn](https://scikit-learn.org/stable/)
     - [ ] [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/)
     - [ ] [PyTorch](https://pytorch.org/) and [PyTorch Lightning](https://www.pytorchlightning.ai/)
-3. [ ] Understand how to use currated datasets
-4. [ ] Understand how to use pre-trained models.
-5. [ ] Understand how to do distribute training.
+3. [ ] Be aware of good practices for data pipelines
+4. [ ] Know about model tuning and transfer learning.
+5. [ ] Be able to undertake distributed training.
 
 ## Prerequisites
 
