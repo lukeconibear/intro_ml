@@ -388,8 +388,8 @@ const thebe_selector_output = ".output, .cell_output"
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     PyTorch
+    <a class="reference internal nav-link" href="#pytorch-lightning">
+     PyTorch (Lightning)
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -398,7 +398,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id12">
+      <a class="reference internal nav-link" href="#id11">
        Create the model
       </a>
      </li>
@@ -418,8 +418,13 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#save-the-model-s-internal-state">
-       Save the model’s internal state
+      <a class="reference internal nav-link" href="#evaluation">
+       Evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Save the model
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -629,8 +634,8 @@ const thebe_selector_output = ".output, .cell_output"
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     PyTorch
+    <a class="reference internal nav-link" href="#pytorch-lightning">
+     PyTorch (Lightning)
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -639,7 +644,7 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id12">
+      <a class="reference internal nav-link" href="#id11">
        Create the model
       </a>
      </li>
@@ -659,8 +664,13 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#save-the-model-s-internal-state">
-       Save the model’s internal state
+      <a class="reference internal nav-link" href="#evaluation">
+       Evaluation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Save the model
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -848,8 +858,22 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://pytorch.org/docs/stable/index.html">Documentation</a></p></li>
 <li><p><a class="reference external" href="https://pytorch.org/tutorials/">Tutorials</a></p></li>
 </ul>
-<p>PyTorch has a user-friendly higher-level API called <a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/">PyTorch Lightning</a>.</p>
-<p>PyTorch Lightning helps write boilerplate code, scale out to multiple devices, and other helpful things (<a class="reference external" href="https://pytorchlightning.github.io/lightning-tutorials/index.html">tutorials</a>).</p>
+<p>PyTorch (low-level) has user-friendly APIs:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/">PyTorch Lightning</a></p>
+<ul>
+<li><p>Mid-level.</p></li>
+<li><p>Helps write boilerplate code, scale out to multiple devices, and other helpful things.</p></li>
+<li><p><a class="reference external" href="https://pytorchlightning.github.io/lightning-tutorials/index.html">Tutorials</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://lightning-flash.readthedocs.io/en/latest/quickstart.html">PyTorch Lightning-Flash</a></p>
+<ul>
+<li><p>High-level.</p></li>
+<li><p>Abstractions above PyTorch Lightning for fast prototyping.</p></li>
+</ul>
+</li>
+</ul>
 <p>You can always go lower level when required (e.g., custom objects).</p>
 <p>Similar to TensorFlow/Keras, you can create models and layers in PyTorch using either Sequential or Subclassing APIs (or in combination). These have similar features to the table above, where the Sequential API is simpler and the Subclassing API enables flexibility.</p>
 <p>There are many <a class="reference external" href="https://pytorch.org/ecosystem/">libraries and extensions</a> including:</p>
@@ -951,7 +975,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.08700591])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.81669709])
 </pre></div>
 </div>
 </div>
@@ -1100,7 +1124,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9969618]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.8478881]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1248,7 +1272,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[1.8218]], requires_grad=True)
+tensor([[1.8271]], requires_grad=True)
 </pre></div>
 </div>
 </div>
@@ -1582,15 +1606,11 @@ tensor([[1.8218]], requires_grad=True)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16384/11490434 [..............................] - ETA: 0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   16384/11490434 [..............................] - ETA: 1s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 1310720/11490434 [==&gt;...........................] - ETA: 0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 8396800/11490434 [====================&gt;.........] - ETA: 0s
+ 1572864/11490434 [===&gt;..........................] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1857,43 +1877,39 @@ tensor([[1.8218]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 28s - loss: 0.0234 - accuracy: 1.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 29s - loss: 0.0234 - accuracy: 1.0000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 37/313 [==&gt;...........................] - ETA: 0s - loss: 0.1089 - accuracy: 0.9662 
+ 42/313 [===&gt;..........................] - ETA: 0s - loss: 0.1255 - accuracy: 0.9613 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 75/313 [======&gt;.......................] - ETA: 0s - loss: 0.1463 - accuracy: 0.9554
+ 85/313 [=======&gt;......................] - ETA: 0s - loss: 0.1478 - accuracy: 0.9548
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-113/313 [=========&gt;....................] - ETA: 0s - loss: 0.1435 - accuracy: 0.9563
+127/313 [===========&gt;..................] - ETA: 0s - loss: 0.1457 - accuracy: 0.9547
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-151/313 [=============&gt;................] - ETA: 0s - loss: 0.1479 - accuracy: 0.9532
+169/313 [===============&gt;..............] - ETA: 0s - loss: 0.1386 - accuracy: 0.9560
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-189/313 [=================&gt;............] - ETA: 0s - loss: 0.1360 - accuracy: 0.9572
+211/313 [===================&gt;..........] - ETA: 0s - loss: 0.1299 - accuracy: 0.9593
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-226/313 [====================&gt;.........] - ETA: 0s - loss: 0.1242 - accuracy: 0.9611
+253/313 [=======================&gt;......] - ETA: 0s - loss: 0.1148 - accuracy: 0.9638
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-264/313 [========================&gt;.....] - ETA: 0s - loss: 0.1121 - accuracy: 0.9644
+295/313 [===========================&gt;..] - ETA: 0s - loss: 0.1044 - accuracy: 0.9669
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-302/313 [===========================&gt;..] - ETA: 0s - loss: 0.1042 - accuracy: 0.9672
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-313/313 [==============================] - 1s 1ms/step - loss: 0.1090 - accuracy: 0.9656
+313/313 [==============================] - 0s 1ms/step - loss: 0.1090 - accuracy: 0.9656
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9656000137329102
@@ -2059,7 +2075,7 @@ tensor([[1.8218]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1090 - accuracy: 0.9656 - 386ms/epoch - 1ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1090 - accuracy: 0.9656 - 350ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.56%
@@ -2069,8 +2085,8 @@ tensor([[1.8218]], requires_grad=True)
 </div>
 </div>
 </div>
-<div class="section" id="id11">
-<h3><a class="reference external" href="https://colab.research.google.com/github/PyTorchLightning/lightning-tutorials/blob/publication/.notebooks/lightning_examples/mnist-hello-world.ipynb">PyTorch</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pytorch-lightning">
+<h3><a class="reference external" href="https://colab.research.google.com/github/PyTorchLightning/lightning-tutorials/blob/publication/.notebooks/lightning_examples/mnist-hello-world.ipynb">PyTorch (Lightning)</a><a class="headerlink" href="#pytorch-lightning" title="Permalink to this headline">¶</a></h3>
 <p>Here, we’ll do a <a class="reference external" href="https://colab.research.google.com/drive/1F_RNcHzTfFuQf-LeKvSlud6x7jXYkG31#scrollTo=nbQAcRna5e_q">simple example</a> using PyTorch Lightning.</p>
 <p>This will just include training (i.e., no validation or testing).</p>
 <div class="cell docutils container">
@@ -2097,7 +2113,7 @@ tensor([[1.8218]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7fa87c0b93f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f2214024930&gt;
 </pre></div>
 </div>
 </div>
@@ -2127,7 +2143,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "003235f37d414a7fac61171220e83920"}
+{"version_major": 2, "version_minor": 0, "model_id": "89af23ef4c9e400fa73b92d69947dada"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2136,7 +2152,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "3d23e28d36534f7983c812d6161ad11b"}
+{"version_major": 2, "version_minor": 0, "model_id": "c675a80e3082490288cf79f5b77442bd"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 
 Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
@@ -2144,24 +2160,25 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to /home/
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "700a713a481f4d24ad8c61ffd3df3716"}
+{"version_major": 2, "version_minor": 0, "model_id": "daa66fa6a03b465aa79127dce343c191"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
-Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "bff5e7aecb9a4f29b7fcaff7dff39c1d"}
+{"version_major": 2, "version_minor": 0, "model_id": "b2c2ba88bbcb4056966dd1a60b39bbe8"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="id12">
-<h4>Create the model<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id11">
+<h4>Create the model<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
 <p>This include the loss, optimiser, and training steps.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pl.LightningModule</span></code> is a <code class="docutils literal notranslate"><span class="pre">nn.Module</span></code> with more features.</p>
 <p>For more information on how to convert a PyTorch model to a PyTorch Lightning model see:</p>
@@ -2379,6 +2396,9 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="evaluation">
+<h4><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/common/evaluation.html">Evaluation</a><a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h4>
 <p>Now, testing the model is simply done by running:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2389,8 +2409,8 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </div>
 </div>
 </div>
-<div class="section" id="save-the-model-s-internal-state">
-<h4>Save the model’s internal state<a class="headerlink" href="#save-the-model-s-internal-state" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id12">
+<h4>Save the model<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
 <p>Saved automatically to <code class="docutils literal notranslate"><span class="pre">lightning_logs/</span></code>.</p>
 <p>Incrementally split over versions e.g., <code class="docutils literal notranslate"><span class="pre">version_0</span></code>.</p>
 <p>This then saves checkpoints per epoch, overwriting with the latest epoch:</p>
@@ -2471,7 +2491,7 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">Trainer(fast_dev_run=True)</span></code> in PyTorch Lightning.</p></li>
 </ul>
 </li>
-<li><p>Tips for <a class="reference external" href="https://keras.io/examples/keras_recipes/debugging_tips/">Keras</a> and <a class="reference external" href="https://youtu.be/BoiqJSAgPsQ">PyTorch Lightning</a>.</p></li>
+<li><p>Tips for <a class="reference external" href="https://keras.io/examples/keras_recipes/debugging_tips/">Keras</a> and <a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/common/debugging.html">PyTorch Lightning</a>.</p></li>
 </ul>
 </li>
 <li><p>Offloading computations to a GPU may not be beneficial for small models.</p></li>
