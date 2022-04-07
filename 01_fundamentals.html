@@ -278,6 +278,13 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#data">
      Data
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logits-and-log-odds">
+       Logits and Log-odds
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#supervised-and-unsupervised">
@@ -470,6 +477,13 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#data">
      Data
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logits-and-log-odds">
+       Logits and Log-odds
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#supervised-and-unsupervised">
@@ -692,7 +706,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#sigmoid-function">Sigmoid</a></p>
 <ul>
-<li><p>Converts <a class="reference internal" href="03_data.html#logits-and-log-odds"><span class="std std-ref">log-odds</span></a> into probabilities between 0 and 1.</p></li>
+<li><p>Converts <a class="reference internal" href="#logits-and-log-odds"><span class="std std-ref">log-odds</span></a> into probabilities between 0 and 1.</p></li>
 <li><p>Used for binary classification.</p></li>
 </ul>
 </li>
@@ -745,6 +759,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p><img alt="tensors.png" src="_images/tensors.png" /></p>
 <p><em><a class="reference external" href="https://medium.com/mlait/tensors-representation-of-data-in-neural-networks-bbe8a711b93b">Image source</a></em></p>
+<div class="section" id="logits-and-log-odds">
+<span id="id1"></span><h4>Logits and Log-odds<a class="headerlink" href="#logits-and-log-odds" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://developers.google.com/machine-learning/glossary#logits">Logits</a> are a vector of raw (non-normalised) predictions from a classification model. For multi-class classification, these are converted to (normalised) probabilities using a softmax function.</p>
+<p><a class="reference external" href="https://developers.google.com/machine-learning/glossary#log-odds">Log-odds</a> are the logarithm of the odds of an event. They’re the inverse of the sigmoid function.</p>
+</div>
 </div>
 <div class="section" id="supervised-and-unsupervised">
 <h3>Supervised and unsupervised<a class="headerlink" href="#supervised-and-unsupervised" title="Permalink to this headline">¶</a></h3>
@@ -812,7 +831,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><em><a class="reference external" href="https://inria.github.io/scikit-learn-mooc/python_scripts/02_numerical_pipeline_cross_validation.html">Image source</a></em></p>
 </div>
 <div class="section" id="hyperparameters">
-<span id="id1"></span><h3><a class="reference external" href="https://youtu.be/VTE2KlfoO3Q">Hyperparameters</a><a class="headerlink" href="#hyperparameters" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3><a class="reference external" href="https://youtu.be/VTE2KlfoO3Q">Hyperparameters</a><a class="headerlink" href="#hyperparameters" title="Permalink to this headline">¶</a></h3>
 <p>These are what <em>you set before</em> model training (i.e., the architecture).</p>
 <p>They control the learning process.</p>
 <p>These include, for example:</p>
@@ -859,6 +878,8 @@ local optimum</p>
 <div class="section" id="training">
 <h3><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#training">Training</a><a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
 <p>Training is the process of finding the best model.</p>
+<a class="reference internal image-reference" href="_images/unteachable.jpg" id="unteachable-jpg"><img alt="_images/unteachable.jpg" id="unteachable-jpg" src="_images/unteachable.jpg" style="height: 300px;" /></a>
+<p><em><a class="reference external" href="https://vas3k.com/blog/machine_learning/">Image source</a></em></p>
 <div class="section" id="loss-function">
 <h4><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#loss">Loss Function</a><a class="headerlink" href="#loss-function" title="Permalink to this headline">¶</a></h4>
 <p>The loss function measures how accurate the model is during training.</p>
@@ -959,7 +980,7 @@ Any value less than 1, as model can be continually awful
 <p>More training data is unlikely to help a model that underfits the data.</p>
 </div>
 <div class="section" id="overfit">
-<span id="id2"></span><h3><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit">Overfit</a><a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit">Overfit</a><a class="headerlink" href="#overfit" title="Permalink to this headline">¶</a></h3>
 <p>A model <em>overfits</em> the data when it has <em>high variance</em> (i.e., varies a lot).</p>
 <p>This means the model is <em>too complex</em> to capture the association (i.e., too much capacity so the training data is memorised).</p>
 <p>You can tell that the model overfits because there are <em>low</em> training errors <em>but</em> high test errors (i.e., there is a big difference between these errors, where the model doesn’t work well on new data because it overfitted to the noise in the training data).</p>
@@ -1050,7 +1071,7 @@ Any value less than 1, as model can be continually awful
 </ul>
 </div>
 <div class="section" id="online-courses">
-<span id="id3"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Online courses<a class="headerlink" href="#online-courses" title="Permalink to this headline">¶</a></h3>
 <p><strong>Bold</strong> are highly-recommended.</p>
 <div class="section" id="machine-learning">
 <h4>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h4>
