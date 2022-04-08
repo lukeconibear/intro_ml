@@ -294,6 +294,7 @@ dependencies:
     - flatbuffers==2.0
     - frozenlist==1.3.0
     - fsspec==2022.2.0
+    - future==0.18.2
     - gast==0.5.3
     - google-auth==2.6.2
     - google-auth-oauthlib==0.4.6
@@ -322,21 +323,24 @@ dependencies:
     - protobuf==3.19.4
     - pyasn1==0.4.8
     - pyasn1-modules==0.2.8
-    - pydeprecate==0.3.2
+    - pydeprecate==0.3.1
     - pyqt5-sip==4.19.18
     - pyqtchart==5.12
     - pyqtwebengine==5.12.1
     - pystiche==1.0.1
-    - pytorch-lightning==1.6.0
+    - pytorch-lightning==1.5.10
     - ray==1.11.0
+    - ray-lightning==0.3.0
     - redis==4.2.0
     - requests-oauthlib==1.3.1
     - rsa==4.8
     - segmentation-models-pytorch==0.2.1
     - setuptools==59.5.0
+    - tabulate==0.8.9
     - tensorboard==2.8.0
     - tensorboard-data-server==0.6.1
     - tensorboard-plugin-wit==1.8.1
+    - tensorboardx==2.5
     - tensorflow==2.8.0
     - tensorflow-datasets==4.5.2
     - tensorflow-hub==0.12.0
