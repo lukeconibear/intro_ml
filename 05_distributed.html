@@ -589,6 +589,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Ray Train simplifies distributed deep learning for TensorFlow and PyTorch.</p>
 <p>It handles the set up for you (e.g., <a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#setting_up_the_tf_config_environment_variable"><code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code></a> in TensorFlow).</p>
 <p>There are a range of examples <a class="reference external" href="https://docs.ray.io/en/latest/train/examples.html">here</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note, Ray doesn’t currently work on POWER9 machines e.g., Bede. See, <a class="reference external" href="https://github.com/ray-project/ray/issues/7476">GitHub issue</a>.</p>
+</div>
 <div class="section" id="tensorflow-keras">
 <h3><a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras">TensorFlow (Keras)</a><a class="headerlink" href="#tensorflow-keras" title="Permalink to this headline">¶</a></h3>
 <p>Here is an <a class="reference external" href="https://docs.ray.io/en/latest/train/examples/tensorflow_mnist_example.html">MNIST example</a>:</p>
@@ -1158,6 +1162,7 @@ srun python3 train.py
 <li><p>Ensure that the problem is complex enough to use multiple GPUs efficiently.</p></li>
 <li><p>Batch the dataset with the global batch size e.g., for 8 devices each capable of a btach of 64 use the global batch size of 512 (= 8 * 64).</p></li>
 <li><p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/advanced/model_parallel.html">Distributed training on PyTorch Lightning</a></p></li>
+<li><p>Performance tips from <a class="reference external" href="https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html">PyTorch</a></p></li>
 </ul>
 </div>
 <div class="section" id="other-options">
@@ -1183,7 +1188,7 @@ srun python3 train.py
 <div class="section" id="resources">
 <h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>…</p></li>
+<li><p><a class="reference external" href="https://pytorch.org/tutorials/beginner/dist_overview.html">PyTorch Distributed Overview</a></p></li>
 </ul>
 </div>
 </div>

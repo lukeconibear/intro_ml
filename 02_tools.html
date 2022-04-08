@@ -991,7 +991,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.08090417])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.14542526])
 </pre></div>
 </div>
 </div>
@@ -1140,7 +1140,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9815379]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.050755]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1210,7 +1210,7 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="nb">super</span><span class="p">(</span><span class="n">NeuralNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>  <span class="c1"># instantiate the nn.Module</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>  <span class="c1"># the computations for the forward layer</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>  <span class="c1"># the computations for the forward layer, not called directly</span>
         <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">logits</span>
 
@@ -1319,7 +1319,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[1.9199]], requires_grad=True)
+tensor([[1.9803]], requires_grad=True)
 </pre></div>
 </div>
 </div>
@@ -1657,7 +1657,19 @@ tensor([[1.9199]], requires_grad=True)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 1212416/11490434 [==&gt;...........................] - ETA: 0s
+ 1179648/11490434 [==&gt;...........................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 2105344/11490434 [====&gt;.........................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 6299648/11490434 [===============&gt;..............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 8396800/11490434 [====================&gt;.........] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1924,27 +1936,27 @@ tensor([[1.9199]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 31s - loss: 0.0234 - accuracy: 1.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 34s - loss: 0.0234 - accuracy: 1.0000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 36/313 [==&gt;...........................] - ETA: 0s - loss: 0.1027 - accuracy: 0.9679 
+ 37/313 [==&gt;...........................] - ETA: 0s - loss: 0.1089 - accuracy: 0.9662 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 74/313 [======&gt;.......................] - ETA: 0s - loss: 0.1449 - accuracy: 0.9565
+ 73/313 [=====&gt;........................] - ETA: 0s - loss: 0.1467 - accuracy: 0.9559
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-110/313 [=========&gt;....................] - ETA: 0s - loss: 0.1389 - accuracy: 0.9571
+108/313 [=========&gt;....................] - ETA: 0s - loss: 0.1388 - accuracy: 0.9572
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-146/313 [============&gt;.................] - ETA: 0s - loss: 0.1484 - accuracy: 0.9531
+145/313 [============&gt;.................] - ETA: 0s - loss: 0.1493 - accuracy: 0.9528
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-183/313 [================&gt;.............] - ETA: 0s - loss: 0.1324 - accuracy: 0.9585
+182/313 [================&gt;.............] - ETA: 0s - loss: 0.1329 - accuracy: 0.9583
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1952,11 +1964,15 @@ tensor([[1.9199]], requires_grad=True)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-255/313 [=======================&gt;......] - ETA: 0s - loss: 0.1140 - accuracy: 0.9641
+246/313 [======================&gt;.......] - ETA: 0s - loss: 0.1166 - accuracy: 0.9634
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-290/313 [==========================&gt;...] - ETA: 0s - loss: 0.1055 - accuracy: 0.9667
+276/313 [=========================&gt;....] - ETA: 0s - loss: 0.1081 - accuracy: 0.9656
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+311/313 [============================&gt;.] - ETA: 0s - loss: 0.1086 - accuracy: 0.9657
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -2126,7 +2142,7 @@ tensor([[1.9199]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1090 - accuracy: 0.9656 - 442ms/epoch - 1ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1090 - accuracy: 0.9656 - 384ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.56%
@@ -2169,7 +2185,7 @@ tensor([[1.9199]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f7ba80f2930&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f6e400cb930&gt;
 </pre></div>
 </div>
 </div>
@@ -2199,7 +2215,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f7f3246eb91f4d37ba49e312efe36568"}
+{"version_major": 2, "version_minor": 0, "model_id": "70ada2726a4c4196ac2fec82d294d153"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2208,7 +2224,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "ef04a5b57a2b42bd832fa1256ab5a587"}
+{"version_major": 2, "version_minor": 0, "model_id": "652e99d8d5b04ddcbf3128ffa9dbac27"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 
 Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
@@ -2216,16 +2232,17 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to /home/
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "bab1235b46dd405084eb960285f4bc78"}
+{"version_major": 2, "version_minor": 0, "model_id": "26ab135fb9554f03939529325bf5db19"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
-Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "c97e79aacde043e7a4e8b59f38383018"}
+{"version_major": 2, "version_minor": 0, "model_id": "a8ed97e956bd46b6a998884d8f84192c"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2303,9 +2320,6 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IPU available: False, using: 0 IPUs
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HPU available: False, using: 0 HPUs
 </pre></div>
 </div>
 </div>
@@ -2435,9 +2449,6 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IPU available: False, using: 0 IPUs
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HPU available: False, using: 0 HPUs
 </pre></div>
 </div>
 </div>
