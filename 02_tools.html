@@ -991,7 +991,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.14542526])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.94437191])
 </pre></div>
 </div>
 </div>
@@ -1140,7 +1140,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.050755]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9417081]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1319,7 +1319,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[1.9803]], requires_grad=True)
+tensor([[1.9461]], requires_grad=True)
 </pre></div>
 </div>
 </div>
@@ -1472,7 +1472,6 @@ tensor([[1.9803]], requires_grad=True)
 <div class="section" id="create-a-model">
 <h4>Create a model<a class="headerlink" href="#create-a-model" title="Permalink to this headline">¶</a></h4>
 <p>Here, we will use a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">Support Vector Classifier</a> (a type of support vector machine).</p>
-<p>This model focuses on the two hardest to classify examples and places support vectors between them to form the decision boundary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
@@ -1657,19 +1656,7 @@ tensor([[1.9803]], requires_grad=True)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 1179648/11490434 [==&gt;...........................] - ETA: 0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 2105344/11490434 [====&gt;.........................] - ETA: 0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 6299648/11490434 [===============&gt;..............] - ETA: 0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 8396800/11490434 [====================&gt;.........] - ETA: 0s
+ 1703936/11490434 [===&gt;..........................] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1936,47 +1923,39 @@ tensor([[1.9803]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 34s - loss: 0.0234 - accuracy: 1.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 28s - loss: 0.0234 - accuracy: 1.0000
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 37/313 [==&gt;...........................] - ETA: 0s - loss: 0.1089 - accuracy: 0.9662 
+ 41/313 [==&gt;...........................] - ETA: 0s - loss: 0.1230 - accuracy: 0.9611 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 73/313 [=====&gt;........................] - ETA: 0s - loss: 0.1467 - accuracy: 0.9559
+ 81/313 [======&gt;.......................] - ETA: 0s - loss: 0.1472 - accuracy: 0.9541
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-108/313 [=========&gt;....................] - ETA: 0s - loss: 0.1388 - accuracy: 0.9572
+121/313 [==========&gt;...................] - ETA: 0s - loss: 0.1467 - accuracy: 0.9545
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-145/313 [============&gt;.................] - ETA: 0s - loss: 0.1493 - accuracy: 0.9528
+161/313 [==============&gt;...............] - ETA: 0s - loss: 0.1443 - accuracy: 0.9540
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-182/313 [================&gt;.............] - ETA: 0s - loss: 0.1329 - accuracy: 0.9583
+202/313 [==================&gt;...........] - ETA: 0s - loss: 0.1291 - accuracy: 0.9593
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-219/313 [===================&gt;..........] - ETA: 0s - loss: 0.1273 - accuracy: 0.9602
+243/313 [======================&gt;.......] - ETA: 0s - loss: 0.1175 - accuracy: 0.9631
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-246/313 [======================&gt;.......] - ETA: 0s - loss: 0.1166 - accuracy: 0.9634
+284/313 [==========================&gt;...] - ETA: 0s - loss: 0.1076 - accuracy: 0.9660
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-276/313 [=========================&gt;....] - ETA: 0s - loss: 0.1081 - accuracy: 0.9656
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-311/313 [============================&gt;.] - ETA: 0s - loss: 0.1086 - accuracy: 0.9657
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-313/313 [==============================] - 1s 1ms/step - loss: 0.1090 - accuracy: 0.9656
+313/313 [==============================] - 0s 1ms/step - loss: 0.1090 - accuracy: 0.9656
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9656000137329102
@@ -2142,7 +2121,7 @@ tensor([[1.9803]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1090 - accuracy: 0.9656 - 384ms/epoch - 1ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1090 - accuracy: 0.9656 - 348ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.56%
@@ -2185,7 +2164,7 @@ tensor([[1.9803]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f6e400cb930&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7ff4b8114930&gt;
 </pre></div>
 </div>
 </div>
@@ -2215,7 +2194,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "70ada2726a4c4196ac2fec82d294d153"}
+{"version_major": 2, "version_minor": 0, "model_id": "596bda8554194f2e86f87ff88e1fdbef"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2224,7 +2203,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "652e99d8d5b04ddcbf3128ffa9dbac27"}
+{"version_major": 2, "version_minor": 0, "model_id": "f3477c2256de43918a98b5e9739c098d"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 
 Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
@@ -2232,17 +2211,16 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to /home/
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "26ab135fb9554f03939529325bf5db19"}
+{"version_major": 2, "version_minor": 0, "model_id": "8c4544122a464896bc5c49bff5548c3b"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
-
-Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "a8ed97e956bd46b6a998884d8f84192c"}
+{"version_major": 2, "version_minor": 0, "model_id": "4e0332a4a80a468e957b92da5d76e6f2"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2513,13 +2491,6 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reloaded_model</span> <span class="o">=</span> <span class="n">MNISTModel</span><span class="o">.</span><span class="n">load_from_checkpoint</span><span class="p">(</span><span class="n">path_model</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">reloaded_model</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MNISTModel(
-  (layer1): Linear(in_features=784, out_features=10, bias=True)
-)
 </pre></div>
 </div>
 </div>
