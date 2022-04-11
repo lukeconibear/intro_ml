@@ -343,6 +343,50 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#jupyter-notebook-to-hpc">
    Jupyter Notebook to HPC
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clean-non-essential-code">
+     Clean non-essential code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#refactor-jupyter-notebook-code-into-functions">
+     Refactor Jupyter Notebook code into functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-python-script">
+     Create a Python script
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-1-recommended">
+       Option 1 (recommended)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-2">
+       Option 2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-3">
+       Option 3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-submission-script">
+     Create submission script
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-create-unit-tests">
+     (Optional) Create unit tests
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -497,6 +541,50 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#jupyter-notebook-to-hpc">
    Jupyter Notebook to HPC
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clean-non-essential-code">
+     Clean non-essential code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#refactor-jupyter-notebook-code-into-functions">
+     Refactor Jupyter Notebook code into functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-python-script">
+     Create a Python script
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-1-recommended">
+       Option 1 (recommended)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-2">
+       Option 2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-3">
+       Option 3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-submission-script">
+     Create submission script
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optional-create-unit-tests">
+     (Optional) Create unit tests
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
@@ -1130,8 +1218,666 @@ srun python3 train.py
 </div>
 <div class="section" id="jupyter-notebook-to-hpc">
 <h2>Jupyter Notebook to HPC<a class="headerlink" href="#jupyter-notebook-to-hpc" title="Permalink to this headline">¶</a></h2>
-<p>It’s preferable to use a static job on the HPC. To do this, you could test out different ideas locally in a Jupyter Notebook, then when ready convert this to an executable script (<code class="docutils literal notranslate"><span class="pre">.py</span></code>) and move it over.</p>
-<p>…</p>
+<p>Once you’ve finished testing out different ideas locally in a Jupyter Notebook, you can then convert this to an exercutable script to run on a HPC.</p>
+<p>This is because the HPCs (currently accessible at Leeds, at least) are suitable for non-interactive batch jobs.</p>
+<p>The steps are to:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#clean-nonessential-code"><span class="std std-ref">Clean non-essential code</span></a></p></li>
+<li><p><a class="reference internal" href="#refactor-into-functions"><span class="std std-ref">Refactor Jupyter Notebook code into functions</span></a></p></li>
+<li><p><a class="reference internal" href="#create-python-script"><span class="std std-ref">Create a Python script</span></a></p></li>
+<li><p><a class="reference internal" href="#create-submission-script"><span class="std std-ref">Create submission script</span></a></p></li>
+<li><p><a class="reference internal" href="#create-unit-tests"><span class="std std-ref">(Optional) Create unit tests</span></a></p></li>
+</ul>
+<div class="section" id="clean-non-essential-code">
+<span id="clean-nonessential-code"></span><h3>Clean non-essential code<a class="headerlink" href="#clean-non-essential-code" title="Permalink to this headline">¶</a></h3>
+<p>Some code added during the experimentation phase was only needed to test out ideas and explore the data.</p>
+<p>This non-essential code can be removed to make it more maintainable and performant.</p>
+<p>Let’s use the example from the <a class="reference internal" href="03_data.html#id24"><span class="std std-ref">TensorFlow Datasets MNIST example</span></a> we saw in Lesson 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="c1"># global setup</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s2">&quot;GPU&quot;</span><span class="p">)))</span>
+<span class="n">AUTOTUNE</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+<span class="n">NUM_EPOCHS</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># download the data</span>
+<span class="p">(</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span><span class="p">),</span> <span class="n">ds_info</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="s2">&quot;mnist&quot;</span><span class="p">,</span>
+    <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:80%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[80%:90%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[90%:]&quot;</span><span class="p">],</span>
+    <span class="n">shuffle_files</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">with_info</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ds_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ds_info</span><span class="p">)</span>
+
+<span class="c1"># preprocess the data</span>
+<span class="k">def</span> <span class="nf">normalise_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">label</span>
+
+
+<span class="c1"># create data pipelines</span>
+<span class="k">def</span> <span class="nf">training_pipeline</span><span class="p">(</span><span class="n">ds_train</span><span class="p">):</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">normalise_image</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">ds_info</span><span class="o">.</span><span class="n">splits</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">num_examples</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_train</span>
+
+
+<span class="k">def</span> <span class="nf">test_pipeline</span><span class="p">(</span><span class="n">ds_test</span><span class="p">):</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">normalise_image</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_test</span>
+
+
+<span class="n">ds_train</span> <span class="o">=</span> <span class="n">training_pipeline</span><span class="p">(</span><span class="n">ds_train</span><span class="p">)</span>
+<span class="n">ds_val</span> <span class="o">=</span> <span class="n">training_pipeline</span><span class="p">(</span><span class="n">ds_val</span><span class="p">)</span>
+<span class="n">ds_test</span> <span class="o">=</span> <span class="n">test_pipeline</span><span class="p">(</span><span class="n">ds_test</span><span class="p">)</span>
+
+
+<span class="c1"># create the model</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;inputs&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;flatten&quot;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer1&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer2&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;outputs&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;functional&quot;</span><span class="p">)</span>
+
+<span class="c1"># view the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1"># compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)],</span>
+<span class="p">)</span>
+
+<span class="c1"># train the model</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">ds_train</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="n">ds_val</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="n">NUM_EPOCHS</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># plot the model accuracy</span>
+<span class="n">epochs_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">NUM_EPOCHS</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">],</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Training accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">epochs_range</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">],</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Validation accuracy&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Training and validation accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Epochs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># save the model</span>
+<span class="n">path_models</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/models&quot;</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_models</span><span class="si">}</span><span class="s2">/model_tf_mnist&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num GPUs Available:  0
+&lt;_OptionsDataset element_spec=(TensorSpec(shape=(28, 28, 1), dtype=tf.uint8, name=None), TensorSpec(shape=(), dtype=tf.int64, name=None))&gt;
+tfds.core.DatasetInfo(
+    name=&#39;mnist&#39;,
+    full_name=&#39;mnist/3.0.1&#39;,
+    description=&quot;&quot;&quot;
+    The MNIST database of handwritten digits.
+    &quot;&quot;&quot;,
+    homepage=&#39;http://yann.lecun.com/exdb/mnist/&#39;,
+    data_path=&#39;/home/runner/tensorflow_datasets/mnist/3.0.1&#39;,
+    download_size=11.06 MiB,
+    dataset_size=21.00 MiB,
+    features=FeaturesDict({
+        &#39;image&#39;: Image(shape=(28, 28, 1), dtype=tf.uint8),
+        &#39;label&#39;: ClassLabel(shape=(), dtype=tf.int64, num_classes=10),
+    }),
+    supervised_keys=(&#39;image&#39;, &#39;label&#39;),
+    disable_shuffling=False,
+    splits={
+        &#39;test&#39;: &lt;SplitInfo num_examples=10000, num_shards=1&gt;,
+        &#39;train&#39;: &lt;SplitInfo num_examples=60000, num_shards=1&gt;,
+    },
+    citation=&quot;&quot;&quot;@article{lecun2010mnist,
+      title={MNIST handwritten digit database},
+      author={LeCun, Yann and Cortes, Corinna and Burges, CJ},
+      journal={ATT Labs [Online]. Available: http://yann.lecun.com/exdb/mnist},
+      volume={2},
+      year={2010}
+    }&quot;&quot;&quot;,
+)
+Model: &quot;functional&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Layer (type)                Output Shape              Param #   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> inputs (InputLayer)         [(None, 28, 28, 1)]       0         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> flatten (Flatten)           (None, 784)               0         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> layer1 (Dense)              (None, 128)               100480    
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dropout (Dropout)           (None, 128)               0         
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> layer2 (Dense)              (None, 128)               16512     
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> outputs (Dense)             (None, 10)                1290      
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total params: 118,282
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trainable params: 118,282
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Non-trainable params: 0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+</pre></div>
+</div>
+<img alt="_images/05_distributed_61_21.png" src="_images/05_distributed_61_21.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, removing non-essential code, now the experimentation phase is complete.</p>
+<p>Here this included:</p>
+<ul class="simple">
+<li><p>Removing downloading data information.</p></li>
+<li><p>Removing unrequired print statements.</p></li>
+<li><p>Viewing model summary.</p></li>
+<li><p>Removing/replacing plots with text output.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="c1"># global setup</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s2">&quot;GPU&quot;</span><span class="p">)))</span>
+<span class="n">AUTOTUNE</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+<span class="n">NUM_EPOCHS</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># download the data</span>
+<span class="p">(</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="s2">&quot;mnist&quot;</span><span class="p">,</span>
+    <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:80%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[80%:90%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[90%:]&quot;</span><span class="p">],</span>
+    <span class="n">shuffle_files</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">with_info</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># preprocess the data</span>
+<span class="k">def</span> <span class="nf">normalise_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">label</span>
+
+
+<span class="c1"># create data pipelines</span>
+<span class="k">def</span> <span class="nf">training_pipeline</span><span class="p">(</span><span class="n">ds_train</span><span class="p">):</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">normalise_image</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">ds_info</span><span class="o">.</span><span class="n">splits</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">num_examples</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_train</span>
+
+
+<span class="k">def</span> <span class="nf">test_pipeline</span><span class="p">(</span><span class="n">ds_test</span><span class="p">):</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">normalise_image</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_test</span>
+
+
+<span class="n">ds_train</span> <span class="o">=</span> <span class="n">training_pipeline</span><span class="p">(</span><span class="n">ds_train</span><span class="p">)</span>
+<span class="n">ds_val</span> <span class="o">=</span> <span class="n">training_pipeline</span><span class="p">(</span><span class="n">ds_val</span><span class="p">)</span>
+<span class="n">ds_test</span> <span class="o">=</span> <span class="n">test_pipeline</span><span class="p">(</span><span class="n">ds_test</span><span class="p">)</span>
+
+
+<span class="c1"># create the model</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;inputs&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;flatten&quot;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer1&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer2&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;outputs&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;functional&quot;</span><span class="p">)</span>
+
+<span class="c1"># compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)],</span>
+<span class="p">)</span>
+
+<span class="c1"># train the model</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">ds_train</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="n">ds_val</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="n">NUM_EPOCHS</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># view the model accuracy</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training accuracy: </span><span class="si">{</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Validation accuracy: </span><span class="si">{</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_accuracy&#39;</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># save the model</span>
+<span class="n">path_models</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/models&quot;</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_models</span><span class="si">}</span><span class="s2">/model_tf_mnist&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num GPUs Available:  0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training accuracy: [0.88, 0.95, 0.96, 0.97, 0.97]
+Validation accuracy: [0.94, 0.96, 0.97, 0.97, 0.97]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="refactor-jupyter-notebook-code-into-functions">
+<span id="refactor-into-functions"></span><h3>Refactor Jupyter Notebook code into functions<a class="headerlink" href="#refactor-jupyter-notebook-code-into-functions" title="Permalink to this headline">¶</a></h3>
+<p>Now, any code that is not already in functions, can be refactored into functions.</p>
+<p>Modularising the code like this helps with diagnosing errors and creating tests.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="c1"># global setup</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s2">&quot;GPU&quot;</span><span class="p">)))</span>
+<span class="n">AUTOTUNE</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+<span class="n">NUM_EPOCHS</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># download the data</span>
+<span class="k">def</span> <span class="nf">download_data</span><span class="p">():</span>
+    <span class="p">(</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+        <span class="s2">&quot;mnist&quot;</span><span class="p">,</span>
+        <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:80%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[80%:90%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[90%:]&quot;</span><span class="p">],</span>
+        <span class="n">shuffle_files</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">with_info</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span>
+
+
+<span class="c1"># preprocess the data</span>
+<span class="k">def</span> <span class="nf">normalise_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">label</span>
+
+
+<span class="c1"># create data pipelines</span>
+<span class="k">def</span> <span class="nf">training_pipeline</span><span class="p">(</span><span class="n">ds_train</span><span class="p">):</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">normalise_image</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">ds_info</span><span class="o">.</span><span class="n">splits</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">num_examples</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_train</span>
+
+
+<span class="k">def</span> <span class="nf">test_pipeline</span><span class="p">(</span><span class="n">ds_test</span><span class="p">):</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">normalise_image</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_test</span>
+
+
+<span class="c1"># create and compile the model</span>
+<span class="k">def</span> <span class="nf">create_and_compile_model</span><span class="p">():</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;inputs&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;flatten&quot;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer1&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer2&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;outputs&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;functional&quot;</span><span class="p">)</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+        <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)],</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+
+
+<span class="c1"># train the model</span>
+<span class="k">def</span> <span class="nf">train_model</span><span class="p">():</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+        <span class="n">ds_train</span><span class="p">,</span>
+        <span class="n">validation_data</span><span class="o">=</span><span class="n">ds_val</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="n">NUM_EPOCHS</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">history</span>
+
+
+<span class="c1"># save the model</span>
+<span class="k">def</span> <span class="nf">save_model</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">path_models</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/models&quot;</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_models</span><span class="si">}</span><span class="s2">/model_tf_mnist&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># combine the functions in a call to main</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span> <span class="o">=</span> <span class="n">download_data</span><span class="p">()</span>
+
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">training_pipeline</span><span class="p">(</span><span class="n">ds_train</span><span class="p">)</span>
+    <span class="n">ds_val</span> <span class="o">=</span> <span class="n">training_pipeline</span><span class="p">(</span><span class="n">ds_val</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">test_pipeline</span><span class="p">(</span><span class="n">ds_test</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">create_and_compile_model</span><span class="p">()</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">()</span>
+    <span class="n">save_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+
+<span class="c1"># run the functions</span>
+<span class="n">main</span><span class="p">()</span>
+
+<span class="c1"># view the model accuracy</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training accuracy: </span><span class="si">{</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Validation accuracy: </span><span class="si">{</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_accuracy&#39;</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num GPUs Available:  0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training accuracy: [0.88, 0.95, 0.96, 0.97, 0.97]
+Validation accuracy: [0.94, 0.96, 0.97, 0.97, 0.97]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-a-python-script">
+<span id="create-python-script"></span><h3>Create a Python script<a class="headerlink" href="#create-a-python-script" title="Permalink to this headline">¶</a></h3>
+<p>First, the call to <code class="docutils literal notranslate"><span class="pre">main()</span></code> should be placed inside a conditional invocation i.e.,:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, the script can be called from a terminal by running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">script.py</span></code>.</p>
+<p>Then, the rest of the code can be convert by either:</p>
+<div class="section" id="option-1-recommended">
+<h4>Option 1 (recommended)<a class="headerlink" href="#option-1-recommended" title="Permalink to this headline">¶</a></h4>
+<p>Convert a <em>single cell</em> to a script using the <code class="docutils literal notranslate"><span class="pre">%%writefile</span></code> IPython magic command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> jupyter-to-hpc_tf-mnist-example.py
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="c1"># global setup</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s2">&quot;GPU&quot;</span><span class="p">)))</span>
+<span class="n">AUTOTUNE</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+<span class="n">NUM_EPOCHS</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># download the data</span>
+<span class="k">def</span> <span class="nf">download_data</span><span class="p">():</span>
+    <span class="p">(</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+        <span class="s2">&quot;mnist&quot;</span><span class="p">,</span>
+        <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:80%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[80%:90%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[90%:]&quot;</span><span class="p">],</span>
+        <span class="n">shuffle_files</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">with_info</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span>
+
+
+<span class="c1"># preprocess the data</span>
+<span class="k">def</span> <span class="nf">normalise_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">label</span>
+
+
+<span class="c1"># create data pipelines</span>
+<span class="k">def</span> <span class="nf">training_pipeline</span><span class="p">(</span><span class="n">ds_train</span><span class="p">):</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">normalise_image</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">ds_info</span><span class="o">.</span><span class="n">splits</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">num_examples</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_train</span>
+
+
+<span class="k">def</span> <span class="nf">test_pipeline</span><span class="p">(</span><span class="n">ds_test</span><span class="p">):</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">normalise_image</span><span class="p">,</span> <span class="n">num_parallel_calls</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">ds_test</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ds_test</span>
+
+
+<span class="c1"># create and compile the model</span>
+<span class="k">def</span> <span class="nf">create_and_compile_model</span><span class="p">():</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;inputs&quot;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;flatten&quot;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer1&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer2&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;outputs&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;functional&quot;</span><span class="p">)</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+        <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)],</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+
+
+<span class="c1"># train the model</span>
+<span class="k">def</span> <span class="nf">train_model</span><span class="p">():</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+        <span class="n">ds_train</span><span class="p">,</span>
+        <span class="n">validation_data</span><span class="o">=</span><span class="n">ds_val</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="n">NUM_EPOCHS</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">history</span>
+
+
+<span class="c1"># save the model</span>
+<span class="k">def</span> <span class="nf">save_model</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">path_models</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/models&quot;</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_models</span><span class="si">}</span><span class="s2">/model_tf_mnist&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># combine the functions in a call to main</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span> <span class="o">=</span> <span class="n">download_data</span><span class="p">()</span>
+
+    <span class="n">ds_train</span> <span class="o">=</span> <span class="n">training_pipeline</span><span class="p">(</span><span class="n">ds_train</span><span class="p">)</span>
+    <span class="n">ds_val</span> <span class="o">=</span> <span class="n">training_pipeline</span><span class="p">(</span><span class="n">ds_val</span><span class="p">)</span>
+    <span class="n">ds_test</span> <span class="o">=</span> <span class="n">test_pipeline</span><span class="p">(</span><span class="n">ds_test</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">create_and_compile_model</span><span class="p">()</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">train_model</span><span class="p">()</span>
+    <span class="n">save_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># run the functions</span>
+    <span class="n">main</span><span class="p">()</span>
+
+    <span class="c1"># view the model accuracy</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Training accuracy: </span><span class="si">{</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Validation accuracy: </span><span class="si">{</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_accuracy&#39;</span><span class="p">]]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing jupyter-to-hpc_tf-mnist-example.py
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="option-2">
+<h4>Option 2<a class="headerlink" href="#option-2" title="Permalink to this headline">¶</a></h4>
+<p>Convert the <em>entire</em> notebook to a script using the <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter nbconvert <span class="s2">&quot;my_notebook.ipynb&quot;</span> --to script
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-3">
+<h4>Option 3<a class="headerlink" href="#option-3" title="Permalink to this headline">¶</a></h4>
+<p>Convert the <em>entire</em> notebook to a script using the Jupyter menu.</p>
+<p>From within the Jupyter Notebook, click <code class="docutils literal notranslate"><span class="pre">File</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">and</span> <span class="pre">Export</span> <span class="pre">Notebook</span> <span class="pre">As</span> <span class="pre">...</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Executable</span> <span class="pre">Script</span></code>.</p>
+<p>This should convert the Jupyter Notebook to a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, and download it locally.</p>
+</div>
+</div>
+<div class="section" id="create-submission-script">
+<span id="id4"></span><h3>Create submission script<a class="headerlink" href="#create-submission-script" title="Permalink to this headline">¶</a></h3>
+<p>For your HPC (e.g., ARC4), create the submission script.</p>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#$ -cwd</span>
+<span class="c1">#$ -l h_rt=00:05:00</span>
+<span class="c1">#$ -l coproc_v100=1</span>
+
+conda activate swd8_intro_ml 
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$CONDA_PREFIX</span>/lib  <span class="c1"># (sometimes required)</span>
+
+python jupyter-to-hpc_tf-mnist-example.py
+</pre></div>
+</div>
+<p>Ensure both of these files are on the HPC, alongside the corresponding conda environment.</p>
+</div>
+<div class="section" id="optional-create-unit-tests">
+<span id="create-unit-tests"></span><h3>(Optional) Create unit tests<a class="headerlink" href="#optional-create-unit-tests" title="Permalink to this headline">¶</a></h3>
+<p>It’s good practise to write <a class="reference external" href="https://the-turing-way.netlify.app/reproducible-research/testing.html">tests</a> for your code.</p>
+<p><a class="reference external" href="https://docs.pytest.org/en/6.2.x/">pytest</a> are <a class="reference external" href="https://numpy.org/doc/stable/reference/testing.html">NumPy</a> are both good, commonly-used tools for testing in Python.</p>
+<p>There are various <a class="reference external" href="https://softwaretestingfundamentals.com/">levels, types, and methods</a> of testing.</p>
+<p>For example, you could <a class="reference external" href="https://softwaretestingfundamentals.com/unit-testing/">unit test</a> individual functions, like the downloading and splitting of data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">test_split_data</span><span class="p">(</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span><span class="p">):</span>
+    <span class="n">num_samples_train</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds_train</span><span class="p">)</span>
+    <span class="n">num_samples_val</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds_val</span><span class="p">)</span>
+    <span class="n">num_samples_test</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds_test</span><span class="p">)</span>
+    
+    <span class="n">num_samples</span> <span class="o">=</span> <span class="n">num_samples_train</span> <span class="o">+</span> <span class="n">num_samples_val</span> <span class="o">+</span> <span class="n">num_samples_test</span>
+    
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">num_samples_train</span> <span class="o">/</span> <span class="n">num_samples</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">num_samples_val</span> <span class="o">/</span> <span class="n">num_samples</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">num_samples_test</span> <span class="o">/</span> <span class="n">num_samples</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    
+
+<span class="n">test_split_data</span><span class="p">(</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">ds_val</span><span class="p">,</span> <span class="n">ds_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You could also perform <a class="reference external" href="https://softwaretestingfundamentals.com/system-testing/">system testing</a>. For example, checking the final validation accuracy is above a threshold:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_final_val_accuracy_above_threshold</span><span class="p">(</span><span class="n">threshold</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_accuracy&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
+    
+<span class="n">test_final_val_accuracy_above_threshold</span><span class="p">(</span><span class="mf">0.96</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
@@ -1190,6 +1936,7 @@ srun python3 train.py
 <ul class="simple">
 <li><p><a class="reference external" href="https://pytorch.org/tutorials/beginner/dist_overview.html">PyTorch Distributed Overview</a></p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/computing/parallelism.html">scikit-learn parallelism</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-convert-ml-experiment-to-production">Convert ML experiment to production</a></p></li>
 </ul>
 </div>
 </div>

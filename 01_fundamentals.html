@@ -50,6 +50,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tools" href="02_tools.html" />
@@ -905,6 +907,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>The average squared loss per example.</p></li>
 </ul>
 </li>
+<li><p><a class="reference external" href="https://machinelearningmastery.com/cross-entropy-for-machine-learning/">Crossentropy</a></p>
+<ul>
+<li><p>A measure of the difference between two probability distributions.</p></li>
+<li><p>Categorical Crossentropy for binary classification.</p></li>
+<li><p>Sparse Categorical Crossentropy for multi-class classification.</p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="gradient-descent">
@@ -960,6 +969,36 @@ const thebe_selector_output = ".output, .cell_output"
 <h3><a class="reference external" href="https://youtu.be/JoAxZsdw_3w">Error analysis</a><a class="headerlink" href="#error-analysis" title="Permalink to this headline">¶</a></h3>
 <p>This is where you manually analyse the prediction errors from the model to help guide how to improve the model.</p>
 <p>An example is a <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#confusion-matrix">confusion matrix</a>. This is where you aggregate a classifcation model’s correct and incorrect guesses. This is useful to see what classes have more errors.</p>
+<p>For example, you could have a classification model to predict whether or not there is a tumor in the image:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Tumor (predicted)</p></th>
+<th class="head"><p>Non-Tumor (predicted)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tumor (ground truth)</p></td>
+<td><p>18</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-Tumor (ground truth)</p></td>
+<td><p>6</p></td>
+<td><p>452</p></td>
+</tr>
+</tbody>
+</table>
+<p>So, here there are 19 ground truth images that had tumors (18 + 1), of which the model predicted 18 correct (<em>true positives, TP</em>) and 1 wrong (<em>false negative, FN</em>).</p>
+<p>Also, there are 458 ground truth images that did not have tumors (452 + 6), of which the model predicted 452 correct (<em>true negatives, TN</em>) and 6 wrong (<em>false positives, FP</em>).</p>
+<p>The <em>precision</em> identifies the frequency of correct predictions for positive cases. Here:</p>
+<p><span class="math notranslate nohighlight">\(precision = TP / (TP + FP)\)</span><br />
+<span class="math notranslate nohighlight">\(precision = 18 / (18 + 6)\)</span><br />
+<span class="math notranslate nohighlight">\(precision = 0.75\)</span></p>
+<p><em>Recall</em> represents: out of all the possible positive labels, how many did the model correctly identify. Here:</p>
+<p><span class="math notranslate nohighlight">\(recall = TP / (TP + FN)\)</span><br />
+<span class="math notranslate nohighlight">\(recall = 18 / (18 + 1)\)</span><br />
+<span class="math notranslate nohighlight">\(recall = 0.95\)</span></p>
+<p>There is often a trade-off between precision and recall (i.e., one goes up and the other goes down).</p>
 </div>
 <div class="section" id="underfit">
 <h3><a class="reference external" href="https://youtu.be/SjQyLhQIXSM">Underfit</a><a class="headerlink" href="#underfit" title="Permalink to this headline">¶</a></h3>
@@ -1048,6 +1087,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="admonition-exercise-10 admonition">
 <p class="admonition-title">Exercise 10</p>
+<p>If my model underfits, what might help:</p>
+<ul class="simple">
+<li><p>Adding more features</p></li>
+<li><p>Adding more data</p></li>
+</ul>
+</div>
+<div class="admonition-exercise-11 admonition">
+<p class="admonition-title">Exercise 11</p>
 <p>If my model overfits, what might help:</p>
 <ul class="simple">
 <li><p>Adding more complex features</p></li>

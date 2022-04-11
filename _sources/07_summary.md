@@ -24,11 +24,17 @@ In this workshop, we covered:
 ```{admonition} 2. Know how to use key tools, including:
 
 - [x] [scikit-learn](https://scikit-learn.org/stable/)
-    - [x] _..._
+    - [x] _scikit-learn is great for classic machine learning problems._
 - [x] [TensorFlow](https://www.tensorflow.org/) and [Keras](https://keras.io/)
-    - [x] _..._
+    - [x] _TensorFlow is great for deep learning problems._
+    - [x] _Keras (high-level API for TensorFlow) has many high-level objects to help you create deep learning models._
 - [x] [PyTorch](https://pytorch.org/) and [PyTorch Lightning](https://www.pytorchlightning.ai/)
-    - [x] _..._
+    - [x] _PyTorch is great for deep learning problems._
+    - [x] _PyTorch Lightning (high-level API for PyTorch) has many high-level objects to help you create deep learning models._
+- [x] _You can use low-level APIs for any custom objects._
+- [x] _Explore your data before using it._
+- [x] _Check your model before fitting the training data to it._
+- [x] _Evaluate your model and analyse the errors it makes._    
 
 ```
 

@@ -740,7 +740,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="k">pass</span>
+    <span class="o">%</span><span class="k">pip</span> install --quiet pytorch-lightning --upgrade
 </pre></div>
 </div>
 </div>
@@ -754,18 +754,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference internal" href="#tensorflow"><span class="std std-ref">TensorFlow</span></a></p></li>
 <li><p><a class="reference internal" href="#pytorch"><span class="std std-ref">PyTorch</span></a></p></li>
 </ul>
-<p>The tool you choose depends on:</p>
+<p>The tool you choose depends many considerations, for example:</p>
 <ul class="simple">
 <li><p>Your research problem</p></li>
 <li><p>Model availability (e.g., pre-trained, state-of-the-art)</p></li>
-<li><p>Deployment (e.g., hardware)</p></li>
 <li><p>Ecosystem (e.g., compatibility with other tools)</p></li>
 <li><p>Personal preferences</p></li>
+<li><p>Deployment (e.g., hardware)</p></li>
 </ul>
 <p>There are many discussions on the different choices e.g., <a class="reference external" href="https://www.assemblyai.com/blog/pytorch-vs-tensorflow-in-2022/">1</a>, <a class="reference external" href="https://keras.io/why_keras/">2</a>.</p>
 <div class="section" id="scikit-learn">
 <span id="id1"></span><h3><a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a><a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
-<p>Scikit-learn has a wide range of simple and efficient machine learning tools.</p>
+<p>Scikit-learn has a wide range of simple and efficient classic machine learning tools.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/user_guide.html">Documentation</a></p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/stable/tutorial/index.html">Tutorials</a></p></li>
@@ -773,10 +773,33 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>There are ones for:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html">Linear models</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#generalized-linear-models">examples</a>)</p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html">Nearest neighbours</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#nearest-neighbors">examples</a>)</p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/svm.html">Support vector machines</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#support-vector-machines">examples</a>)</p></li>
-<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/tree.html">Decision trees</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#decision-trees">examples</a>)</p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html">Linear Models</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#generalized-linear-models">examples</a>)</p>
+<ul>
+<li><p>A set of methods where the output is a linear combination of the inputs.</p></li>
+<li><p>For example, fitting a straight line to the data using <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares">Linear Regression</a> (also known as ordinary least squares).</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html">Nearest Neighbours</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#nearest-neighbors">examples</a>)</p>
+<ul>
+<li><p>Find a (pre-defined) number of training samples closest in distance to the new point, and predict the label from these.</p></li>
+<li><p>The number of samples can be defined in different ways.</p></li>
+<li><p>There are various measures of distance.</p></li>
+<li><p>For example, classifying labels based on their closeness to other samples in <a class="reference external" href="https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-classification">Nearest Neighbor Classification</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/svm.html">Support Vector Machines</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#support-vector-machines">examples</a>)</p>
+<ul>
+<li><p>Place a <em>decision function</em> (i.e., the support vector) between data points to classify, regress, or find outliers.</p></li>
+<li><p>For example, find the two hardest to categorise samples and place a decision boundary between them in <a class="reference external" href="https://scikit-learn.org/stable/modules/svm.html#classification">Support Vector Classification</a>.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/tree.html">Decision trees</a> (<a class="reference external" href="https://scikit-learn.org/stable/auto_examples/index.html#decision-trees">examples</a>)</p>
+<ul>
+<li><p>Predict the value of a target variable by learning simple <em>decision</em> rules inferred from the data features.</p></li>
+<li><p>Many decisions are grouped together into a <em>tree</em>.</p></li>
+<li><p>For example, many decision trees together in an ensemble is a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">Random Forest</a>.</p></li>
+</ul>
+</li>
 <li><p>And <a class="reference external" href="https://scikit-learn.org/stable/index.html">many more</a>.</p></li>
 </ul>
 </div>
@@ -788,7 +811,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://www.tensorflow.org/tutorials">Tutorials</a></p></li>
 <li><p><a class="reference external" href="https://keras.io/examples/">Examples</a></p></li>
 </ul>
-<p>TensorFlow has a user-friendly higher-level APIs (Application Programming Interface) called <a class="reference external" href="https://keras.io/">Keras</a>.</p>
+<p>TensorFlow has a user-friendly, high-level API (Application Programming Interface) called <a class="reference external" href="https://keras.io/">Keras</a>.</p>
 <p>Keras includes a wide range of high-level objects (<a class="reference external" href="https://keras.io/guides/">tutorials</a>) including:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://keras.io/api/models/">Models</a></p></li>
@@ -816,29 +839,24 @@ const thebe_selector_output = ".output, .cell_output"
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>API style</p></td>
-<td><p>Symbolic (abstract)</p></td>
-<td><p>Symbolic</p></td>
-<td><p>Imperative (compute as you run)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Data structure</p></td>
+<tr class="row-even"><td><p>Data structure</p></td>
 <td><p>Graph: Linear stack of layers.</p></td>
-<td><p>Graph: Non-linear DAG (directed acyclic graph) of layers (can be shared).</p></td>
-<td><p>Object-orientated. Write the forward pass (backward pass is automatic)</p></td>
+<td><p>Graph: Non-linear DAG (directed acyclic graph) of layers.</p></td>
+<td><p>Object-orientated. Write the forward pass (backward pass is automatic).</p></td>
 </tr>
-<tr class="row-even"><td><p>Shared layers and multiple inputs/outputs</p></td>
+<tr class="row-odd"><td><p>Shared layers and multiple inputs/outputs</p></td>
 <td><p>No. Each layer has one input and one output.</p></td>
 <td><p>Yes. Each layer can have multiple inputs and outputs.</p></td>
 <td><p>Yes.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Main pros/cons</p></td>
-<td><p>Simplest, (re)usability (easily saved), model checks to catch errors early, static</p></td>
-<td><p>Like seqential, but more flexible</p></td>
-<td><p>Maximum flexibility, no model checks, more complex, dynamic</p></td>
+<tr class="row-even"><td><p>Main benefits and drawbacks</p></td>
+<td><p>Simplest, (re)usability (easily saved), model checks to catch errors early, static.</p></td>
+<td><p>Similar to seqential, but more flexible.</p></td>
+<td><p>Maximum flexibility, no model checks, more complex, dynamic.</p></td>
 </tr>
-<tr class="row-even"><td><p>Show model graph</p></td>
-<td><p>Yes</p></td>
-<td><p>Yes</p></td>
+<tr class="row-odd"><td><p>Show model graph?</p></td>
+<td><p>Yes.</p></td>
+<td><p>Yes.</p></td>
 <td><p>Can add via the guidance <a class="reference external" href="https://github.com/tensorflow/tensorflow/issues/31647#issuecomment-692586409">here</a>.</p></td>
 </tr>
 </tbody>
@@ -848,7 +866,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><a class="reference external" href="https://www.tensorflow.org/tfx">TensorFlow Extended</a> for deployment.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/lite/guide">TensorFlow Lite</a> for mobile and IoT (internet of things) devices.</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/tensorboard">TensorBoard</a> for visualising the experiment results.</p></li>
-<li><p><a class="reference external" href="https://github.com/jtoy/awesome-tensorflow">And many more (including projects, papers, and experiments)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jtoy/awesome-tensorflow">And many more (including projects, papers, and experiments)</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="pytorch">
@@ -869,12 +887,12 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li><p><a class="reference external" href="https://lightning-flash.readthedocs.io/en/latest/quickstart.html">PyTorch Lightning-Flash</a></p>
 <ul>
-<li><p>Higher-level.</p></li>
+<li><p>Even higher-level.</p></li>
 <li><p>Abstractions above PyTorch Lightning for fast prototyping.</p></li>
 </ul>
 </li>
 </ul>
-<p>PyTorch (and its extensions) includes a wide range of high-level objects including:</p>
+<p>PyTorch (and its extensions) include a wide range of high-level objects including:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module">Models</a></p></li>
 <li><p><a class="reference external" href="https://pytorch.org/docs/stable/nn.html">Layers</a></p>
@@ -902,7 +920,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="example-linear-regression">
 <h2>Example - Linear regression<a class="headerlink" href="#example-linear-regression" title="Permalink to this headline">¶</a></h2>
-<p>Let’s start with a simple example fitting a straight line to data.</p>
+<p>Let’s start with a introductory example fitting a straight line to data.</p>
+<p>Don’t worry too much about some of the details as we’ll cover them in later lesson.</p>
+<p>For now, focus on the general workflow.</p>
 <p>We’ll see how this in done in each of three key tools we cover here: scikit-learn, TensorFlow, and PyTorch.</p>
 <p>Let’s create some (noisy) data to train on:</p>
 <div class="cell docutils container">
@@ -991,7 +1011,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.94437191])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.94414627])
 </pre></div>
 </div>
 </div>
@@ -1106,7 +1126,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Now, compile the model.</p>
-<p>The keyword arguments to <code class="docutils literal notranslate"><span class="pre">optimizer</span></code>, <code class="docutils literal notranslate"><span class="pre">loss</span></code>, and <code class="docutils literal notranslate"><span class="pre">metrics</span></code> can either be strings (e.g., <code class="docutils literal notranslate"><span class="pre">mean_squared_error</span></code>) or TensorFlow objects (e.g., <code class="docutils literal notranslate"><span class="pre">tf.keras.metrics.mean_squared_error</span></code>)</p>
+<p>The keyword arguments to <code class="docutils literal notranslate"><span class="pre">optimizer</span></code>, <code class="docutils literal notranslate"><span class="pre">loss</span></code>, and <code class="docutils literal notranslate"><span class="pre">metrics</span></code> can either be strings (e.g., <code class="docutils literal notranslate"><span class="pre">mean_squared_error</span></code>) or TensorFlow objects (e.g., <code class="docutils literal notranslate"><span class="pre">tf.keras.losses.MeanSquaredError()</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_tf</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
@@ -1140,7 +1160,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9417081]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.9704782]], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1246,9 +1266,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> <span class="n">optimiser</span><span class="p">):</span>
     <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>  <span class="c1"># set the model in training mode, rather than evaluation `model.eval()`</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>  <span class="c1"># set the model in training mode, rather than in evaluation mode i.e., `model.eval()`</span>
 
+    <span class="c1"># for each batch of data</span>
     <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">):</span>
+
         <span class="c1"># step 1: make a prediction for these inputs</span>
         <span class="n">prediction</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
@@ -1261,14 +1283,14 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="c1"># step 4: backpropagate the gradients for that loss</span>
         <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
 
-        <span class="c1"># step 5: update that parameters accordingly</span>
+        <span class="c1"># step 5: update the parameters accordingly</span>
         <span class="n">optimiser</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Note, that testing doesn’t need the gradients (i.e., steps 3-5).</p>
-<p>Hence, the test function would look like:</p>
+<p>Hence, the test function would look something like:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">):</span>
     <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  <span class="c1"># set the model in evaluation mode</span>
@@ -1284,6 +1306,7 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="o">...</span>
 </pre></div>
 </div>
+<p>We’ll see more examples of testing later.</p>
 <p>Run the <a class="reference external" href="https://pytorch.org/tutorials/beginner/introyt/trainingyt.html#per-epoch-activity">training step over multiple epochs</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1295,7 +1318,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>And, let’s see what this model though the gradient was:</p>
+<p>And, let’s see what this model thought the gradient was:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># to check parameter names</span>
@@ -1319,12 +1342,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parameter containing:
-tensor([[1.9461]], requires_grad=True)
+tensor([[1.8260]], requires_grad=True)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, we can see how well these models fit a line to the data:</p>
+<p>Now, we can see how well these models fit a line to the data.</p>
+<p>First, grab the predictions of each model (from the training data for plotting purposes).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_sklearn</span> <span class="o">=</span> <span class="n">model_sklearn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
@@ -1346,6 +1370,7 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 </div>
+<p>Then, show these lines on a plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.gridspec</span> <span class="k">as</span> <span class="nn">gridspec</span>
@@ -1388,19 +1413,19 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_69_0.png" src="_images/02_tools_69_0.png" />
+<img alt="_images/02_tools_70_0.png" src="_images/02_tools_70_0.png" />
 </div>
 </div>
 <p>They all did a good job of fitting a function to the data.</p>
 <p>In other words, they found the association in the data.</p>
 <p>However, this was a very simple example that probably didn’t require machine learning (let alone deep learning).</p>
 <p>Though it demonstrates what they do.</p>
-<p>Now, let’s look at something a little more complicated.</p>
+<p>Now, let’s look at something a little more suitable.</p>
 </div>
 </div>
 <div class="section" id="example-digit-classification">
 <h2>Example - Digit classification<a class="headerlink" href="#example-digit-classification" title="Permalink to this headline">¶</a></h2>
-<p>Let’s train a model to recognise digits using the classic <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST dataset</a>.</p>
+<p>Let’s train a model to recognise handwritten digits using the classic <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST dataset</a>.</p>
 <p>This is a classification task.</p>
 <div class="section" id="id7">
 <h3>scikit-learn<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
@@ -1434,7 +1459,7 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_77_0.png" src="_images/02_tools_77_0.png" />
+<img alt="_images/02_tools_78_0.png" src="_images/02_tools_78_0.png" />
 </div>
 </div>
 </div>
@@ -1471,7 +1496,8 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 <div class="section" id="create-a-model">
 <h4>Create a model<a class="headerlink" href="#create-a-model" title="Permalink to this headline">¶</a></h4>
-<p>Here, we will use a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">Support Vector Classifier</a> (a type of support vector machine).</p>
+<p>Here, we will use a <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">Support Vector Classifier</a>.</p>
+<p>Don’t worry about what gamma is for now (if you’re interested, read the documentation).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
@@ -1524,9 +1550,10 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_90_0.png" src="_images/02_tools_90_0.png" />
+<img alt="_images/02_tools_91_0.png" src="_images/02_tools_91_0.png" />
 </div>
 </div>
+<p>Looking good. The predicted labels match the ground truth images.</p>
 </div>
 <div class="section" id="how-well-did-our-model-do-overall">
 <h4>How well did our model do overall?<a class="headerlink" href="#how-well-did-our-model-do-overall" title="Permalink to this headline">¶</a></h4>
@@ -1543,7 +1570,7 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 </div>
-<p>97% accuracy is very good.</p>
+<p>97% accuracy is good.</p>
 <p>Let’s do some quick error analysis using a <a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#confusion-matrix">confusion matrix</a>.</p>
 <p>This shows how well the classification model did for each category.</p>
 <p>The predictions are on the x-axis and the true labels from the test data are on the y-axis.</p>
@@ -1557,11 +1584,12 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_95_0.png" src="_images/02_tools_95_0.png" />
+<img alt="_images/02_tools_97_0.png" src="_images/02_tools_97_0.png" />
 </div>
 </div>
 <p>We can see that the although the model did well, it struggled with 3’s by confusing them with 5’s, 7’s, and 8’s.</p>
 <p>This points us in the direction of how we might improve the model.</p>
+<p>We could also use cross-validation to find the variation in the training score:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_val_score</span>
@@ -1609,20 +1637,49 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="section" id="save-the-model">
-<h4>Save the model<a class="headerlink" href="#save-the-model" title="Permalink to this headline">¶</a></h4>
+<h4><a class="reference external" href="https://scikit-learn.org/stable/modules/model_persistence.html">Save the model</a><a class="headerlink" href="#save-the-model" title="Permalink to this headline">¶</a></h4>
+<p>You can save models using <code class="docutils literal notranslate"><span class="pre">joblib</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">dump</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">path_models</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/models&quot;</span>
+<span class="n">Path</span><span class="p">(</span><span class="n">path_models</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_models</span><span class="si">}</span><span class="s2">/mnist_model_sklearn.joblib&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/home/runner/work/intro_ml/intro_ml/docs/models/mnist_model_sklearn.joblib&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You could then load this model back using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">load</span>
+
+<span class="n">reloaded_model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path_models</span><span class="si">}</span><span class="s1">/mnist_model_sklearn.joblib&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="id8">
 <h3>TensorFlow<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>Now, with <a class="reference external" href="https://www.tensorflow.org/datasets/keras_example">TensorFlow</a>.</p>
-<p>First, set the random seed.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Check whether there are any <a class="reference external" href="https://www.tensorflow.org/guide/gpu">GPUs (Graphical Processing Units)</a> available.</p>
 <p>Note, the <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#device">device</a> is the hardware that TensorFlow runs on (e.g., CPUs (Central Processing Units), GPUs).</p>
 <div class="cell docutils container">
@@ -1656,7 +1713,11 @@ tensor([[1.9461]], requires_grad=True)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 1703936/11490434 [===&gt;..........................] - ETA: 0s
+  786432/11490434 [=&gt;............................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+ 9846784/11490434 [========================&gt;.....] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1682,7 +1743,7 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_115_0.png" src="_images/02_tools_115_0.png" />
+<img alt="_images/02_tools_116_0.png" src="_images/02_tools_116_0.png" />
 </div>
 </div>
 </div>
@@ -1698,7 +1759,7 @@ tensor([[1.9461]], requires_grad=True)
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>It’s often useful to place pre-processing steps into the model pipeline too.</p>
-<p>For example, here we flatten the 2D image to a 1D tensor and <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#normalization">normalise</a> the images to greyscale (i.e., convert the values to between -1 and 1 or 0 and 1).</p>
+<p>For example, here we flatten the 2D image to a 1D tensor and <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#normalization">normalise</a> the images to greyscale (i.e., convert the values to between 0 and 1).</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1785,16 +1846,14 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_121_0.png" src="_images/02_tools_121_0.png" />
+<img alt="_images/02_tools_122_0.png" src="_images/02_tools_122_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="compile-the-model">
 <h4>Compile the model<a class="headerlink" href="#compile-the-model" title="Permalink to this headline">¶</a></h4>
 <p>It’s useful to name the metrics, especially if there’s more than one.</p>
-<p>Here, we’ll use the Adam optimiser.</p>
-<p>SparseCategoricalCrossentropy</p>
-<p>…</p>
+<p>Here, we’ll use the Adam optimiser, sparse categorical crossentropy loss, and a metric of accuracy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
@@ -1840,10 +1899,10 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.2576858401298523, 0.1060948520898819],
- &#39;accuracy&#39;: [0.9238125085830688, 0.9666041731834412],
- &#39;val_loss&#39;: [0.12483683228492737, 0.1188126653432846],
- &#39;val_accuracy&#39;: [0.9637500047683716, 0.9642500281333923]}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;loss&#39;: [0.25156164169311523, 0.10600929707288742],
+ &#39;accuracy&#39;: [0.9241041541099548, 0.9674375057220459],
+ &#39;val_loss&#39;: [0.14062060415744781, 0.10249850153923035],
+ &#39;val_accuracy&#39;: [0.9577500224113464, 0.9682499766349792]}
 </pre></div>
 </div>
 </div>
@@ -1852,7 +1911,7 @@ tensor([[1.9461]], requires_grad=True)
 <div class="section" id="predictions">
 <h4>Predictions<a class="headerlink" href="#predictions" title="Permalink to this headline">¶</a></h4>
 <p>Use the model for predictions with <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/Model#predict"><code class="docutils literal notranslate"><span class="pre">model.predict()</span></code></a> (i.e., inference).</p>
-<p>Models return <a class="reference internal" href="01_fundamentals.html#logits-and-log-odds"><span class="std std-ref">logits or log-odds</span></a> (we’ll cover these in the next lesson). If you’d like these be to probabilities, add a softmax layer:</p>
+<p>Models return <a class="reference internal" href="01_fundamentals.html#logits-and-log-odds"><span class="std std-ref">logits or log-odds</span></a>. If you’d like these be to probabilities, add a softmax layer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probability_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span><span class="n">model</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Softmax</span><span class="p">()])</span>
@@ -1875,9 +1934,9 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.3779324e-07, 6.1148647e-08, 7.2125717e-06, 3.1682972e-05,
-       3.3282960e-10, 1.0176340e-06, 6.3093497e-10, 9.9995852e-01,
-       4.1545363e-07, 9.2731574e-07], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.5864319e-05, 1.0400229e-05, 8.2352507e-04, 9.0889854e-04,
+       9.7073229e-09, 2.6894022e-05, 2.1370544e-08, 9.9811989e-01,
+       2.1570606e-05, 5.2865507e-05], dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1895,8 +1954,8 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 </div>
-<p>So, the model things the first digit is a 7.</p>
-<p>Let’s plot the first four test digits with their predictions to see:</p>
+<p>So, the model thinks the first digit is a 7.</p>
+<p>Let’s see if that’s right by plotting the first four test digits with their predictions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -1909,7 +1968,7 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_137_0.png" src="_images/02_tools_137_0.png" />
+<img alt="_images/02_tools_138_0.png" src="_images/02_tools_138_0.png" />
 </div>
 </div>
 </div>
@@ -1923,50 +1982,54 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 28s - loss: 0.0234 - accuracy: 1.0000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1/313 [..............................] - ETA: 30s - loss: 0.0410 - accuracy: 0.9688
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 41/313 [==&gt;...........................] - ETA: 0s - loss: 0.1230 - accuracy: 0.9611 
+ 39/313 [==&gt;...........................] - ETA: 0s - loss: 0.1111 - accuracy: 0.9639 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 81/313 [======&gt;.......................] - ETA: 0s - loss: 0.1472 - accuracy: 0.9541
+ 78/313 [======&gt;.......................] - ETA: 0s - loss: 0.1248 - accuracy: 0.9563
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-121/313 [==========&gt;...................] - ETA: 0s - loss: 0.1467 - accuracy: 0.9545
+116/313 [==========&gt;...................] - ETA: 0s - loss: 0.1189 - accuracy: 0.9596
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-161/313 [==============&gt;...............] - ETA: 0s - loss: 0.1443 - accuracy: 0.9540
+154/313 [=============&gt;................] - ETA: 0s - loss: 0.1213 - accuracy: 0.9578
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-202/313 [==================&gt;...........] - ETA: 0s - loss: 0.1291 - accuracy: 0.9593
+192/313 [=================&gt;............] - ETA: 0s - loss: 0.1128 - accuracy: 0.9614
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-243/313 [======================&gt;.......] - ETA: 0s - loss: 0.1175 - accuracy: 0.9631
+231/313 [=====================&gt;........] - ETA: 0s - loss: 0.1024 - accuracy: 0.9648
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-284/313 [==========================&gt;...] - ETA: 0s - loss: 0.1076 - accuracy: 0.9660
+270/313 [========================&gt;.....] - ETA: 0s - loss: 0.0959 - accuracy: 0.9670
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-313/313 [==============================] - 0s 1ms/step - loss: 0.1090 - accuracy: 0.9656
+309/313 [============================&gt;.] - ETA: 0s - loss: 0.0925 - accuracy: 0.9683
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9656000137329102
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+313/313 [==============================] - 1s 1ms/step - loss: 0.0934 - accuracy: 0.9680
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test accuracy (R2): 0.9679999947547913
 </pre></div>
 </div>
 </div>
 </div>
-<p>Similar to scikit-learn an overall test accuracy of 97% is good (especially for this simple example).</p>
+<p>Similar to scikit-learn an overall test accuracy of 97% is good.</p>
 <p>Note, that the training accuracy and validation accuracy were both 97% too.</p>
-<p>A before, let’s have a look at a confusion matrix for this.</p>
-<p><em>TensorFlow does have its own <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/math/confusion_matrix"><code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code></a> method. Though I’ll use the scikit-learn one here again as it has a nice plot feature.</em></p>
+<p>As before, let’s have a look at a confusion matrix for some quick error analysis.</p>
+<p><em>Note, TensorFlow does have its own <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/math/confusion_matrix"><code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code></a> method. Though I’ll use the scikit-learn one here again as it has a nice plot feature.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_predictions</span><span class="p">(</span>
@@ -1978,7 +2041,7 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_tools_142_0.png" src="_images/02_tools_142_0.png" />
+<img alt="_images/02_tools_143_0.png" src="_images/02_tools_143_0.png" />
 </div>
 </div>
 <p>This model did well for most digits, though struggled a bit with 5’s.</p>
@@ -1991,14 +2054,14 @@ tensor([[1.9461]], requires_grad=True)
 <li><p>Weights (i.e., state)</p></li>
 <li><p>Configuration (e.g., optimiser, loss, metrics)</p></li>
 </ul>
-<p>Can save the whole or parts.</p>
-<p>Formats:</p>
+<p>You can save the whole or parts.</p>
+<p>The different formats are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.tensorflow.org/guide/saved_model">TensorFlow SavedModel</a>: single archive (recommended)</p>
 <ul>
 <li><p>Save: <code class="docutils literal notranslate"><span class="pre">model.save()</span></code> or <code class="docutils literal notranslate"><span class="pre">tf.keras.models.save_model()</span></code></p></li>
 <li><p>Load: <code class="docutils literal notranslate"><span class="pre">tf.keras.models.load_model()</span></code></p></li>
-<li><p>Keras H5 was the older format</p></li>
+<li><p>Note, Keras H5 was the older format.</p></li>
 </ul>
 </li>
 <li><p>Architecture only (JSON)</p>
@@ -2009,15 +2072,6 @@ tensor([[1.9461]], requires_grad=True)
 </li>
 <li><p>Weights only</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">path_models</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/models&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path_models</span><span class="si">}</span><span class="s2">/model_tf_mnist&quot;</span><span class="p">)</span>
@@ -2121,10 +2175,10 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.1090 - accuracy: 0.9656 - 348ms/epoch - 1ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>313/313 - 0s - loss: 0.0934 - accuracy: 0.9680 - 385ms/epoch - 1ms/step
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.56%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Restored model, accuracy: 96.80%
 </pre></div>
 </div>
 </div>
@@ -2159,18 +2213,6 @@ tensor([[1.9461]], requires_grad=True)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7ff4b8114930&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">PATH_DATASETS</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">/data&quot;</span>
 </pre></div>
@@ -2194,7 +2236,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "596bda8554194f2e86f87ff88e1fdbef"}
+{"version_major": 2, "version_minor": 0, "model_id": "698471aaed744036837824f33c5c2eb8"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2203,7 +2245,7 @@ Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to /home
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f3477c2256de43918a98b5e9739c098d"}
+{"version_major": 2, "version_minor": 0, "model_id": "d93108d83b3e495bb27c1c79e4720046"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/train-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 
 Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
@@ -2211,16 +2253,17 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to /home/
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "8c4544122a464896bc5c49bff5548c3b"}
+{"version_major": 2, "version_minor": 0, "model_id": "acb0d24e264b4e478469a8c7336839b4"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-images-idx3-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
-Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "4e0332a4a80a468e957b92da5d76e6f2"}
+{"version_major": 2, "version_minor": 0, "model_id": "47bcf0f3240d488b97b31fabc179485a"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Extracting /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw/t10k-labels-idx1-ubyte.gz to /home/runner/work/intro_ml/intro_ml/docs/data/MNIST/raw
 </pre></div>
 </div>
@@ -2252,7 +2295,8 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 
     <span class="k">def</span> <span class="nf">training_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_index</span><span class="p">):</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">y_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># predicted y output</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="n">tensorboard_logs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;train_loss&quot;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="n">tensorboard_logs</span><span class="p">}</span>
 
@@ -2313,10 +2357,12 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </div>
 </div>
 </div>
+<p>We can see the loss reduce at the right of the progress bar.</p>
+<p>You can change what is logged by editing the <code class="docutils literal notranslate"><span class="pre">training_step</span></code> method.</p>
 </div>
 <div class="section" id="optional-adding-in-validation-and-testing-to-the-model-creation">
 <h4>(Optional) <a class="reference external" href="https://colab.research.google.com/drive/1F_RNcHzTfFuQf-LeKvSlud6x7jXYkG31#scrollTo=gjo55nA549pU">Adding</a> in validation and testing to the model creation<a class="headerlink" href="#optional-adding-in-validation-and-testing-to-the-model-creation" title="Permalink to this headline">¶</a></h4>
-<p>Note, <code class="docutils literal notranslate"><span class="pre">train_dataloader</span></code> is now incorporated into the model creation.</p>
+<p>Note, DataLoaders are now incorporated into the model creation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MNISTModel</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">LightningModule</span><span class="p">):</span>
@@ -2336,32 +2382,39 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
         <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="n">tensorboard_logs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;train_loss&quot;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;loss&quot;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="n">tensorboard_logs</span><span class="p">}</span>
+    
+    <span class="k">def</span> <span class="nf">configure_optimizers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
 
+    <span class="c1"># -------------------------</span>
+    <span class="c1"># same as above up to here</span>
+    <span class="c1"># new stuff below</span>
+    
     <span class="k">def</span> <span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_index</span><span class="p">):</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
         <span class="n">y_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">val_loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;val_loss&quot;</span><span class="p">:</span> <span class="n">val_loss</span><span class="p">}</span>
-
-    <span class="k">def</span> <span class="nf">validation_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>  <span class="c1"># hook for validation</span>
-        <span class="n">average_val_loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;val_loss&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-        <span class="n">tensorboard_logs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;val_loss&quot;</span><span class="p">:</span> <span class="n">average_val_loss</span><span class="p">}</span>
-        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;val_loss&quot;</span><span class="p">:</span> <span class="n">average_val_loss</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="n">tensorboard_logs</span><span class="p">}</span>
-
+    
     <span class="k">def</span> <span class="nf">test_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_index</span><span class="p">):</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">batch</span>
         <span class="n">y_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">test_loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;test_loss&quot;</span><span class="p">:</span> <span class="n">test_loss</span><span class="p">}</span>
 
+    <span class="k">def</span> <span class="nf">validation_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>  <span class="c1"># hook for validation</span>
+        <span class="n">average_val_loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;val_loss&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">tensorboard_logs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;val_loss&quot;</span><span class="p">:</span> <span class="n">average_val_loss</span><span class="p">}</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;val_loss&quot;</span><span class="p">:</span> <span class="n">average_val_loss</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="n">tensorboard_logs</span><span class="p">}</span>
+
     <span class="k">def</span> <span class="nf">test_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">):</span>  <span class="c1"># hook for test</span>
         <span class="n">average_test_loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;test_loss&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
         <span class="n">logs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;test_loss&quot;</span><span class="p">:</span> <span class="n">average_test_loss</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_dict</span><span class="p">(</span><span class="n">logs</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;test_loss&quot;</span><span class="p">:</span> <span class="n">average_test_loss</span><span class="p">,</span> <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="n">logs</span><span class="p">,</span> <span class="s2">&quot;progress_bar&quot;</span><span class="p">:</span> <span class="n">logs</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">configure_optimizers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
-
+    <span class="c1"># also added in the dataloaders below</span>
+    
     <span class="k">def</span> <span class="nf">train_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span>
             <span class="n">MNIST</span><span class="p">(</span>
@@ -2455,8 +2508,8 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </div>
 <div class="section" id="id12">
 <h4>Save the model<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
-<p>Saved automatically to <code class="docutils literal notranslate"><span class="pre">lightning_logs/</span></code>.</p>
-<p>Incrementally split over versions e.g., <code class="docutils literal notranslate"><span class="pre">version_0</span></code>.</p>
+<p>The model is saved automatically to <code class="docutils literal notranslate"><span class="pre">lightning_logs/</span></code>.</p>
+<p>It is incrementally split over versions e.g., <code class="docutils literal notranslate"><span class="pre">version_0</span></code>.</p>
 <p>This then saves checkpoints per epoch, overwriting with the latest epoch.</p>
 <p>To <a class="reference external" href="https://pytorch.org/tutorials/beginner/saving_loading_models.html">save a model in PyTorch</a> (without Lightning):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">state_dict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span>  <span class="c1"># extract the parameters</span>
@@ -2506,9 +2559,41 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-exercise-1 admonition">
-<p class="admonition-title">Exercise 1</p>
-<p>…</p>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>If you were looking to do classic machine learning, what tool is a good choice?</p>
+</div>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p>If you were looking to do deep learning using a high-level API, what tools are a good choice?</p>
+</div>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
+<p>What are good reasons for choosing a high or low-level API?</p>
+</div>
+<div class="admonition-question-4 admonition">
+<p class="admonition-title">Question 4</p>
+<p>When creating a model, which API is simpler to use?</p>
+<ul class="simple">
+<li><p>Sequential</p></li>
+<li><p>Subclassing</p></li>
+</ul>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p>Put these general steps in order:</p>
+<ul class="simple">
+<li><p>Compile the model</p></li>
+<li><p>Preprocess the data</p></li>
+<li><p>Test the model</p></li>
+<li><p>Fit the model to the training data</p></li>
+<li><p>Create the model</p></li>
+<li><p>Download the data</p></li>
+</ul>
+</div>
+<div class="admonition-question-6 admonition">
+<p class="admonition-title">Question 6</p>
+<p>Which machine learning library is the best?</p>
 </div>
 </div>
 <div class="section" id="solutions">
@@ -2519,7 +2604,13 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>…</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>scikit-learn is great for classic machine learning problems.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>TensorFlow and PyTorch are both great for deep learning problems.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Keras (high-level API for TensorFlow) and PyTorch Lightning (high-level API for PyTorch) have many high-level objects to help you create deep learning models.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>You can use low-level APIs for any custom objects.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Explore your data before using it.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Check your model before fitting the training data to it.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Evaluate your model and analyse the errors it makes.</em></p></li>
 </ul>
 </div>
 </div>
@@ -2548,7 +2639,7 @@ Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to /home/
 </div>
 <div class="section" id="other-options">
 <h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
-<p>There are <a class="reference external" href="https://github.com/josephmisiti/awesome-machine-learning">many other options</a>, including:</p>
+<p>There are <a class="reference external" href="https://github.com/josephmisiti/awesome-machine-learning">many other tools for machine learning</a>, including:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://jax.readthedocs.io/en/latest/">JAX</a></p>
 <ul>
