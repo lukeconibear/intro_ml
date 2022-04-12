@@ -565,8 +565,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#questions">
+   Questions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -939,8 +939,8 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#questions">
+   Questions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -989,6 +989,11 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="data">
 <h1>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/lukeconibear/intro_ml/blob/main/docs/03_data.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re in COLAB or have a local CUDA GPU, you can follow along with the more computationally intensive training in this lesson.</p>
+<p>For those in COLAB, ensure the session is using a GPU by going to: Runtime &gt; Change runtime type &gt; Hardware accelerator = GPU.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you&#39;re using colab, then install the required modules</span>
@@ -1000,11 +1005,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you’re in COLAB or have a local CUDA GPU, you can follow along with the more computationally intensive training in this lesson.</p>
-<p>For those in COLAB, ensure the session is using a GPU by going to: Runtime &gt; Change runtime type &gt; Hardware accelerator = GPU.</p>
 </div>
 <div class="section" id="tensors">
 <h2><a class="reference internal" href="01_fundamentals.html#tensors"><span class="std std-ref">Tensors</span></a><a class="headerlink" href="#tensors" title="Permalink to this headline">¶</a></h2>
@@ -1024,7 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.68977018])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.72399139])
 </pre></div>
 </div>
 </div>
@@ -1036,7 +1036,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.19409799, 0.32715378, 0.07361458])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.38558143,  0.08457998,  0.08319191])
 </pre></div>
 </div>
 </div>
@@ -1048,9 +1048,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.7267363 ,  0.78877135,  1.44550434],
-       [-0.09084888,  0.87282539,  1.23547046],
-       [ 0.6324071 ,  0.35401627, -1.36919206]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.16319398, -2.05085702,  0.0710203 ],
+       [ 0.59289291, -0.66434098, -0.1011233 ],
+       [ 0.52331253, -0.86106099,  0.65020304]])
 </pre></div>
 </div>
 </div>
@@ -1075,7 +1075,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([-0.01642313], dtype=float32)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([-0.27660128], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1087,7 +1087,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([-0.69247067, -0.9621919 , -0.6148491 ], dtype=float32)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([-1.2102377 , -0.16511221, -0.3356236 ], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1100,9 +1100,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3, 3), dtype=float32, numpy=
-array([[-0.42060858,  0.91074806,  1.6503979 ],
-       [ 1.0659331 , -0.26803493, -0.59180933],
-       [ 0.35500428, -0.9030736 ,  0.08984692]], dtype=float32)&gt;
+array([[ 0.34198442, -0.27404153, -0.6378238 ],
+       [ 0.6199114 ,  1.6229054 ,  0.19250707],
+       [ 0.54665315, -0.86330825, -0.2161392 ]], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1125,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.4619])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.3695])
 </pre></div>
 </div>
 </div>
@@ -1137,7 +1137,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.2794, 0.9641, 0.7882])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.0075, 0.8325, 0.4602])
 </pre></div>
 </div>
 </div>
@@ -1149,9 +1149,9 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.9228, 0.1221, 0.0250],
-        [0.1147, 0.5808, 0.4643],
-        [0.1926, 0.2604, 0.3177]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.1239, 0.4873, 0.1363],
+        [0.5521, 0.2003, 0.8573],
+        [0.4654, 0.8171, 0.7884]])
 </pre></div>
 </div>
 </div>
@@ -1832,7 +1832,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataset.Subset at 0x7fb98f800fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataset.Subset at 0x7ff266cacfa0&gt;
 </pre></div>
 </div>
 </div>
@@ -1866,7 +1866,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7fb98f800790&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7ff266cac1f0&gt;
 </pre></div>
 </div>
 </div>
@@ -1997,7 +1997,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7fb986cd7e20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7ff25e1832b0&gt;
 </pre></div>
 </div>
 </div>
@@ -2057,7 +2057,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7fb986cd7070&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7ff25e183250&gt;
 </pre></div>
 </div>
 </div>
@@ -2243,7 +2243,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.Rescaling at 0x7fb986cd7e50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.Rescaling at 0x7ff267846d90&gt;
 </pre></div>
 </div>
 </div>
@@ -2290,7 +2290,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomFlip at 0x7fb986ca0e80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomFlip at 0x7ff25e183910&gt;
 </pre></div>
 </div>
 </div>
@@ -2302,7 +2302,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomRotation at 0x7fb986cd7d60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomRotation at 0x7ff25e148df0&gt;
 </pre></div>
 </div>
 </div>
@@ -2411,7 +2411,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "a496d51478ff45c38ab410f396909184"}
+{"version_major": 2, "version_minor": 0, "model_id": "19578046e3ff46ea94a2b1d212cab941"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Dataset mnist downloaded and prepared to /home/runner/tensorflow_datasets/mnist/3.0.1. Subsequent calls will reuse this data.</span>
 </pre></div>
 </div>
@@ -3049,8 +3049,8 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 </div>
 </div>
 </div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question-1 admonition">
 <p class="admonition-title">Question 1</p>
 <p>Should I split my data in train and test subsets <em>before</em> or <em>after</em> pre-processing?</p>
@@ -3154,7 +3154,7 @@ array([[-0.42060858,  0.91074806,  1.6503979 ],
 
 
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"e48d6ea467324ac6879cf0b325cfeddf": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "48f3687a85d44b19aa55711a57d61c2e": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "c696a299a9be4cf495f350a5fae1acff": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_e48d6ea467324ac6879cf0b325cfeddf", "max": 4.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_48f3687a85d44b19aa55711a57d61c2e", "value": 4.0}}, "83909afac8654a6aa8baa8c7c32bff98": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3c5b7110f8ff4c1089843d06d62f2025": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "a0b93bff24ee4f538d03af9f33c41413": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_83909afac8654a6aa8baa8c7c32bff98", "placeholder": "\u200b", "style": "IPY_MODEL_3c5b7110f8ff4c1089843d06d62f2025", "value": "Dl Completed...: 100%"}}, "9bfa25f4e97d4d5da7a6616f9d9f9e66": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0aaae77425a4408395c4988d73f80809": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "925b436a1a574367a32d5182e155607c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_9bfa25f4e97d4d5da7a6616f9d9f9e66", "placeholder": "\u200b", "style": "IPY_MODEL_0aaae77425a4408395c4988d73f80809", "value": " 4/4 [00:00&lt;00:00, 11.82 file/s]"}}, "484cab2e4fb44e18bc90d682623dea66": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a496d51478ff45c38ab410f396909184": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_a0b93bff24ee4f538d03af9f33c41413", "IPY_MODEL_c696a299a9be4cf495f350a5fae1acff", "IPY_MODEL_925b436a1a574367a32d5182e155607c"], "layout": "IPY_MODEL_484cab2e4fb44e18bc90d682623dea66"}}}, "version_major": 2, "version_minor": 0}
+{"state": {"9fb8cf8f7be749f5b2310368f88fd276": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "95e4ee57e16a4b47a3b1096ae04eab12": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "f8cdee85bc9a459f803a20feaf943b5c": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_9fb8cf8f7be749f5b2310368f88fd276", "max": 4.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_95e4ee57e16a4b47a3b1096ae04eab12", "value": 4.0}}, "4625b79169a94864b8de2412a2e2aadc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "83f1fe8be4de4385a47c4313e8b79ada": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "1f3f295986154a9d99b23e9b834efbc2": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_4625b79169a94864b8de2412a2e2aadc", "placeholder": "\u200b", "style": "IPY_MODEL_83f1fe8be4de4385a47c4313e8b79ada", "value": "Dl Completed...: 100%"}}, "187ebbc18d4b4c9aa98c94ebc586c67d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "375a23dff9e848a7ad24a9ff90a00d5c": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "13cdf39a55cb422583bfa4a9355fd57c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_187ebbc18d4b4c9aa98c94ebc586c67d", "placeholder": "\u200b", "style": "IPY_MODEL_375a23dff9e848a7ad24a9ff90a00d5c", "value": " 4/4 [00:00&lt;00:00, 11.54 file/s]"}}, "b740bffcd0334db488f78f43a5f60a91": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "19578046e3ff46ea94a2b1d212cab941": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_1f3f295986154a9d99b23e9b834efbc2", "IPY_MODEL_f8cdee85bc9a459f803a20feaf943b5c", "IPY_MODEL_13cdf39a55cb422583bfa4a9355fd57c"], "layout": "IPY_MODEL_b740bffcd0334db488f78f43a5f60a91"}}}, "version_major": 2, "version_minor": 0}
 </script>
 
 
