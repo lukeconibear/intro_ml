@@ -41,7 +41,21 @@ In this workshop, we covered:
 
 ```{admonition} 3. Be aware of good practices for data, such as pipelines and modules.
 
-- [x] _..._
+- [x] _Always split the data into train and test subsets first, before any pre-processing._
+- [x] _Never fit to the test data._
+- [x] _Use a data pipeline._
+- [x] _Use a random seed and any available deterministic functionalities for reproducibility._
+    - [x] _Try and reproduce your own work, to check that it is reproducible._
+- [x] _Consider optimising the data pipeline with:_
+    - [x] _Shuffling._
+    - [x] _Batching._
+    - [x] _Caching._
+    - [x] _Prefetching._
+    - [x] _Parallel data extraction._
+    - [x] _Data augmentation._
+    - [x] _Parallel data transformation._
+    - [x] _Vectorised mapping._
+    - [x] _Mixed precision._
 
 ```
 

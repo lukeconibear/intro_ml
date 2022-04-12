@@ -279,11 +279,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#questions">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
      Exercises
     </a>
@@ -297,11 +292,6 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
      Exercises
     </a>
    </li>
@@ -313,12 +303,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
+    <a class="reference internal nav-link" href="#id10">
      Exercises
     </a>
    </li>
@@ -374,11 +359,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#questions">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
      Exercises
     </a>
@@ -392,11 +372,6 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id8">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
      Exercises
     </a>
    </li>
@@ -408,12 +383,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     Questions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id12">
+    <a class="reference internal nav-link" href="#id10">
      Exercises
     </a>
    </li>
@@ -620,44 +590,57 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="data">
 <span id="id5"></span><h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="questions">
-<h3>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-question-1 admonition">
-<p class="admonition-title">Question 1</p>
-<p>…</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 1</p>
-<p>…</p>
-</div>
-</div>
 <div class="section" id="id6">
 <h3>Exercises<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-exercise-1 admonition">
-<p class="admonition-title">Exercise 1</p>
-<p>…</p>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>Should I split my data in train and test subsets <em>before</em> or <em>after</em> pre-processing?</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution 1</p>
-<p>…</p>
+<p>Before. Splitting the data should be done first. This can help avoid any data leakage of the test data.</p>
+</div>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p>Before I use random functionality, what is a good practice for reproducibility?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<p>Set a random seed.</p>
+</div>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
+<p>What should I create if there are multiple steps to my data pre-processing?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 3</p>
+<p>A data pipeline.</p>
+</div>
+<div class="admonition-question-4 admonition">
+<p class="admonition-title">Question 4</p>
+<p>Name three ways to improve performance in a data pipeline.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 4</p>
+<p>Any of the following are often good ideas:</p>
+<ul class="simple">
+<li><p>Shuffle</p></li>
+<li><p>Batch</p></li>
+<li><p>Caching</p></li>
+<li><p>Prefetch</p></li>
+<li><p>Parallel data extraction</p></li>
+<li><p>Data augmentation</p></li>
+<li><p>Parallel data transformation</p></li>
+<li><p>Vectorised mapping</p></li>
+<li><p>Mixed precision</p></li>
+</ul>
 </div>
 </div>
 </div>
 <div class="section" id="models">
 <span id="id7"></span><h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id8">
-<h3>Questions<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-question-1 admonition">
-<p class="admonition-title">Question 1</p>
-<p>…</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 1</p>
-<p>…</p>
-</div>
-</div>
-<div class="section" id="id9">
-<h3>Exercises<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<h3>Exercises<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>…</p>
@@ -669,20 +652,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="distributed">
-<span id="id10"></span><h2>Distributed<a class="headerlink" href="#distributed" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id11">
-<h3>Questions<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-question-1 admonition">
-<p class="admonition-title">Question 1</p>
-<p>…</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution 1</p>
-<p>…</p>
-</div>
-</div>
-<div class="section" id="id12">
-<h3>Exercises<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h2>Distributed<a class="headerlink" href="#distributed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>Exercises<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-exercise-1 admonition">
 <p class="admonition-title">Exercise 1</p>
 <p>…</p>

@@ -996,7 +996,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="o">%</span><span class="k">pip</span> install --quiet pytorch-lightning --upgrade
+    <span class="o">%</span><span class="k">pip</span> install --quiet --upgrade pytorch-lightning lightning-bolts
 </pre></div>
 </div>
 </div>
@@ -1024,7 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.63095459])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.68977018])
 </pre></div>
 </div>
 </div>
@@ -1036,7 +1036,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.15868138, -0.4975122 , -0.16634873])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.19409799, 0.32715378, 0.07361458])
 </pre></div>
 </div>
 </div>
@@ -1048,9 +1048,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.64144526, -0.79594998,  1.07111823],
-       [-1.15221958, -0.65925232,  1.2733176 ],
-       [ 1.0290124 , -0.59978373,  0.08421588]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.7267363 ,  0.78877135,  1.44550434],
+       [-0.09084888,  0.87282539,  1.23547046],
+       [ 0.6324071 ,  0.35401627, -1.36919206]])
 </pre></div>
 </div>
 </div>
@@ -1075,7 +1075,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([-1.120056], dtype=float32)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([-0.01642313], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1087,7 +1087,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([ 0.62010616, -1.1802472 , -0.32779744], dtype=float32)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([-0.69247067, -0.9621919 , -0.6148491 ], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1100,9 +1100,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3, 3), dtype=float32, numpy=
-array([[-1.4406742 , -0.79578096, -0.6480244 ],
-       [-0.44100448, -1.5687484 ,  2.0982666 ],
-       [ 0.10210954, -0.47648013,  0.70488393]], dtype=float32)&gt;
+array([[-0.42060858,  0.91074806,  1.6503979 ],
+       [ 1.0659331 , -0.26803493, -0.59180933],
+       [ 0.35500428, -0.9030736 ,  0.08984692]], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1125,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.8250])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.4619])
 </pre></div>
 </div>
 </div>
@@ -1137,7 +1137,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.2762, 0.8821, 0.4200])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.2794, 0.9641, 0.7882])
 </pre></div>
 </div>
 </div>
@@ -1149,9 +1149,9 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.6716, 0.7491, 0.2818],
-        [0.7600, 0.2529, 0.7063],
-        [0.7613, 0.3167, 0.0516]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.9228, 0.1221, 0.0250],
+        [0.1147, 0.5808, 0.4643],
+        [0.1926, 0.2604, 0.3177]])
 </pre></div>
 </div>
 </div>
@@ -1832,7 +1832,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataset.Subset at 0x7f7bc7dc1f40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataset.Subset at 0x7fb98f800fa0&gt;
 </pre></div>
 </div>
 </div>
@@ -1866,7 +1866,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f7bc7dc1250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7fb98f800790&gt;
 </pre></div>
 </div>
 </div>
@@ -1997,7 +1997,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f7bc02a1460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7fb986cd7e20&gt;
 </pre></div>
 </div>
 </div>
@@ -2057,7 +2057,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f7bc02a12b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7fb986cd7070&gt;
 </pre></div>
 </div>
 </div>
@@ -2243,7 +2243,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.Rescaling at 0x7f7bc02a13d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.Rescaling at 0x7fb986cd7e50&gt;
 </pre></div>
 </div>
 </div>
@@ -2290,7 +2290,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomFlip at 0x7f7bc0262fa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomFlip at 0x7fb986ca0e80&gt;
 </pre></div>
 </div>
 </div>
@@ -2302,7 +2302,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomRotation at 0x7f7bc02a16d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomRotation at 0x7fb986cd7d60&gt;
 </pre></div>
 </div>
 </div>
@@ -2411,7 +2411,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "0efca8c4c14542bd9f1f96a49930327b"}
+{"version_major": 2, "version_minor": 0, "model_id": "a496d51478ff45c38ab410f396909184"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Dataset mnist downloaded and prepared to /home/runner/tensorflow_datasets/mnist/3.0.1. Subsequent calls will reuse this data.</span>
 </pre></div>
 </div>
@@ -2609,15 +2609,18 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <p>The training accuracy and the validation accuracy are diverging.</p>
-<p>The model is overfitting (i.e., doing too well on the training data compared to the validation data).</p>
-<p>One way to alleviate this is to <a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit#add_weight_regularization">add weight regularisation</a>.</p>
+<p>This means that the model is overfitting (i.e., memorising the training data and not generalising to the validation data).</p>
+<p>One way to alleviate this is to add <a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit#add_weight_regularization">regularisation</a>.</p>
 <p>In this example, we’ll add <a class="reference internal" href="01_fundamentals.html#overfit"><span class="std std-ref">dropout</span></a> to the dense layers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;inputs&quot;</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;flatten&quot;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer1&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># I&#39;m new</span>
+
+<span class="c1"># I&#39;m new</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;layer2&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;outputs&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
 
@@ -2668,6 +2671,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 <img alt="_images/03_data_163_0.png" src="_images/03_data_163_0.png" />
 </div>
 </div>
+<p>Much better. The model now performs well on <em>both</em> the training and validation data.</p>
 </div>
 <div class="section" id="id26">
 <h4><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/notebooks/lightning_examples/datamodules.html">PyTorch (Lightning)</a><a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
@@ -2799,23 +2803,23 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
     <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># Assign train/val datasets for use in dataloaders</span>
         <span class="k">if</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;fit&quot;</span> <span class="ow">or</span> <span class="n">stage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">mnist_full</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mnist_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mnist_val</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span><span class="n">mnist_full</span><span class="p">,</span> <span class="p">[</span><span class="mi">55000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
+            <span class="n">ds_full</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ds_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_val</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span><span class="n">ds_full</span><span class="p">,</span> <span class="p">[</span><span class="mi">55000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
 
         <span class="c1"># Assign test dataset for use in dataloader(s)</span>
         <span class="k">if</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;test&quot;</span> <span class="ow">or</span> <span class="n">stage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mnist_test</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ds_test</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transform</span>
             <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">train_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mnist_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">val_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mnist_val</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_val</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mnist_test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2875,7 +2879,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 </div>
-<p>Now, could <a class="reference external" href="https://pytorchlightning.github.io/lightning-tutorials/notebooks/lightning_examples/datamodules.html#Defining-the-CIFAR10-DataModule">change over to a different dataset</a> e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/CIFAR-10">CIFAR10</a>:</p>
+<p>Now, we can <a class="reference external" href="https://pytorchlightning.github.io/lightning-tutorials/notebooks/lightning_examples/datamodules.html#Defining-the-CIFAR10-DataModule">change over to a different dataset</a> e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/CIFAR-10">CIFAR10</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CIFAR10DataModule</span><span class="p">(</span><span class="n">LightningDataModule</span><span class="p">):</span>
@@ -2898,23 +2902,23 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
     <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># Assign train/val datasets for use in dataloaders</span>
         <span class="k">if</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;fit&quot;</span> <span class="ow">or</span> <span class="n">stage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">cifar_full</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cifar_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cifar_val</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span><span class="n">cifar_full</span><span class="p">,</span> <span class="p">[</span><span class="mi">45000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
+            <span class="n">ds_full</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ds_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds_val</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span><span class="n">ds_full</span><span class="p">,</span> <span class="p">[</span><span class="mi">45000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
 
         <span class="c1"># Assign test dataset for use in dataloader(s)</span>
         <span class="k">if</span> <span class="n">stage</span> <span class="o">==</span> <span class="s2">&quot;test&quot;</span> <span class="ow">or</span> <span class="n">stage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cifar_test</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ds_test</span> <span class="o">=</span> <span class="n">CIFAR10</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transform</span>
             <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">train_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cifar_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">val_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cifar_val</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_val</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">test_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cifar_test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DataLoader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ds_test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2972,7 +2976,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 <p>This simple model works well for MNIST but not for CIFAR10. However, it demonstrates the ease and benefits of switching out data modules.</p>
-<p><a class="reference external" href="https://lightning-bolts.readthedocs.io/en/latest/introduction_guide.html">PyTorch Lightning Bolts</a> simplifies this for common <a class="reference external" href="https://lightning-bolts.readthedocs.io/en/latest/datamodules/vision.html">DataModules</a> (e.g., MNIST, FashionMNIST, CIFAR10, ImageNet) by providing them for you:</p>
+<p><a class="reference external" href="https://lightning-bolts.readthedocs.io/en/latest/introduction_guide.html">PyTorch Lightning Bolts</a> simplifies this even further for common <a class="reference external" href="https://lightning-bolts.readthedocs.io/en/latest/datamodules/vision.html">DataModules</a> (e.g., MNIST, FashionMNIST, CIFAR10, <a class="reference external" href="https://en.wikipedia.org/wiki/ImageNet">ImageNet</a>) by providing them for you:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pl_bolts.datamodules</span> <span class="kn">import</span> <span class="n">MNISTDataModule</span>
@@ -3032,19 +3036,36 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 </div>
 </div>
 </div>
-<p>PyTorch Lighting Bolts also has a range of models (e.g., regression, GPT-2, ImageGPT, GAN, VAE):</p>
+<p>PyTorch Lighting Bolts also has a range of models (e.g., regression, <a class="reference external" href="https://en.wikipedia.org/wiki/GPT-2">GPT-2</a>, <a class="reference external" href="https://openai.com/blog/image-gpt/">ImageGPT</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Generative_adversarial_network">GAN</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Variational_autoencoder">VAE</a>):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pl_bolts.models.vision</span> <span class="kn">import</span> <span class="n">ImageGPT</span>
 </pre></div>
 </div>
-<p>Also, you can <a class="reference external" href="https://lightning-bolts.readthedocs.io/en/latest/introduction_guide.html#for-research">easily override functionality for fast iteration of research ideas</a>.</p>
+<p>Also, you can <a class="reference external" href="https://lightning-bolts.readthedocs.io/en/latest/introduction_guide.html#for-research">override functionality for fast iteration of research ideas</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">VideoGPT</span><span class="p">(</span><span class="n">ImageGPT</span><span class="p">):</span>  <span class="c1"># inherit from the pre-trained model</span>
+    <span class="k">def</span> <span class="nf">training_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>  <span class="c1"># create a new training step</span>
+        <span class="c1"># cool science</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-exercise-1 admonition">
-<p class="admonition-title">Exercise 1</p>
-<p>…</p>
+<div class="admonition-question-1 admonition">
+<p class="admonition-title">Question 1</p>
+<p>Should I split my data in train and test subsets <em>before</em> or <em>after</em> pre-processing?</p>
+</div>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p>Before I use random functionality, what is a good practice for reproducibility?</p>
+</div>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
+<p>What should I create if there are multiple steps to my data pre-processing?</p>
+</div>
+<div class="admonition-question-4 admonition">
+<p class="admonition-title">Question 4</p>
+<p>Name three ways to improve performance in a data pipeline.</p>
 </div>
 </div>
 <div class="section" id="solutions">
@@ -3063,13 +3084,17 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Try and reproduce your own work, to check that it is reproducible.</em></p></li>
 </ul>
 </li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Optimise the data pipeline with:</em></p>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Consider optimising the data pipeline with:</em></p>
 <ul class="contains-task-list">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Shuffling.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Batching.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Caching.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Prefetching.</em></p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Parallel extraction.</em></p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Parallel preprocessing.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Parallel data extraction.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Data augmentation.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Parallel data transformation.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Vectorised mapping.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Mixed precision.</em></p></li>
 </ul>
 </li>
 </ul>
@@ -3080,12 +3105,11 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 <div class="section" id="good-practices">
 <h3>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Do data processing as part of the model to increase portability and reproducibility.</p></li>
-<li><p>Pre-processing transformations are based on the training data <em>only</em> (not the test data). These are then applied to the inputs of both the <em>training</em> and the <em>test</em> data.</p></li>
+<li><p>Do data processing in a pipeline or module to increase portability and reproducibility.</p></li>
+<li><p>Pre-processing transformations are based on the training data <em>only</em> (not the test data). These are then applied to the inputs of both the <em>training</em> and the <em>test</em> data. This helps avoid <a class="reference external" href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">data leakage</a>.</p></li>
 <li><p>Analyse data pipeline performance with <a class="reference external" href="https://www.tensorflow.org/guide/data_performance_analysis">TensorBoard Profiler</a>.</p></li>
 <li><p>Use sparse tensors when there are many zeros / np.nans (e.g., <a class="reference external" href="https://www.tensorflow.org/guide/sparse_tensor">TensorFlow</a>).</p></li>
 <li><p>Take care with <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#class-imbalanced-dataset">datasets with imbalanced classes</a> (i.e., only a few positive samples).</p></li>
-<li><p>Take care to avoid <a class="reference external" href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">data leakage</a> (i.e., never fit to the test data).</p></li>
 <li><p>Best practices for <a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/guides/data.html">managing data with PyTorch Lightning</a> and <a class="reference external" href="https://scikit-learn.org/stable/common_pitfalls.html">scikit-learn</a>.</p></li>
 <li><p>Models are often heavily optimised, while the data is less so. There are many good practices around <a class="reference external" href="https://datacentricai.org/">data-centric machine learning</a>.</p></li>
 <li><p>Consider sharing your data for reproducibility if you can.</p></li>
@@ -3130,7 +3154,7 @@ array([[-1.4406742 , -0.79578096, -0.6480244 ],
 
 
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"1fafec5ef2944258b7e0c348f49b9634": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e548eca1cb324803bd72ac0be81ed838": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "e1c52464c7754a4498d285edc4b927b1": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_1fafec5ef2944258b7e0c348f49b9634", "max": 4.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_e548eca1cb324803bd72ac0be81ed838", "value": 4.0}}, "19cd00ef08fb44a0aae5719b268ce3cd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bc2a6cb861a14ac69247afac7d041e62": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "bf2d0a1107e14169af10130e04f2c14b": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_19cd00ef08fb44a0aae5719b268ce3cd", "placeholder": "\u200b", "style": "IPY_MODEL_bc2a6cb861a14ac69247afac7d041e62", "value": "Dl Completed...: 100%"}}, "9b3864e7a9474ee1bc9772bb23cce007": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d2c170af5bfb46a281d8da7c75b1ff87": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "1ca90d75dd2a4b60adae46433d0f956c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_9b3864e7a9474ee1bc9772bb23cce007", "placeholder": "\u200b", "style": "IPY_MODEL_d2c170af5bfb46a281d8da7c75b1ff87", "value": " 4/4 [00:00&lt;00:00,  3.69 file/s]"}}, "ef19172a4ff4471aa64cb72c3f7a7160": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0efca8c4c14542bd9f1f96a49930327b": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_bf2d0a1107e14169af10130e04f2c14b", "IPY_MODEL_e1c52464c7754a4498d285edc4b927b1", "IPY_MODEL_1ca90d75dd2a4b60adae46433d0f956c"], "layout": "IPY_MODEL_ef19172a4ff4471aa64cb72c3f7a7160"}}}, "version_major": 2, "version_minor": 0}
+{"state": {"e48d6ea467324ac6879cf0b325cfeddf": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "48f3687a85d44b19aa55711a57d61c2e": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "c696a299a9be4cf495f350a5fae1acff": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_e48d6ea467324ac6879cf0b325cfeddf", "max": 4.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_48f3687a85d44b19aa55711a57d61c2e", "value": 4.0}}, "83909afac8654a6aa8baa8c7c32bff98": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3c5b7110f8ff4c1089843d06d62f2025": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "a0b93bff24ee4f538d03af9f33c41413": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_83909afac8654a6aa8baa8c7c32bff98", "placeholder": "\u200b", "style": "IPY_MODEL_3c5b7110f8ff4c1089843d06d62f2025", "value": "Dl Completed...: 100%"}}, "9bfa25f4e97d4d5da7a6616f9d9f9e66": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0aaae77425a4408395c4988d73f80809": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "925b436a1a574367a32d5182e155607c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_9bfa25f4e97d4d5da7a6616f9d9f9e66", "placeholder": "\u200b", "style": "IPY_MODEL_0aaae77425a4408395c4988d73f80809", "value": " 4/4 [00:00&lt;00:00, 11.82 file/s]"}}, "484cab2e4fb44e18bc90d682623dea66": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a496d51478ff45c38ab410f396909184": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_a0b93bff24ee4f538d03af9f33c41413", "IPY_MODEL_c696a299a9be4cf495f350a5fae1acff", "IPY_MODEL_925b436a1a574367a32d5182e155607c"], "layout": "IPY_MODEL_484cab2e4fb44e18bc90d682623dea66"}}}, "version_major": 2, "version_minor": 0}
 </script>
 
 
