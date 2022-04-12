@@ -62,7 +62,15 @@ In this workshop, we covered:
 
 ```{admonition} 4. Be aware of good practices for models, such as hyperparameter tuning, transfer learning, and callbacks.
 
-- [x] _..._
+- [x] _Tune hyperparamaters for the best model fit._
+- [x] _Use transfer learning to save computation on similar problems._
+- [x] _Consider using callbacks to help with model training, such as:_
+    - [x] _Checkpoints._
+    - [x] _Fault tolerance._
+    - [x] _Logging._
+    - [x] _Profiling._
+    - [x] _Early stopping._
+    - [x] _Learning rate decay._
 
 ```
 
