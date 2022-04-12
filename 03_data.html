@@ -996,7 +996,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="k">pass</span>
+    <span class="o">%</span><span class="k">pip</span> install --quiet pytorch-lightning --upgrade
 </pre></div>
 </div>
 </div>
@@ -1024,7 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.04184408])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.63095459])
 </pre></div>
 </div>
 </div>
@@ -1036,7 +1036,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.04607267, -0.18650013, -0.94910411])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.15868138, -0.4975122 , -0.16634873])
 </pre></div>
 </div>
 </div>
@@ -1048,9 +1048,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.67680554,  0.06268301,  0.98453502],
-       [-0.51825695, -0.59072487, -0.10999964],
-       [-1.3152292 ,  0.08606372,  0.54565275]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.64144526, -0.79594998,  1.07111823],
+       [-1.15221958, -0.65925232,  1.2733176 ],
+       [ 1.0290124 , -0.59978373,  0.08421588]])
 </pre></div>
 </div>
 </div>
@@ -1059,8 +1059,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="tensorflow">
 <h3><a class="reference external" href="https://www.tensorflow.org/guide/tensor">TensorFlow</a><a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
 <p>Tensors are immutable.</p>
-<p>Also have <a class="reference external" href="https://www.tensorflow.org/guide/tensor#sparse_tensors">sparse tensors</a> (mostly zeros), and a range of other data structures such as <a class="reference external" href="https://www.tensorflow.org/guide/variable">variables</a>.</p>
-<p>Can do <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/math">maths</a> with tensors.</p>
+<p>There are also <a class="reference external" href="https://www.tensorflow.org/guide/tensor#sparse_tensors">sparse tensors</a> (mostly zeros), and a range of other data structures such as <a class="reference external" href="https://www.tensorflow.org/guide/variable">variables</a>.</p>
+<p>You can do a range <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/math">mathematics</a> with tensors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
@@ -1075,7 +1075,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([-1.0441002], dtype=float32)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(1,), dtype=float32, numpy=array([-1.120056], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1087,7 +1087,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([-1.2229215 ,  0.89082974, -0.40678418], dtype=float32)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([ 0.62010616, -1.1802472 , -0.32779744], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1100,9 +1100,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3, 3), dtype=float32, numpy=
-array([[-0.26179418, -0.6223693 ,  0.81194395],
-       [ 0.23428433,  1.1484896 ,  1.1462517 ],
-       [-0.17363678, -0.1198563 ,  0.7866167 ]], dtype=float32)&gt;
+array([[-1.4406742 , -0.79578096, -0.6480244 ],
+       [-0.44100448, -1.5687484 ,  2.0982666 ],
+       [ 0.10210954, -0.47648013,  0.70488393]], dtype=float32)&gt;
 </pre></div>
 </div>
 </div>
@@ -1110,7 +1110,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 <div class="section" id="pytorch">
 <h3><a class="reference external" href="https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
-<p>Can do <a class="reference external" href="https://pytorch.org/tutorials/beginner/introyt/tensors_deeper_tutorial.html#math-logic-with-pytorch-tensors">maths</a> with tensors.</p>
+<p>More information for doing <a class="reference external" href="https://pytorch.org/tutorials/beginner/introyt/tensors_deeper_tutorial.html#math-logic-with-pytorch-tensors">maths</a> with PyTorch tensors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
@@ -1125,7 +1125,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.9073])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.8250])
 </pre></div>
 </div>
 </div>
@@ -1137,7 +1137,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.7477, 0.2819, 0.4741])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.2762, 0.8821, 0.4200])
 </pre></div>
 </div>
 </div>
@@ -1149,9 +1149,9 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.5221, 0.0167, 0.2210],
-        [0.8225, 0.8930, 0.6774],
-        [0.8058, 0.9626, 0.8374]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.6716, 0.7491, 0.2818],
+        [0.7600, 0.2529, 0.7063],
+        [0.7613, 0.3167, 0.0516]])
 </pre></div>
 </div>
 </div>
@@ -1183,10 +1183,27 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 </div>
+<p>So, after running the random seed cell above (with 42), this next scalar should always return:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+<span class="go">array([0.49671415])</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.49671415])
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="scikit-learn">
 <h3><a class="reference external" href="https://scikit-learn.org/stable/common_pitfalls.html#controlling-randomness">scikit-learn</a><a class="headerlink" href="#scikit-learn" title="Permalink to this headline">¶</a></h3>
-<p>Any object that uses the <code class="docutils literal notranslate"><span class="pre">random_state</span></code> keyword, set it to <code class="docutils literal notranslate"><span class="pre">rng</span></code> rather than <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Any object that uses the <code class="docutils literal notranslate"><span class="pre">random_state</span></code> keyword, set it to <code class="docutils literal notranslate"><span class="pre">rng</span></code> (for random number generator) rather than <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">random_state</span></code> is used in:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sklearn.model_selection.train_test_split</span></code></p></li>
@@ -1216,9 +1233,9 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
     <span class="c1"># cpu</span>
-    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># python</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># numpy</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># torch</span>
 
     <span class="c1"># gpu</span>
     <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
@@ -1253,7 +1270,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 </div>
-<p>Additionaly, some operations on GPUs are implemented stochastically for efficiency.</p>
+<p>Additionaly, some operations on GPUs are implemented stochastically for efficiency. Check the documentation for details.</p>
 <p>To make your GPU workflow deterministic, you may also need to set:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># in pytorch</span>
 <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">deterministic</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1286,7 +1303,8 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 <div class="section" id="data-pipelines">
 <h2>Data pipelines<a class="headerlink" href="#data-pipelines" title="Permalink to this headline">¶</a></h2>
-<p>The data pipeline can be useful:</p>
+<p>Data pipelines are good practice for your workflow for many reasons such as convenience, reproduciblity, and avoiding data leakage.</p>
+<p>They are especially useful:</p>
 <ul class="simple">
 <li><p>When the data does not fit in memory.</p></li>
 <li><p>When the data requires pre-processing.</p></li>
@@ -1333,7 +1351,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/03_data_41_1.png" src="_images/03_data_41_1.png" />
+<img alt="_images/03_data_43_1.png" src="_images/03_data_43_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1520,8 +1538,6 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 <div class="section" id="pipelines">
 <h5><a class="reference external" href="https://scikit-learn.org/stable/modules/compose.html">Pipelines</a><a class="headerlink" href="#pipelines" title="Permalink to this headline">¶</a></h5>
-<p>Create a pipeline of multiple pre-processing steps or estimators.</p>
-<p>This is useful for many reasons such as convenience, reproduciblity, and avoiding data leakage.</p>
 <p>You can create data pipelines via a list of key-value pairs:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1557,7 +1573,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 </div>
-<p>Or, you by using the <code class="docutils literal notranslate"><span class="pre">make_pipeline</span></code> function and passing in classes:</p>
+<p>Or, by using the <code class="docutils literal notranslate"><span class="pre">make_pipeline</span></code> function and passing in instantiated classes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
@@ -1603,11 +1619,19 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/guide/data#consuming_python_generators">Python generators</a></p>
 <ul>
-<li><p>Suitable for custom processing yielding batches of data (subclasses of <code class="docutils literal notranslate"><span class="pre">tf.keras.utils.Sequence</span></code> class).</p></li>
+<li><p>Suitable for custom processing that yields batches of data (subclasses of <code class="docutils literal notranslate"><span class="pre">tf.keras.utils.Sequence</span></code> class).</p></li>
 </ul>
 </li>
 </ul>
 <p>The documentation has more information on different data formats, such as <a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/csv">CSV</a> and <a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/pandas_dataframe">Pandas DataFrames</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The word class has two definitions here depending on the context.</p>
+<ul class="simple">
+<li><p>A <a class="reference external" href="https://docs.python.org/3/tutorial/classes.html">class in Python</a> bundles data and functionality together to make new object instances.</p></li>
+<li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_classification">class</a> in machine learning is the category that a sample belongs to e.g., cat or dog.</p></li>
+</ul>
+</div>
 <p>Keras features a range of utilities to help you turn raw data on disk into a Dataset:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory"><code class="docutils literal notranslate"><span class="pre">tf.keras.utils.image_dataset_from_directory</span></code></a> turns image files sorted into class-specific folders into a labeled dataset of image tensors.</p></li>
@@ -1627,6 +1651,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -1658,22 +1683,16 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># class_names = ds_train.class_names</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">class_names</span> <span class="o">=</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">class_names</span>
 
-<span class="c1"># plt.figure(figsize=(10, 10))</span>
-<span class="c1"># for images, labels in ds_train.take(1):</span>
-<span class="c1">#     for i in range(9):</span>
-<span class="c1">#         ax = plt.subplot(3, 3, i + 1)</span>
-<span class="c1">#         plt.imshow(images[i].numpy().astype(&quot;uint8&quot;))</span>
-<span class="c1">#         plt.title(class_names[labels[i]])</span>
-<span class="c1">#         plt.axis(&quot;off&quot;)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">ds_train</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">))</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">class_names</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1799,7 +1818,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">predict_dataset</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">predict_dataset</span> <span class="o">=</span> <span class="n">MNIST</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># same as the test dataset</span>
 
 <span class="n">train_dataset</span><span class="p">,</span> <span class="n">val_dataset</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="p">[</span><span class="mi">55000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
 </pre></div>
@@ -1813,7 +1832,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataset.Subset at 0x7f0b6beafeb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataset.Subset at 0x7f7bc7dc1f40&gt;
 </pre></div>
 </div>
 </div>
@@ -1847,7 +1866,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f0b6beafd90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f7bc7dc1250&gt;
 </pre></div>
 </div>
 </div>
@@ -1856,7 +1875,8 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <div class="section" id="lightningdatamodule">
 <h5><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/extensions/datamodules.html#datamodules">LightningDataModule</a><a class="headerlink" href="#lightningdatamodule" title="Permalink to this headline">¶</a></h5>
 <p>Decouples the data hooks from the PyTorch Lightning model, so you can develop dataset agnostic models with reusable and sharable DataModules.</p>
-<p>For multi-node training, can add <a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/extensions/datamodules.html#prepare-data-per-node"><code class="docutils literal notranslate"><span class="pre">prepare_data_per_node</span></code></a>.</p>
+<p>You can think of this as the data pipeline.</p>
+<p>For multi-node training, you can also add <a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/extensions/datamodules.html#prepare-data-per-node"><code class="docutils literal notranslate"><span class="pre">prepare_data_per_node</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytorch_lightning</span> <span class="k">as</span> <span class="nn">pl</span>
@@ -1926,7 +1946,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <span class="n">trainer</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">datamodule</span><span class="o">=</span><span class="n">datamodule</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now you can also swap out the datamodule for another one:</p>
+<p>Now you can also swap out the datamodule for another one that works with the same model e.g., <a class="reference external" href="https://www.kaggle.com/datasets/zalando-research/fashionmnist">Fashion MNIST</a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datamodule</span> <span class="o">=</span> <span class="n">FashionMNISTDataModule</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1977,7 +1997,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f0b64404d00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f7bc02a1460&gt;
 </pre></div>
 </div>
 </div>
@@ -1988,11 +2008,12 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <span id="batch-tf"></span><h3>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h3>
 <p>A batch is a set of examples used in one iteration of model training.</p>
 <p>The batch size is the number of examples in a batch.</p>
-<p>The optimum batch size depends on the problem and what you’re optimising for. In general:</p>
+<p>The optimum batch size depends on the problem and what you’re optimising for.</p>
+<p>In general:</p>
 <ul class="simple">
-<li><p>Larger batch sizes can be more performant (e.g., 128 or 256, used for distributed training).</p></li>
-<li><p>Batch sizes that match the number of classes for multi-class classiciation can be more accurate (e.g., 10 for MNIST).</p></li>
-<li><p>They are often multiples of 32.</p></li>
+<li><p>They are often multiples of 32, where 32 or 64 is a good starting point if unsure.</p></li>
+<li><p>Larger batch sizes can be more performant (e.g., 256 is often used for distributed training over multiple GPUs).</p></li>
+<li><p>Batch sizes that match the number of classes for multi-class classification can increase accuracy (e.g., 10 for MNIST).</p></li>
 </ul>
 <div class="section" id="id7">
 <h4><a class="reference external" href="https://www.tensorflow.org/guide/data#batching_dataset_elements">TensorFlow (Keras)</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
@@ -2036,7 +2057,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f0b644044f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch.utils.data.dataloader.DataLoader at 0x7f7bc02a12b0&gt;
 </pre></div>
 </div>
 </div>
@@ -2067,11 +2088,11 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <p>Cache the data after the first iteration through it. The data can be cached to either memory or a local file.</p>
 <p>This can improve performance when:</p>
 <ul class="simple">
-<li><p>The data is the same each iteration.</p></li>
+<li><p>The data stays the same each iteration.</p></li>
 <li><p>The data is read from a remote distributed filesystem.</p></li>
-<li><p>The data is I/O (input/output) bound and will fit in memory.</p></li>
+<li><p>The data is I/O (input/output) bound and fits in memory.</p></li>
 </ul>
-<p>Note, large datasets are sharded rather than cached, as they don’t fit into memory.</p>
+<p>Note, large datasets are <a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/input#sharding">sharded</a> rather than cached, as they don’t fit into memory.</p>
 <div class="section" id="id10">
 <h4><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#caching">TensorFlow (Keras)</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
@@ -2097,7 +2118,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 <div class="section" id="prefetch-data">
 <span id="prefetch-tf"></span><h3>Prefetch data<a class="headerlink" href="#prefetch-data" title="Permalink to this headline">¶</a></h3>
-<p>Overlaps data preprocessing and model execution while training.</p>
+<p>Overlaps data pre-processing and model execution while training.</p>
 <div class="section" id="id11">
 <h4><a class="reference external" href="https://www.tensorflow.org/guide/data_performance#prefetching">TensorFlow (Keras)</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
@@ -2147,13 +2168,13 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 <div class="section" id="data-pre-processing">
 <h3>Data pre-processing<a class="headerlink" href="#data-pre-processing" title="Permalink to this headline">¶</a></h3>
-<p>Pre-processing your data is helpful as it is often not the exact format that the model performs well with.</p>
-<p>For example, normalising the values in a tensor (to have zero-mean and unit-variance or to be between 0 and 1) can help with model training.</p>
+<p>Pre-processing your data is often helpful as the raw data is often not in the exact format that the model performs well with.</p>
+<p>For example, normalising the values in a tensor can help with model training.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Pre-processing transformations are based on the training data <em>only</em> (not the test data). For example, if you normalise by the avergage, ensure that this is the average of the training data only.</p>
 <p>These are then applied to the inputs of both the <em>training</em> and the <em>test</em> data.</p>
-<p>This helps avoid <a class="reference external" href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">data leakage</a>.</p>
+<p>This helps avoid <a class="reference external" href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">data leakage</a> of the test data into training.</p>
 </div>
 <div class="section" id="id14">
 <h4><a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html#preprocessing">scikit-learn</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
@@ -2167,9 +2188,42 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>  <span class="c1"># standardisation: zero mean and unit variance</span>
-<span class="n">preprocessing</span><span class="o">.</span><span class="n">Normalizer</span><span class="p">()</span>  <span class="c1"># normalisation: unit norm</span>
-<span class="n">preprocessing</span><span class="o">.</span><span class="n">PowerTransformer</span><span class="p">()</span>  <span class="c1"># mapping to Gaussian distribution</span>
-<span class="n">preprocessing</span><span class="o">.</span><span class="n">OneHotEncoder</span><span class="p">()</span>  <span class="c1"># encoding categorical features</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>StandardScaler()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing</span><span class="o">.</span><span class="n">Normalizer</span><span class="p">()</span>  <span class="c1"># normalisation: unit norm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Normalizer()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing</span><span class="o">.</span><span class="n">PowerTransformer</span><span class="p">()</span>  <span class="c1"># mapping to Gaussian distribution</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PowerTransformer()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing</span><span class="o">.</span><span class="n">OneHotEncoder</span><span class="p">()</span>  <span class="c1"># encoding categorical features</span>
 </pre></div>
 </div>
 </div>
@@ -2189,7 +2243,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.Rescaling at 0x7f0b64404460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.Rescaling at 0x7f7bc02a13d0&gt;
 </pre></div>
 </div>
 </div>
@@ -2220,10 +2274,13 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 <div class="section" id="data-augmentation">
 <span id="id17"></span><h3><a class="reference external" href="https://youtu.be/JI8saFjK84o">Data augmentation</a><a class="headerlink" href="#data-augmentation" title="Permalink to this headline">¶</a></h3>
-<p>Artificially increasing the range and number of training examples.</p>
-<p>Useful for small data sets.</p>
+<p>Data augmentation artificially increases the range and number of training examples.</p>
+<p>This is useful for small data sets.</p>
 <p>There are a range of methods. For example, in image problems you could rotate, stretch, and reflect images.</p>
-<p>Note, apply random transformations <em>after</em> both caching (to avoid caching randomness) and batching (for vectorisation).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Apply random transformations <em>after</em> both caching (to avoid caching randomness) and batching (for vectorisation).</p>
+</div>
 <div class="section" id="id18">
 <h4><a class="reference external" href="https://www.tensorflow.org/tutorials/images/data_augmentation">TensorFlow (Keras)</a><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
@@ -2233,7 +2290,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomFlip at 0x7f0b64404ca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomFlip at 0x7f7bc0262fa0&gt;
 </pre></div>
 </div>
 </div>
@@ -2245,7 +2302,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomRotation at 0x7f0b64404eb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.layers.preprocessing.image_preprocessing.RandomRotation at 0x7f7bc02a16d0&gt;
 </pre></div>
 </div>
 </div>
@@ -2304,7 +2361,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 <div class="section" id="mixed-precision">
 <h3>Mixed precision<a class="headerlink" href="#mixed-precision" title="Permalink to this headline">¶</a></h3>
-<p>Mixed precision is the use of 16-bit and 32-bit floating-point types during training to use less memory and make it run faster.</p>
+<p>Mixed precision is the combined use of 16-bit and 32-bit floating-point types during training to use less memory and make it run faster.</p>
 <p>It uses 32-bits where it needs to for accuracy and 16-bits elsewhere for speed.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2313,7 +2370,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Be careful with underflow and overflow issues.</p>
-<p>16-bit floats above 65504 overflow to infinity and below 6.0<sub>x10</sub><sup>-8</sup> underflow to zero.</p>
+<p>16-bit floats above 65,504 overflow to infinity and below 6.0<sub>x10</sub><sup>-8</sup> underflow to zero.</p>
 <p><a class="reference external" href="https://www.tensorflow.org/guide/mixed_precision#loss_scaling_overview">Loss scaling</a> can help avoid errors by scaling the losses up or down temporarily i.e.,:<br />
 <code class="docutils literal notranslate"><span class="pre">optimizer</span> <span class="pre">=</span> <span class="pre">mixed_precision.LossScaleOptimizer(optimizer)</span></code></p>
 </div>
@@ -2334,7 +2391,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 <h3>Example - Digit Classification<a class="headerlink" href="#example-digit-classification" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id24">
 <span id="id25"></span><h4><a class="reference external" href="https://www.tensorflow.org/datasets">TensorFlow Datasets</a><a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
-<p>A collection of datasets ready to use, with TensorFlow or other Python ML frameworks.</p>
+<p>TensorFlow Datasets is a collection of datasets ready to use, with TensorFlow or other Python ML frameworks.</p>
 <p>Here is an example for <a class="reference external" href="https://www.tensorflow.org/datasets/keras_example">MNIST</a>.</p>
 <p>Load the data:</p>
 <div class="cell docutils container">
@@ -2354,7 +2411,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "f08655e4f43c45039f5d1aba278842c4"}
+{"version_major": 2, "version_minor": 0, "model_id": "0efca8c4c14542bd9f1f96a49930327b"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Dataset mnist downloaded and prepared to /home/runner/tensorflow_datasets/mnist/3.0.1. Subsequent calls will reuse this data.</span>
 </pre></div>
 </div>
@@ -2529,7 +2586,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_data_151_0.png" src="_images/03_data_151_0.png" />
+<img alt="_images/03_data_157_0.png" src="_images/03_data_157_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2548,7 +2605,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_data_152_0.png" src="_images/03_data_152_0.png" />
+<img alt="_images/03_data_158_0.png" src="_images/03_data_158_0.png" />
 </div>
 </div>
 <p>The training accuracy and the validation accuracy are diverging.</p>
@@ -2608,7 +2665,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/03_data_157_0.png" src="_images/03_data_157_0.png" />
+<img alt="_images/03_data_163_0.png" src="_images/03_data_163_0.png" />
 </div>
 </div>
 </div>
@@ -3073,7 +3130,7 @@ array([[-0.26179418, -0.6223693 ,  0.81194395],
 
 
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"3316c3335fbc4c0681faadd3805a385f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "605e3d730db74bc8973680b8aac6c3af": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "f748368ec0e74c95b629d51d30bded5c": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_3316c3335fbc4c0681faadd3805a385f", "max": 4.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_605e3d730db74bc8973680b8aac6c3af", "value": 4.0}}, "bdcc03c138434260b56cb57eab71ba70": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5830ba340dff4b9f9853e0bbb8fb1e82": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "1375577c853140018dcf309ca5c3da1f": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_bdcc03c138434260b56cb57eab71ba70", "placeholder": "\u200b", "style": "IPY_MODEL_5830ba340dff4b9f9853e0bbb8fb1e82", "value": "Dl Completed...: 100%"}}, "322d1ee5a4b747a196afc992625db355": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "6b7b8bd703e54f7f819b63bea0593d31": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "531a40b81a344e0f9252d4c5879d42ca": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_322d1ee5a4b747a196afc992625db355", "placeholder": "\u200b", "style": "IPY_MODEL_6b7b8bd703e54f7f819b63bea0593d31", "value": " 4/4 [00:00&lt;00:00, 10.43 file/s]"}}, "b32e985015fb425c883154a15cddcf98": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f08655e4f43c45039f5d1aba278842c4": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_1375577c853140018dcf309ca5c3da1f", "IPY_MODEL_f748368ec0e74c95b629d51d30bded5c", "IPY_MODEL_531a40b81a344e0f9252d4c5879d42ca"], "layout": "IPY_MODEL_b32e985015fb425c883154a15cddcf98"}}}, "version_major": 2, "version_minor": 0}
+{"state": {"1fafec5ef2944258b7e0c348f49b9634": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e548eca1cb324803bd72ac0be81ed838": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "e1c52464c7754a4498d285edc4b927b1": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_1fafec5ef2944258b7e0c348f49b9634", "max": 4.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_e548eca1cb324803bd72ac0be81ed838", "value": 4.0}}, "19cd00ef08fb44a0aae5719b268ce3cd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bc2a6cb861a14ac69247afac7d041e62": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "bf2d0a1107e14169af10130e04f2c14b": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_19cd00ef08fb44a0aae5719b268ce3cd", "placeholder": "\u200b", "style": "IPY_MODEL_bc2a6cb861a14ac69247afac7d041e62", "value": "Dl Completed...: 100%"}}, "9b3864e7a9474ee1bc9772bb23cce007": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d2c170af5bfb46a281d8da7c75b1ff87": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "1ca90d75dd2a4b60adae46433d0f956c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_9b3864e7a9474ee1bc9772bb23cce007", "placeholder": "\u200b", "style": "IPY_MODEL_d2c170af5bfb46a281d8da7c75b1ff87", "value": " 4/4 [00:00&lt;00:00,  3.69 file/s]"}}, "ef19172a4ff4471aa64cb72c3f7a7160": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0efca8c4c14542bd9f1f96a49930327b": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_bf2d0a1107e14169af10130e04f2c14b", "IPY_MODEL_e1c52464c7754a4498d285edc4b927b1", "IPY_MODEL_1ca90d75dd2a4b60adae46433d0f956c"], "layout": "IPY_MODEL_ef19172a4ff4471aa64cb72c3f7a7160"}}}, "version_major": 2, "version_minor": 0}
 </script>
 
 
