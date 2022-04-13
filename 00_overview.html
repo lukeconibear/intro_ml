@@ -316,6 +316,14 @@ conda activate intro_ml
 python -m ipykernel install --user --name intro_ml --display-name <span class="s2">&quot;intro_ml&quot;</span>
 </pre></div>
 </div>
+<p>If you’d like to create your own manual version of the conda environment, then you can use the following commands used here as a foundation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n intro_ml -c nvidia <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9 <span class="nv">cuda</span><span class="o">=</span><span class="m">11</span>.3 <span class="nv">cudatoolkit</span><span class="o">=</span><span class="m">11</span>.3 <span class="nv">cudnn</span><span class="o">=</span><span class="m">8</span>.2
+conda activate intro_ml
+conda install -c pytorch pytorch torchvision
+pip install tensorflow ray ray<span class="o">[</span>tune<span class="o">]</span> pytorch-lightning torchmetrics tensorflow-datasets pytorch-lightning keras-tuner lightning-bolts lightning-flash <span class="s1">&#39;lightning-flash[image]&#39;</span> tensorflow_hub
+conda install -c conda-forge scikit-learn matplotlib pandas jupyterlab jupyter-book
+</pre></div>
+</div>
 <p>c. Open Jupyter Lab:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter lab
 </pre></div>
