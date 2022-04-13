@@ -293,6 +293,28 @@ const thebe_selector_output = ".output, .cell_output"
        Run the training
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#submit-the-job-to-hpc">
+       Submit the job to HPC
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#multiple-cpus">
+         Multiple CPUs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#single-gpu">
+         Single GPU
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#multiple-gpu">
+         Multiple GPU
+        </a>
+       </li>
+      </ul>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -491,6 +513,28 @@ const thebe_selector_output = ".output, .cell_output"
        Run the training
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#submit-the-job-to-hpc">
+       Submit the job to HPC
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#multiple-cpus">
+         Multiple CPUs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#single-gpu">
+         Single GPU
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#multiple-gpu">
+         Multiple GPU
+        </a>
+       </li>
+      </ul>
+     </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -658,14 +702,14 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#data-parallelism">Data parallelism</a></p>
 <ul>
+<li><p><em>Split <strong>data</strong> over multiple devices.</em></p></li>
 <li><p>Single model copied to multiple devices.</p></li>
-<li><p>Split data over multiple devices.</p></li>
 <li><p>Useful for big data.</p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#model-parallelism">Model parallelism</a></p>
 <ul>
-<li><p>Split model over multiple devices.</p></li>
+<li><p><em>Split <strong>model</strong> over multiple devices.</em></p></li>
 <li><p>Single data copied to multiple devices.</p></li>
 <li><p>Useful for big models (for some architectures).</p></li>
 </ul>
@@ -674,7 +718,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>This lesson focuses on data parallelism.</p>
 <div class="section" id="ray-train">
 <h2><a class="reference external" href="https://docs.ray.io/en/latest/train/train.html">Ray Train</a><a class="headerlink" href="#ray-train" title="Permalink to this headline">¶</a></h2>
-<p>Ray Train simplifies distributed deep learning for TensorFlow and PyTorch.</p>
+<p>Ray Train is a useful tool for distributed deep learning training for TensorFlow and PyTorch.</p>
 <p>It handles the set up for you (e.g., <a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#setting_up_the_tf_config_environment_variable"><code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code></a> in TensorFlow).</p>
 <p>There are a range of examples <a class="reference external" href="https://docs.ray.io/en/latest/train/examples.html">here</a>.</p>
 <div class="admonition warning">
@@ -716,7 +760,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The dataset will be split (sharded) across the workers.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The default <a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/input#sharding">auto-sharding</a> by <code class="docutils literal notranslate"><span class="pre">FILE</span></code> can cause warning messages if the data is in one file. Instead, auto-shard by data using: <code class="docutils literal notranslate"><span class="pre">tf.data.experimental.AutoShardPolicy.DATA</span></code></p>
+<p>The default <a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/input#sharding">auto-sharding</a> by <code class="docutils literal notranslate"><span class="pre">FILE</span></code> can cause warning messages if the data is in one file. Instead, you can specify to auto-shard by data using: <code class="docutils literal notranslate"><span class="pre">tf.data.experimental.AutoShardPolicy.DATA</span></code> (which it will fall back to anyway).</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -839,7 +883,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">multi_worker_dataset</span> <span class="o">=</span> <span class="n">mnist_dataset</span><span class="p">(</span><span class="n">global_batch_size</span><span class="p">)</span>
 
     <span class="k">with</span> <span class="n">strategy</span><span class="o">.</span><span class="n">scope</span><span class="p">():</span>
-        <span class="c1"># Model building/compiling need to be within `strategy.scope()`.</span>
+        <span class="c1"># model building/compiling need to be within strategy.scope()</span>
         <span class="n">multi_worker_model</span> <span class="o">=</span> <span class="n">build_and_compile_cnn_model</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
     <span class="n">history</span> <span class="o">=</span> <span class="n">multi_worker_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
@@ -879,7 +923,22 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Initialise and shutdown the Ray client:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ray.init()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ray</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;node_ip_address&#39;: &#39;10.1.0.135&#39;,
+ &#39;raylet_ip_address&#39;: &#39;10.1.0.135&#39;,
+ &#39;redis_address&#39;: None,
+ &#39;object_store_address&#39;: &#39;/tmp/ray/session_2022-04-13_11-52-05_770901_4432/sockets/plasma_store&#39;,
+ &#39;raylet_socket_name&#39;: &#39;/tmp/ray/session_2022-04-13_11-52-05_770901_4432/sockets/raylet&#39;,
+ &#39;webui_url&#39;: None,
+ &#39;session_dir&#39;: &#39;/tmp/ray/session_2022-04-13_11-52-05_770901_4432&#39;,
+ &#39;metrics_export_port&#39;: 55789,
+ &#39;gcs_address&#39;: &#39;10.1.0.135:57681&#39;,
+ &#39;address&#39;: &#39;10.1.0.135:57681&#39;,
+ &#39;node_id&#39;: &#39;f80b447dcfc9669727efd9f61e96b5769f11845cb5ac204d9732f278&#39;}
 </pre></div>
 </div>
 </div>
@@ -887,10 +946,48 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cpu</span>
-<span class="c1"># train_tensorflow_mnist()</span>
+<span class="n">train_tensorflow_mnist</span><span class="p">()</span>
 
 <span class="c1"># gpu</span>
 <span class="c1"># train_tensorflow_mnist(use_gpu=True)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-13 11:52:08,946	INFO trainer.py:199 -- Trainer logs will be logged in: /home/runner/ray_results/train_2022-04-13_11-52-08
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-13 11:52:09,578	INFO trainer.py:205 -- Run results will be logged in: /home/runner/ray_results/train_2022-04-13_11-52-08/run_001
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Faint -Color-Faint-Cyan">(BackendExecutor pid=4553)</span> 2022-04-13 11:52:09.762317: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BackendExecutor pid=4553)</span> 2022-04-13 11:52:09.762354: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:11.334835: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:11.334872: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:12.734009: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:12.734055: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:12.734079: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az41-783): /proc/driver/nvidia/version does not exist
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:12.734645: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:12.739016: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:272] Initialize GrpcChannelCache for job worker -&gt; {0 -&gt; 10.1.0.135:44305}
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:12.739266: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:437] Started server with target: grpc://10.1.0.135:44305
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:13.138935: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:13.325510: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+<span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:13.467045: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Faint -Color-Faint-Cyan">(BaseWorkerMixin pid=4554)</span> 2022-04-13 11:52:13.627038: W tensorflow/core/framework/dataset.cc:768] Input of GeneratorDatasetOp::Dataset will not be optimized because the dataset does not implement the AsGraphDefInternal() method needed to apply optimizations.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results: {&#39;loss&#39;: [2.261502265930176, 2.1773338317871094, 2.0815236568450928, 1.9594874382019043], &#39;accuracy&#39;: [0.2640624940395355, 0.45111608505249023, 0.6138392686843872, 0.6899553537368774]}
 </pre></div>
 </div>
 </div>
@@ -902,19 +999,30 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="submit-the-job-to-hpc">
+<h4>Submit the job to HPC<a class="headerlink" href="#submit-the-job-to-hpc" title="Permalink to this headline">¶</a></h4>
 <p>This Python script is in full <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/tensorflow_ray_train_mnist_example.py">here</a>.</p>
-<p>The job submission script is (also <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_cpu.bash">here</a>):</p>
+<div class="section" id="multiple-cpus">
+<h5>Multiple CPUs<a class="headerlink" href="#multiple-cpus" title="Permalink to this headline">¶</a></h5>
+<p>An example job submission script is (also <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_cpu.bash">here</a>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#$ -cwd</span>
 <span class="c1">#$ -l h_rt=00:30:00</span>
 <span class="c1">#$ -pe smp 12</span>
 <span class="c1">#$ -l h_vmem=6G</span>
 
-conda activate intro_ml
+conda activate swd8_intro_ml
 <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$CONDA_PREFIX</span>/lib  <span class="c1"># (sometimes needed)</span>
 
 python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</span> --epochs <span class="m">100</span>
 </pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Sometimes the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable will not include the path to the conda environment, resulting it in being unable to find some libraries e.g., TensorFlow, cuDNN.</p>
+<p>To resolve this, in your script append the path to your activated conda environment to the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable using:</p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib</span></code></p>
 </div>
 <p>In this simple example using 12 CPUs, the job efficiency (using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">&lt;JOBID&gt;</span></code>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Efficiency</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cpu</span> <span class="o">/</span> <span class="p">(</span><span class="n">ru_wallclock</span> <span class="o">*</span> <span class="n">slots</span><span class="p">)</span>
@@ -923,11 +1031,47 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 </pre></div>
 </div>
 <p>92% is good.</p>
-<p>To run on the GPU (<a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_gpu.bash">submission script</a>):</p>
+</div>
+<div class="section" id="single-gpu">
+<h5>Single GPU<a class="headerlink" href="#single-gpu" title="Permalink to this headline">¶</a></h5>
+<p>To run on a GPU (<a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_gpu.bash">submission script</a>):</p>
 <ul class="simple">
 <li><p>Replace <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-pe</span> <span class="pre">smp</span> <span class="pre">4</span></code> with <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=1</span></code>.</p></li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">--use-gpu=True</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">--use-gpu</span> <span class="pre">True</span></code>.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">1</span></code>.</p></li>
 </ul>
+</div>
+<div class="section" id="multiple-gpu">
+<h5>Multiple GPU<a class="headerlink" href="#multiple-gpu" title="Permalink to this headline">¶</a></h5>
+<p>To run of multiple GPUs (e.g., 2):</p>
+<ul class="simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">2</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">efficiency</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [14],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">efficiency</span>
+
+<span class="ne">NameError</span>: name &#39;efficiency&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nvidia</span><span class="o">-</span><span class="n">smi</span><span class="p">,</span> <span class="n">nvidia</span><span class="o">-</span><span class="n">smi</span> <span class="n">dmon</span><span class="p">,</span> <span class="n">top</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="pytorch">
@@ -1345,7 +1489,7 @@ tfds.core.DatasetInfo(
     The MNIST database of handwritten digits.
     &quot;&quot;&quot;,
     homepage=&#39;http://yann.lecun.com/exdb/mnist/&#39;,
-    data_path=&#39;/home/runner/tensorflow_datasets/mnist/3.0.1&#39;,
+    data_path=&#39;/home/earlacoa/tensorflow_datasets/mnist/3.0.1&#39;,
     download_size=11.06 MiB,
     dataset_size=21.00 MiB,
     features=FeaturesDict({
@@ -1367,73 +1511,33 @@ tfds.core.DatasetInfo(
     }&quot;&quot;&quot;,
 )
 Model: &quot;functional&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ inputs (InputLayer)         [(None, 28, 28, 1)]       0         
+                                                                 
+ flatten (Flatten)           (None, 784)               0         
+                                                                 
+ layer1 (Dense)              (None, 128)               100480    
+                                                                 
+ dropout_4 (Dropout)         (None, 128)               0         
+                                                                 
+ layer2 (Dense)              (None, 128)               16512     
+                                                                 
+ outputs (Dense)             (None, 10)                1290      
+                                                                 
+=================================================================
+Total params: 118,282
+Trainable params: 118,282
+Non-trainable params: 0
+_________________________________________________________________
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+<img alt="_images/05_distributed_70_1.png" src="_images/05_distributed_70_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/earlacoa/repos/swd8_intro_ml/docs/models/model_tf_mnist/assets
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Layer (type)                Output Shape              Param #   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> inputs (InputLayer)         [(None, 28, 28, 1)]       0         
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> flatten (Flatten)           (None, 784)               0         
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> layer1 (Dense)              (None, 128)               100480    
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> dropout (Dropout)           (None, 128)               0         
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> layer2 (Dense)              (None, 128)               16512     
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> outputs (Dense)             (None, 10)                1290      
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                                                 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=================================================================
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total params: 118,282
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trainable params: 118,282
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Non-trainable params: 0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
-</pre></div>
-</div>
-<img alt="_images/05_distributed_61_21.png" src="_images/05_distributed_61_21.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/earlacoa/repos/swd8_intro_ml/docs/models/model_tf_mnist/assets
 </pre></div>
 </div>
 </div>
@@ -1536,16 +1640,12 @@ Model: &quot;functional&quot;
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num GPUs Available:  0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training accuracy: [0.88, 0.95, 0.96, 0.97, 0.97]
+Training accuracy: [0.88, 0.95, 0.96, 0.97, 0.97]
 Validation accuracy: [0.94, 0.96, 0.97, 0.97, 0.97]
+INFO:tensorflow:Assets written to: /home/earlacoa/repos/swd8_intro_ml/docs/models/model_tf_mnist/assets
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/earlacoa/repos/swd8_intro_ml/docs/models/model_tf_mnist/assets
 </pre></div>
 </div>
 </div>
@@ -1667,12 +1767,10 @@ Validation accuracy: [0.94, 0.96, 0.97, 0.97, 0.97]
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Num GPUs Available:  0
+INFO:tensorflow:Assets written to: /home/earlacoa/repos/swd8_intro_ml/docs/models/model_tf_mnist/assets
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/earlacoa/repos/swd8_intro_ml/docs/models/model_tf_mnist/assets
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training accuracy: [0.88, 0.95, 0.96, 0.97, 0.97]
