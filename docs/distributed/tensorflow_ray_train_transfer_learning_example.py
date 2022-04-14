@@ -1,9 +1,3 @@
-# Example taken from Ray
-# https://docs.ray.io/en/latest/train/examples/tensorflow_mnist_example.html
-
-# This example showcases how to use Tensorflow with Ray Train.
-# Original code:
-# https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras
 import argparse
 import json
 import os
@@ -11,8 +5,15 @@ import os
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.callbacks import Callback
-
+import tensorflow_hub as hub
 from ray.train import Trainer
+
+BATCH_SIZE = 32
+IMAGE_HEIGHT = 224
+IMAGE_WIDTH = 224
+AUTOTUNE = tf.data.AUTOTUNE
+NUM_CLASSES = 5
+os.environ["TFHUB_CACHE_DIR"] = f"{os.getcwd()}/tf_hub_modules"
 
 
 class TrainReportCallback(Callback):
@@ -20,18 +21,25 @@ class TrainReportCallback(Callback):
         ray.train.report(**logs)
 
 
-def mnist_dataset(batch_size):
-    (x_train, y_train), _ = tf.keras.datasets.mnist.load_data()
-    # The `x` arrays are in uint8 and have values in the [0, 255] range.
-    # You need to convert them to float32 with values in the [0, 1] range.
-    x_train = x_train / np.float32(255)
-    y_train = y_train.astype(np.int64)
-    ds_train = (
-        tf.data.Dataset.from_tensor_slices((x_train, y_train))
-        .shuffle(60000)
-        .repeat()
-        .batch(batch_size)
+def create_dataset(BATCH_SIZE):
+    data_root = tf.keras.utils.get_file(
+        "flower_photos",
+        "https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz",
+        untar=True,
     )
+
+    ds_train = tf.keras.utils.image_dataset_from_directory(
+        str(data_root),
+        validation_split=0.2,
+        subset="training",
+        seed=123,
+        image_size=(IMAGE_HEIGHT, IMAGE_WIDTH),
+        batch_size=BATCH_SIZE,
+    )
+
+    normalization_layer = tf.keras.layers.Rescaling(1.0 / 255)
+    ds_train = ds_train.map(lambda x, y: (normalization_layer(x), y))
+    ds_train = ds_train.cache().prefetch(buffer_size=AUTOTUNE)
 
     options = tf.data.Options()
     options.experimental_distribute.auto_shard_policy = (
@@ -42,21 +50,21 @@ def mnist_dataset(batch_size):
     return ds_train
 
 
-def build_and_compile_cnn_model(config):
+def build_and_compile_model(config):
     learning_rate = config.get("lr", 0.001)
+    inception_v3 = "https://tfhub.dev/google/tf2-preview/inception_v3/feature_vector/4"
+    feature_extractor_model = inception_v3
+    feature_extractor_layer = hub.KerasLayer(
+        feature_extractor_model,
+        input_shape=(IMAGE_HEIGHT, IMAGE_WIDTH, 3),
+        trainable=False,
+    )
     model = tf.keras.Sequential(
-        [
-            tf.keras.Input(shape=(28, 28)),
-            tf.keras.layers.Reshape(target_shape=(28, 28, 1)),
-            tf.keras.layers.Conv2D(32, 3, activation="relu"),
-            tf.keras.layers.Flatten(),
-            tf.keras.layers.Dense(128, activation="relu"),
-            tf.keras.layers.Dense(10),
-        ]
+        [feature_extractor_layer, tf.keras.layers.Dense(NUM_CLASSES)]
     )
     model.compile(
+        optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
         loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-        optimizer=tf.keras.optimizers.SGD(learning_rate=learning_rate),
         metrics=["accuracy"],
     )
     return model
@@ -73,11 +81,11 @@ def train_func(config):
     strategy = tf.distribute.MultiWorkerMirroredStrategy()
 
     global_batch_size = per_worker_batch_size * num_workers
-    multi_worker_dataset = mnist_dataset(global_batch_size)
+    multi_worker_dataset = create_dataset(global_batch_size)
 
     with strategy.scope():
         # Model building/compiling need to be within `strategy.scope()`.
-        multi_worker_model = build_and_compile_cnn_model(config)
+        multi_worker_model = build_and_compile_model(config)
 
     history = multi_worker_model.fit(
         multi_worker_dataset,
