@@ -299,23 +299,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#multiple-cpus">
-         Multiple CPUs
+        <a class="reference internal nav-link" href="#cpus">
+         CPUs
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#single-gpu">
-         Single GPU
+        <a class="reference internal nav-link" href="#gpu-s">
+         GPU(s)
         </a>
        </li>
       </ul>
      </li>
     </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example">
-     Example: …
-    </a>
    </li>
   </ul>
  </li>
@@ -482,23 +477,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#multiple-cpus">
-         Multiple CPUs
+        <a class="reference internal nav-link" href="#cpus">
+         CPUs
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#single-gpu">
-         Single GPU
+        <a class="reference internal nav-link" href="#gpu-s">
+         GPU(s)
         </a>
        </li>
       </ul>
      </li>
     </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example">
-     Example: …
-    </a>
    </li>
   </ul>
  </li>
@@ -668,8 +658,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 12:01:12.339606: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-04-14 12:01:12.339638: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 16:57:55.297661: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-04-14 16:57:55.297694: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -777,13 +767,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 12:01:14.181614: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-04-14 12:01:14.181664: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-04-14 12:01:14.181688: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az39-702): /proc/driver/nvidia/version does not exist
-2022-04-14 12:01:14.182044: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 16:57:57.146924: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-14 16:57:57.146957: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-14 16:57:57.146978: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az135-608): /proc/driver/nvidia/version does not exist
+2022-04-14 16:57:57.147259: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-04-14 12:01:14.183205: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
-2022-04-14 12:01:14.338376: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-14 16:57:57.147732: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-14 16:57:57.275553: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
 </pre></div>
 </div>
 </div>
@@ -892,8 +882,8 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="section" id="submit-the-job-to-hpc">
 <h4>Submit the job to HPC<a class="headerlink" href="#submit-the-job-to-hpc" title="Permalink to this headline">¶</a></h4>
 <p>This Python script is in full <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/tensorflow_ray_train_mnist_example.py">here</a>.</p>
-<div class="section" id="multiple-cpus">
-<h5>Multiple CPUs<a class="headerlink" href="#multiple-cpus" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="cpus">
+<h5>CPUs<a class="headerlink" href="#cpus" title="Permalink to this headline">¶</a></h5>
 <p>An example job submission script is (also <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_cpu.bash">here</a>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#$ -cwd</span>
@@ -915,6 +905,16 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 <p>To resolve this, in your script append the path to your activated conda environment to the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable using:</p>
 <p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib</span></code></p>
 </div>
+<p>To change the number of workers (either CPUs or GPUs), set the <code class="docutils literal notranslate"><span class="pre">--num-workers</span></code> argument.</p>
+<p>Ensure that the scheduler request matches this number e.g.,:</p>
+<ul class="simple">
+<li><p>For 12 CPU workers, use <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">12</span></code> and <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-pe</span> <span class="pre">smp</span> <span class="pre">12</span></code>.</p></li>
+<li><p>For 2 GPU workers, use <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=2</span></code>.</p>
+<ul>
+<li><p>To use GPUs, you will also need the <code class="docutils literal notranslate"><span class="pre">--use-gpu</span> <span class="pre">True</span></code> flag.</p></li>
+</ul>
+</li>
+</ul>
 <p>In this simple example using 12 CPUs, the job efficiency (using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">&lt;JOBID&gt;</span></code>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Efficiency</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cpu</span> <span class="o">/</span> <span class="p">(</span><span class="n">ru_wallclock</span> <span class="o">*</span> <span class="n">slots</span><span class="p">)</span>
 <span class="n">Efficiency</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">10214</span> <span class="o">/</span> <span class="p">(</span><span class="mi">928</span> <span class="o">*</span> <span class="mi">12</span><span class="p">)</span>
@@ -923,8 +923,12 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 </div>
 <p>92% is good.</p>
 </div>
-<div class="section" id="single-gpu">
-<h5>Single GPU<a class="headerlink" href="#single-gpu" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="gpu-s">
+<h5>GPU(s)<a class="headerlink" href="#gpu-s" title="Permalink to this headline">¶</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tests below were for a <a class="reference external" href="https://arcdocs.leeds.ac.uk/usage/gpgpu.html#arc4">NVIDIA V100 with 32 GB of memory</a>.</p>
+</div>
 <p>An example job submission script is (also <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_gpu.bash">here</a>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#$ -cwd -V</span>
@@ -933,10 +937,10 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 
 <span class="c1"># activate conda and add to library path</span>
 conda activate swd8_intro_ml 
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$CONDA_PREFIX</span>/lib  <span class="c1"># (sometimes required)</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$CONDA_PREFIX</span>/lib
 
 <span class="c1"># start the efficiency log for the GPU</span>
-nvidia-smi dmon -d <span class="m">5</span> -s um -i <span class="m">0</span> &gt; efficiency_log <span class="p">&amp;</span>
+nvidia-smi dmon -d <span class="m">10</span> -s um -i <span class="m">0</span> &gt; efficiency_log <span class="p">&amp;</span>
 
 <span class="c1"># run the GPU script</span>
 python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers <span class="m">1</span> --epochs <span class="m">100</span>
@@ -948,85 +952,81 @@ python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers <span 
 <p>You can check the efficiency of your GPU job using the <a class="reference external" href="https://developer.nvidia.com/nvidia-system-management-interface">NVIDIA System Management Interface</a> i.e., <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dmon</span></code> is for device monitoring.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">X</span></code> records every X seconds.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">um</span></code> is the metric sample, where u = utilisation and m = memory.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">0</span></code>: device number, where 0 = first gpu.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">X</span></code> records the metrics every X seconds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">um</span></code> is the metrics to sample, where u = utilisation and m = memory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">0</span></code> is the device number, where 0 = first gpu. For multiple devices, add them separated by commas e.g., <code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">0,1</span></code>.</p></li>
 </ul>
 <p>Then you can view the results from the <code class="docutils literal notranslate"><span class="pre">efficiency_log</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># gpu    sm   mem   enc   dec    fb  bar1</span>
 <span class="c1"># Idx     %     %     %     %    MB    MB</span>
     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">2</span>
     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">2</span>
-    <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">2</span>
-    <span class="m">0</span>     <span class="m">5</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>   <span class="m">441</span>     <span class="m">6</span>
-    <span class="m">0</span>     <span class="m">4</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31699</span>     <span class="m">6</span>
-    <span class="m">0</span>    <span class="m">32</span>    <span class="m">14</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31933</span>     <span class="m">6</span>
-    <span class="m">0</span>    <span class="m">32</span>    <span class="m">14</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31933</span>     <span class="m">6</span>
-    <span class="m">0</span>    <span class="m">17</span>     <span class="m">7</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31933</span>     <span class="m">6</span>
+    <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31880</span>     <span class="m">5</span>
+    <span class="m">0</span>    <span class="m">34</span>    <span class="m">15</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31932</span>     <span class="m">5</span>
 </pre></div>
 </div>
 <p>The main columns are <code class="docutils literal notranslate"><span class="pre">sm</span></code> (for utilisation %) and <code class="docutils literal notranslate"><span class="pre">mem</span></code> (for memory %).</p>
-<p>Here, the job utilised approximately 30% of the GPU and 15% of its memory.</p>
+<p>Here, the job utilised approximately 35% of the GPU and 15% of its memory. (The first few rows are blank as the GPU was idle while the CPU downloaded the data.)</p>
 <p>That’s quite low, though this was for a simple MNIST example.</p>
-</div>
-</div>
-</div>
-<div class="section" id="example">
-<h3>Example: …<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
-<p>More complicated one to use multiple gpus with high efficiency …</p>
-<p>To run of multiple GPUs (e.g., 2):</p>
+<p>A more complex problem will likely utilise the GPU better.</p>
+<p>In lesson 4, we looked at a <a class="reference internal" href="04_models.html#tf-transfer-learning"><span class="std std-ref">TensorFlow (Keras) transfer learning example</span></a>. To use this script with Ray Train, you primarily need to create the dataset pipeline and model creation functions. You can use the examples here as a foundation. The full script for this example is <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/tensorflow_ray_train_transfer_learning_example.py">here</a>.</p>
+<p>Running this code on a single GPU utilised approximately 90% of the GPU and 45% of its memory.</p>
+<p>This is good.</p>
+<p>Multiple GPUs is not needed here, though they could be requested by simply changing:</p>
 <ul class="simple">
-<li><p>Set <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">2</span></code>.</p></li>
+<li><p>Ray Train flag <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">2</span></code></p></li>
+<li><p>Scheduler option <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=2</span></code></p></li>
+<li><p>GPU monitoring <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">dmon</span> <span class="pre">-i</span> <span class="pre">0,1</span></code></p></li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To utilise GPU(s) efficiently, try to match the resources requested to what your problem requires e.g., the model of GPU, the memory it has, etc.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="pytorch-lightning">
 <h2><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/clouds/cluster.html">PyTorch (Lightning)</a><a class="headerlink" href="#pytorch-lightning" title="Permalink to this headline">¶</a></h2>
+<p>PyTorch Lightning comes with great built-in functionality to scale to multiple GPUs.</p>
+<p>First though, we should check that the problem requires these resources.</p>
+<p>A <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/pytorch_lightning_mnist_example.py">simple example for MNIST</a> utilises about 8% of a single V100 GPU.</p>
+<p>The <a class="reference internal" href="04_models.html#torch-transfer-learning"><span class="std std-ref">PyTorch Lightning transfer learning example</span></a> (lesson 4) utilises about 15% of a single V100 GPU (full script <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/pytorch_lightning_transfer_learning_example.py">here</a>).</p>
+<p>To demonstrate running this transfer learning example over multiple GPUs, we could unfreeze the pre-trained model to increase the workload.</p>
+<p>To unfreeze the pre-trained model:</p>
 <ul class="simple">
-<li><p>example complex enough for multiple gpus</p></li>
-<li><p>efficiency approximately 6-8% for pytorch_lightning_mnist_example.py</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">trainer.finetune(strategy=&quot;unfreeze&quot;)</span></code>.</p></li>
+<li><p>This is also the default setting.</p></li>
 </ul>
-<p>To share data on a single filesystem, download the dataset once:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Trainer</span><span class="p">(</span><span class="n">prepare_data_per_node</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<p>Then the steps to run over multiple GPUs are:</p>
+<ol>
+<li><p>Specify the <a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/advanced/model_parallel.html#ddp-optimizations">data parallel strategy</a> in the Trainer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pytorch_lightning.strategies</span> <span class="kn">import</span> <span class="n">DDPStrategy</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">flash</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span>
+    <span class="n">max_epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">accelerator</span><span class="o">=</span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span>
+    <span class="n">devices</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">(),</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">DDPStrategy</span><span class="p">(</span><span class="n">find_unused_parameters</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<p>The default behaviour is to download the data <em>once per node</em>.</p>
-<p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/advanced/model_parallel.html#ddp-optimizations">DDP Strategy</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># train on 8 GPUs, using the DDP strategy</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">accelerator</span><span class="o">=</span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;ddp&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>…</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># train on multiple GPUs across nodes (uses 8 GPUs in total)</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">accelerator</span><span class="o">=</span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_nodes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">num_workers</span></code></p>
-<p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/guides/speed.html#num-workers">https://pytorch-lightning.readthedocs.io/en/stable/guides/speed.html#num-workers</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># train.py</span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">hparams</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">LightningTemplateModel</span><span class="p">(</span><span class="n">hparams</span><span class="p">)</span>
-
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">accelerator</span><span class="o">=</span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">num_nodes</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;ddp&quot;</span><span class="p">)</span>
-
-    <span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-    <span class="n">parent_parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">add_help</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">hyperparams</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-    <span class="c1"># TRAIN</span>
-    <span class="n">main</span><span class="p">(</span><span class="n">hyperparams</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Some errors can show up as an <a class="reference external" href="https://developer.nvidia.com/nccl">NCCL</a> issue.</p>
-<p>Set the <code class="docutils literal notranslate"><span class="pre">NCCL_DEBUG=INFO</span></code> environment variable to see the actual error:</p>
-<p><code class="docutils literal notranslate"><span class="pre">NCCL_DEBUG=INFO</span> <span class="pre">python</span> <span class="pre">train.py</span></code></p>
-</div>
+<ul class="simple">
+<li><p>Note, setting <code class="docutils literal notranslate"><span class="pre">find_unused_parameters=False</span></code> <a class="reference external" href="https://pytorch.org/docs/stable/notes/ddp.html#internal-design">can improve performance</a>.</p></li>
+</ul>
+</li>
+<li><p>Set the scheduler to use multiple GPUs:</p>
+<ul class="simple">
+<li><p>e.g., <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=2</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Adding GPU monitoring for multiple GPUs</p>
+<ul class="simple">
+<li><p>e.g., <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">dmon</span> <span class="pre">-i</span> <span class="pre">0,1</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+<p>This utilised 2 V100 GPUs at approximately 40%. This isn’t great, though it demonstrates the ease of distributed training with PyTorch Lightning.</p>
 </div>
 <div class="section" id="jupyter-notebook-to-hpc">
 <h2>Jupyter Notebook to HPC<a class="headerlink" href="#jupyter-notebook-to-hpc" title="Permalink to this headline">¶</a></h2>
@@ -1243,8 +1243,8 @@ tfds.core.DatasetInfo(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
 </pre></div>
 </div>
-<img alt="_images/05_distributed_59_22.png" src="_images/05_distributed_59_22.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 12:01:30.480726: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+<img alt="_images/05_distributed_43_22.png" src="_images/05_distributed_43_22.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 16:58:12.700231: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
@@ -1627,7 +1627,7 @@ Validation accuracy: [0.94, 0.96, 0.97, 0.97, 0.97]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing jupyter-to-hpc_tf-mnist-example.py
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overwriting jupyter-to-hpc_tf-mnist-example.py
 </pre></div>
 </div>
 </div>
