@@ -1,10 +1,17 @@
 #!/bin/bash
-#$ -cwd
-#$ -l h_rt=00:05:00
+#$ -cwd -V
+#$ -l h_rt=00:15:00
 #$ -l coproc_v100=1
 
+# activate conda and add to library path
 conda activate swd8_intro_ml 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib  # (sometimes required)
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib
 
-python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers 2 --epochs 100
-# python pytorch_ray_train_fashion_mnist_example.py --use-gpu True --num-workers 2 --epochs 100
+# start the efficiency log for the GPU
+nvidia-smi dmon -d 5 -s um -i 0 > efficiency_log &
+
+# run the GPU script
+python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers 1 --epochs 100
+
+# stop the efficiency log
+kill %1

@@ -4,8 +4,9 @@
 #$ -pe smp 12
 #$ -l h_vmem=6G
 
+# activate conda and add to library path
 conda activate swd8_intro_ml
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib  # (sometimes needed)
 
+# run the CPU script
 python tensorflow_ray_train_mnist_example.py --num-workers 12 --epochs 100
-# python pytorch_ray_train_fashion_mnist_example.py --num-workers 12 --epochs 100
