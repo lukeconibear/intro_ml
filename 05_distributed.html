@@ -255,8 +255,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tensorflow-keras">
-     TensorFlow (Keras)
+    <a class="reference internal nav-link" href="#example-tensorflow-keras-mnist">
+     Example: TensorFlow (Keras) MNIST
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -308,51 +308,14 @@ const thebe_selector_output = ".output, .cell_output"
          Single GPU
         </a>
        </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#multiple-gpu">
-         Multiple GPU
-        </a>
-       </li>
       </ul>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pytorch">
-     PyTorch
+    <a class="reference internal nav-link" href="#example">
+     Example: …
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ddp-strategy">
-       DDP Strategy
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       Set up the dataset and model
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#define-training-and-validation-per-epoch">
-       Define training and validation per epoch
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#setup-distributed-training-function">
-       Setup distributed training function
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Create Ray Train Trainer
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Run the training
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -475,8 +438,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tensorflow-keras">
-     TensorFlow (Keras)
+    <a class="reference internal nav-link" href="#example-tensorflow-keras-mnist">
+     Example: TensorFlow (Keras) MNIST
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -528,51 +491,14 @@ const thebe_selector_output = ".output, .cell_output"
          Single GPU
         </a>
        </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#multiple-gpu">
-         Multiple GPU
-        </a>
-       </li>
       </ul>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pytorch">
-     PyTorch
+    <a class="reference internal nav-link" href="#example">
+     Example: …
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ddp-strategy">
-       DDP Strategy
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       Set up the dataset and model
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#define-training-and-validation-per-epoch">
-       Define training and validation per epoch
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#setup-distributed-training-function">
-       Setup distributed training function
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Create Ray Train Trainer
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Run the training
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -718,16 +644,15 @@ const thebe_selector_output = ".output, .cell_output"
 <p>This lesson focuses on data parallelism.</p>
 <div class="section" id="ray-train">
 <h2><a class="reference external" href="https://docs.ray.io/en/latest/train/train.html">Ray Train</a><a class="headerlink" href="#ray-train" title="Permalink to this headline">¶</a></h2>
-<p>Ray Train is a useful tool for distributed deep learning training for TensorFlow and PyTorch.</p>
+<p>Ray Train is a useful tool for distributed deep learning training for <a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras">TensorFlow (Keras)</a> and <a class="reference external" href="https://pytorch.org/tutorials/beginner/dist_overview.html">PyTorch</a>.</p>
 <p>It handles the set up for you (e.g., <a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#setting_up_the_tf_config_environment_variable"><code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code></a> in TensorFlow).</p>
 <p>There are a range of examples <a class="reference external" href="https://docs.ray.io/en/latest/train/examples.html">here</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Note, Ray doesn’t currently work on POWER9 machines e.g., Bede. See, <a class="reference external" href="https://github.com/ray-project/ray/issues/7476">GitHub issue</a>.</p>
 </div>
-<div class="section" id="tensorflow-keras">
-<h3><a class="reference external" href="https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras">TensorFlow (Keras)</a><a class="headerlink" href="#tensorflow-keras" title="Permalink to this headline">¶</a></h3>
-<p>Here is an <a class="reference external" href="https://docs.ray.io/en/latest/train/examples/tensorflow_mnist_example.html">MNIST example</a>:</p>
+<div class="section" id="example-tensorflow-keras-mnist">
+<h3>Example: <a class="reference external" href="https://docs.ray.io/en/latest/train/examples/tensorflow_mnist_example.html">TensorFlow (Keras) MNIST</a><a class="headerlink" href="#example-tensorflow-keras-mnist" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
@@ -743,8 +668,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-13 14:57:11.325564: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-04-13 14:57:11.325604: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 12:01:12.339606: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-04-14 12:01:12.339638: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -852,13 +777,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-13 14:57:13.300405: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-04-13 14:57:13.300449: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-04-13 14:57:13.300471: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az128-447): /proc/driver/nvidia/version does not exist
-2022-04-13 14:57:13.300833: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 12:01:14.181614: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-14 12:01:14.181664: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-14 12:01:14.181688: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az39-702): /proc/driver/nvidia/version does not exist
+2022-04-14 12:01:14.182044: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-04-13 14:57:13.301543: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
-2022-04-13 14:57:13.468148: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-14 12:01:14.183205: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-14 12:01:14.338376: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
 </pre></div>
 </div>
 </div>
@@ -976,9 +901,11 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <span class="c1">#$ -pe smp 12</span>
 <span class="c1">#$ -l h_vmem=6G</span>
 
+<span class="c1"># activate conda and add to library path</span>
 conda activate intro_ml
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$CONDA_PREFIX</span>/lib  <span class="c1"># (sometimes needed)</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$CONDA_PREFIX</span>/lib
 
+<span class="c1"># run the CPU script</span>
 python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</span> --epochs <span class="m">100</span>
 </pre></div>
 </div>
@@ -998,32 +925,73 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 </div>
 <div class="section" id="single-gpu">
 <h5>Single GPU<a class="headerlink" href="#single-gpu" title="Permalink to this headline">¶</a></h5>
-<p>To run on a GPU (<a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_gpu.bash">submission script</a>):</p>
-<ul class="simple">
-<li><p>Replace <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-pe</span> <span class="pre">smp</span> <span class="pre">4</span></code> with <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=1</span></code>.</p></li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">--use-gpu</span> <span class="pre">True</span></code>.</p></li>
-<li><p>Set <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">1</span></code>.</p></li>
-</ul>
+<p>An example job submission script is (also <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_gpu.bash">here</a>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#$ -cwd -V</span>
+<span class="c1">#$ -l h_rt=00:15:00</span>
+<span class="c1">#$ -l coproc_v100=1</span>
+
+<span class="c1"># activate conda and add to library path</span>
+conda activate swd8_intro_ml 
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$CONDA_PREFIX</span>/lib  <span class="c1"># (sometimes required)</span>
+
+<span class="c1"># start the efficiency log for the GPU</span>
+nvidia-smi dmon -d <span class="m">5</span> -s um -i <span class="m">0</span> &gt; efficiency_log <span class="p">&amp;</span>
+
+<span class="c1"># run the GPU script</span>
+python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers <span class="m">1</span> --epochs <span class="m">100</span>
+
+<span class="c1"># stop the efficiency log</span>
+<span class="nb">kill</span> %1
+</pre></div>
 </div>
-<div class="section" id="multiple-gpu">
-<h5>Multiple GPU<a class="headerlink" href="#multiple-gpu" title="Permalink to this headline">¶</a></h5>
+<p>You can check the efficiency of your GPU job using the <a class="reference external" href="https://developer.nvidia.com/nvidia-system-management-interface">NVIDIA System Management Interface</a> i.e., <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dmon</span></code> is for device monitoring.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">X</span></code> records every X seconds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">um</span></code> is the metric sample, where u = utilisation and m = memory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">0</span></code>: device number, where 0 = first gpu.</p></li>
+</ul>
+<p>Then you can view the results from the <code class="docutils literal notranslate"><span class="pre">efficiency_log</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># gpu    sm   mem   enc   dec    fb  bar1</span>
+<span class="c1"># Idx     %     %     %     %    MB    MB</span>
+    <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">2</span>
+    <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">2</span>
+    <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">2</span>
+    <span class="m">0</span>     <span class="m">5</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span>   <span class="m">441</span>     <span class="m">6</span>
+    <span class="m">0</span>     <span class="m">4</span>     <span class="m">0</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31699</span>     <span class="m">6</span>
+    <span class="m">0</span>    <span class="m">32</span>    <span class="m">14</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31933</span>     <span class="m">6</span>
+    <span class="m">0</span>    <span class="m">32</span>    <span class="m">14</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31933</span>     <span class="m">6</span>
+    <span class="m">0</span>    <span class="m">17</span>     <span class="m">7</span>     <span class="m">0</span>     <span class="m">0</span> <span class="m">31933</span>     <span class="m">6</span>
+</pre></div>
+</div>
+<p>The main columns are <code class="docutils literal notranslate"><span class="pre">sm</span></code> (for utilisation %) and <code class="docutils literal notranslate"><span class="pre">mem</span></code> (for memory %).</p>
+<p>Here, the job utilised approximately 30% of the GPU and 15% of its memory.</p>
+<p>That’s quite low, though this was for a simple MNIST example.</p>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<h3>Example: …<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>More complicated one to use multiple gpus with high efficiency …</p>
 <p>To run of multiple GPUs (e.g., 2):</p>
 <ul class="simple">
 <li><p>Set <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">2</span></code>.</p></li>
 </ul>
 </div>
 </div>
-</div>
-<div class="section" id="pytorch">
-<h3><a class="reference external" href="https://pytorch.org/tutorials/beginner/dist_overview.html">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
-<p>Can also distribute with <a class="reference external" href="https://docs.ray.io/en/latest/train/examples/train_fashion_mnist_example.html">Ray Train</a>.</p>
+<div class="section" id="pytorch-lightning">
+<h2><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/clouds/cluster.html">PyTorch (Lightning)</a><a class="headerlink" href="#pytorch-lightning" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>example complex enough for multiple gpus</p></li>
+<li><p>efficiency approximately 6-8% for pytorch_lightning_mnist_example.py</p></li>
+</ul>
 <p>To share data on a single filesystem, download the dataset once:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Trainer</span><span class="p">(</span><span class="n">prepare_data_per_node</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The default behaviour is to download the data <em>once per node</em>.</p>
-<div class="section" id="ddp-strategy">
-<h4><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/advanced/model_parallel.html#ddp-optimizations">DDP Strategy</a><a class="headerlink" href="#ddp-strategy" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/advanced/model_parallel.html#ddp-optimizations">DDP Strategy</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># train on 8 GPUs, using the DDP strategy</span>
 <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">accelerator</span><span class="o">=</span><span class="s2">&quot;gpu&quot;</span><span class="p">,</span> <span class="n">devices</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;ddp&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1035,228 +1003,6 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">num_workers</span></code></p>
 <p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/guides/speed.html#num-workers">https://pytorch-lightning.readthedocs.io/en/stable/guides/speed.html#num-workers</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
-
-<span class="kn">import</span> <span class="nn">ray</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">ray.train.callbacks</span> <span class="kn">import</span> <span class="n">JsonLoggerCallback</span>
-<span class="kn">from</span> <span class="nn">ray.train.trainer</span> <span class="kn">import</span> <span class="n">Trainer</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
-<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
-<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">torchvision.transforms</span> <span class="kn">import</span> <span class="n">ToTensor</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id1">
-<h4>Set up the dataset and model<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># training_data = datasets.FashionMNIST(</span>
-<span class="c1">#     root=&quot;~/data&quot;,</span>
-<span class="c1">#     train=True,</span>
-<span class="c1">#     download=True,</span>
-<span class="c1">#     transform=ToTensor(),</span>
-<span class="c1"># )</span>
-
-<span class="c1"># test_data = datasets.FashionMNIST(</span>
-<span class="c1">#     root=&quot;~/data&quot;,</span>
-<span class="c1">#     train=False,</span>
-<span class="c1">#     download=True,</span>
-<span class="c1">#     transform=ToTensor(),</span>
-<span class="c1"># )</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NeuralNetwork</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">NeuralNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">linear_relu_stack</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-        <span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_relu_stack</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">logits</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="define-training-and-validation-per-epoch">
-<h4>Define training and validation per epoch<a class="headerlink" href="#define-training-and-validation-per-epoch" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_epoch</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
-    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">//</span> <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">world_size</span><span class="p">()</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">batch</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">):</span>
-        <span class="c1"># Compute prediction error</span>
-        <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-        <span class="c1"># Backpropagation</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-
-        <span class="k">if</span> <span class="n">batch</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">loss</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">batch</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s2">&gt;7f</span><span class="si">}</span><span class="s2">  [</span><span class="si">{</span><span class="n">current</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">size</span><span class="si">:</span><span class="s2">&gt;5d</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_epoch</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">):</span>
-    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">//</span> <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">world_size</span><span class="p">()</span>
-    <span class="n">num_batches</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-    <span class="n">test_loss</span><span class="p">,</span> <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-        <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
-            <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-            <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-            <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-    <span class="n">test_loss</span> <span class="o">/=</span> <span class="n">num_batches</span>
-    <span class="n">correct</span> <span class="o">/=</span> <span class="n">size</span>
-    <span class="nb">print</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;Test Error: </span><span class="se">\n</span><span class="s2"> &quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">correct</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;0.1f</span><span class="si">}</span><span class="s2">%, &quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Avg loss: </span><span class="si">{</span><span class="n">test_loss</span><span class="si">:</span><span class="s2">&gt;8f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">test_loss</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="setup-distributed-training-function">
-<h4><a class="reference external" href="https://docs.ray.io/en/latest/train/user_guide.html#update-training-function">Setup distributed training function</a><a class="headerlink" href="#setup-distributed-training-function" title="Permalink to this headline">¶</a></h4>
-<p>Use <code class="docutils literal notranslate"><span class="pre">ray.train.torch.prepare_model</span></code> to automatically move your model to the right device.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">ray.train.torch.prepare_data_loader</span></code> utility functions to setup your data for distributed training.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_func</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
-    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">]</span>
-    <span class="n">lr</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;lr&quot;</span><span class="p">]</span>
-    <span class="n">epochs</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;epochs&quot;</span><span class="p">]</span>
-
-    <span class="n">worker_batch_size</span> <span class="o">=</span> <span class="n">batch_size</span> <span class="o">//</span> <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">world_size</span><span class="p">()</span>
-
-    <span class="c1"># Create data loaders.</span>
-    <span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">worker_batch_size</span><span class="p">)</span>
-    <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">worker_batch_size</span><span class="p">)</span>
-
-    <span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">prepare_data_loader</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">)</span>
-    <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">prepare_data_loader</span><span class="p">(</span><span class="n">test_dataloader</span><span class="p">)</span>
-
-    <span class="c1"># Create model.</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">NeuralNetwork</span><span class="p">()</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">prepare_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-
-    <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
-    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
-
-    <span class="n">loss_results</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
-        <span class="n">train_epoch</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">validate_epoch</span><span class="p">(</span><span class="n">test_dataloader</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">)</span>
-        <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">)</span>
-        <span class="n">loss_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">loss_results</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id2">
-<h4><a class="reference external" href="https://docs.ray.io/en/latest/train/user_guide.html#create-ray-train-trainer">Create Ray Train Trainer</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_fashion_mnist</span><span class="p">(</span><span class="n">num_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">use_gpu</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s2">&quot;torch&quot;</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">,</span> <span class="n">use_gpu</span><span class="o">=</span><span class="n">use_gpu</span><span class="p">)</span>
-    <span class="n">trainer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-        <span class="n">train_func</span><span class="o">=</span><span class="n">train_func</span><span class="p">,</span>
-        <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lr&quot;</span><span class="p">:</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span> <span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
-        <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">JsonLoggerCallback</span><span class="p">()],</span>
-    <span class="p">)</span>
-    <span class="n">trainer</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loss results: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id3">
-<h4><a class="reference external" href="https://docs.ray.io/en/latest/train/user_guide.html#run-training-function">Run the training</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ray.init()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cpu</span>
-<span class="c1"># train_fashion_mnist()</span>
-
-<span class="c1"># gpu</span>
-<span class="c1"># train_fashion_mnist(use_gpu=True)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ray.shutdown()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This Python script is in full <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/pytorch_ray_train_fashion_mnist_example.py">here</a>.</p>
-<p>The job submission script is the same as before (<a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_cpu.bash">here</a>), except you use the line:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</span> --epochs <span class="m">100</span>
-</pre></div>
-</div>
-<p>In this simple example using 12 CPUs, the job efficiency (using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">&lt;JOBID&gt;</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Efficiency</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cpu</span> <span class="o">/</span> <span class="p">(</span><span class="n">ru_wallclock</span> <span class="o">*</span> <span class="n">slots</span><span class="p">)</span>
-<span class="n">Efficiency</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">X</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span> <span class="o">*</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">Efficiency</span> <span class="o">=</span> <span class="n">X</span> <span class="o">%</span>
-</pre></div>
-</div>
-<p>…</p>
-<p>To run on the GPU (<a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_gpu.bash">submission script</a>):</p>
-<ul class="simple">
-<li><p>Replace <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-pe</span> <span class="pre">smp</span> <span class="pre">4</span></code> with <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=1</span></code>.</p></li>
-<li><p>Add <code class="docutils literal notranslate"><span class="pre">--use-gpu=True</span></code>.</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section" id="pytorch-lightning">
-<h2><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/clouds/cluster.html">PyTorch (Lightning)</a><a class="headerlink" href="#pytorch-lightning" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/stable/clouds/cluster.html#slurm-managed-cluster">SLURM</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># train.py</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">hparams</span><span class="p">):</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">LightningTemplateModel</span><span class="p">(</span><span class="n">hparams</span><span class="p">)</span>
@@ -1275,28 +1021,10 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
     <span class="n">main</span><span class="p">(</span><span class="n">hyperparams</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># (submit.sh)</span>
-<span class="c1">#!/bin/bash -l</span>
-
-<span class="c1"># SLURM SUBMIT SCRIPT</span>
-<span class="c1">#SBATCH --nodes=4</span>
-<span class="c1">#SBATCH --gres=gpu:8</span>
-<span class="c1">#SBATCH --ntasks-per-node=8</span>
-<span class="c1">#SBATCH --mem=0</span>
-<span class="c1">#SBATCH --time=0-02:00:00</span>
-
-conda activate intro_ml
-
-srun python3 train.py
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">submit</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Some errors can show up as an <a class="reference external" href="https://developer.nvidia.com/nccl">NCCL</a> issue.</p>
-<p>Set the <code class="docutils literal notranslate"><span class="pre">NCCL_DEBUG=INFO</span></code> environment variable to see the ACTUAL error:</p>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">NCCL_DEBUG=INFO</span></code> environment variable to see the actual error:</p>
 <p><code class="docutils literal notranslate"><span class="pre">NCCL_DEBUG=INFO</span> <span class="pre">python</span> <span class="pre">train.py</span></code></p>
 </div>
 </div>
@@ -1450,7 +1178,9 @@ tfds.core.DatasetInfo(
       year={2010}
     }&quot;&quot;&quot;,
 )
-Model: &quot;functional&quot;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;functional&quot;
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
@@ -1513,8 +1243,8 @@ Model: &quot;functional&quot;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
 </pre></div>
 </div>
-<img alt="_images/05_distributed_68_21.png" src="_images/05_distributed_68_21.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-13 14:57:29.881226: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+<img alt="_images/05_distributed_59_22.png" src="_images/05_distributed_59_22.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-14 12:01:30.480726: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
@@ -1918,7 +1648,7 @@ Validation accuracy: [0.94, 0.96, 0.97, 0.97, 0.97]
 </div>
 </div>
 <div class="section" id="create-submission-script">
-<span id="id4"></span><h3>Create submission script<a class="headerlink" href="#create-submission-script" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>Create submission script<a class="headerlink" href="#create-submission-script" title="Permalink to this headline">¶</a></h3>
 <p>For your HPC (e.g., ARC4), create the submission script.</p>
 <p>For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
