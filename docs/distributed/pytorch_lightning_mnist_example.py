@@ -44,18 +44,26 @@ class LitAutoEncoder(pl.LightningModule):
         self.log("val_loss", loss)
 
 
-# data
-dataset = MNIST("", train=True, download=True, transform=transforms.ToTensor())
-mnist_train, mnist_val = random_split(dataset, [55000, 5000])
+def main():
+    # data
+    dataset = MNIST("", train=True, download=True, transform=transforms.ToTensor())
+    mnist_train, mnist_val = random_split(dataset, [55000, 5000])
 
-train_loader = DataLoader(mnist_train, batch_size=32)
-val_loader = DataLoader(mnist_val, batch_size=32)
+    train_loader = DataLoader(mnist_train, batch_size=32)
+    val_loader = DataLoader(mnist_val, batch_size=32)
 
-# model
-model = LitAutoEncoder()
+    # model
+    model = LitAutoEncoder()
 
-# training
-trainer = pl.Trainer(
-    gpus=torch.cuda.device_count(), num_nodes=1, limit_train_batches=0.5, max_epochs=10
-)
-trainer.fit(model, train_loader, val_loader)
+    # training
+    trainer = pl.Trainer(
+        gpus=torch.cuda.device_count(),
+        num_nodes=1,
+        limit_train_batches=0.5,
+        max_epochs=10,
+    )
+    trainer.fit(model, train_loader, val_loader)
+
+
+if __name__ == "__main__":
+    main()

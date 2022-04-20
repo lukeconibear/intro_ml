@@ -76,7 +76,17 @@ In this workshop, we covered:
 
 ```{admonition} 5. Be able to undertake distributed training.
 
-- [x] _..._
+- [x] _Ensure that you really need to use distributed devices._
+- [x] _Check everything first works on a single device._
+- [x] _Use data parallelism (to split the data over multiple devices)._
+- [x] _Take care when setting the global batch size._
+- [x] _Check the efficiency of your jobs to ensure utilising the requested resources._
+- [x] _When moving from Jupyter to HPC:_
+    - [x] _Clean non-essential code._
+    - [x] _Refactor Jupyter Notebook code into functions._
+    - [x] _Create a Python script._
+    - [x] _Create submission script._
+    - [x] _Create unit tests._
 
 ```
 
