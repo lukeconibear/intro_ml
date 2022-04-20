@@ -86,7 +86,7 @@ In this workshop, we covered:
     - [x] _Refactor Jupyter Notebook code into functions._
     - [x] _Create a Python script._
     - [x] _Create submission script._
-    - [x] _Create unit tests._
+    - [x] _Create tests._
 
 ```
 

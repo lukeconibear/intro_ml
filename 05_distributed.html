@@ -625,7 +625,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="k">pass</span>
+    <span class="o">%</span><span class="k">pip</span> install --quiet --upgrade ray
 </pre></div>
 </div>
 </div>
@@ -676,8 +676,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 12:50:59.053395: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-04-20 12:50:59.053425: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 15:24:37.324887: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-04-20 15:24:37.324924: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -727,6 +727,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>When building the model, a <code class="docutils literal notranslate"><span class="pre">config</span></code> keyword argument is added to get different options such as the learning rate.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_and_compile_cnn_model</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
@@ -754,7 +755,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="set-up-the-training-function-for-a-single-worker">
 <h4>Set up the training function for a <em>single</em> worker<a class="headerlink" href="#set-up-the-training-function-for-a-single-worker" title="Permalink to this headline">¶</a></h4>
-<p>You can <a class="reference external" href="https://docs.ray.io/en/latest/train/user_guide.html#configuring-training">configure training</a> using the <code class="docutils literal notranslate"><span class="pre">config</span></code> parameter.</p>
+<p>This also uses the <code class="docutils literal notranslate"><span class="pre">config</span></code> argument.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_func</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
@@ -771,6 +772,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>Now, you <a class="reference external" href="https://docs.ray.io/en/latest/train/user_guide.html#configuring-training">configure training</a> using the <code class="docutils literal notranslate"><span class="pre">config</span></code> parameter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;epochs&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
@@ -785,13 +787,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 12:51:00.902343: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-04-20 12:51:00.902378: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-04-20 12:51:00.902398: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az128-724): /proc/driver/nvidia/version does not exist
-2022-04-20 12:51:00.902688: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 15:24:39.273326: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-20 15:24:39.273372: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-20 15:24:39.273391: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az128-724): /proc/driver/nvidia/version does not exist
+2022-04-20 15:24:39.273676: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-04-20 12:51:00.903546: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
-2022-04-20 12:51:01.031261: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-20 15:24:39.274547: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-20 15:24:39.413837: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
 </pre></div>
 </div>
 </div>
@@ -853,6 +855,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="section" id="create-ray-train-trainer">
 <h4><a class="reference external" href="https://docs.ray.io/en/latest/train/user_guide.html#create-ray-train-trainer">Create Ray Train Trainer</a><a class="headerlink" href="#create-ray-train-trainer" title="Permalink to this headline">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> manages state and training.</p>
+<p>Ray Train enables different <code class="docutils literal notranslate"><span class="pre">backend</span></code> options e.g., <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_tensorflow_mnist</span><span class="p">(</span><span class="n">num_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">use_gpu</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
@@ -933,7 +936,7 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 </ul>
 </li>
 </ul>
-<p>In this simple example using 12 CPUs, the job efficiency (using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">&lt;JOBID&gt;</span></code>):</p>
+<p>In this simple example using 12 CPUs, the job efficiency was (using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">&lt;JOBID&gt;</span></code>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Efficiency</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cpu</span> <span class="o">/</span> <span class="p">(</span><span class="n">ru_wallclock</span> <span class="o">*</span> <span class="n">slots</span><span class="p">)</span>
 <span class="n">Efficiency</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="mi">10214</span> <span class="o">/</span> <span class="p">(</span><span class="mi">928</span> <span class="o">*</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">Efficiency</span> <span class="o">=</span> <span class="mi">92</span> <span class="o">%</span>
@@ -948,13 +951,7 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 <p>The tests below were for a <a class="reference external" href="https://arcdocs.leeds.ac.uk/usage/gpgpu.html#arc4">NVIDIA V100 with 32 GB of memory</a>.</p>
 </div>
 <p>An example job submission script is (also <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_gpu.bash">here</a>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bashnvidia-smi dmon -d 10 -s um -i 0 &gt; efficiency_log &amp;</span>
-
-<span class="c1"># run the GPU script</span>
-python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers <span class="m">1</span> --epochs <span class="m">100</span>
-
-<span class="c1"># stop the efficiency log</span>
-<span class="nb">kill</span> %1
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#$ -cwd -V</span>
 <span class="c1">#$ -l h_rt=00:15:00</span>
 <span class="c1">#$ -l coproc_v100=1</span>
@@ -1020,6 +1017,7 @@ python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers <span 
 <p>A <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/pytorch_lightning_mnist_example.py">simple example for MNIST</a> utilises about 8% of a single V100 GPU.</p>
 <p>The <a class="reference internal" href="04_models.html#torch-transfer-learning"><span class="std std-ref">PyTorch Lightning transfer learning example</span></a> (lesson 4) utilises about 15% of a single V100 GPU (full script <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/pytorch_lightning_transfer_learning_example.py">here</a>).</p>
 <p>To demonstrate running this transfer learning example over multiple GPUs, we could unfreeze the pre-trained model to increase the workload.</p>
+<p>This is normally not recommended, though is useful for demonstration purposes here of a complex model.</p>
 <p>To unfreeze the pre-trained model:</p>
 <ul class="simple">
 <li><p>Set <code class="docutils literal notranslate"><span class="pre">trainer.finetune(strategy=&quot;unfreeze&quot;)</span></code>.</p></li>
@@ -1047,7 +1045,7 @@ python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers <span 
 <li><p>e.g., <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=2</span></code>.</p></li>
 </ul>
 </li>
-<li><p>Adding GPU monitoring for multiple GPUs</p>
+<li><p>Adding GPU monitoring for multiple GPUs:</p>
 <ul class="simple">
 <li><p>e.g., <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">dmon</span> <span class="pre">-i</span> <span class="pre">0,1</span></code>.</p></li>
 </ul>
@@ -1057,7 +1055,7 @@ python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers <span 
 </div>
 <div class="section" id="jupyter-notebook-to-hpc">
 <h2>Jupyter Notebook to HPC<a class="headerlink" href="#jupyter-notebook-to-hpc" title="Permalink to this headline">¶</a></h2>
-<p>Once you’ve finished testing out different ideas locally in a Jupyter Notebook, you can then convert this to an exercutable script to run on a HPC.</p>
+<p>Once you’ve finished testing out different ideas locally in a Jupyter Notebook, you can then convert this to an executable script to run on a HPC.</p>
 <p>This is because the HPCs (currently accessible at Leeds, at least) are suitable for non-interactive batch jobs.</p>
 <p>The steps are to:</p>
 <ul class="simple">
@@ -1270,8 +1268,8 @@ tfds.core.DatasetInfo(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
 </pre></div>
 </div>
-<img alt="_images/05_distributed_43_22.png" src="_images/05_distributed_43_22.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 12:51:16.281810: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+<img alt="_images/05_distributed_45_22.png" src="_images/05_distributed_45_22.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 15:24:54.771303: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
@@ -1282,10 +1280,10 @@ tfds.core.DatasetInfo(
 </div>
 </div>
 </div>
-<p>Now, removing non-essential code, now the experimentation phase is complete.</p>
-<p>Here this included:</p>
+<p>We can now remove the non-essential code, as the experimentation phase is complete.</p>
+<p>Here, this included:</p>
 <ul class="simple">
-<li><p>Removing downloading data information.</p></li>
+<li><p>Removing data information from the download.</p></li>
 <li><p>Removing unrequired print statements.</p></li>
 <li><p>Viewing model summary.</p></li>
 <li><p>Removing/replacing plots with text output.</p></li>
@@ -1399,6 +1397,14 @@ Validation accuracy: [0.94, 0.96, 0.97, 0.97, 0.97]
 <span id="refactor-into-functions"></span><h3>Refactor Jupyter Notebook code into functions<a class="headerlink" href="#refactor-jupyter-notebook-code-into-functions" title="Permalink to this headline">¶</a></h3>
 <p>Now, any code that is not already in functions, can be refactored into functions.</p>
 <p>Modularising the code like this helps with diagnosing errors and creating tests.</p>
+<p>Here, we added functions for:</p>
+<ul class="simple">
+<li><p>Downloading the data.</p></li>
+<li><p>Creating and compiling the model.</p></li>
+<li><p>Training the model.</p></li>
+<li><p>Saving the model.</p></li>
+<li><p>A main function for the whole workflow.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -1534,7 +1540,7 @@ Validation accuracy: [0.94, 0.96, 0.97, 0.97, 0.97]
 </pre></div>
 </div>
 <p>Now, the script can be called from a terminal by running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">script.py</span></code>.</p>
-<p>Then, the rest of the code can be convert by either:</p>
+<p>Then, the rest of the code can be converted by either:</p>
 <div class="section" id="option-1-recommended">
 <h4>Option 1 (recommended)<a class="headerlink" href="#option-1-recommended" title="Permalink to this headline">¶</a></h4>
 <p>Convert a <em>single cell</em> to a script using the <code class="docutils literal notranslate"><span class="pre">%%writefile</span></code> IPython magic command.</p>
@@ -1735,7 +1741,7 @@ python jupyter-to-hpc_tf-mnist-example.py
 </div>
 <div class="admonition-question-3 admonition">
 <p class="admonition-title">Question 3</p>
-<p>How can you check the efficiency of a CPU job?</p>
+<p>How can you check the efficiency of a GPU job?</p>
 </div>
 <div class="admonition-question-4 admonition">
 <p class="admonition-title">Question 4</p>
@@ -1769,7 +1775,7 @@ python jupyter-to-hpc_tf-mnist-example.py
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Refactor Jupyter Notebook code into functions.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Create a Python script.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Create submission script.</em></p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Create unit tests.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Create tests.</em></p></li>
 </ul>
 </li>
 </ul>
@@ -1780,10 +1786,10 @@ python jupyter-to-hpc_tf-mnist-example.py
 <div class="section" id="good-practices">
 <h3>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Ensure works on a single workers first, <em>before</em> going distributed.</p></li>
-<li><p>Ensure that you need the overhead of distributing over multiple GPUs e.g., could you instead use 1 GPU and model checkpointing?</p></li>
-<li><p>Ensure that the problem is complex enough to use multiple GPUs efficiently.</p></li>
-<li><p>Batch the dataset with the global batch size e.g., for 8 devices each capable of a btach of 64 use the global batch size of 512 (= 8 * 64).</p></li>
+<li><p>Ensure everything works on a single device first, <em>before</em> going distributed.</p></li>
+<li><p>Ensure that you need the overhead of distributing over multiple GPUs e.g., could you instead use 1 GPU and model checkpointing/transfer learning?</p></li>
+<li><p>Ensure that the problem is complex enough to utilise multiple GPUs efficiently.</p></li>
+<li><p>Batch the dataset with the global batch size e.g., for 8 devices each capable of a batch of 64 use the global batch size of 512 (= 8 * 64).</p></li>
 <li><p><a class="reference external" href="https://pytorch-lightning.readthedocs.io/en/latest/advanced/model_parallel.html">Distributed training on PyTorch Lightning</a></p></li>
 <li><p>Performance tips from <a class="reference external" href="https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html">PyTorch</a></p></li>
 </ul>
