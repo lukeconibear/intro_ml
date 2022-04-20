@@ -713,11 +713,68 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Questions<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-question-1 admonition">
 <p class="admonition-title">Question 1</p>
-<p>…</p>
+<p>What are the two ways to parallelise machine learning, and which way is simpler?</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution 1</p>
-<p>…</p>
+<p>Data parallelism and model parallelism.</p>
+<p>Where data parallelism is often simpler.</p>
+</div>
+<div class="admonition-question-2 admonition">
+<p class="admonition-title">Question 2</p>
+<p>How can you check the efficiency of a CPU job?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 2</p>
+<p>You can check the CPU efficiency of a job using <code class="docutils literal notranslate"><span class="pre">qacct</span> <span class="pre">-j</span> <span class="pre">&lt;JOBID&gt;</span></code>.</p>
+<p>Here, the table provides information for <code class="docutils literal notranslate"><span class="pre">cpu</span></code>, <code class="docutils literal notranslate"><span class="pre">ru_wallclock</span></code>, and <code class="docutils literal notranslate"><span class="pre">slots</span></code>.</p>
+<p>You can use these to calculate the efficiency via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Efficiency</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">*</span> <span class="pre">cpu</span> <span class="pre">/</span> <span class="pre">(ru_wallclock</span> <span class="pre">*</span> <span class="pre">slots)</span></code></p>
+</div>
+<div class="admonition-question-3 admonition">
+<p class="admonition-title">Question 3</p>
+<p>How can you check the efficiency of a CPU job?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 3</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>.</p>
+<p>In your job, you can use it to create an efficiency log via:</p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">start</span> <span class="pre">the</span> <span class="pre">efficiency</span> <span class="pre">log</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">GPU</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">dmon</span> <span class="pre">-d</span> <span class="pre">10</span> <span class="pre">-s</span> <span class="pre">um</span> <span class="pre">-i</span> <span class="pre">0</span> <span class="pre">&gt;</span> <span class="pre">efficiency_log</span> <span class="pre">&amp;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">run</span> <span class="pre">the</span> <span class="pre">GPU</span> <span class="pre">script</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">script.py</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">stop</span> <span class="pre">the</span> <span class="pre">efficiency</span> <span class="pre">log</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">%1</span></code></p>
+</div>
+<div class="admonition-question-4 admonition">
+<p class="admonition-title">Question 4</p>
+<p>What tools can help distribute TensorFlow and PyTorch code?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 4</p>
+<p>Ray Train and PyTorch Lightning.</p>
+</div>
+<div class="admonition-question-5 admonition">
+<p class="admonition-title">Question 5</p>
+<p>In general, what should the batch size be for distributed work?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 5</p>
+<p>Generally, the batch size for distributed work should be the <em>global</em> batch size, which is the <em>per worker batch size</em> multipled by the number of workers.</p>
+</div>
+<div class="admonition-question-6 admonition">
+<p class="admonition-title">Question 6</p>
+<p>What are some good steps for moving Jupyter Notebook code to HPC?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution 6</p>
+<ul class="simple">
+<li><p>Clean non-essential code</p></li>
+<li><p>Refactor Jupyter Notebook code into functions</p></li>
+<li><p>Create a Python script</p></li>
+<li><p>Create submission script</p></li>
+<li><p>Create unit tests</p></li>
+</ul>
 </div>
 </div>
 </div>

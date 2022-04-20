@@ -363,7 +363,20 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="admonition-be-able-to-undertake-distributed-training admonition">
 <p class="admonition-title">5. Be able to undertake distributed training.</p>
 <ul class="contains-task-list simple">
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>…</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Ensure that you really need to use distributed devices.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Check everything first works on a single device.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use data parallelism (to split the data over multiple devices).</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Take care when setting the global batch size.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Check the efficiency of your jobs to ensure utilising the requested resources.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>When moving from Jupyter to HPC:</em></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Clean non-essential code.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Refactor Jupyter Notebook code into functions.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Create a Python script.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Create submission script.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Create unit tests.</em></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="next-steps">
