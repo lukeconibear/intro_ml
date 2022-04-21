@@ -676,8 +676,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 15:24:37.324887: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-04-20 15:24:37.324924: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-21 15:47:26.102817: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-04-21 15:47:26.102859: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -787,13 +787,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 15:24:39.273326: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-04-20 15:24:39.273372: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-04-20 15:24:39.273391: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az128-724): /proc/driver/nvidia/version does not exist
-2022-04-20 15:24:39.273676: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-21 15:47:28.157276: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-21 15:47:28.157326: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-21 15:47:28.157351: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az124-394): /proc/driver/nvidia/version does not exist
+2022-04-21 15:47:28.157695: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-04-20 15:24:39.274547: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
-2022-04-20 15:24:39.413837: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-21 15:47:28.158834: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-21 15:47:28.325009: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
 </pre></div>
 </div>
 </div>
@@ -907,7 +907,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <h5>CPUs<a class="headerlink" href="#cpus" title="Permalink to this headline">¶</a></h5>
 <p>An example job submission script is (also <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/distributed_ml_on_arc4_cpu.bash">here</a>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="c1">#$ -cwd</span>
+<span class="c1">#$ -cwd -V</span>
 <span class="c1">#$ -l h_rt=00:30:00</span>
 <span class="c1">#$ -pe smp 12</span>
 <span class="c1">#$ -l h_vmem=6G</span>
@@ -925,6 +925,11 @@ python tensorflow_ray_train_mnist_example.py --num-workers <span class="m">12</s
 <p>Sometimes the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable will not include the path to the conda environment, resulting it in being unable to find some libraries e.g., TensorFlow, cuDNN.</p>
 <p>To resolve this, in your script append the path to your activated conda environment to the <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> variable using:</p>
 <p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib</span></code></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These scripts are based on a personal miniconda with the environment activated at the terminal and the terminal <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> updated.</p>
+<p>There are other options e.g., using the <a class="reference external" href="https://arcdocs.leeds.ac.uk/software/compilers/anaconda.html">Anaconda</a> distribution installed on ARC.</p>
 </div>
 <p>To change the number of workers (either CPUs or GPUs), set the <code class="docutils literal notranslate"><span class="pre">--num-workers</span></code> argument.</p>
 <p>Ensure that the scheduler request matches this number e.g.,:</p>
@@ -1268,8 +1273,8 @@ tfds.core.DatasetInfo(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
 </pre></div>
 </div>
-<img alt="_images/05_distributed_45_22.png" src="_images/05_distributed_45_22.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-20 15:24:54.771303: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+<img alt="_images/05_distributed_46_22.png" src="_images/05_distributed_46_22.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-21 15:47:43.939819: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
