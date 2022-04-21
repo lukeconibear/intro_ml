@@ -98,7 +98,7 @@ def train_func(config):
     return results
 
 
-def train_tensorflow_mnist(num_workers=2, use_gpu=False, epochs=4):
+def train_tensorflow_transfer_learning(num_workers=2, use_gpu=False, epochs=4):
     trainer = Trainer(backend="tensorflow", num_workers=num_workers, use_gpu=use_gpu)
     trainer.start()
     results = trainer.run(
@@ -139,9 +139,9 @@ if __name__ == "__main__":
 
     if args.smoke_test:
         ray.init(num_cpus=2)
-        train_tensorflow_mnist()
+        train_tensorflow_transfer_learning()
     else:
         ray.init(address=args.address)
-        train_tensorflow_mnist(
+        train_tensorflow_transfer_learning(
             num_workers=args.num_workers, use_gpu=args.use_gpu, epochs=args.epochs
         )

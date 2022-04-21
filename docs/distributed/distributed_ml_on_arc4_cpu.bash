@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -cwd
+#$ -cwd -V
 #$ -l h_rt=00:30:00
 #$ -pe smp 12
 #$ -l h_vmem=6G
