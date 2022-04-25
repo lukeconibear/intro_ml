@@ -279,9 +279,29 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#update-training-function">
-       Update training function
+      <a class="reference internal nav-link" href="#set-the-distributed-strategy">
+       Set the distributed strategy
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#set-the-global-batch-size">
+         <strong>
+          Set the
+          <em>
+           global
+          </em>
+          batch size
+         </strong>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#choose-your-tensorflow-distributed-training-strategy">
+         <strong>
+          Choose your TensorFlow distributed training strategy
+         </strong>
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#create-ray-train-trainer">
@@ -465,9 +485,29 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#update-training-function">
-       Update training function
+      <a class="reference internal nav-link" href="#set-the-distributed-strategy">
+       Set the distributed strategy
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#set-the-global-batch-size">
+         <strong>
+          Set the
+          <em>
+           global
+          </em>
+          batch size
+         </strong>
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#choose-your-tensorflow-distributed-training-strategy">
+         <strong>
+          Choose your TensorFlow distributed training strategy
+         </strong>
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#create-ray-train-trainer">
@@ -676,8 +716,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-21 15:47:26.102817: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-04-21 15:47:26.102859: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-25 10:35:22.628359: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-04-25 10:35:22.628392: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -787,38 +827,33 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-21 15:47:28.157276: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-04-21 15:47:28.157326: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
-2022-04-21 15:47:28.157351: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az124-394): /proc/driver/nvidia/version does not exist
-2022-04-21 15:47:28.157695: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-25 10:35:24.607304: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-25 10:35:24.607350: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-25 10:35:24.607375: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (fv-az39-99): /proc/driver/nvidia/version does not exist
+2022-04-25 10:35:24.607739: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-04-21 15:47:28.158834: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
-2022-04-21 15:47:28.325009: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-25 10:35:24.608834: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
+2022-04-25 10:35:24.770969: W tensorflow/core/framework/cpu_allocator_impl.cc:82] Allocation of 188160000 exceeds 10% of free system memory.
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="update-training-function">
-<h4><a class="reference external" href="https://docs.ray.io/en/latest/train/user_guide.html#update-training-function">Update training function</a><a class="headerlink" href="#update-training-function" title="Permalink to this headline">¶</a></h4>
-<ol class="simple">
-<li><p>Set the <em>global</em> batch size</p>
-<ul class="simple">
-<li><p>Each worker will process the same size batch as in the single-worker code.</p></li>
-</ul>
-</li>
-<li><p>Choose your TensorFlow distributed training strategy.</p>
-<ul class="simple">
-<li><p>In this example we use the <a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#multiworkermirroredstrategy">MultiWorkerMirroredStrategy</a> for synchronous training of multiple workers across many machines.</p>
-<ul>
-<li><p>For multiple workers on <em>one</em> machine, use <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/distribute/MirroredStrategy">MirroredStrategy</a>.</p></li>
-<li><p>In general, the mirrored strategy mirrors the parameters across the workers, ensuring replicas are identical.</p></li>
-</ul>
-</li>
-<li><p>Within the strategy scope context manager, you build and compile the model.</p></li>
-</ul>
-</li>
-</ol>
+<div class="section" id="set-the-distributed-strategy">
+<h4><a class="reference external" href="https://docs.ray.io/en/latest/train/user_guide.html#update-training-function">Set the distributed strategy</a><a class="headerlink" href="#set-the-distributed-strategy" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="set-the-global-batch-size">
+<h5><strong>Set the <em>global</em> batch size</strong><a class="headerlink" href="#set-the-global-batch-size" title="Permalink to this headline">¶</a></h5>
+<p>Each worker will process the same size batch as in the single-worker code.</p>
+<p>Hence, the global batch size will be the single-worker batch size multiplied by the number of workers.</p>
+</div>
+<div class="section" id="choose-your-tensorflow-distributed-training-strategy">
+<h5><strong>Choose your TensorFlow distributed training strategy</strong><a class="headerlink" href="#choose-your-tensorflow-distributed-training-strategy" title="Permalink to this headline">¶</a></h5>
+<p>The <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/distribute/MirroredStrategy">MirroredStrategy</a> copies all of the model’s variables (parameters) to each device on <em>one machine</em>.</p>
+<p>This ensures all replicas across the workers are identical.</p>
+<p>Then it combines the gradients from all devices and applies the combined value to all copies of the model.</p>
+<p>The <a class="reference external" href="https://www.tensorflow.org/guide/distributed_training#multiworkermirroredstrategy">MultiWorkerMirroredStrategy</a> is similar to the MirroredStrategy, apart from that it can work for devices on <em>multiple machines</em>.</p>
+<p>In this example, we’ll use the MultiWorkerMirroredStrategy.</p>
+<p>Within the strategy scope context manager, you build and compile the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_func</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
@@ -848,6 +883,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
     <span class="n">results</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span>
     <span class="k">return</span> <span class="n">results</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1003,12 +1039,23 @@ python tensorflow_ray_train_mnist_example.py --use-gpu True --num-workers <span 
 <p>In lesson 4, we looked at a TensorFlow (Keras) transfer learning example. To use this script with Ray Train, you primarily need to create the dataset pipeline and model creation functions. You can use the examples here as a foundation. The full script for this example is <a class="reference external" href="https://github.com/lukeconibear/intro_ml/blob/main/docs/distributed/tensorflow_ray_train_transfer_learning_example.py">here</a>.</p>
 <p>Running this code on a single GPU utilised approximately 90% of the GPU and 45% of its memory.</p>
 <p>This is good.</p>
-<p>Multiple GPUs is not needed here, though they could be requested by simply changing:</p>
+<p>Multiple GPUs is not needed for this transfer learning example.</p>
+<p>However, if we set the pre-trained model to trainable (rather than being frozen), then this may be suitable for using multiple workers.</p>
+<p>To do this, we set <code class="docutils literal notranslate"><span class="pre">trainable=True</span></code> within the assignment of <code class="docutils literal notranslate"><span class="pre">feature_extractor_layer</span></code> like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">feature_extractor_layer</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">KerasLayer</span><span class="p">(</span>
+    <span class="n">feature_extractor_model</span><span class="p">,</span>
+    <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">IMAGE_HEIGHT</span><span class="p">,</span> <span class="n">IMAGE_WIDTH</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">trainable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># this line is the only change</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we change the submission script to:</p>
 <ul class="simple">
-<li><p>Ray Train flag <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">2</span></code></p></li>
-<li><p>Scheduler option <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=2</span></code></p></li>
-<li><p>GPU monitoring <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">dmon</span> <span class="pre">-i</span> <span class="pre">0,1</span></code></p></li>
+<li><p>Request 2 workers in the Ray Train flag for the Python script call using <code class="docutils literal notranslate"><span class="pre">--num-workers</span> <span class="pre">2</span></code>.</p></li>
+<li><p>Request 2 GPUs from the scheduler using <code class="docutils literal notranslate"><span class="pre">#$</span> <span class="pre">-l</span> <span class="pre">coproc_v100=2</span></code>.</p></li>
+<li><p>Monitor both GPUs using <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span> <span class="pre">dmon</span> <span class="pre">-i</span> <span class="pre">0,1</span></code>.</p></li>
 </ul>
+<p>This then utilised both devices well, with both using approximately 90% of the GPU’s compute and 50% of their memory.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>To utilise GPU(s) efficiently, try to match the resources requested to what your problem requires e.g., the model of GPU, the memory it has, etc.</p>
@@ -1273,8 +1320,8 @@ tfds.core.DatasetInfo(
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
 </pre></div>
 </div>
-<img alt="_images/05_distributed_46_22.png" src="_images/05_distributed_46_22.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-21 15:47:43.939819: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+<img alt="_images/05_distributed_47_22.png" src="_images/05_distributed_47_22.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-04-25 10:35:40.356423: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: /home/runner/work/intro_ml/intro_ml/docs/models/model_tf_mnist/assets
@@ -1771,9 +1818,10 @@ python jupyter-to-hpc_tf-mnist-example.py
 <ul class="contains-task-list simple">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Ensure that you really need to use distributed devices.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Check everything first works on a single device.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Ensure that the data pipeline can efficiently use multiple devices.</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Use data parallelism (to split the data over multiple devices).</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Take care when setting the global batch size.</em></p></li>
-<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Check the efficiency of your jobs to ensure utilising the requested resources.</em></p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Check the efficiency of your jobs to ensure utilising the requested resources (for both single and multi-device).</em></p></li>
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>When moving from Jupyter to HPC:</em></p>
 <ul class="contains-task-list">
 <li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> <em>Clean non-essential code.</em></p></li>
