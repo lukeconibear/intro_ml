@@ -78,9 +78,10 @@ In this workshop, we covered:
 
 - [x] _Ensure that you really need to use distributed devices._
 - [x] _Check everything first works on a single device._
+- [x] _Ensure that the data pipeline can efficiently use multiple devices._
 - [x] _Use data parallelism (to split the data over multiple devices)._
 - [x] _Take care when setting the global batch size._
-- [x] _Check the efficiency of your jobs to ensure utilising the requested resources._
+- [x] _Check the efficiency of your jobs to ensure utilising the requested resources (for both single and multi-device)._
 - [x] _When moving from Jupyter to HPC:_
     - [x] _Clean non-essential code._
     - [x] _Refactor Jupyter Notebook code into functions._
